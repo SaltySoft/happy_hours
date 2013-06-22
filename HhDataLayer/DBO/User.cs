@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace HhDataLayer.DBO
 {
+    [DataContract]
     public class User
     {
         #region variables
+        private int _id;
         private string _username;
         private string _email;
         private string _password;
@@ -17,8 +20,19 @@ namespace HhDataLayer.DBO
 
         #region getter / setter
         /// <summary>
+        /// id
+        /// </summary>
+        [DataMember]
+        public int Id
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
+
+        /// <summary>
         /// username
         /// </summary>
+        [DataMember]
         public string Username
         {
             get { return _username; }
@@ -28,6 +42,7 @@ namespace HhDataLayer.DBO
         /// <summary>
         /// email
         /// </summary>
+        [DataMember]
         public string Email
         {
             get { return _email; }
@@ -37,6 +52,7 @@ namespace HhDataLayer.DBO
         /// <summary>
         /// password
         /// </summary>
+        [DataMember]
         public string Password
         {
             get { return _password; }
@@ -46,6 +62,7 @@ namespace HhDataLayer.DBO
         /// <summary>
         /// admin : either 1 or 0
         /// </summary>
+        [DataMember]
         public int Admin
         {
             get { return _admin; }

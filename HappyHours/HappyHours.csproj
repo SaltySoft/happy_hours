@@ -238,6 +238,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Properties\DataSources\HhDataLayer.DBO.User.datasource" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
@@ -253,9 +254,6 @@
     <Content Include="Scripts\knockout-2.1.0.debug.js" />
     <Content Include="Scripts\knockout-2.1.0.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
-    <Content Include="Service References\ServiceReferenceHappyHours\HappyHours.ServiceReferenceHappyHours.T_User.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <None Include="Service References\ServiceReferenceHappyHours\ServiceClientHappyHours.disco" />
     <None Include="Service References\ServiceReferenceHappyHours\configuration91.svcinfo" />
     <None Include="Service References\ServiceReferenceHappyHours\configuration.svcinfo" />
@@ -324,6 +322,12 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ServiceReferenceHappyHours\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HhDataLayer\HhDataLayer.csproj">
+      <Project>{9181825e-d42e-42e2-84e9-0ff87466e3f6}</Project>
+      <Name>HhDataLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

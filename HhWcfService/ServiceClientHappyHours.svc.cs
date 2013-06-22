@@ -14,11 +14,17 @@ namespace HhWcfService
     {
         public void DoWork()
         {
+            
         }
 
-        public List<T_User> GetListUser(int max)
+        public List<HhDataLayer.DBO.User> GetListUser(int max)
         {
-            return HhDataLayer.BusinessManagement.User.GetListUser().Take(max).ToList();
+            return HhDataLayer.BusinessManagement.User.GetListUser(max);
+        }
+
+        public String Test()
+        {
+            return "patate";
         }
     }
 }

@@ -4,7 +4,7 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:5056/ServiceClientHappyHours.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:5056/ServiceClientHappyHours.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:5056/ServiceClientHappyHours.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HhDataLayer.DataAccess" />
+      <xsd:import schemaLocation="http://localhost:5056/ServiceClientHappyHours.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HhDataLayer.DBO" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IServiceClientHappyHours_DoWork_InputMessage">
@@ -19,6 +19,12 @@
   <wsdl:message name="IServiceClientHappyHours_GetListUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetListUserResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_Test_InputMessage">
+    <wsdl:part name="parameters" element="tns:Test" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_Test_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TestResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServiceClientHappyHours">
     <wsdl:operation name="DoWork">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceClientHappyHours/DoWork" message="tns:IServiceClientHappyHours_DoWork_InputMessage" />
@@ -27,6 +33,10 @@
     <wsdl:operation name="GetListUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceClientHappyHours/GetListUser" message="tns:IServiceClientHappyHours_GetListUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceClientHappyHours/GetListUserResponse" message="tns:IServiceClientHappyHours_GetListUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceClientHappyHours/Test" message="tns:IServiceClientHappyHours_Test_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceClientHappyHours/TestResponse" message="tns:IServiceClientHappyHours_Test_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServiceClientHappyHours" type="tns:IServiceClientHappyHours">
@@ -42,6 +52,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetListUser">
       <soap:operation soapAction="http://tempuri.org/IServiceClientHappyHours/GetListUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <soap:operation soapAction="http://tempuri.org/IServiceClientHappyHours/Test" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

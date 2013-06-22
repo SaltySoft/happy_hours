@@ -16,6 +16,9 @@ namespace HhWcfService
         void DoWork();
 
         [OperationContract]
-        List<T_User> GetListUser(int max);
+        List<HhDataLayer.DBO.User> GetListUser(int max);
+
+        [OperationContract]
+        String Test();
     }
 }

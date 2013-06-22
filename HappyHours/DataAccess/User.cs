@@ -20,20 +20,24 @@ namespace HappyHours.DataAccess
             _client = new ServiceReferenceHappyHours.ServiceClientHappyHoursClient();
         }
 
-        public List<ServiceReferenceHappyHours.T_User> GetListUser(int max)
+        public List<HhDataLayer.DBO.User> GetListUser(int max)
         {
             try
             {
-                ServiceReferenceHappyHours.ServiceClientHappyHoursClient client = new ServiceReferenceHappyHours.ServiceClientHappyHoursClient();
-                List<ServiceReferenceHappyHours.T_User> users2 = client.GetListUser(max).ToList();
-
-                List<ServiceReferenceHappyHours.T_User> users = _client.GetListUser(max).ToList();
+                List<HhDataLayer.DBO.User> users = _client.GetListUser(max).ToList();
                 return users;
             }
             catch (Exception ex)
             {
-                return new List<ServiceReferenceHappyHours.T_User>();
+                return new List<HhDataLayer.DBO.User>();
             }
+        }
+
+        public String Test()
+        {
+            ServiceReferenceHappyHours.ServiceClientHappyHoursClient client = new ServiceReferenceHappyHours.ServiceClientHappyHoursClient();
+            String str = client.Test();
+            return str;
         }
     }
 }

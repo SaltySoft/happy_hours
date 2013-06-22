@@ -7,10 +7,16 @@ namespace HappyHours.BusinessManagement
 {
     public class User
     {
-        public static List<ServiceReferenceHappyHours.T_User> GetListUser(int max)
+        public static List<HhDataLayer.DBO.User> GetListUser(int max)
         {
             DataAccess.User dataAccess = new DataAccess.User();
             return dataAccess.GetListUser(max);
+        }
+
+        public static String Test()
+        {
+            DataAccess.User dataAccess = new DataAccess.User();
+            return dataAccess.Test();
         }
     }
 }

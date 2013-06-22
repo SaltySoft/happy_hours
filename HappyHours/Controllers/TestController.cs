@@ -16,16 +16,24 @@ namespace HappyHours.Controllers
             return View();
         }
 
+        public string Test()
+        {
+            string res = "Yoyo  ";
+            String test = BusinessManagement.User.Test();
+            res += test;
+            return res;
+        }
+
         public string Hello()
         {
             string res = "Yoyo  ";
-            List<ServiceReferenceHappyHours.T_User> users = BusinessManagement.User.GetListUser(10);
-            foreach (ServiceReferenceHappyHours.T_User user in users)
+            List<HhDataLayer.DBO.User> users = BusinessManagement.User.GetListUser(10);
+            foreach (HhDataLayer.DBO.User user in users)
             {
-                res += "username: " + user.username + " </br>";
-                res += "email: " + user.email + " </br>";
-                res += "password: " + user.password + " </br>";
-                res += "admin: " + user.admin + " </br>";
+                res += "username: " + user.Username + " </br>";
+                res += "email: " + user.Email + " </br>";
+                res += "password: " + user.Password + " </br>";
+                res += "admin: " + user.Admin + " </br>";
                 res += "-----------</br>";
             }
             return res;
