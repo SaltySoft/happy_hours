@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1cac2065-4e20-476c-a548-abd6b38a545f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:5056/ServiceClientHappyHours.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServiceClientHappyHours.xsd" MetadataType="Schema" ID="5c9904ab-bb9d-46c2-b464-7f6b0afbb1b3" SourceId="1" SourceUrl="http://localhost:5056/ServiceClientHappyHours.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServiceClientHappyHours.wsdl" MetadataType="Wsdl" ID="dde8babe-cb9a-45b7-83ef-6317b4c95344" SourceId="1" SourceUrl="http://localhost:5056/ServiceClientHappyHours.svc?wsdl" />
+    <MetadataFile FileName="ServiceClientHappyHours1.xsd" MetadataType="Schema" ID="3c6310ac-a980-4d26-b32b-443149c735d3" SourceId="1" SourceUrl="http://localhost:5056/ServiceClientHappyHours.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServiceClientHappyHours.disco" MetadataType="Disco" ID="7ca8d623-a201-4519-acb9-be7f7b698c9b" SourceId="1" SourceUrl="http://localhost:5056/ServiceClientHappyHours.svc?disco" />
+    <MetadataFile FileName="ServiceClientHappyHours2.xsd" MetadataType="Schema" ID="6fe22c89-8c8f-4e7f-b9fc-d0de0e6c4ab9" SourceId="1" SourceUrl="http://localhost:5056/ServiceClientHappyHours.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

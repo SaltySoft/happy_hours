@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HappyHoursModelStoreContainer" CdmEntityContainer="HappyHoursEntities">
+    <EntitySetMapping Name="T_Cocktail">
+      <EntityTypeMapping TypeName="HappyHoursModel.T_Cocktail">
+        <MappingFragment StoreEntitySet="T_Cocktail">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="difficulty" ColumnName="difficulty" />
+          <ScalarProperty Name="duration" ColumnName="duration" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="recipe" ColumnName="recipe" />
+          <ScalarProperty Name="picture_url" ColumnName="picture_url" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_CocktailsIngredients">
+      <EntityTypeMapping TypeName="HappyHoursModel.T_CocktailsIngredients">
+        <MappingFragment StoreEntitySet="T_CocktailsIngredients">
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Favorite">
+      <EntityTypeMapping TypeName="HappyHoursModel.T_Favorite">
+        <MappingFragment StoreEntitySet="T_Favorite">
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Ingredient">
+      <EntityTypeMapping TypeName="HappyHoursModel.T_Ingredient">
+        <MappingFragment StoreEntitySet="T_Ingredient">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_User">
+      <EntityTypeMapping TypeName="HappyHoursModel.T_User">
+        <MappingFragment StoreEntitySet="T_User">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="admin" ColumnName="admin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="FK_T_Cocktail_T_User" TypeName="HappyHoursModel.FK_T_Cocktail_T_User" StoreEntitySet="T_Cocktail">
+      <EndProperty Name="T_User">
+        <ScalarProperty Name="id" ColumnName="creator_id" />
+      </EndProperty>
+      <EndProperty Name="T_Cocktail">
+        <ScalarProperty Name="id" ColumnName="id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_T_CocktailsIngredients_T_Cocktail" TypeName="HappyHoursModel.FK_T_CocktailsIngredients_T_Cocktail" StoreEntitySet="T_CocktailsIngredients">
+      <EndProperty Name="T_Cocktail">
+        <ScalarProperty Name="id" ColumnName="cocktail_id" />
+      </EndProperty>
+      <EndProperty Name="T_CocktailsIngredients">
+        <ScalarProperty Name="id" ColumnName="id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_T_Favorite_T_Cocktail" TypeName="HappyHoursModel.FK_T_Favorite_T_Cocktail" StoreEntitySet="T_Favorite">
+      <EndProperty Name="T_Cocktail">
+        <ScalarProperty Name="id" ColumnName="cocktail_id" />
+      </EndProperty>
+      <EndProperty Name="T_Favorite">
+        <ScalarProperty Name="id" ColumnName="id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_T_CocktailsIngredients_T_Ingredient" TypeName="HappyHoursModel.FK_T_CocktailsIngredients_T_Ingredient" StoreEntitySet="T_CocktailsIngredients">
+      <EndProperty Name="T_Ingredient">
+        <ScalarProperty Name="id" ColumnName="ingredient_id" />
+      </EndProperty>
+      <EndProperty Name="T_CocktailsIngredients">
+        <ScalarProperty Name="id" ColumnName="id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_T_Favorite_T_User" TypeName="HappyHoursModel.FK_T_Favorite_T_User" StoreEntitySet="T_Favorite">
+      <EndProperty Name="T_User">
+        <ScalarProperty Name="id" ColumnName="user_id" />
+      </EndProperty>
+      <EndProperty Name="T_Favorite">
+        <ScalarProperty Name="id" ColumnName="id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

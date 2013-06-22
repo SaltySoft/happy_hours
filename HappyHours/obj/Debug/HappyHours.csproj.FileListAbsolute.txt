@@ -58,6 +58,6 @@ C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HappyHours\b
 C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HappyHours\bin\fr\WebMatrix.Data.resources.dll
 C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HappyHours\bin\fr\Microsoft.Web.WebPages.OAuth.resources.dll
 C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HappyHours\bin\fr\WebMatrix.WebData.resources.dll
-C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HappyHours\obj\Debug\HappyHours.csprojResolveAssemblyReference.cache
 C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HappyHours\obj\Debug\HappyHours.dll
 C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HappyHours\obj\Debug\HappyHours.pdb
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HappyHours\obj\Debug\HappyHours.csprojResolveAssemblyReference.cache

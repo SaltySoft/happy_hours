@@ -1,0 +1,6 @@
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\SelfHost\bin\Debug\SelfHost.exe.config
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\SelfHost\bin\Debug\SelfHost.exe
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\SelfHost\bin\Debug\SelfHost.pdb
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\SelfHost\obj\Debug\SelfHost.exe
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\SelfHost\obj\Debug\SelfHost.pdb
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\SelfHost\obj\Debug\SelfHost.csprojResolveAssemblyReference.cache

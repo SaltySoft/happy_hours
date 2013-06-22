@@ -1,0 +1,9 @@
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhDataLayer\bin\Debug\HhDataLayer.dll.config
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhDataLayer\bin\Debug\HhDataLayer.dll
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhDataLayer\bin\Debug\HhDataLayer.pdb
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhDataLayer\bin\Debug\EntityFramework.dll
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhDataLayer\bin\Debug\EntityFramework.xml
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhDataLayer\bin\Debug\fr\EntityFramework.resources.dll
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhDataLayer\obj\Debug\HhDataLayer.dll
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhDataLayer\obj\Debug\HhDataLayer.pdb
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhDataLayer\obj\Debug\HhDataLayer.csprojResolveAssemblyReference.cache

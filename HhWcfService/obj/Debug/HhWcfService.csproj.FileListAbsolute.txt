@@ -1,0 +1,10 @@
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhWcfService\bin\HhWcfService.dll
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhWcfService\bin\HhWcfService.pdb
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhWcfService\bin\HhDataLayer.dll
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhWcfService\bin\EntityFramework.dll
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhWcfService\bin\HhDataLayer.pdb
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhWcfService\bin\EntityFramework.xml
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhWcfService\bin\fr\EntityFramework.resources.dll
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhWcfService\obj\Debug\HhWcfService.csprojResolveAssemblyReference.cache
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhWcfService\obj\Debug\HhWcfService.dll
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhWcfService\obj\Debug\HhWcfService.pdb
