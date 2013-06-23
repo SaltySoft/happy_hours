@@ -12,3 +12,5 @@ C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhWcfService
 C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhWcfService\bin\HhDBO.dll
 C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhWcfService\bin\HhBusiness.pdb
 C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhWcfService\bin\HhDBO.pdb
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhWcfService\bin\AutoMapper.dll
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhWcfService\bin\AutoMapper.xml

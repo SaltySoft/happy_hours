@@ -10,3 +10,5 @@ C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhBusiness\b
 C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhBusiness\obj\Debug\HhBusiness.csprojResolveAssemblyReference.cache
 C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhBusiness\obj\Debug\HhBusiness.dll
 C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhBusiness\obj\Debug\HhBusiness.pdb
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhBusiness\bin\Debug\AutoMapper.dll
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhBusiness\bin\Debug\AutoMapper.xml

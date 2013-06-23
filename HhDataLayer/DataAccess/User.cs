@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,12 +24,15 @@ namespace HhDataLayer.DataAccess
 
                     foreach (T_User user in existings)
                     {
-                        HhDBO.User dboUser = new HhDBO.User();
-                        dboUser.Id = user.id;
-                        dboUser.Username = user.username;
-                        dboUser.Email = user.email;
-                        dboUser.Password = user.password;
-                        dboUser.Admin = user.admin;
+                        Mapper.CreateMap<T_User, HhDBO.User>();
+                        HhDBO.User dboUser = Mapper.Map<T_User, HhDBO.User>(user);
+                    
+                        //HhDBO.User dboUser = new HhDBO.User();
+                        //dboUser.Id = user.id;
+                        //dboUser.Username = user.username;
+                        //dboUser.Email = user.email;
+                        //dboUser.Password = user.password;
+                        //dboUser.Admin = user.admin;
 
                         //TODO 
                         //if (!item.T_Favorite.IsLoaded)
@@ -64,12 +68,15 @@ namespace HhDataLayer.DataAccess
 
                     foreach (T_User user in existings)
                     {
-                        HhDBO.User dboUser = new HhDBO.User();
-                        dboUser.Id = user.id;
-                        dboUser.Username = user.username;
-                        dboUser.Email = user.email;
-                        dboUser.Password = user.password;
-                        dboUser.Admin = user.admin;
+                        Mapper.CreateMap<T_User, HhDBO.User>();
+                        HhDBO.User dboUser = Mapper.Map<T_User, HhDBO.User>(user);
+                    
+                        //HhDBO.User dboUser = new HhDBO.User();
+                        //dboUser.Id = user.id;
+                        //dboUser.Username = user.username;
+                        //dboUser.Email = user.email;
+                        //dboUser.Password = user.password;
+                        //dboUser.Admin = user.admin;
 
                         //TODO 
                         //if (!item.T_Favorite.IsLoaded)
@@ -87,6 +94,90 @@ namespace HhDataLayer.DataAccess
             catch (Exception ex)
             {
                 return new List<HhDBO.User>();
+            }
+        }
+
+        /// <summary>
+        /// permet la création d'un utilisateur
+        /// </summary>
+        /// <param name="user">l'objet utilisateur à crer</param>
+        /// <returns>true si tout se passe bien sinon false</returns>
+        public static bool CreateUser(HhDBO.User user)
+        {
+            try
+            {
+                using (MyHappyHoursEntities bdd = new MyHappyHoursEntities())
+                {
+                    Mapper.CreateMap<HhDBO.User, T_User>();
+                    T_User tUser = Mapper.Map<HhDBO.User, T_User>(user);
+                    bdd.T_User.Add(tUser);
+                    bdd.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// permet de supprimer un utilisateur
+        /// </summary>
+        /// <param name="id">id de l'utilisateur</param>
+        /// <returns>true si bien supprimer sinon false</returns>
+        public static bool DeleteUser(int id)
+        {
+            try
+            {
+                using (MyHappyHoursEntities bdd = new MyHappyHoursEntities())
+                {
+                    T_User tUser = bdd.T_User.Where(x => x.id == id).FirstOrDefault();
+                    bdd.T_User.Remove(tUser);
+                    bdd.T_User.Add(tUser);
+                    bdd.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// permet de mettre  à jour l'utilisateur
+        /// </summary>
+        /// <param name="user">l'utilisateur a mettre a jour</param>
+        /// <returns>true si ca c'est binen passé sinon false</returns>
+        public static bool UpdateUser(HhDBO.User user)
+        {
+            try
+            {
+                using (MyHappyHoursEntities bdd = new MyHappyHoursEntities())
+                {
+                    T_User tUser = bdd.T_User.Where(x => x.id == user.Id).FirstOrDefault();
+                    if (tUser != null)
+                    {
+                        tUser.username = user.Username;
+                        tUser.email = user.Email;
+                        tUser.admin = user.Admin;
+                        tUser.password = user.Password;
+                        //tUser.T_Favorite
+                        //TODO
+
+                        bdd.SaveChanges();
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
             }
         }
     }
