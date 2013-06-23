@@ -1,5 +1,4 @@
-﻿using HhDataLayer.DataAccess;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -17,14 +16,14 @@ namespace HhWcfService
             
         }
 
-        public List<HhDataLayer.DBO.User> GetListUser(int max)
+        public List<HhDBO.User> GetListUser(int max)
         {
-            return HhDataLayer.BusinessManagement.User.GetListUser(max);
+            return HhBusiness.User.GetListUser(max);
         }
 
-        public List<HhDataLayer.DBO.User> GetUser(int id)
+        public List<HhDBO.User> GetUser(int id)
         {
-            return HhDataLayer.BusinessManagement.User.GetUser(id);
+            return HhBusiness.User.GetUser(id);
         }
 
         public String Test()

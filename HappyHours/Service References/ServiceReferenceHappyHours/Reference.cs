@@ -22,16 +22,16 @@ namespace HappyHours.ServiceReferenceHappyHours {
         System.Threading.Tasks.Task DoWorkAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/GetListUser", ReplyAction="http://tempuri.org/IServiceClientHappyHours/GetListUserResponse")]
-        HhDataLayer.DBO.User[] GetListUser(int max);
+        HhDBO.User[] GetListUser(int max);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/GetListUser", ReplyAction="http://tempuri.org/IServiceClientHappyHours/GetListUserResponse")]
-        System.Threading.Tasks.Task<HhDataLayer.DBO.User[]> GetListUserAsync(int max);
+        System.Threading.Tasks.Task<HhDBO.User[]> GetListUserAsync(int max);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/GetUser", ReplyAction="http://tempuri.org/IServiceClientHappyHours/GetUserResponse")]
-        HhDataLayer.DBO.User[] GetUser(int id);
+        HhDBO.User[] GetUser(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/GetUser", ReplyAction="http://tempuri.org/IServiceClientHappyHours/GetUserResponse")]
-        System.Threading.Tasks.Task<HhDataLayer.DBO.User[]> GetUserAsync(int id);
+        System.Threading.Tasks.Task<HhDBO.User[]> GetUserAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/Test", ReplyAction="http://tempuri.org/IServiceClientHappyHours/TestResponse")]
         string Test();
@@ -75,19 +75,19 @@ namespace HappyHours.ServiceReferenceHappyHours {
             return base.Channel.DoWorkAsync();
         }
         
-        public HhDataLayer.DBO.User[] GetListUser(int max) {
+        public HhDBO.User[] GetListUser(int max) {
             return base.Channel.GetListUser(max);
         }
         
-        public System.Threading.Tasks.Task<HhDataLayer.DBO.User[]> GetListUserAsync(int max) {
+        public System.Threading.Tasks.Task<HhDBO.User[]> GetListUserAsync(int max) {
             return base.Channel.GetListUserAsync(max);
         }
         
-        public HhDataLayer.DBO.User[] GetUser(int id) {
+        public HhDBO.User[] GetUser(int id) {
             return base.Channel.GetUser(id);
         }
         
-        public System.Threading.Tasks.Task<HhDataLayer.DBO.User[]> GetUserAsync(int id) {
+        public System.Threading.Tasks.Task<HhDBO.User[]> GetUserAsync(int id) {
             return base.Channel.GetUserAsync(id);
         }
         

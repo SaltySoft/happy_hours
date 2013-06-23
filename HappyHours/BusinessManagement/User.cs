@@ -7,13 +7,13 @@ namespace HappyHours.BusinessManagement
 {
     public class User
     {
-        public static List<HhDataLayer.DBO.User> GetListUser(int max)
+        public static List<HhDBO.User> GetListUser(int max)
         {
             DataAccess.User dataAccess = new DataAccess.User();
             return dataAccess.GetListUser(max);
         }
 
-        public static List<HhDataLayer.DBO.User> GetUser(int id)
+        public static List<HhDBO.User> GetUser(int id)
         {
             DataAccess.User dataAccess = new DataAccess.User();
             return dataAccess.GetUser(id);

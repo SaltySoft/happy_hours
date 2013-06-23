@@ -1,5 +1,4 @@
-﻿using HhDataLayer.DataAccess;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -16,10 +15,10 @@ namespace HhWcfService
         void DoWork();
 
         [OperationContract]
-        List<HhDataLayer.DBO.User> GetListUser(int max);
+        List<HhDBO.User> GetListUser(int max);
 
         [OperationContract]
-        List<HhDataLayer.DBO.User> GetUser(int id);
+        List<HhDBO.User> GetUser(int id);
 
         [OperationContract]
         String Test();

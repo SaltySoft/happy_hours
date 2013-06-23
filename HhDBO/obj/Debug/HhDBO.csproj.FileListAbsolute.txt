@@ -1,0 +1,4 @@
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhDBO\bin\Debug\HhDBO.dll
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhDBO\bin\Debug\HhDBO.pdb
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhDBO\obj\Debug\HhDBO.dll
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhDBO\obj\Debug\HhDBO.pdb

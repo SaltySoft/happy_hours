@@ -1,11 +1,10 @@
-﻿using HhDataLayer.DataAccess;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HhDataLayer.BusinessManagement
+namespace HhBusiness
 {
     public class User
     {
@@ -13,18 +12,18 @@ namespace HhDataLayer.BusinessManagement
         /// retourne la liste complete de tous les utilisateurs.
         /// </summary>
         /// <returns>la liste des utilisateurs sinon une liste vide</returns>
-        public static List<DBO.User> GetListUser(int max)
+        public static List<HhDBO.User> GetListUser(int max)
         {
-            return DataAccess.User.GetListUser(max);
+            return HhDataLayer.DataAccess.User.GetListUser(max);
         }
 
         /// <summary>
         /// retourne une liste contenant un utilisateur
         /// </summary>
         /// <returns>la liste contenant l'utilisateur correspondant à l'id sinon une liste vide</returns>
-        public static List<DBO.User> GetUser(int id)
+        public static List<HhDBO.User> GetUser(int id)
         {
-            return DataAccess.User.GetUser(id);
+            return HhDataLayer.DataAccess.User.GetUser(id);
         }
     }
 }

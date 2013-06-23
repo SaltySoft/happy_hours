@@ -12,18 +12,18 @@ namespace HhDataLayer.DataAccess
         /// retourne la liste complete de tous les utilisateurs.
         /// </summary>
         /// <returns>la liste des utilisateurs sinon une liste vide</returns>
-        public static List<DBO.User> GetListUser(int max)
+        public static List<HhDBO.User> GetListUser(int max)
         {
             try
             {
-                List<DBO.User> users = new List<DBO.User>();
+                List<HhDBO.User> users = new List<HhDBO.User>();
                 using (MyHappyHoursEntities bdd = new MyHappyHoursEntities())
                 {
                     List<T_User> existings = bdd.T_User.Take(max).ToList();
 
                     foreach (T_User user in existings)
                     {
-                        DBO.User dboUser = new DBO.User();
+                        HhDBO.User dboUser = new HhDBO.User();
                         dboUser.Id = user.id;
                         dboUser.Username = user.username;
                         dboUser.Email = user.email;
@@ -45,7 +45,7 @@ namespace HhDataLayer.DataAccess
             }
             catch (Exception ex)
             {
-                return new List<DBO.User>();
+                return new List<HhDBO.User>();
             }
         }
 
@@ -53,18 +53,18 @@ namespace HhDataLayer.DataAccess
         /// retourne une liste contenant un utilisateur
         /// </summary>
         /// <returns>la liste contenant l'utilisateur correspondant à l'id sinon une liste vide</returns>
-        public static List<DBO.User> GetUser(int id)
+        public static List<HhDBO.User> GetUser(int id)
         {
             try
             {
-                List<DBO.User> users = new List<DBO.User>();
+                List<HhDBO.User> users = new List<HhDBO.User>();
                 using (MyHappyHoursEntities bdd = new MyHappyHoursEntities())
                 {
                     List<T_User> existings = bdd.T_User.Where(x => x.id == id).ToList();
 
                     foreach (T_User user in existings)
                     {
-                        DBO.User dboUser = new DBO.User();
+                        HhDBO.User dboUser = new HhDBO.User();
                         dboUser.Id = user.id;
                         dboUser.Username = user.username;
                         dboUser.Email = user.email;
@@ -86,7 +86,7 @@ namespace HhDataLayer.DataAccess
             }
             catch (Exception ex)
             {
-                return new List<DBO.User>();
+                return new List<HhDBO.User>();
             }
         }
     }

@@ -20,29 +20,29 @@ namespace HappyHours.DataAccess
             _client = new ServiceReferenceHappyHours.ServiceClientHappyHoursClient();
         }
 
-        public List<HhDataLayer.DBO.User> GetListUser(int max)
+        public List<HhDBO.User> GetListUser(int max)
         {
             try
             {
-                List<HhDataLayer.DBO.User> users = _client.GetListUser(max).ToList();
+                List<HhDBO.User> users = _client.GetListUser(max).ToList();
                 return users;
             }
             catch (Exception ex)
             {
-                return new List<HhDataLayer.DBO.User>();
+                return new List<HhDBO.User>();
             }
         }
 
-        public List<HhDataLayer.DBO.User> GetUser(int id)
+        public List<HhDBO.User> GetUser(int id)
         {
             try
             {
-                List<HhDataLayer.DBO.User> users = _client.GetUser(id).ToList();
+                List<HhDBO.User> users = _client.GetUser(id).ToList();
                 return users;
             }
             catch (Exception ex)
             {
-                return new List<HhDataLayer.DBO.User>();
+                return new List<HhDBO.User>();
             }
         }
 

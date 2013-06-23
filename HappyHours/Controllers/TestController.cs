@@ -27,8 +27,8 @@ namespace HappyHours.Controllers
         public string Hello()
         {
             string res = "Yoyo  ";
-            List<HhDataLayer.DBO.User> users = BusinessManagement.User.GetListUser(10);
-            foreach (HhDataLayer.DBO.User user in users)
+            List<HhDBO.User> users = BusinessManagement.User.GetListUser(10);
+            foreach (HhDBO.User user in users)
             {
                 res += "username: " + user.Username + " </br>";
                 res += "email: " + user.Email + " </br>";
@@ -41,7 +41,7 @@ namespace HappyHours.Controllers
 
         public ActionResult TestJsonContent()
         {
-             List<HhDataLayer.DBO.User> users = BusinessManagement.User.GetListUser(10);
+            List<HhDBO.User> users = BusinessManagement.User.GetListUser(10);
 
             ViewBag.Message = Json(users, "text/x-json");
 

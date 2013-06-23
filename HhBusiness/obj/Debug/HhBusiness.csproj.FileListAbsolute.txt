@@ -1,0 +1,12 @@
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhBusiness\bin\Debug\HhBusiness.dll
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhBusiness\bin\Debug\HhBusiness.pdb
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhBusiness\bin\Debug\HhDataLayer.dll
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhBusiness\bin\Debug\HhDBO.dll
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhBusiness\bin\Debug\EntityFramework.dll
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhBusiness\bin\Debug\HhDataLayer.pdb
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhBusiness\bin\Debug\HhDBO.pdb
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhBusiness\bin\Debug\EntityFramework.xml
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhBusiness\bin\Debug\fr\EntityFramework.resources.dll
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhBusiness\obj\Debug\HhBusiness.csprojResolveAssemblyReference.cache
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhBusiness\obj\Debug\HhBusiness.dll
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhBusiness\obj\Debug\HhBusiness.pdb

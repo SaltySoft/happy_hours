@@ -7,3 +7,5 @@ C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhDataLayer\
 C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhDataLayer\obj\Debug\HhDataLayer.dll
 C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhDataLayer\obj\Debug\HhDataLayer.pdb
 C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhDataLayer\obj\Debug\HhDataLayer.csprojResolveAssemblyReference.cache
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhDataLayer\bin\Debug\HhDBO.dll
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhDataLayer\bin\Debug\HhDBO.pdb

@@ -8,7 +8,6 @@ C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HappyHours\b
 C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HappyHours\bin\DotNetOpenAuth.OpenId.dll
 C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HappyHours\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
 C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HappyHours\bin\EntityFramework.dll
-C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HappyHours\bin\HhDataLayer.dll
 C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HappyHours\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HappyHours\bin\Microsoft.Web.WebPages.OAuth.dll
 C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HappyHours\bin\Newtonsoft.Json.dll
@@ -25,7 +24,6 @@ C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HappyHours\b
 C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HappyHours\bin\WebGrease.dll
 C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HappyHours\bin\WebMatrix.Data.dll
 C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HappyHours\bin\WebMatrix.WebData.dll
-C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HappyHours\bin\HhDataLayer.pdb
 C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HappyHours\bin\EntityFramework.xml
 C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HappyHours\bin\Newtonsoft.Json.xml
 C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HappyHours\bin\System.Net.Http.Formatting.xml
@@ -63,3 +61,5 @@ C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HappyHours\b
 C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HappyHours\obj\Debug\HappyHours.csprojResolveAssemblyReference.cache
 C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HappyHours\obj\Debug\HappyHours.dll
 C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HappyHours\obj\Debug\HappyHours.pdb
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HappyHours\bin\HhDBO.dll
+C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HappyHours\bin\HhDBO.pdb

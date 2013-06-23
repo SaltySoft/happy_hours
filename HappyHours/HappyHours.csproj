@@ -240,6 +240,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Properties\DataSources\HhDataLayer.DBO.User.datasource" />
+    <Content Include="Properties\DataSources\HhDBO.User.datasource" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
@@ -326,9 +327,9 @@
     <WCFMetadataStorage Include="Service References\ServiceReferenceHappyHours\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HhDataLayer\HhDataLayer.csproj">
-      <Project>{9181825e-d42e-42e2-84e9-0ff87466e3f6}</Project>
-      <Name>HhDataLayer</Name>
+    <ProjectReference Include="..\HhDBO\HhDBO.csproj">
+      <Project>{58d4de5f-af28-43f2-bbd3-61f97d6ae312}</Project>
+      <Name>HhDBO</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

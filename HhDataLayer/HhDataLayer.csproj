@@ -46,8 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessManagement\User.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="DataAccess\HappyHours.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -79,7 +77,6 @@
       <DependentUpon>HappyHours.tt</DependentUpon>
     </Compile>
     <Compile Include="DataAccess\User.cs" />
-    <Compile Include="DBO\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -106,7 +103,12 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\HhDBO\HhDBO.csproj">
+      <Project>{58d4de5f-af28-43f2-bbd3-61f97d6ae312}</Project>
+      <Name>HhDBO</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

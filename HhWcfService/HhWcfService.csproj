@@ -87,9 +87,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HhDataLayer\HhDataLayer.csproj">
-      <Project>{9181825e-d42e-42e2-84e9-0ff87466e3f6}</Project>
-      <Name>HhDataLayer</Name>
+    <ProjectReference Include="..\HhBusiness\HhBusiness.csproj">
+      <Project>{eddf21b8-3974-4230-8b53-f98b18a8dc17}</Project>
+      <Name>HhBusiness</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HhDBO\HhDBO.csproj">
+      <Project>{58d4de5f-af28-43f2-bbd3-61f97d6ae312}</Project>
+      <Name>HhDBO</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

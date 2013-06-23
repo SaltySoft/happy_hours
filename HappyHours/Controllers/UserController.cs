@@ -14,13 +14,13 @@ namespace HappyHours.Controllers
         {
             if (id.HasValue)
             {
-                List<HhDataLayer.DBO.User> users = BusinessManagement.User.GetUser(id.Value);
+                List<HhDBO.User> users = BusinessManagement.User.GetUser(id.Value);
                 var data = users;
                 return Json(data, JsonRequestBehavior.AllowGet);
             }
             else
             {
-                List<HhDataLayer.DBO.User> users = BusinessManagement.User.GetListUser(10);
+                List<HhDBO.User> users = BusinessManagement.User.GetListUser(10);
                 var data = users;
                 return Json(data, JsonRequestBehavior.AllowGet);
             }
