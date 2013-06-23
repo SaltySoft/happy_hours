@@ -48,5 +48,46 @@ namespace HhDataLayer.DataAccess
                 return new List<DBO.User>();
             }
         }
+
+        /// <summary>
+        /// retourne une liste contenant un utilisateur
+        /// </summary>
+        /// <returns>la liste contenant l'utilisateur correspondant à l'id sinon une liste vide</returns>
+        public static List<DBO.User> GetUser(int id)
+        {
+            try
+            {
+                List<DBO.User> users = new List<DBO.User>();
+                using (MyHappyHoursEntities bdd = new MyHappyHoursEntities())
+                {
+                    List<T_User> existings = bdd.T_User.Where(x => x.id == id).ToList();
+
+                    foreach (T_User user in existings)
+                    {
+                        DBO.User dboUser = new DBO.User();
+                        dboUser.Id = user.id;
+                        dboUser.Username = user.username;
+                        dboUser.Email = user.email;
+                        dboUser.Password = user.password;
+                        dboUser.Admin = user.admin;
+
+                        //TODO 
+                        //if (!item.T_Favorite.IsLoaded)
+                        //{
+                        //    item.T_Favorite.Load();
+                        //}
+                        //STUFF LIKE THAT
+
+                        users.Add(dboUser);
+                    }
+                }
+
+                return users;
+            }
+            catch (Exception ex)
+            {
+                return new List<DBO.User>();
+            }
+        }
     }
 }

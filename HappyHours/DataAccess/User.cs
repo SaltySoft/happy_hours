@@ -33,6 +33,19 @@ namespace HappyHours.DataAccess
             }
         }
 
+        public List<HhDataLayer.DBO.User> GetUser(int id)
+        {
+            try
+            {
+                List<HhDataLayer.DBO.User> users = _client.GetUser(id).ToList();
+                return users;
+            }
+            catch (Exception ex)
+            {
+                return new List<HhDataLayer.DBO.User>();
+            }
+        }
+
         public String Test()
         {
             ServiceReferenceHappyHours.ServiceClientHappyHoursClient client = new ServiceReferenceHappyHours.ServiceClientHappyHoursClient();

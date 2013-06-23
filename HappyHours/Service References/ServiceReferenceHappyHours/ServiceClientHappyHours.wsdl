@@ -19,6 +19,12 @@
   <wsdl:message name="IServiceClientHappyHours_GetListUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetListUserResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_GetUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUser" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_GetUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserResponse" />
+  </wsdl:message>
   <wsdl:message name="IServiceClientHappyHours_Test_InputMessage">
     <wsdl:part name="parameters" element="tns:Test" />
   </wsdl:message>
@@ -33,6 +39,10 @@
     <wsdl:operation name="GetListUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceClientHappyHours/GetListUser" message="tns:IServiceClientHappyHours_GetListUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceClientHappyHours/GetListUserResponse" message="tns:IServiceClientHappyHours_GetListUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceClientHappyHours/GetUser" message="tns:IServiceClientHappyHours_GetUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceClientHappyHours/GetUserResponse" message="tns:IServiceClientHappyHours_GetUser_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Test">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceClientHappyHours/Test" message="tns:IServiceClientHappyHours_Test_InputMessage" />
@@ -52,6 +62,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetListUser">
       <soap:operation soapAction="http://tempuri.org/IServiceClientHappyHours/GetListUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap:operation soapAction="http://tempuri.org/IServiceClientHappyHours/GetUser" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

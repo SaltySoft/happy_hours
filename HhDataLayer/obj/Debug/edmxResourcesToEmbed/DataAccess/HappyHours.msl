@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HappyHoursModelStoreContainer" CdmEntityContainer="MyHappyHoursEntities">
+    <EntitySetMapping Name="T_Cocktail">
+      <EntityTypeMapping TypeName="HappyHoursModel.T_Cocktail">
+        <MappingFragment StoreEntitySet="T_Cocktail">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="difficulty" ColumnName="difficulty" />
+          <ScalarProperty Name="duration" ColumnName="duration" />
+          <ScalarProperty Name="creator_id" ColumnName="creator_id" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="recipe" ColumnName="recipe" />
+          <ScalarProperty Name="picture_url" ColumnName="picture_url" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_CocktailsIngredients">
+      <EntityTypeMapping TypeName="HappyHoursModel.T_CocktailsIngredients">
+        <MappingFragment StoreEntitySet="T_CocktailsIngredients">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="cocktail_id" ColumnName="cocktail_id" />
+          <ScalarProperty Name="ingredient_id" ColumnName="ingredient_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Favorite">
+      <EntityTypeMapping TypeName="HappyHoursModel.T_Favorite">
+        <MappingFragment StoreEntitySet="T_Favorite">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="cocktail_id" ColumnName="cocktail_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Ingredient">
+      <EntityTypeMapping TypeName="HappyHoursModel.T_Ingredient">
+        <MappingFragment StoreEntitySet="T_Ingredient">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_User">
+      <EntityTypeMapping TypeName="HappyHoursModel.T_User">
+        <MappingFragment StoreEntitySet="T_User">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="admin" ColumnName="admin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

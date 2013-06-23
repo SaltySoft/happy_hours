@@ -13,6 +13,12 @@ namespace HappyHours.BusinessManagement
             return dataAccess.GetListUser(max);
         }
 
+        public static List<HhDataLayer.DBO.User> GetUser(int id)
+        {
+            DataAccess.User dataAccess = new DataAccess.User();
+            return dataAccess.GetUser(id);
+        }
+
         public static String Test()
         {
             DataAccess.User dataAccess = new DataAccess.User();

@@ -22,6 +22,11 @@ namespace HhWcfService
             return HhDataLayer.BusinessManagement.User.GetListUser(max);
         }
 
+        public List<HhDataLayer.DBO.User> GetUser(int id)
+        {
+            return HhDataLayer.BusinessManagement.User.GetUser(id);
+        }
+
         public String Test()
         {
             return "patate";

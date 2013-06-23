@@ -17,5 +17,14 @@ namespace HhDataLayer.BusinessManagement
         {
             return DataAccess.User.GetListUser(max);
         }
+
+        /// <summary>
+        /// retourne une liste contenant un utilisateur
+        /// </summary>
+        /// <returns>la liste contenant l'utilisateur correspondant à l'id sinon une liste vide</returns>
+        public static List<DBO.User> GetUser(int id)
+        {
+            return DataAccess.User.GetUser(id);
+        }
     }
 }

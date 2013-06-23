@@ -39,5 +39,24 @@ namespace HappyHours.Controllers
             return res;
         }
 
+        public ActionResult TestJsonContent()
+        {
+             List<HhDataLayer.DBO.User> users = BusinessManagement.User.GetListUser(10);
+
+            ViewBag.Message = Json(users, "text/x-json");
+
+            return View("TestJson");
+        }
+
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult TestJsonContent(int numDay)
+        {
+            List<double> list = new List<double>();
+
+            for (double d = 0; d < numDay; d++)
+                list.Add(d + .5);
+
+            return Json(list, "text/x-json");
+        }
     }
 }
