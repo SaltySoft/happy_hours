@@ -16,13 +16,13 @@ namespace HappyHours.Controllers
             return View();
         }
 
-        public string Test()
-        {
-            string res = "Yoyo  ";
-            String test = BusinessManagement.User.Test();
-            res += test;
-            return res;
-        }
+        //public string Test()
+        //{
+        //    string res = "Yoyo  ";
+        //    String test = BusinessManagement.User.Test();
+        //    res += test;
+        //    return res;
+        //}
 
         public string Hello()
         {

@@ -12,15 +12,18 @@ namespace HhWcfService
     public interface IServiceClientHappyHours
     {
         [OperationContract]
-        void DoWork();
-
-        [OperationContract]
         List<HhDBO.User> GetListUser(int max);
 
         [OperationContract]
         List<HhDBO.User> GetUser(int id);
 
         [OperationContract]
-        String Test();
+        bool CreateUser(HhDBO.User user);
+
+        [OperationContract]
+        bool DeleteUser(int id);
+
+        [OperationContract]
+        bool UpdateUser(HhDBO.User user);
     }
 }

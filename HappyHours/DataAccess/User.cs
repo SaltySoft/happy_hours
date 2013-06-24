@@ -46,11 +46,40 @@ namespace HappyHours.DataAccess
             }
         }
 
-        public String Test()
+        public bool CreateUser(HhDBO.User user)
         {
-            ServiceReferenceHappyHours.ServiceClientHappyHoursClient client = new ServiceReferenceHappyHours.ServiceClientHappyHoursClient();
-            String str = client.Test();
-            return str;
+            try
+            {
+                return _client.CreateUser(user);
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        public bool UpdateUser(HhDBO.User user)
+        {
+            try
+            {
+                return _client.UpdateUser(user);
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        public bool DeleteUser(int id)
+        {
+            try
+            {
+                return _client.DeleteUser(id);
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
     }
 }

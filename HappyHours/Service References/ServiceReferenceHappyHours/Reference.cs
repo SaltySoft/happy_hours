@@ -15,12 +15,6 @@ namespace HappyHours.ServiceReferenceHappyHours {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReferenceHappyHours.IServiceClientHappyHours")]
     public interface IServiceClientHappyHours {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/DoWork", ReplyAction="http://tempuri.org/IServiceClientHappyHours/DoWorkResponse")]
-        void DoWork();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/DoWork", ReplyAction="http://tempuri.org/IServiceClientHappyHours/DoWorkResponse")]
-        System.Threading.Tasks.Task DoWorkAsync();
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/GetListUser", ReplyAction="http://tempuri.org/IServiceClientHappyHours/GetListUserResponse")]
         HhDBO.User[] GetListUser(int max);
         
@@ -33,11 +27,23 @@ namespace HappyHours.ServiceReferenceHappyHours {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/GetUser", ReplyAction="http://tempuri.org/IServiceClientHappyHours/GetUserResponse")]
         System.Threading.Tasks.Task<HhDBO.User[]> GetUserAsync(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/Test", ReplyAction="http://tempuri.org/IServiceClientHappyHours/TestResponse")]
-        string Test();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/CreateUser", ReplyAction="http://tempuri.org/IServiceClientHappyHours/CreateUserResponse")]
+        bool CreateUser(HhDBO.User user);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/Test", ReplyAction="http://tempuri.org/IServiceClientHappyHours/TestResponse")]
-        System.Threading.Tasks.Task<string> TestAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/CreateUser", ReplyAction="http://tempuri.org/IServiceClientHappyHours/CreateUserResponse")]
+        System.Threading.Tasks.Task<bool> CreateUserAsync(HhDBO.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/DeleteUser", ReplyAction="http://tempuri.org/IServiceClientHappyHours/DeleteUserResponse")]
+        bool DeleteUser(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/DeleteUser", ReplyAction="http://tempuri.org/IServiceClientHappyHours/DeleteUserResponse")]
+        System.Threading.Tasks.Task<bool> DeleteUserAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/UpdateUser", ReplyAction="http://tempuri.org/IServiceClientHappyHours/UpdateUserResponse")]
+        bool UpdateUser(HhDBO.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/UpdateUser", ReplyAction="http://tempuri.org/IServiceClientHappyHours/UpdateUserResponse")]
+        System.Threading.Tasks.Task<bool> UpdateUserAsync(HhDBO.User user);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -67,14 +73,6 @@ namespace HappyHours.ServiceReferenceHappyHours {
                 base(binding, remoteAddress) {
         }
         
-        public void DoWork() {
-            base.Channel.DoWork();
-        }
-        
-        public System.Threading.Tasks.Task DoWorkAsync() {
-            return base.Channel.DoWorkAsync();
-        }
-        
         public HhDBO.User[] GetListUser(int max) {
             return base.Channel.GetListUser(max);
         }
@@ -91,12 +89,28 @@ namespace HappyHours.ServiceReferenceHappyHours {
             return base.Channel.GetUserAsync(id);
         }
         
-        public string Test() {
-            return base.Channel.Test();
+        public bool CreateUser(HhDBO.User user) {
+            return base.Channel.CreateUser(user);
         }
         
-        public System.Threading.Tasks.Task<string> TestAsync() {
-            return base.Channel.TestAsync();
+        public System.Threading.Tasks.Task<bool> CreateUserAsync(HhDBO.User user) {
+            return base.Channel.CreateUserAsync(user);
+        }
+        
+        public bool DeleteUser(int id) {
+            return base.Channel.DeleteUser(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteUserAsync(int id) {
+            return base.Channel.DeleteUserAsync(id);
+        }
+        
+        public bool UpdateUser(HhDBO.User user) {
+            return base.Channel.UpdateUser(user);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdateUserAsync(HhDBO.User user) {
+            return base.Channel.UpdateUserAsync(user);
         }
     }
 }

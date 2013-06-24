@@ -26,13 +26,6 @@ namespace HhDataLayer.DataAccess
                     {
                         Mapper.CreateMap<T_User, HhDBO.User>();
                         HhDBO.User dboUser = Mapper.Map<T_User, HhDBO.User>(user);
-                    
-                        //HhDBO.User dboUser = new HhDBO.User();
-                        //dboUser.Id = user.id;
-                        //dboUser.Username = user.username;
-                        //dboUser.Email = user.email;
-                        //dboUser.Password = user.password;
-                        //dboUser.Admin = user.admin;
 
                         //TODO 
                         //if (!item.T_Favorite.IsLoaded)
@@ -70,13 +63,6 @@ namespace HhDataLayer.DataAccess
                     {
                         Mapper.CreateMap<T_User, HhDBO.User>();
                         HhDBO.User dboUser = Mapper.Map<T_User, HhDBO.User>(user);
-                    
-                        //HhDBO.User dboUser = new HhDBO.User();
-                        //dboUser.Id = user.id;
-                        //dboUser.Username = user.username;
-                        //dboUser.Email = user.email;
-                        //dboUser.Password = user.password;
-                        //dboUser.Admin = user.admin;
 
                         //TODO 
                         //if (!item.T_Favorite.IsLoaded)
@@ -100,7 +86,7 @@ namespace HhDataLayer.DataAccess
         /// <summary>
         /// permet la création d'un utilisateur
         /// </summary>
-        /// <param name="user">l'objet utilisateur à crer</param>
+        /// <param name="user">l'objet utilisateur à créer</param>
         /// <returns>true si tout se passe bien sinon false</returns>
         public static bool CreateUser(HhDBO.User user)
         {
@@ -134,7 +120,6 @@ namespace HhDataLayer.DataAccess
                 {
                     T_User tUser = bdd.T_User.Where(x => x.id == id).FirstOrDefault();
                     bdd.T_User.Remove(tUser);
-                    bdd.T_User.Add(tUser);
                     bdd.SaveChanges();
                     return true;
                 }

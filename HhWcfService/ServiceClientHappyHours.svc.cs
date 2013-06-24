@@ -11,11 +11,6 @@ namespace HhWcfService
     // REMARQUE : pour lancer le client test WCF afin de tester ce service, sélectionnez ServiceClientHappyHours.svc ou ServiceClientHappyHours.svc.cs dans l'Explorateur de solutions et démarrez le débogage.
     public class ServiceClientHappyHours : IServiceClientHappyHours
     {
-        public void DoWork()
-        {
-            
-        }
-
         public List<HhDBO.User> GetListUser(int max)
         {
             return HhBusiness.User.GetListUser(max);
@@ -26,9 +21,19 @@ namespace HhWcfService
             return HhBusiness.User.GetUser(id);
         }
 
-        public String Test()
+        public bool CreateUser(HhDBO.User user)
         {
-            return "patate";
+            return HhBusiness.User.CreateUser(user);
+        }
+
+        public bool DeleteUser(int id)
+        {
+            return HhBusiness.User.DeleteUser(id);
+        }
+
+        public bool UpdateUser(HhDBO.User user)
+        {
+            return HhBusiness.User.UpdateUser(user);
         }
     }
 }
