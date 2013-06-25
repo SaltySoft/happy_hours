@@ -249,6 +249,14 @@
     <Content Include="Properties\DataSources\HhDataLayer.DBO.User.datasource" />
     <Content Include="Properties\DataSources\HhDBO.User.datasource" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
+    <Content Include="Scripts\HhJavascripts\app.js" />
+    <Content Include="Scripts\HhJavascripts\default.js" />
+    <Content Include="Scripts\HhJavascripts\launcher.js" />
+    <Content Include="Scripts\HhJavascripts\main.js" />
+    <Content Include="Scripts\HhJavascripts\requireConfig.js" />
+    <Content Include="Scripts\javascript\jquery.js" />
+    <Content Include="Scripts\javascript\text.js" />
+    <Content Include="Scripts\javascript\underscore-string.js" />
     <Content Include="Scripts\javascripts\User.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />

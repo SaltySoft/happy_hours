@@ -10,7 +10,7 @@ namespace HappyHours.Controllers
     {
         public ActionResult Index()
         {
-           
+            ViewBag.App = "/Scripts/HhJavascripts/app.js";
             return View();
         }
 

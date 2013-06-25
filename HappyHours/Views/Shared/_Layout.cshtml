@@ -6,11 +6,13 @@
     <title>Happy Hours</title>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
-    
+
     <link href="@Url.Content("~/Content/css/reset.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Content/css/pure.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Content/css/default.css")" rel="stylesheet" type="text/css" />
-    @RenderSection("Styles", false)
+    <script type="text/javascript" src="~/Scripts/javascript/jquery.js"></script>
+    <script type="text/javascript" src="~/Scripts/javascript/require.js"></script>
+    <script type="text/javascript" src="~/Scripts/HhJavascripts/requireConfig.js"></script>
 </head>
 <body>
     <header>
@@ -45,6 +47,15 @@
         </div>
     </header>
     <div id="body">
+
+        <div id="flash_shower">
+            <div id="flash_message"></div>
+            <div style="clear: both"></div>
+        </div>
+        <div id="loader_container">
+            <img id="loader" style="display: none;" src="~/Images/loader.gif" />
+        </div>
+
         @RenderSection("featured", required: false)
         <section class="content-wrapper main-content clear-fix">
             @RenderBody()
@@ -57,5 +68,6 @@
             </div>
         </div>
     </footer>
+    <script type="text/javascript" src="~/Scripts/HhJavascripts/main.js"></script>
 </body>
 </html>
