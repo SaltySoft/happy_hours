@@ -88,6 +88,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>HappyHours.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="ClassDiagram1.cd" />
     <None Include="DataAccess\HappyHours.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>HappyHours.edmx</DependentUpon>
