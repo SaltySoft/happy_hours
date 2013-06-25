@@ -1,10 +1,10 @@
 ﻿requirejs.config({
-    baseUrl: '/',
+    baseUrl: '/Scripts/HhJavascripts/',
     paths: sb_paths,
     shim: sb_shims
 });
 
-var apps = ["underscore", "backbone"];
+var apps = ["underscore", "backbone", "default"];
 
 if (typeof app !== 'undefined') {
     apps.push(app);
@@ -12,9 +12,12 @@ if (typeof app !== 'undefined') {
 
 $(document).ready(function () {
     requirejs(apps,
-        function (_, Backbone, App) {
+        function (_, Backbone,Defaults, App) {
+
+            var defaults = Defaults;
+
             if (App) {
-                App.initialize();
+                App.initialize(defaults);
             }
         });
 });

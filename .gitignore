@@ -6,3 +6,4 @@ obj
 *.ldf
 HhDataLayer/App.config
 HhWcfService/Web.config
+.idea
