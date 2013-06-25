@@ -73,9 +73,14 @@ namespace HappyHours.Controllers
                 }
                 else
                 {
-                    if (!BusinessManagement.User.CreateUser(user))
+                    HhDBO.User result = BusinessManagement.User.CreateUser(user);
+                    if (result == null)
                     {
                         return Json("wserror atcreation", JsonRequestBehavior.AllowGet);
+                    }
+                    else
+                    {
+                        user = result;
                     }
                 }
 

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -88,7 +89,7 @@ namespace HhDataLayer.DataAccess
         /// </summary>
         /// <param name="user">l'objet utilisateur à créer</param>
         /// <returns>true si tout se passe bien sinon false</returns>
-        public static bool CreateUser(HhDBO.User user)
+        public static HhDBO.User CreateUser(HhDBO.User user)
         {
             try
             {
@@ -98,12 +99,14 @@ namespace HhDataLayer.DataAccess
                     T_User tUser = Mapper.Map<HhDBO.User, T_User>(user);
                     bdd.T_User.Add(tUser);
                     bdd.SaveChanges();
-                    return true;
+                    Debug.WriteLine("ID OF THE CREATED USER" + tUser.id);
+                    user.Id = tUser.id;
+                    return user;
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 

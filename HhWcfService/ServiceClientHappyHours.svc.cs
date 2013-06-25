@@ -21,7 +21,7 @@ namespace HhWcfService
             return HhBusiness.User.GetUser(id);
         }
 
-        public bool CreateUser(HhDBO.User user)
+        public HhDBO.User CreateUser(HhDBO.User user)
         {
             return HhBusiness.User.CreateUser(user);
         }

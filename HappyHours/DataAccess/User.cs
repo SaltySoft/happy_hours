@@ -46,7 +46,7 @@ namespace HappyHours.DataAccess
             }
         }
 
-        public bool CreateUser(HhDBO.User user)
+        public HhDBO.User CreateUser(HhDBO.User user)
         {
             try
             {
@@ -54,7 +54,7 @@ namespace HappyHours.DataAccess
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 

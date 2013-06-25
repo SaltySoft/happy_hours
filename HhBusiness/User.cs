@@ -31,7 +31,7 @@ namespace HhBusiness
         /// </summary>
         /// <param name="user">l'objet utilisateur à créer</param>
         /// <returns>true si tout se passe bien sinon false</returns>
-        public static bool CreateUser(HhDBO.User user)
+        public static HhDBO.User CreateUser(HhDBO.User user)
         {
             return HhDataLayer.DataAccess.User.CreateUser(user);
         }

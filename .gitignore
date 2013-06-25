@@ -2,3 +2,7 @@ bin
 obj
 *obj/*
 **.suo
+*.mdf
+*.ldf
+HhDataLayer/App.config
+HhWcfService/Web.config

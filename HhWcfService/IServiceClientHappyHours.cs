@@ -18,7 +18,7 @@ namespace HhWcfService
         List<HhDBO.User> GetUser(int id);
 
         [OperationContract]
-        bool CreateUser(HhDBO.User user);
+        HhDBO.User CreateUser(HhDBO.User user);
 
         [OperationContract]
         bool DeleteUser(int id);
