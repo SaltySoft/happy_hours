@@ -19,11 +19,11 @@ namespace HappyHours
             //    defaults: new { controller = "User", action = "WsRest", id = UrlParameter.Optional }
             //);
 
-           // routes.MapRoute(
-           //    name: "Users",
-           //    url: "users/{action}/{id}",
-           //    defaults: new { controller = "User", action = "Index", id = UrlParameter.Optional }
-           //);
+            // routes.MapRoute(
+            //    name: "Users",
+            //    url: "users/{action}/{id}",
+            //    defaults: new { controller = "User", action = "Index", id = UrlParameter.Optional }
+            //);
 
             routes.MapRoute(
                 name: "Default",

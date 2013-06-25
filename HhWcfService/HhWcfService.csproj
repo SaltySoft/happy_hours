@@ -62,7 +62,9 @@
     <Content Include="Properties\DataSources\HhDataLayer.DataAccess.T_User.datasource" />
     <Content Include="Service1.svc" />
     <Content Include="ServiceClientHappyHours.svc" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IServiceClientHappyHours.cs" />

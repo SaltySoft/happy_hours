@@ -6,7 +6,7 @@
 
 var apps = ["underscore", "backbone"];
 
-if (app !== undefined) {
+if (typeof app !== 'undefined') {
     apps.push(app);
 }
 
