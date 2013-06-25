@@ -81,6 +81,15 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Web.config_">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web.Debug.config_">
+      <DependentUpon>Web.config_</DependentUpon>
+    </None>
+    <None Include="Web.Release.config_">
+      <DependentUpon>Web.config_</DependentUpon>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

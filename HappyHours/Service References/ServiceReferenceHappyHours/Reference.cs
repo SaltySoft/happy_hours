@@ -44,6 +44,36 @@ namespace HappyHours.ServiceReferenceHappyHours {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/UpdateUser", ReplyAction="http://tempuri.org/IServiceClientHappyHours/UpdateUserResponse")]
         System.Threading.Tasks.Task<bool> UpdateUserAsync(HhDBO.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/GetListIngredient", ReplyAction="http://tempuri.org/IServiceClientHappyHours/GetListIngredientResponse")]
+        HhDBO.Ingredient[] GetListIngredient(int max);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/GetListIngredient", ReplyAction="http://tempuri.org/IServiceClientHappyHours/GetListIngredientResponse")]
+        System.Threading.Tasks.Task<HhDBO.Ingredient[]> GetListIngredientAsync(int max);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/GetIngredient", ReplyAction="http://tempuri.org/IServiceClientHappyHours/GetIngredientResponse")]
+        HhDBO.Ingredient GetIngredient(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/GetIngredient", ReplyAction="http://tempuri.org/IServiceClientHappyHours/GetIngredientResponse")]
+        System.Threading.Tasks.Task<HhDBO.Ingredient> GetIngredientAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/CreateIngredient", ReplyAction="http://tempuri.org/IServiceClientHappyHours/CreateIngredientResponse")]
+        HhDBO.Ingredient CreateIngredient(HhDBO.Ingredient ingredient);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/CreateIngredient", ReplyAction="http://tempuri.org/IServiceClientHappyHours/CreateIngredientResponse")]
+        System.Threading.Tasks.Task<HhDBO.Ingredient> CreateIngredientAsync(HhDBO.Ingredient ingredient);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/DeleteIngredient", ReplyAction="http://tempuri.org/IServiceClientHappyHours/DeleteIngredientResponse")]
+        bool DeleteIngredient(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/DeleteIngredient", ReplyAction="http://tempuri.org/IServiceClientHappyHours/DeleteIngredientResponse")]
+        System.Threading.Tasks.Task<bool> DeleteIngredientAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/UpdateIngredient", ReplyAction="http://tempuri.org/IServiceClientHappyHours/UpdateIngredientResponse")]
+        bool UpdateIngredient(HhDBO.Ingredient ingredient);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/UpdateIngredient", ReplyAction="http://tempuri.org/IServiceClientHappyHours/UpdateIngredientResponse")]
+        System.Threading.Tasks.Task<bool> UpdateIngredientAsync(HhDBO.Ingredient ingredient);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -111,6 +141,46 @@ namespace HappyHours.ServiceReferenceHappyHours {
         
         public System.Threading.Tasks.Task<bool> UpdateUserAsync(HhDBO.User user) {
             return base.Channel.UpdateUserAsync(user);
+        }
+        
+        public HhDBO.Ingredient[] GetListIngredient(int max) {
+            return base.Channel.GetListIngredient(max);
+        }
+        
+        public System.Threading.Tasks.Task<HhDBO.Ingredient[]> GetListIngredientAsync(int max) {
+            return base.Channel.GetListIngredientAsync(max);
+        }
+        
+        public HhDBO.Ingredient GetIngredient(int id) {
+            return base.Channel.GetIngredient(id);
+        }
+        
+        public System.Threading.Tasks.Task<HhDBO.Ingredient> GetIngredientAsync(int id) {
+            return base.Channel.GetIngredientAsync(id);
+        }
+        
+        public HhDBO.Ingredient CreateIngredient(HhDBO.Ingredient ingredient) {
+            return base.Channel.CreateIngredient(ingredient);
+        }
+        
+        public System.Threading.Tasks.Task<HhDBO.Ingredient> CreateIngredientAsync(HhDBO.Ingredient ingredient) {
+            return base.Channel.CreateIngredientAsync(ingredient);
+        }
+        
+        public bool DeleteIngredient(int id) {
+            return base.Channel.DeleteIngredient(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteIngredientAsync(int id) {
+            return base.Channel.DeleteIngredientAsync(id);
+        }
+        
+        public bool UpdateIngredient(HhDBO.Ingredient ingredient) {
+            return base.Channel.UpdateIngredient(ingredient);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdateIngredientAsync(HhDBO.Ingredient ingredient) {
+            return base.Channel.UpdateIngredientAsync(ingredient);
         }
     }
 }

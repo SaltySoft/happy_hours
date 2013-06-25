@@ -37,6 +37,36 @@
   <wsdl:message name="IServiceClientHappyHours_UpdateUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdateUserResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_GetListIngredient_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListIngredient" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_GetListIngredient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListIngredientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_GetIngredient_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIngredient" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_GetIngredient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIngredientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_CreateIngredient_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateIngredient" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_CreateIngredient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateIngredientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_DeleteIngredient_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteIngredient" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_DeleteIngredient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteIngredientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_UpdateIngredient_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateIngredient" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_UpdateIngredient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateIngredientResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServiceClientHappyHours">
     <wsdl:operation name="GetListUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceClientHappyHours/GetListUser" message="tns:IServiceClientHappyHours_GetListUser_InputMessage" />
@@ -57,6 +87,26 @@
     <wsdl:operation name="UpdateUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceClientHappyHours/UpdateUser" message="tns:IServiceClientHappyHours_UpdateUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceClientHappyHours/UpdateUserResponse" message="tns:IServiceClientHappyHours_UpdateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListIngredient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceClientHappyHours/GetListIngredient" message="tns:IServiceClientHappyHours_GetListIngredient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceClientHappyHours/GetListIngredientResponse" message="tns:IServiceClientHappyHours_GetListIngredient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIngredient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceClientHappyHours/GetIngredient" message="tns:IServiceClientHappyHours_GetIngredient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceClientHappyHours/GetIngredientResponse" message="tns:IServiceClientHappyHours_GetIngredient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateIngredient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceClientHappyHours/CreateIngredient" message="tns:IServiceClientHappyHours_CreateIngredient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceClientHappyHours/CreateIngredientResponse" message="tns:IServiceClientHappyHours_CreateIngredient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteIngredient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceClientHappyHours/DeleteIngredient" message="tns:IServiceClientHappyHours_DeleteIngredient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceClientHappyHours/DeleteIngredientResponse" message="tns:IServiceClientHappyHours_DeleteIngredient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateIngredient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceClientHappyHours/UpdateIngredient" message="tns:IServiceClientHappyHours_UpdateIngredient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceClientHappyHours/UpdateIngredientResponse" message="tns:IServiceClientHappyHours_UpdateIngredient_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServiceClientHappyHours" type="tns:IServiceClientHappyHours">
@@ -99,6 +149,51 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateUser">
       <soap:operation soapAction="http://tempuri.org/IServiceClientHappyHours/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListIngredient">
+      <soap:operation soapAction="http://tempuri.org/IServiceClientHappyHours/GetListIngredient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIngredient">
+      <soap:operation soapAction="http://tempuri.org/IServiceClientHappyHours/GetIngredient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateIngredient">
+      <soap:operation soapAction="http://tempuri.org/IServiceClientHappyHours/CreateIngredient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteIngredient">
+      <soap:operation soapAction="http://tempuri.org/IServiceClientHappyHours/DeleteIngredient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateIngredient">
+      <soap:operation soapAction="http://tempuri.org/IServiceClientHappyHours/UpdateIngredient" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -16,4 +16,17 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="User" nillable="true" type="tns:User" />
+  <xs:complexType name="ArrayOfIngredient">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Ingredient" nillable="true" type="tns:Ingredient" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfIngredient" nillable="true" type="tns:ArrayOfIngredient" />
+  <xs:complexType name="Ingredient">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Ingredient" nillable="true" type="tns:Ingredient" />
 </xs:schema>
