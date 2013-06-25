@@ -169,7 +169,6 @@
     <Compile Include="BusinessManagement\User.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DataAccess\User.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
@@ -252,12 +251,12 @@
     <Content Include="Scripts\HhJavascripts\app.js" />
     <Content Include="Scripts\HhJavascripts\default.js" />
     <Content Include="Scripts\HhJavascripts\launcher.js" />
-    <Content Include="Scripts\HhJavascripts\main.js" />
-    <Content Include="Scripts\HhJavascripts\requireConfig.js" />
+    <Content Include="Scripts\RequireInit\main.js" />
+    <Content Include="Scripts\RequireInit\requireConfig.js" />
     <Content Include="Scripts\javascript\jquery.js" />
     <Content Include="Scripts\javascript\text.js" />
     <Content Include="Scripts\javascript\underscore-string.js" />
-    <Content Include="Scripts\javascripts\User.js" />
+    <Content Include="Scripts\HhJavascripts\UserTest.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -328,7 +327,6 @@
     <None Include="Service References\ServiceReferenceHappyHours\ServiceClientHappyHours2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Views\Test\TestJson.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\Users.cshtml" />
     <Content Include="Views\Shared\_LayoutOLD.cshtml" />
