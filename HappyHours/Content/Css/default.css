@@ -1,0 +1,51 @@
+﻿body {
+    background-image: url("../../Images/cocktail2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: -25px;
+}
+
+/* **************** usefull class begin **************** */
+.separator-clearer {
+    clear: both;
+}
+/* **************** usefull class end **************** */
+/* **************** HEADER SECTION begin **************** */
+header {
+    width: 1200px;
+    height: 150px;
+    margin: auto;
+    padding: 10px;
+}
+
+.logo-container {
+    float: left;
+    margin: 10px;
+}
+
+#img-logo {
+    width: 400px;
+    height: 125px;
+}
+
+.header-buttons-container {
+    margin: 5px;
+}
+
+.login-menu-container {
+    float: right;
+    margin: 20px 20px 0px 20px;
+}
+
+.navigation-menu-container {
+    float: right;
+    margin: 30px 50px 0px 50px;
+}
+/* **************** HEADER SECTION end **************** */
+/* **************** BODY SECTION begin **************** */
+#body {
+    width: 1200px;
+    margin: auto;
+    padding: 10px;
+}
+/* **************** BODY SECTION end **************** */

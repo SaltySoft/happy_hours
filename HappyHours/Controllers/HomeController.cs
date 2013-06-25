@@ -10,8 +10,7 @@ namespace HappyHours.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Modifiez ce modèle pour dynamiser votre application ASP.NET MVC.";
-
+           
             return View();
         }
 
