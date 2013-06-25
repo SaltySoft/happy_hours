@@ -2,10 +2,10 @@
     'jquery',
     'underscore',
     'backbone',
-    '/Scripts/HhJavascripts/launcher.js'
+    'launcher'
 ], function ($, _, Backbone, Launcher) {
-    var initialize = function () {
-        Launcher.initialize();
+    var initialize = function (app) {
+        Launcher.initialize(app);
     };
     return {
         initialize: initialize

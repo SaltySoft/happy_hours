@@ -7,10 +7,10 @@ using System.Text;
 
 namespace HhWcfService
 {
-    // REMARQUE : vous pouvez utiliser la commande Renommer du menu Refactoriser pour changer le nom d'interface "IServiceClientHappyHours" à la fois dans le code et le fichier de configuration.
     [ServiceContract]
     public interface IServiceClientHappyHours
     {
+        //Users
         [OperationContract]
         List<HhDBO.User> GetListUser(int max);
 
@@ -25,5 +25,38 @@ namespace HhWcfService
 
         [OperationContract]
         bool UpdateUser(HhDBO.User user);
+
+
+        //Ingredients
+        [OperationContract]
+        List<HhDBO.Ingredient> GetListIngredient(int max);
+
+        [OperationContract]
+        HhDBO.Ingredient GetIngredient(int id);
+
+        [OperationContract]
+        HhDBO.Ingredient CreateIngredient(HhDBO.Ingredient ingredient);
+
+        [OperationContract]
+        bool DeleteIngredient(int id);
+
+        [OperationContract]
+        bool UpdateIngredient(HhDBO.Ingredient ingredient);
+
+        //Cocktails
+        [OperationContract]
+        List<HhDBO.Cocktail> GetListCocktail(int max);
+
+        [OperationContract]
+        HhDBO.Cocktail GetCocktail(int id);
+
+        [OperationContract]
+        HhDBO.Cocktail CreateCocktail(HhDBO.Cocktail cocktail);
+
+        [OperationContract]
+        bool DeleteCocktail(int id);
+
+        [OperationContract]
+        bool UpdateCocktail(HhDBO.Cocktail cocktail);
     }
 }

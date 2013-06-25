@@ -44,6 +44,66 @@ namespace HappyHours.ServiceReferenceHappyHours {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/UpdateUser", ReplyAction="http://tempuri.org/IServiceClientHappyHours/UpdateUserResponse")]
         System.Threading.Tasks.Task<bool> UpdateUserAsync(HhDBO.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/GetListIngredient", ReplyAction="http://tempuri.org/IServiceClientHappyHours/GetListIngredientResponse")]
+        HhDBO.Ingredient[] GetListIngredient(int max);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/GetListIngredient", ReplyAction="http://tempuri.org/IServiceClientHappyHours/GetListIngredientResponse")]
+        System.Threading.Tasks.Task<HhDBO.Ingredient[]> GetListIngredientAsync(int max);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/GetIngredient", ReplyAction="http://tempuri.org/IServiceClientHappyHours/GetIngredientResponse")]
+        HhDBO.Ingredient GetIngredient(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/GetIngredient", ReplyAction="http://tempuri.org/IServiceClientHappyHours/GetIngredientResponse")]
+        System.Threading.Tasks.Task<HhDBO.Ingredient> GetIngredientAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/CreateIngredient", ReplyAction="http://tempuri.org/IServiceClientHappyHours/CreateIngredientResponse")]
+        HhDBO.Ingredient CreateIngredient(HhDBO.Ingredient ingredient);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/CreateIngredient", ReplyAction="http://tempuri.org/IServiceClientHappyHours/CreateIngredientResponse")]
+        System.Threading.Tasks.Task<HhDBO.Ingredient> CreateIngredientAsync(HhDBO.Ingredient ingredient);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/DeleteIngredient", ReplyAction="http://tempuri.org/IServiceClientHappyHours/DeleteIngredientResponse")]
+        bool DeleteIngredient(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/DeleteIngredient", ReplyAction="http://tempuri.org/IServiceClientHappyHours/DeleteIngredientResponse")]
+        System.Threading.Tasks.Task<bool> DeleteIngredientAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/UpdateIngredient", ReplyAction="http://tempuri.org/IServiceClientHappyHours/UpdateIngredientResponse")]
+        bool UpdateIngredient(HhDBO.Ingredient ingredient);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/UpdateIngredient", ReplyAction="http://tempuri.org/IServiceClientHappyHours/UpdateIngredientResponse")]
+        System.Threading.Tasks.Task<bool> UpdateIngredientAsync(HhDBO.Ingredient ingredient);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/GetListCocktail", ReplyAction="http://tempuri.org/IServiceClientHappyHours/GetListCocktailResponse")]
+        HhDBO.Cocktail[] GetListCocktail(int max);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/GetListCocktail", ReplyAction="http://tempuri.org/IServiceClientHappyHours/GetListCocktailResponse")]
+        System.Threading.Tasks.Task<HhDBO.Cocktail[]> GetListCocktailAsync(int max);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/GetCocktail", ReplyAction="http://tempuri.org/IServiceClientHappyHours/GetCocktailResponse")]
+        HhDBO.Cocktail GetCocktail(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/GetCocktail", ReplyAction="http://tempuri.org/IServiceClientHappyHours/GetCocktailResponse")]
+        System.Threading.Tasks.Task<HhDBO.Cocktail> GetCocktailAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/CreateCocktail", ReplyAction="http://tempuri.org/IServiceClientHappyHours/CreateCocktailResponse")]
+        HhDBO.Cocktail CreateCocktail(HhDBO.Cocktail cocktail);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/CreateCocktail", ReplyAction="http://tempuri.org/IServiceClientHappyHours/CreateCocktailResponse")]
+        System.Threading.Tasks.Task<HhDBO.Cocktail> CreateCocktailAsync(HhDBO.Cocktail cocktail);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/DeleteCocktail", ReplyAction="http://tempuri.org/IServiceClientHappyHours/DeleteCocktailResponse")]
+        bool DeleteCocktail(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/DeleteCocktail", ReplyAction="http://tempuri.org/IServiceClientHappyHours/DeleteCocktailResponse")]
+        System.Threading.Tasks.Task<bool> DeleteCocktailAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/UpdateCocktail", ReplyAction="http://tempuri.org/IServiceClientHappyHours/UpdateCocktailResponse")]
+        bool UpdateCocktail(HhDBO.Cocktail cocktail);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/UpdateCocktail", ReplyAction="http://tempuri.org/IServiceClientHappyHours/UpdateCocktailResponse")]
+        System.Threading.Tasks.Task<bool> UpdateCocktailAsync(HhDBO.Cocktail cocktail);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -111,6 +171,86 @@ namespace HappyHours.ServiceReferenceHappyHours {
         
         public System.Threading.Tasks.Task<bool> UpdateUserAsync(HhDBO.User user) {
             return base.Channel.UpdateUserAsync(user);
+        }
+        
+        public HhDBO.Ingredient[] GetListIngredient(int max) {
+            return base.Channel.GetListIngredient(max);
+        }
+        
+        public System.Threading.Tasks.Task<HhDBO.Ingredient[]> GetListIngredientAsync(int max) {
+            return base.Channel.GetListIngredientAsync(max);
+        }
+        
+        public HhDBO.Ingredient GetIngredient(int id) {
+            return base.Channel.GetIngredient(id);
+        }
+        
+        public System.Threading.Tasks.Task<HhDBO.Ingredient> GetIngredientAsync(int id) {
+            return base.Channel.GetIngredientAsync(id);
+        }
+        
+        public HhDBO.Ingredient CreateIngredient(HhDBO.Ingredient ingredient) {
+            return base.Channel.CreateIngredient(ingredient);
+        }
+        
+        public System.Threading.Tasks.Task<HhDBO.Ingredient> CreateIngredientAsync(HhDBO.Ingredient ingredient) {
+            return base.Channel.CreateIngredientAsync(ingredient);
+        }
+        
+        public bool DeleteIngredient(int id) {
+            return base.Channel.DeleteIngredient(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteIngredientAsync(int id) {
+            return base.Channel.DeleteIngredientAsync(id);
+        }
+        
+        public bool UpdateIngredient(HhDBO.Ingredient ingredient) {
+            return base.Channel.UpdateIngredient(ingredient);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdateIngredientAsync(HhDBO.Ingredient ingredient) {
+            return base.Channel.UpdateIngredientAsync(ingredient);
+        }
+        
+        public HhDBO.Cocktail[] GetListCocktail(int max) {
+            return base.Channel.GetListCocktail(max);
+        }
+        
+        public System.Threading.Tasks.Task<HhDBO.Cocktail[]> GetListCocktailAsync(int max) {
+            return base.Channel.GetListCocktailAsync(max);
+        }
+        
+        public HhDBO.Cocktail GetCocktail(int id) {
+            return base.Channel.GetCocktail(id);
+        }
+        
+        public System.Threading.Tasks.Task<HhDBO.Cocktail> GetCocktailAsync(int id) {
+            return base.Channel.GetCocktailAsync(id);
+        }
+        
+        public HhDBO.Cocktail CreateCocktail(HhDBO.Cocktail cocktail) {
+            return base.Channel.CreateCocktail(cocktail);
+        }
+        
+        public System.Threading.Tasks.Task<HhDBO.Cocktail> CreateCocktailAsync(HhDBO.Cocktail cocktail) {
+            return base.Channel.CreateCocktailAsync(cocktail);
+        }
+        
+        public bool DeleteCocktail(int id) {
+            return base.Channel.DeleteCocktail(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteCocktailAsync(int id) {
+            return base.Channel.DeleteCocktailAsync(id);
+        }
+        
+        public bool UpdateCocktail(HhDBO.Cocktail cocktail) {
+            return base.Channel.UpdateCocktail(cocktail);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdateCocktailAsync(HhDBO.Cocktail cocktail) {
+            return base.Channel.UpdateCocktailAsync(cocktail);
         }
     }
 }

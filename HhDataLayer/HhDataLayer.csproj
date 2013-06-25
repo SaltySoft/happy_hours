@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAccess\Cocktail.cs" />
     <Compile Include="DataAccess\HappyHours.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -64,6 +65,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HappyHours.edmx</DependentUpon>
     </Compile>
+    <Compile Include="DataAccess\Ingredient.cs" />
     <Compile Include="DataAccess\T_Cocktail.cs">
       <DependentUpon>HappyHours.tt</DependentUpon>
     </Compile>
@@ -89,6 +91,7 @@
       <LastGenOutput>HappyHours.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="ClassDiagram1.cd" />
+    <None Include="App.Config_" />
     <None Include="DataAccess\HappyHours.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>HappyHours.edmx</DependentUpon>

@@ -2,15 +2,20 @@
     'jquery',
     'underscore',
     'backbone',
-    '/Scripts/HhJavascripts/Views/TodayCocktail.js'
-], function ($, _, Backbone, TodayCocktailView) {
+    'Views/TodayCocktail',
+    'Views/MainView'
+], function ($, _, Backbone, TodayCocktailView, MainView) {
 
-    var initialize = function () {
+    var initialize = function (app) {
 
-        var todayCocktail = new TodayCocktailView();
-        todayCocktail.init();
+//        var todayCocktail = new TodayCocktailView();
+//        todayCocktail.init();
+//
+//        $("#app_container").html(todayCocktail.$el);
 
-        $("#app_container").html(todayCocktail.$el);
+        var main_view = new MainView();
+        $("#app_container").html(main_view.$el);
+        main_view.init(app);
 
         Backbone.history.start();
     };

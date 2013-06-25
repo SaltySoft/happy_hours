@@ -88,7 +88,7 @@ namespace HhDataLayer.DataAccess
         /// permet la création d'un utilisateur
         /// </summary>
         /// <param name="user">l'objet utilisateur à créer</param>
-        /// <returns>true si tout se passe bien sinon false</returns>
+        /// <returns>le user si tout se passe bien sinon null</returns>
         public static HhDBO.User CreateUser(HhDBO.User user)
         {
             try
@@ -99,7 +99,6 @@ namespace HhDataLayer.DataAccess
                     T_User tUser = Mapper.Map<HhDBO.User, T_User>(user);
                     bdd.T_User.Add(tUser);
                     bdd.SaveChanges();
-                    Debug.WriteLine("ID OF THE CREATED USER" + tUser.id);
                     user.Id = tUser.id;
                     return user;
                 }
