@@ -1,12 +1,16 @@
 ﻿define([
     'jquery',
     'underscore',
-    'backbone'
-], function ($, _, Backbone) {
+    'backbone',
+    '/Scripts/HhJavascripts/Views/TodayCocktail.js'
+], function ($, _, Backbone, TodayCocktailView) {
 
-    var initialize = function (SmartBlocks) {
+    var initialize = function () {
 
-        $("#app_container").html("trololololo");
+        var todayCocktail = new TodayCocktailView();
+        todayCocktail.init();
+
+        $("#app_container").html(todayCocktail.$el);
 
         Backbone.history.start();
     };

@@ -251,12 +251,14 @@
     <Content Include="Scripts\HhJavascripts\app.js" />
     <Content Include="Scripts\HhJavascripts\default.js" />
     <Content Include="Scripts\HhJavascripts\launcher.js" />
+    <Content Include="Scripts\HhJavascripts\Templates\today_cocktail.html" />
+    <Content Include="Scripts\HhJavascripts\Views\TodayCocktail.js" />
     <Content Include="Scripts\RequireInit\main.js" />
     <Content Include="Scripts\RequireInit\requireConfig.js" />
     <Content Include="Scripts\javascript\jquery.js" />
     <Content Include="Scripts\javascript\text.js" />
     <Content Include="Scripts\javascript\underscore-string.js" />
-    <Content Include="Scripts\HhJavascripts\UserTest.js" />
+    <Content Include="Scripts\HhJavascripts\GenreTest.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -334,6 +336,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Scripts\HhJavascripts\Collections\" />
+    <Folder Include="Scripts\HhJavascripts\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
