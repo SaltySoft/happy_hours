@@ -4,6 +4,9 @@
     right: 0px;
     top: 0;
     bottom: 0px;
+    width: 1200px;
+    margin: auto;
+    padding: 10px;
 }
 
 .connection {
@@ -16,7 +19,7 @@
     left: 0;
     right: 0;
     bottom: 88px;
-    top: 50px;
+    top: 130px;
 }
 
 .panel {
@@ -24,6 +27,10 @@
 }
 
 #sub_app_container {
+
+}
+
+#header {
 
 }
 

@@ -1,4 +1,14 @@
-﻿Today Cocktail:
-</br>
-<%= todayCocktail %>
-</br>
+﻿<div class="featured_cocktail_img_container" >
+    <img class="featured_cocktail_img" src="<%= picture_url %>" alt="Today featured cocktail." />
+</div >
+<div class="featured_cocktail_header" >
+    Le cocktail du jour : <span class="featured_cocktail_title" > <%= todayCocktail %></span >
+</div >
+<div class="featured_cocktail_description" >
+    <div class="description" >
+        Description :
+    </div >
+    <%= todayCocktailDescription %>
+</div >
+<div class="clearer" ></div >
+<button class="pure-button" >Voir</button >

@@ -1,0 +1,9 @@
+.featured_cocktail_img_container {
+    float: right;
+    margin: 10px;
+}
+
+.featured_cocktail_img {
+    width: 200px;
+    height: 200px;
+}

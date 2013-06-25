@@ -2,16 +2,10 @@
     'jquery',
     'underscore',
     'backbone',
-    'Views/TodayCocktail',
     'Views/MainView'
-], function ($, _, Backbone, TodayCocktailView, MainView) {
+], function ($, _, Backbone, MainView) {
 
     var initialize = function (app) {
-
-//        var todayCocktail = new TodayCocktailView();
-//        todayCocktail.init();
-//
-//        $("#app_container").html(todayCocktail.$el);
 
         var main_view = new MainView();
         $("#app_container").html(main_view.$el);
