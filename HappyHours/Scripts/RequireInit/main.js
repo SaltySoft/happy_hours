@@ -4,7 +4,7 @@
     shim: sb_shims
 });
 
-var apps = ["underscore", "backbone", "default"];
+var apps = ["jquery", "underscore", "backbone", "default"];
 
 if (typeof app !== 'undefined') {
     apps.push(app);
@@ -12,10 +12,10 @@ if (typeof app !== 'undefined') {
 
 $(document).ready(function () {
     requirejs(apps,
-        function (_, Backbone,Defaults, App) {
+        function ($, _, Backbone,Defaults, App) {
 
             var defaults = Defaults;
-
+            defaults.events = $.extend({}, Backbone.Events);
             if (App) {
                 App.initialize(defaults);
             }
