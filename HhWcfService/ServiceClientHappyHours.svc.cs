@@ -62,5 +62,31 @@ namespace HhWcfService
         {
             return HhBusiness.Ingredient.UpdateIngredient(ingredient);
         }
+
+        //Cocktails
+        public List<HhDBO.Cocktail> GetListCocktail(int max)
+        {
+            return HhBusiness.Cocktail.GetListCocktail(max);
+        }
+
+        public HhDBO.Cocktail GetCocktail(int id)
+        {
+            return HhBusiness.Cocktail.GetCocktail(id);
+        }
+
+        public HhDBO.Cocktail CreateCocktail(HhDBO.Cocktail cocktail)
+        {
+            return HhBusiness.Cocktail.CreateCocktail(cocktail);
+        }
+
+        public bool DeleteCocktail(int id)
+        {
+            return HhBusiness.Cocktail.DeleteCocktail(id);
+        }
+
+        public bool UpdateCocktail(HhDBO.Cocktail cocktail)
+        {
+            return HhBusiness.Cocktail.UpdateCocktail(cocktail);
+        }
     }
 }

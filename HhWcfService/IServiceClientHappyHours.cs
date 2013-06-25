@@ -42,5 +42,21 @@ namespace HhWcfService
 
         [OperationContract]
         bool UpdateIngredient(HhDBO.Ingredient ingredient);
+
+        //Cocktails
+        [OperationContract]
+        List<HhDBO.Cocktail> GetListCocktail(int max);
+
+        [OperationContract]
+        HhDBO.Cocktail GetCocktail(int id);
+
+        [OperationContract]
+        HhDBO.Cocktail CreateCocktail(HhDBO.Cocktail cocktail);
+
+        [OperationContract]
+        bool DeleteCocktail(int id);
+
+        [OperationContract]
+        bool UpdateCocktail(HhDBO.Cocktail cocktail);
     }
 }

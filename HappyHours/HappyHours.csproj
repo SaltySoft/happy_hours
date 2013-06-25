@@ -166,12 +166,15 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="BusinessManagement\Cocktail.cs" />
     <Compile Include="BusinessManagement\Ingredient.cs" />
     <Compile Include="BusinessManagement\User.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CocktailController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IngredientController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="DataAccess\Cocktail.cs" />
     <Compile Include="DataAccess\Ingredient.cs" />
     <Compile Include="DataAccess\User.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
@@ -251,6 +254,7 @@
     <Content Include="Properties\DataSources\HhDataLayer.DBO.User.datasource" />
     <Content Include="Properties\DataSources\HhDBO.User.datasource" />
     <Content Include="Properties\DataSources\HhDBO.Ingredient.datasource" />
+    <Content Include="Properties\DataSources\HhDBO.Cocktail.datasource" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\HhJavascripts\app.js" />
     <Content Include="Scripts\HhJavascripts\default.js" />
