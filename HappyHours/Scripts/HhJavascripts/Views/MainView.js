@@ -24,7 +24,7 @@
                 },
                 cocktails: function () {
                     var cocktail_list = new CocktailListView();
-                    base.$el.find(".sub_app_container").html(cocktail_list.$el);
+                    base.$el.find("#sub_app_container").html(cocktail_list.$el);
                     cocktail_list.init(base.app);
                 }
             });
