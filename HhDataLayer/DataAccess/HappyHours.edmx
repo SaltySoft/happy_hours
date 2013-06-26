@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="HappyHoursModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="HappyHoursModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="HappyHoursModelStoreContainer">
           <EntitySet Name="T_Cocktail" EntityType="HappyHoursModel.Store.T_Cocktail" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="T_CocktailsIngredients" EntityType="HappyHoursModel.Store.T_CocktailsIngredients" store:Type="Tables" Schema="dbo" />
@@ -41,9 +41,9 @@
           <Property Name="difficulty" Type="int" Nullable="false" />
           <Property Name="duration" Type="int" Nullable="false" />
           <Property Name="creator_id" Type="int" Nullable="false" />
-          <Property Name="description" Type="nvarchar" Nullable="false" MaxLength="200" />
-          <Property Name="recipe" Type="nvarchar" Nullable="false" MaxLength="200" />
-          <Property Name="picture_url" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="description" Type="nvarchar" Nullable="false" MaxLength="1000" />
+          <Property Name="recipe" Type="nvarchar" Nullable="false" MaxLength="800" />
+          <Property Name="picture_url" Type="nvarchar" Nullable="false" MaxLength="400" />
         </EntityType>
         <EntityType Name="T_CocktailsIngredients">
           <Key>
@@ -138,8 +138,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HappyHoursModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -179,9 +178,9 @@
           <Property Name="difficulty" Type="Int32" Nullable="false" />
           <Property Name="duration" Type="Int32" Nullable="false" />
           <Property Name="creator_id" Type="Int32" Nullable="false" />
-          <Property Name="description" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
-          <Property Name="recipe" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
-          <Property Name="picture_url" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="description" Type="String" Nullable="false" MaxLength="1000" Unicode="true" FixedLength="false" />
+          <Property Name="recipe" Type="String" Nullable="false" MaxLength="800" Unicode="true" FixedLength="false" />
+          <Property Name="picture_url" Type="String" Nullable="false" MaxLength="400" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="T_User" Relationship="HappyHoursModel.FK_T_Cocktail_T_User" FromRole="T_Cocktail" ToRole="T_User" />
           <NavigationProperty Name="T_CocktailsIngredients" Relationship="HappyHoursModel.FK_T_CocktailsIngredients_T_Cocktail" FromRole="T_Cocktail" ToRole="T_CocktailsIngredients" />
           <NavigationProperty Name="T_Favorite" Relationship="HappyHoursModel.FK_T_Favorite_T_Cocktail" FromRole="T_Cocktail" ToRole="T_Favorite" />

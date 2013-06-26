@@ -27,7 +27,7 @@ namespace HappyHours.DataAccess
                 List<HhDBO.User> users = _client.GetListUser(max).ToList();
                 return users;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<HhDBO.User>();
             }
@@ -40,7 +40,7 @@ namespace HappyHours.DataAccess
                 List<HhDBO.User> users = _client.GetUser(id).ToList();
                 return users;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<HhDBO.User>();
             }
@@ -52,7 +52,7 @@ namespace HappyHours.DataAccess
             {
                 return _client.CreateUser(user);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
@@ -64,7 +64,7 @@ namespace HappyHours.DataAccess
             {
                 return _client.UpdateUser(user);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }
@@ -76,7 +76,7 @@ namespace HappyHours.DataAccess
             {
                 return _client.DeleteUser(id);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }

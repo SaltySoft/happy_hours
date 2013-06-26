@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -76,11 +77,12 @@ namespace HappyHours.Controllers
                 {
                     if (picture != null)
                     {
-                        int passwordLength = 10;
-                        string random = Membership.GeneratePassword(passwordLength,0) + "." + picture.ContentType.Substring(picture.ContentType.IndexOf("/") + 1);
-                        random = "h.png";
-                        picture.SaveAs(picture_path + random);
-                        cocktail.Picture_Url = "/Images/Cocktails/" + random;
+                        string pictureRandomUrl = Path.GetFileNameWithoutExtension(picture.FileName) 
+                            + DateTime.Now.ToString("yyyyMMddHHmmssfff")
+                            + Path.GetExtension(picture.FileName);
+
+                        picture.SaveAs(picture_path + pictureRandomUrl);
+                        cocktail.Picture_Url = "/Images/Cocktails/" + pictureRandomUrl;
                     }
                     HhDBO.Cocktail result = BusinessManagement.Cocktail.CreateCocktail(cocktail);
                     if (result == null)
@@ -92,8 +94,6 @@ namespace HappyHours.Controllers
                         cocktail = result;
                     }
                 }
-
-
 
                 return Json(cocktail, JsonRequestBehavior.DenyGet);
             }
@@ -120,6 +120,5 @@ namespace HappyHours.Controllers
 
             return Json("wssuccess cocktail deleted.", JsonRequestBehavior.DenyGet);
         }
-
     }
 }

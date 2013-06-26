@@ -35,7 +35,7 @@ namespace HhDataLayer.DataAccess
                 Debug.WriteLine("Got list of ingredients");
                 return ingredients;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Debug.WriteLine("Problem while getting list of ingredients");
                 return new List<HhDBO.Ingredient>();
@@ -64,7 +64,7 @@ namespace HhDataLayer.DataAccess
 
                 return dboIngredient;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
@@ -84,7 +84,7 @@ namespace HhDataLayer.DataAccess
                     return ingredient;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
@@ -102,7 +102,7 @@ namespace HhDataLayer.DataAccess
                     return true;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }
@@ -128,12 +128,10 @@ namespace HhDataLayer.DataAccess
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }
         }
     }
-
-    
 }

@@ -34,7 +34,7 @@ namespace HhDataLayer.DataAccess
 
                 return dboCocktail;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
@@ -61,7 +61,7 @@ namespace HhDataLayer.DataAccess
                 Debug.WriteLine("Got list of cocktails");
                 return cocktails;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Debug.WriteLine("Problem while getting list of cocktails");
                 return new List<HhDBO.Cocktail>();
@@ -90,7 +90,7 @@ namespace HhDataLayer.DataAccess
 
                 return dboCocktail;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
@@ -109,13 +109,11 @@ namespace HhDataLayer.DataAccess
                     bdd.T_Cocktail.Add(tCocktail);
                     bdd.SaveChanges();
                     cocktail.Id = tCocktail.id;
-                    Debug.WriteLine("Created cocktail haha");
                     return cocktail;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
                 return null;
             }
         }
@@ -132,7 +130,7 @@ namespace HhDataLayer.DataAccess
                     return true;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }
@@ -164,7 +162,7 @@ namespace HhDataLayer.DataAccess
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }
