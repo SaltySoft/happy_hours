@@ -21,6 +21,19 @@ namespace HappyHours.DataAccess
             _client = new ServiceReferenceHappyHours.ServiceClientHappyHoursClient();
         }
 
+        public HhDBO.Cocktail GetRandomCocktail()
+        {
+            try
+            {
+                HhDBO.Cocktail cocktail = _client.GetRandomCocktail();
+                return cocktail;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
         public List<HhDBO.Cocktail> GetListCocktail(int max)
         {
             try

@@ -45,6 +45,9 @@ namespace HhWcfService
 
         //Cocktails
         [OperationContract]
+        HhDBO.Cocktail GetRandomCocktail();
+
+        [OperationContract]
         List<HhDBO.Cocktail> GetListCocktail(int max);
 
         [OperationContract]

@@ -9,6 +9,15 @@ namespace HhBusiness
     public class Cocktail
     {
         /// <summary>
+        /// retourne un cocktail au hasard
+        /// </summary>
+        /// <returns>un cocktail au hasard</returns>
+        public static HhDBO.Cocktail GetRandomCocktail()
+        {
+            return HhDataLayer.DataAccess.Cocktail.GetRandomCocktail();
+        }
+
+        /// <summary>
         /// retourne la liste complete de tous les cocktails.
         /// </summary>
         /// <returns>la liste des cocktails sinon une liste vide</returns>
@@ -18,9 +27,9 @@ namespace HhBusiness
         }
 
         /// <summary>
-        /// retourne une liste contenant un cocktail
+        /// retourne un cocktail
         /// </summary>
-        /// <returns>la liste contenant l'cocktail correspondant à l'id sinon une liste vide</returns>
+        /// <returns> le cocktail correspondant à l'id</returns>
         public static HhDBO.Cocktail GetCocktail(int id)
         {
             return HhDataLayer.DataAccess.Cocktail.GetCocktail(id);

@@ -10,10 +10,36 @@ namespace HhDataLayer.DataAccess
 {
     public class Cocktail
     {
-        /// <summary>
-        /// retourne la liste complete de tous les cocktails.
-        /// </summary>
-        /// <returns>la liste des cocktails sinon une liste vide</returns>
+        public static HhDBO.Cocktail GetRandomCocktail()
+        {
+            try
+            {
+                HhDBO.Cocktail dboCocktail = null;
+                using (MyHappyHoursEntities bdd = new MyHappyHoursEntities())
+                {
+                    int count = bdd.T_Cocktail.Count();
+                    int index = new Random().Next(count);
+                    T_Cocktail cocktail = bdd.T_Cocktail.Skip(index).FirstOrDefault();
+
+                    if (cocktail != null)
+                    {
+                        Mapper.CreateMap<T_Cocktail, HhDBO.Cocktail>();
+                        dboCocktail = Mapper.Map<T_Cocktail, HhDBO.Cocktail>(cocktail);
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+
+                return dboCocktail;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
         public static List<HhDBO.Cocktail> GetListCocktail(int max)
         {
             try
@@ -74,7 +100,6 @@ namespace HhDataLayer.DataAccess
         {
             try
             {
-
                 using (MyHappyHoursEntities bdd = new MyHappyHoursEntities())
                 {
                     T_User creator = bdd.T_User.Where(x => x.id == cocktail.Creator_Id).FirstOrDefault();

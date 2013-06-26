@@ -16,6 +16,13 @@ namespace HappyHours.Controllers
             return View();
         }
 
+        [AcceptVerbs(HttpVerbs.Get)]
+        public JsonResult GetRandomCocktail()
+        {
+            HhDBO.Cocktail cocktail = BusinessManagement.Cocktail.GetRandomCocktail();
+            return Json(cocktail, JsonRequestBehavior.AllowGet);
+        }
+
         //GET - show - index
         [AcceptVerbs(HttpVerbs.Get)]
         public JsonResult WsRest(int? id)

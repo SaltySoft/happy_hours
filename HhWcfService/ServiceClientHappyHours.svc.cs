@@ -64,6 +64,11 @@ namespace HhWcfService
         }
 
         //Cocktails
+        public HhDBO.Cocktail GetRandomCocktail()
+        {
+            return HhBusiness.Cocktail.GetRandomCocktail();
+        }
+
         public List<HhDBO.Cocktail> GetListCocktail(int max)
         {
             return HhBusiness.Cocktail.GetListCocktail(max);

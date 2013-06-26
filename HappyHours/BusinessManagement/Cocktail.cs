@@ -7,6 +7,12 @@ namespace HappyHours.BusinessManagement
 {
     public class Cocktail
     {
+        public static HhDBO.Cocktail GetRandomCocktail()
+        {
+            DataAccess.Cocktail dataAccess = new DataAccess.Cocktail();
+            return dataAccess.GetRandomCocktail();
+        }
+
         public static List<HhDBO.Cocktail> GetListCocktail(int max)
         {
             DataAccess.Cocktail dataAccess = new DataAccess.Cocktail();
