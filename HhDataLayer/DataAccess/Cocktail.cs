@@ -19,7 +19,7 @@ namespace HhDataLayer.DataAccess
                 {
                     int count = bdd.T_Cocktail.Count();
                     int index = new Random().Next(count);
-                    T_Cocktail cocktail = bdd.T_Cocktail.Skip(index).FirstOrDefault();
+                    T_Cocktail cocktail = bdd.T_Cocktail.OrderBy(x => x.id).Skip(index).FirstOrDefault();
 
                     if (cocktail != null)
                     {

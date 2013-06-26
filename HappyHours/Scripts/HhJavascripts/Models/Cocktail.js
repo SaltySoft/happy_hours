@@ -6,7 +6,7 @@ define([
         urlRoot: "/Cocktail/WsRest",
         defaults: {
             Creator_Id: 1,
-            Picture_url: "http://placehold.it/300x300"
+            Picture_Url: "http://placehold.it/300x300"
         }
     });
 
