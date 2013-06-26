@@ -1,13 +1,13 @@
-﻿define([
+define([
     'jquery',
     'underscore',
     'backbone',
     'Models/Cocktail',
-    'text!/Scripts/HhJavascripts/Templates/today_cocktail.html'
-], function ($, _, Backbone, Cocktail, TodayCocktailTemplate) {
-    var TodayCocktail = Backbone.View.extend({
+    'text!Templates/cocktail_featured.html'
+], function ($, _, Backbone, Cocktail, CocktailFeaturedTemplate) {
+    var CocktailFeatured = Backbone.View.extend({
         tagName:"div",
-        className:"happy_hours_today_cocktail",
+        className:"cocktail_featured",
         initialize:function () {
             var base = this;
         },
@@ -20,12 +20,12 @@
         },
         render:function () {
             var base = this;
-            var todayCocktailTemplate = _.template(TodayCocktailTemplate, {
-                todayCocktailName:base.todayCocktail.get("Name"),
-                todayCocktailDescription:base.todayCocktail.get("Description"),
-                picture_url:base.todayCocktail.get("Picture_Url")
-           });
-            base.$el.html(todayCocktailTemplate);
+            var cocktailFeaturedTemplate = _.template(CocktailFeaturedTemplate, {
+                cocktailFeaturedName:base.cocktailFeatured.get("Name"),
+                cocktailFeaturedDescription:base.cocktailFeatured.get("Description"),
+                cocktailFeaturedPictureUrl:base.cocktailFeatured.get("Picture_Url")
+            });
+            base.$el.html(cocktailFeaturedTemplate);
             base.initializeEvents();
         },
         GetRandomCocktail:function (callback) {
@@ -34,7 +34,7 @@
                 url:"/Cocktail/GetRandomCocktail",
                 type:"get",
                 success:function (data, status) {
-                    base.todayCocktail = new Cocktail(data);
+                    base.cocktailFeatured = new Cocktail(data);
                     if (callback)
                         callback();
                 }
@@ -44,10 +44,10 @@
             var base = this;
 
             base.$el.delegate("#show_cocktail_button", "click", function () {
-                base.app.navigate("#cocktail/" + base.todayCocktail.get("id"), {trigger:true});
+                base.app.router.navigate("#cocktail/" + base.cocktailFeatured.get("Id"), {trigger:true});
             });
         }
     });
 
-    return TodayCocktail;
+    return CocktailFeatured;
 });
