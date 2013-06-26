@@ -1,25 +1,9 @@
 .featured_cocktail_img_container {
     float: right;
-    margin: 10px;
+    margin: 5px 5px 10px 10px;
 }
 
 .featured_cocktail_img {
-    width: 200px;
-    height: 200px;
-}
-
-.featured_cocktail_header {
-    font-size: 22px;
-}
-
-.featured_cocktail_name {
-    font-size: 26px;
-}
-
-.description {
-    font-size: 22px;
-}
-
-.featured_cocktail_description {
-    font-size: 18px;
+    width: 300px;
+    height: 300px;
 }
