@@ -24,13 +24,16 @@ define([
         },
         render: function () {
             var base = this;
-            var cocktailFeaturedTemplate = _.template(CocktailDetailsTemplate, {
-                cocktailFeaturedName:base.cocktail.get("Name"),
-                cocktailFeaturedDescription:base.cocktail.get("Description"),
-                cocktailFeaturedPictureUrl:base.cocktail.get("Picture_Url")
+            console.log("cocktail", base.cocktail);
+            var cocktailDetailsTemplate = _.template(CocktailDetailsTemplate, {
+                cocktailName:base.cocktail.get("Name"),
+                cocktailDifficulty:base.cocktail.get("Difficulty"),
+                cocktailDuration:base.cocktail.get("Duration"),
+                cocktailDescription:base.cocktail.get("Description"),
+                cocktailRecipe:base.cocktail.get("Recipe"),
+                cocktailPictureUrl:base.cocktail.get("Picture_Url")
             });
-            console.log("base.cocktail", base.cocktail);
-            base.$el.html(cocktailFeaturedTemplate);
+            base.$el.html(cocktailDetailsTemplate);
             base.registerEvents();
         },
         registerEvents: function () {
