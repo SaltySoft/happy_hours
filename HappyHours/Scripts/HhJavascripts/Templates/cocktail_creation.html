@@ -1,0 +1,26 @@
+<h1>Creation of a cocktail</h1>
+<form action="javascript:void(0);" class="pure-form pure-form-aligned form_cocktail">
+    <div class="pure-control-group">
+        <label for="creation_form_name">Nom du cocktail</label>
+        <input type="text" name="name" placeholder="Nom du cocktail" class="form_name" id="creation_form_name"/>
+    </div>
+    <div class="pure-control-group">
+        <label for="creation_form_difficulty">Difficulté</label>
+        <input type="number" min="1" max="5" id="creation_form_difficulty" name="difficulty" class="form_difficulty"/> / 5
+    </div>
+    <div class="pure-control-group">
+        <label for="creation_form_duration">Temps de préparation</label>
+        <input type="number" min="1" max="60" name="duration" id="creation_form_duration" placeholder="Temps de préparation" class="form_duration"/> minutes
+    </div>
+    <div class="pure-control-group">
+        <label for="creation_form_description">Description</label>
+        <textarea name="description" id="creation_form_description" class="form_description"></textarea>
+    </div>
+    <div class="pure-control-group">
+        <label for="creation_form_recipe">Recette</label>
+        <textarea name="recipy" id="creation_form_recipe" class="form_recipe"></textarea>
+    </div>
+    <div class="pure-controls">
+        <button type="submit" class="pure-button">Create</button>
+    </div>
+</form>

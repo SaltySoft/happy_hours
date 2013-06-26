@@ -25,6 +25,10 @@ define([
         },
         registerEvents: function () {
             var base = this;
+            var form = base.$el.find(".form_cocktail");
+            form.submit(function () {
+                console.log("SUPER ARRAY", form.serializeArray());
+            });
         }
     });
 

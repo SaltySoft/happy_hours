@@ -3,9 +3,10 @@
     'underscore',
     'backbone',
     'text!Templates/main_view.html',
+    'Views/CocktailList',
     'Views/TodayCocktail',
-    'Views/CocktailList'
-], function ($, _, Backbone, MainViewTemplate, TodayCocktailView, CocktailListView) {
+    'Views/CocktailCreation'
+], function ($, _, Backbone, MainViewTemplate, CocktailListView, TodayCocktailView, CocktailCreationView) {
     var MainView = Backbone.View.extend({
         tagName:"div",
         className:"main_view",
@@ -20,14 +21,20 @@
             base.registerEvents();
 
             var AppRouter = Backbone.Router.extend({
-                routes:{
+                routes: {
                     "":"featured_cocktail",
-                    "cocktails":"cocktails"
+                    "cocktails": "cocktails",
+                    "add_cocktail" : "add_cocktail"
                 },
                 cocktails:function () {
                     var cocktail_list = new CocktailListView();
                     base.$el.find("#sub_app_container").html(cocktail_list.$el);
                     cocktail_list.init(base.app);
+                },
+                add_cocktail: function () {
+                    var add_cocktail_view = new CocktailCreationView();
+                    base.$el.find("#sub_app_container").html(add_cocktail_view.$el);
+                    add_cocktail_view.init(base.app);
                 },
                 featured_cocktail:function () {
                     var todayCocktail = new TodayCocktailView();

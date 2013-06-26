@@ -1,0 +1,10 @@
+.form_cocktail {
+    margin: auto;
+    margin-top: 50px;
+    width: 500px;
+}
+
+
+.form_cocktail input[type="text"], .form_cocktail textarea {
+    width: 300px;
+}
