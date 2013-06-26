@@ -79,7 +79,7 @@ namespace HappyHours.Controllers
         {
             if (Membership.ValidateUser(username, password))
             {
-                FormsAuthentication.SetAuthCookie("1", false);
+                FormsAuthentication.SetAuthCookie(username, false);
                 return Json("success", JsonRequestBehavior.AllowGet);
             }
             else
@@ -164,10 +164,9 @@ namespace HappyHours.Controllers
 
         public JsonResult Unauthorized()
         {
-            Response.StatusCode = 401;
-
             Dictionary<string, string> dico = new Dictionary<string, string>();
             dico["status"] = "error";
+            dico["message"] = "unsufficient_rights";
 
             return Json(dico, JsonRequestBehavior.AllowGet);
         }

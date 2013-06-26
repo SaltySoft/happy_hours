@@ -6,23 +6,28 @@ define([
     'text!Templates/cocktail_details.html'
 ], function ($, _, Backbone, Cocktail, CocktailDetailsTemplate) {
     var CocktailDetailsView = Backbone.View.extend({
-        tagName: "div",
-        className: "cocktail_details",
-        initialize: function () {
+        tagName:"div",
+        className:"cocktail_details",
+        initialize:function () {
             var base = this;
         },
-        init: function (app, id) {
+        init:function (app, id) {
             var base = this;
             base.app = app;
 
-            base.cocktail = new Cocktail({ id : id });
-            base.cocktail.fetch({
-               success:function () {
-                   base.render();
-               }
-            });
+            if (base.app.isNormalInteger(id)) {
+                base.cocktail = new Cocktail({ id:id });
+                base.cocktail.fetch({
+                    success:function () {
+                        base.render();
+                    }
+                });
+            }
+            else {
+                base.app.router.navigate("#", { trigger:true })
+            }
         },
-        render: function () {
+        render:function () {
             var base = this;
             console.log("cocktail", base.cocktail);
             var cocktailDetailsTemplate = _.template(CocktailDetailsTemplate, {
@@ -36,7 +41,7 @@ define([
             base.$el.html(cocktailDetailsTemplate);
             base.registerEvents();
         },
-        registerEvents: function () {
+        registerEvents:function () {
             var base = this;
         }
     });

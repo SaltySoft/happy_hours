@@ -32,7 +32,7 @@ namespace HappyHours.DataAccess
                 }
                 return ingredients;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<HhDBO.Ingredient>();
             }
@@ -45,7 +45,7 @@ namespace HappyHours.DataAccess
                 HhDBO.Ingredient ingredient = _client.GetIngredient(id);
                 return ingredient;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
@@ -57,7 +57,7 @@ namespace HappyHours.DataAccess
             {
                 return _client.CreateIngredient(ingredient);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
@@ -69,7 +69,7 @@ namespace HappyHours.DataAccess
             {
                 return _client.UpdateIngredient(ingredient);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }
@@ -81,7 +81,7 @@ namespace HappyHours.DataAccess
             {
                 return _client.DeleteIngredient(id);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }

@@ -28,7 +28,7 @@ namespace HappyHours.DataAccess
                 HhDBO.Cocktail cocktail = _client.GetRandomCocktail();
                 return cocktail;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
@@ -45,7 +45,7 @@ namespace HappyHours.DataAccess
                 }
                 return cocktails;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<HhDBO.Cocktail>();
             }
@@ -58,7 +58,7 @@ namespace HappyHours.DataAccess
                 HhDBO.Cocktail cocktail = _client.GetCocktail(id);
                 return cocktail;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
@@ -70,7 +70,7 @@ namespace HappyHours.DataAccess
             {
                 return _client.CreateCocktail(cocktail);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
@@ -82,7 +82,7 @@ namespace HappyHours.DataAccess
             {
                 return _client.UpdateCocktail(cocktail);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }
@@ -94,7 +94,7 @@ namespace HappyHours.DataAccess
             {
                 return _client.DeleteCocktail(id);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }
