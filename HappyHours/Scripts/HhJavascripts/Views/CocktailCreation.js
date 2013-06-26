@@ -32,13 +32,18 @@ define([
                 base.$el.find(".loader").show();
 
                 var iframe = base.$el.find(".form_iframe");
-                console.log("iframe : ", iframe);
                 iframe.load(function () {
-                    console.log("LOADED");
                     var object = JSON.parse(iframe.contents().find("pre").html());
-                    var cocktail = new Cocktail(object);
-                    console.log(cocktail);
-                    base.app.router.navigate("#cocktail/" + cocktail.get("Id"), { trigger: true })
+                    console.log(object);
+                    if (!object.status) {
+                        var cocktail = new Cocktail(object);
+                        base.app.router.navigate("#cocktail/" + cocktail.get("Id"), { trigger: true })
+                    } else {
+                        if (object.status == "error") {
+                            alert("Creation failed");
+                        }
+                    }
+
                 });
             });
         }

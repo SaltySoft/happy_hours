@@ -16,6 +16,7 @@ namespace HhDBO
         private string _email;
         private string _password;
         private int _admin;
+        private List<string> _roles;
         #endregion
 
         #region getter / setter
@@ -67,6 +68,12 @@ namespace HhDBO
         {
             get { return _admin; }
             set { _admin = value; }
+        }
+
+        public List<String> Roles
+        {
+            get { return _roles; }
+            set { _roles = value; }
         }
 
         #endregion

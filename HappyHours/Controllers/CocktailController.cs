@@ -17,6 +17,7 @@ namespace HappyHours.Controllers
             return View();
         }
 
+
         [AcceptVerbs(HttpVerbs.Get)]
         public JsonResult GetRandomCocktail()
         {
@@ -59,6 +60,7 @@ namespace HappyHours.Controllers
 
         //POST - create
         [AcceptVerbs(HttpVerbs.Post)]
+        [Authorize(Roles = "Admin")]
         public JsonResult WsRest(HhDBO.Cocktail cocktail, HttpPostedFileBase picture)
         {
             //byte[] PostData = HttpContext.Request.BinaryRead(HttpContext.Request.ContentLength);
