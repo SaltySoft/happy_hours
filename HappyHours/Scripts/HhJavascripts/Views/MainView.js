@@ -23,24 +23,24 @@
             base.registerEvents();
 
             var AppRouter = Backbone.Router.extend({
-                routes: {
+                routes:{
                     "":"featured_cocktail",
-                    "cocktails": "cocktails",
-                    "cocktail/:id": "show_cocktail",
-                    "add_cocktail" : "add_cocktail",
-                    "search_cocktail" : "search_cocktail"
+                    "cocktails":"cocktails",
+                    "cocktail/:id":"show_cocktail",
+                    "add_cocktail":"add_cocktail",
+                    "search_cocktail":"search_cocktail"
                 },
                 cocktails:function () {
                     var cocktail_list = new CocktailListView();
                     base.$el.find("#sub_app_container").html(cocktail_list.$el);
                     cocktail_list.init(base.app);
                 },
-                show_cocktail: function (id) {
+                show_cocktail:function (id) {
                     var show_cocktail_view = new CocktailDetailsView();
                     base.$el.find("#sub_app_container").html(show_cocktail_view.$el);
                     show_cocktail_view.init(base.app, id);
                 },
-                add_cocktail: function () {
+                add_cocktail:function () {
                     var add_cocktail_view = new CocktailCreationView();
                     base.$el.find("#sub_app_container").html(add_cocktail_view.$el);
                     add_cocktail_view.init(base.app);
@@ -67,6 +67,15 @@
         },
         registerEvents:function () {
             var base = this;
+
+            base.$el.delegate(".navigation-menu-container a", "click", function () {
+                var elt = $(this);
+                var list_items = base.$el.find(".navigation-menu-container li");
+                list_items.each(function () {
+                    $(this).removeClass('pure-menu-selected');
+                });
+                elt.closest("li").addClass('pure-menu-selected');
+            });
         }
     });
 
