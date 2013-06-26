@@ -1,3 +1,9 @@
+.happy_hours_today_cocktail {
+    padding: 5px;
+    background-color: rgba(17, 17, 17, 0.8);
+    color: white;
+}
+
 .featured_cocktail_img_container {
     float: right;
     margin: 10px;
@@ -6,4 +12,20 @@
 .featured_cocktail_img {
     width: 200px;
     height: 200px;
+}
+
+.featured_cocktail_header {
+    font-size: 22px;
+}
+
+.featured_cocktail_title {
+    font-size: 26px;
+}
+
+.description{
+    font-size: 22px;
+}
+
+.featured_cocktail_description{
+    font-size: 18px;
 }
