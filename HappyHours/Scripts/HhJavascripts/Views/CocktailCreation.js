@@ -2,8 +2,9 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!Templates/cocktail_creation.html'
-], function ($, _, Backbone, CocktailCreationTemplate) {
+    'text!Templates/cocktail_creation.html',
+    'Models/Cocktail'
+], function ($, _, Backbone, CocktailCreationTemplate, Cocktail) {
     var CocktailCreationView = Backbone.View.extend({
         tagName: "div",
         className: "cocktail_creation",
@@ -27,7 +28,16 @@ define([
             var base = this;
             var form = base.$el.find(".form_cocktail");
             form.submit(function () {
-                console.log("SUPER ARRAY", form.serializeArray());
+                var cocktail = new Cocktail();
+                var array = form.serializeArray();
+                for (var k in array) {
+                    cocktail.set(array[k].name, array[k].value);
+                }
+                base.$el.find(".form_container").hide();
+                base.$el.find(".loader").show();
+                cocktail.save({}, {
+
+                });
             });
         }
     });
