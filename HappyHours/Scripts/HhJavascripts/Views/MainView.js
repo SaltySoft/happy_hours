@@ -6,8 +6,9 @@
     'Views/CocktailList',
     'Views/CocktailFeatured',
     'Views/CocktailDetails',
-    'Views/CocktailCreation'
-], function ($, _, Backbone, MainViewTemplate, CocktailListView, CocktailFeaturedView, CocktailDetailsView, CocktailCreationView) {
+    'Views/CocktailCreation',
+    'Views/CocktailSearch'
+], function ($, _, Backbone, MainViewTemplate, CocktailListView, CocktailFeaturedView, CocktailDetailsView, CocktailCreationView, CocktailSearchView) {
     var MainView = Backbone.View.extend({
         tagName:"div",
         className:"main_view",
@@ -26,7 +27,8 @@
                     "":"featured_cocktail",
                     "cocktails": "cocktails",
                     "cocktail/:id": "show_cocktail",
-                    "add_cocktail" : "add_cocktail"
+                    "add_cocktail" : "add_cocktail",
+                    "search_cocktail" : "search_cocktail"
                 },
                 cocktails:function () {
                     var cocktail_list = new CocktailListView();
@@ -47,6 +49,11 @@
                     var cocktail_featured_view = new CocktailFeaturedView();
                     base.$el.find("#sub_app_container").html(cocktail_featured_view.$el);
                     cocktail_featured_view.init(base.app);
+                },
+                search_cocktail:function () {
+                    var cocktail_search_view = new CocktailSearchView();
+                    base.$el.find("#sub_app_container").html(cocktail_search_view.$el);
+                    cocktail_search_view.init(base.app);
                 }
             });
 
