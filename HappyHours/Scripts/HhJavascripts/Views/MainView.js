@@ -34,8 +34,8 @@
                     base.$el.find("#sub_app_container").hide();
                     var cocktail_featured_view = new CocktailFeaturedView();
                     base.$el.find("#sub_app_container").html(cocktail_featured_view.$el);
-                    base.$el.find("#sub_app_container").fadeIn(200);
                     cocktail_featured_view.init(base.app);
+                    base.$el.find("#sub_app_container").fadeIn(200);
                 },
                 cocktails:function () {
                     base.$el.find("#sub_app_container").hide();
@@ -49,21 +49,21 @@
                     var cocktail_search_view = new CocktailSearchView();
                     base.$el.find("#sub_app_container").html(cocktail_search_view.$el);
                     cocktail_search_view.init(base.app);
-                    base.$el.find("#sub_app_container").fadeIn(600);
+                    base.$el.find("#sub_app_container").fadeIn(200);
                 },
                 add_cocktail:function () {
                     base.$el.find("#sub_app_container").hide();
                     var add_cocktail_view = new CocktailCreationView();
                     base.$el.find("#sub_app_container").html(add_cocktail_view.$el);
                     add_cocktail_view.init(base.app);
-                    base.$el.find("#sub_app_container").fadeIn(800);
+                    base.$el.find("#sub_app_container").fadeIn(200);
                 },
                 show_cocktail:function (id) {
                     base.$el.find("#sub_app_container").hide();
                     var show_cocktail_view = new CocktailDetailsView();
                     base.$el.find("#sub_app_container").html(show_cocktail_view.$el);
                     show_cocktail_view.init(base.app, id);
-
+                    base.$el.find("#sub_app_container").fadeIn(200);
                 }
             });
 

@@ -1,13 +1,22 @@
-<div class="featured_cocktail_img_container" >
-    <img class="featured_cocktail_img" src="<%= cocktailFeaturedPictureUrl %>" alt="Today featured cocktail." />
+<div class="cocktail_img_container" >
+    <img class="cocktail_img" src="<%= cocktailPictureUrl %>" alt="Today featured cocktail." />
 </div >
-<div class="featured_cocktail_header" >
-    Cocktail : <span class="featured_cocktail_name" > <%= cocktailFeaturedName %></span >
-</div >
-<div class="featured_cocktail_description" >
-    <div class="description" >
-        Description :
+<div class="cocktail_infos" >
+    <div class="cocktail_name"> <%= cocktailName %></div >
+
+    <div >
+        <span class="section_title" > Difficulté :</span > <%= cocktailDifficulty %>
     </div >
-    <%= cocktailFeaturedDescription %>
+    <div >
+        <span class="section_title" > Temps de préparation :</span > <%= cocktailDuration %>
+    </div >
+    <div >
+        <div class="section_title" > Ingrédients :</div >
+    </div >
+    <div >
+        <div class="section_title" > Recette :</div > <%= cocktailRecipe %>
+    </div >
+    <div >
+        <div class="section_title" > Description :</div > <%= cocktailDescription %>
+    </div >
 </div >
-<div class="clearer" ></div >
