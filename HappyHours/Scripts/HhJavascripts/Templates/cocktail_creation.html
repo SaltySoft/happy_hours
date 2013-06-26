@@ -8,12 +8,12 @@
         </div>
         <div class="pure-control-group">
             <label for="creation_form_difficulty">Difficulté</label>
-            <input type="number" min="1" max="5" id="creation_form_difficulty" name="difficulty"
+            <input type="number" min="1" max="5" value="1" id="creation_form_difficulty" name="difficulty"
                    class="form_difficulty"/> <span class="difficulty_max">/ 5</span>
         </div>
         <div class="pure-control-group">
             <label for="creation_form_duration">Temps de préparation</label>
-            <input type="number" min="1" max="60" name="duration" id="creation_form_duration"
+            <input type="number" min="1" max="60" value="1" name="duration" id="creation_form_duration"
                    placeholder="Temps de préparation" class="form_duration"/> <span class="time_max">minutes</span>
         </div>
         <div class="pure-control-group">
@@ -35,12 +35,13 @@
         </div>
     </form>
 </div>
-<iframe class="form_iframe" name="cocktail_creation_target">
 
+<iframe class="form_iframe" name="cocktail_creation_target">
 </iframe>
+
 <div class="loader">
     <div>
         <img src="/Images/loader_glass.gif"/><br/>
-        Création du cocktail
+        <span class="loader_message">Création du cocktail</span>
     </div>
 </div>
