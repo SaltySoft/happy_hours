@@ -1,39 +1,43 @@
-<div id="header">
+<div id="header" >
+    <div class="logo_container" >
+        <a href="#" ><img id="img_logo" src="/Images/logo-happyhour2.jpg" /></a >
+    </div >
+    <div class="inner_header_container" >
+        <div class="connection" >
+            <form action="javascript:void(0);" class="pure-form" >
+                <label >Login</label >
+                <input type="text" id="login_username" name="username" class="login_username" placeholder="Username" />
+                <input type="password" id="login_password" name="username" class="login_username"
+                       placeholder="Password" />
+                <button type="submit" class="pure-button notice" >Sign in</button >
+            </form >
+        </div >
+        <div class="clearer" ></div >
+        <div class="navigation_menu_container" >
+            <div class="pure-menu pure-menu-open pure-menu-horizontal" >
+                <ul >
+                    <li ><a href="#cocktails" >Les cocktails</a ></li >
+                    <li ><a href="#search_cocktail" >Recherche par ingrédients</a ></li >
+                    <li ><a href="#add_cocktail" >Ajouter une recette</a ></li >
+                    <li ><a href="#" >Favoris</a ></li >
+                </ul >
+            </div >
+        </div >
+    </div >
+</div >
+<div class="pure-g-r container" >
+    <div id="search_panel" class="pure-u-1-4 panel" >
+        <div ></div >
+    </div >
+    <div id="sub_app_container" class="pure-u-3-4 panel" >
 
-    <div class="connection">
-        <form action="javascript:void(0);" class="pure-form">
-            <label>Login</label>
-            <input type="text" id="login_username" name="username" class="login_username" placeholder="Username"/>
-            <input type="password" id="login_password" name="username" class="login_username" placeholder="Password"/>
-            <button type="submit" class="pure-button notice">Sign in</button>
-        </form>
-    </div>
-    <div class="clearer"></div>
-    <div class="navigation-menu-container">
-        <div class="pure-menu pure-menu-open pure-menu-horizontal">
-            <ul>
-                <li><a href="#cocktails">Les cocktails</a></li>
-                <li><a href="#search_cocktail">Recherche par ingrédients</a></li>
-                <li><a href="#add_cocktail">Ajouter une recette</a></li>
-                <li><a href="#">Favoris</a></li>
-            </ul>
-        </div>
-    </div>
-    <h1>LOGO</h1>
-</div>
-<div class="pure-g-r container">
-    <div id="search_panel" class="pure-u-1-4 panel">
-        <div></div>
-    </div>
-    <div id="sub_app_container" class="pure-u-3-4 panel">
+    </div >
+</div >
 
-    </div>
-</div>
-
-<div id="footer">
-    <div class="content-wrapper">
-        <div class="float-left">
-            <p>Application Happy Hours - &copy; EPITA <%= new Date().getFullYear() %></p>
-        </div>
-    </div>
-</div>
+<div id="footer" >
+    <div class="content-wrapper" >
+        <div class="float-left" >
+            <p >Application Happy Hours - &copy; EPITA <%= new Date().getFullYear() %></p >
+        </div >
+    </div >
+</div >

@@ -9,13 +9,28 @@
     padding: 10px;
 }
 
+.logo_container {
+    float: left;
+}
+
+#img_logo {
+    width: 300px;
+    height: 125px;
+}
+
+.inner_header_container{
+    float: right;
+    position: relative;
+}
+
 .connection {
     float: right;
     margin: 10px;
 }
 
-.navigation-menu-container {
+.navigation_menu_container {
     float: right;
+    margin: 30px 20px 5px 20px;
 }
 
 .container {

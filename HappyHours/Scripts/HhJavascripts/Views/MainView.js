@@ -30,30 +30,40 @@
                     "add_cocktail":"add_cocktail",
                     "search_cocktail":"search_cocktail"
                 },
+                featured_cocktail:function () {
+                    base.$el.find("#sub_app_container").hide();
+                    var cocktail_featured_view = new CocktailFeaturedView();
+                    base.$el.find("#sub_app_container").html(cocktail_featured_view.$el);
+                    base.$el.find("#sub_app_container").fadeIn(200);
+                    cocktail_featured_view.init(base.app);
+                },
                 cocktails:function () {
+                    base.$el.find("#sub_app_container").hide();
                     var cocktail_list = new CocktailListView();
                     base.$el.find("#sub_app_container").html(cocktail_list.$el);
                     cocktail_list.init(base.app);
-                },
-                show_cocktail:function (id) {
-                    var show_cocktail_view = new CocktailDetailsView();
-                    base.$el.find("#sub_app_container").html(show_cocktail_view.$el);
-                    show_cocktail_view.init(base.app, id);
-                },
-                add_cocktail:function () {
-                    var add_cocktail_view = new CocktailCreationView();
-                    base.$el.find("#sub_app_container").html(add_cocktail_view.$el);
-                    add_cocktail_view.init(base.app);
-                },
-                featured_cocktail:function () {
-                    var cocktail_featured_view = new CocktailFeaturedView();
-                    base.$el.find("#sub_app_container").html(cocktail_featured_view.$el);
-                    cocktail_featured_view.init(base.app);
+                    base.$el.find("#sub_app_container").fadeIn(200);
                 },
                 search_cocktail:function () {
+                    base.$el.find("#sub_app_container").hide();
                     var cocktail_search_view = new CocktailSearchView();
                     base.$el.find("#sub_app_container").html(cocktail_search_view.$el);
                     cocktail_search_view.init(base.app);
+                    base.$el.find("#sub_app_container").fadeIn(600);
+                },
+                add_cocktail:function () {
+                    base.$el.find("#sub_app_container").hide();
+                    var add_cocktail_view = new CocktailCreationView();
+                    base.$el.find("#sub_app_container").html(add_cocktail_view.$el);
+                    add_cocktail_view.init(base.app);
+                    base.$el.find("#sub_app_container").fadeIn(800);
+                },
+                show_cocktail:function (id) {
+                    base.$el.find("#sub_app_container").hide();
+                    var show_cocktail_view = new CocktailDetailsView();
+                    base.$el.find("#sub_app_container").html(show_cocktail_view.$el);
+                    show_cocktail_view.init(base.app, id);
+
                 }
             });
 
