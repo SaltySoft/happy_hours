@@ -43,7 +43,7 @@
                 }
             });
 
-            var router = new AppRouter();
+            app.router = new AppRouter();
         },
         render:function () {
             var base = this;

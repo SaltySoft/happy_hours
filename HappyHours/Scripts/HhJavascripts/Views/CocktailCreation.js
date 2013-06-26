@@ -28,6 +28,7 @@ define([
             var base = this;
             var form = base.$el.find(".form_cocktail");
             form.submit(function () {
+
                 var cocktail = new Cocktail();
                 var array = form.serializeArray();
                 for (var k in array) {
@@ -36,7 +37,10 @@ define([
                 base.$el.find(".form_container").hide();
                 base.$el.find(".loader").show();
                 cocktail.save({}, {
-
+                    success: function () {
+                        base.app.router.navigate("#cocktail/" + cocktail.get("Id"), {trigger: true});
+                        console.log(cocktail);
+                    }
                 });
             });
         }
