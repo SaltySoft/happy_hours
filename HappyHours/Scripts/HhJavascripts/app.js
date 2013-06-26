@@ -8,6 +8,6 @@
         Launcher.initialize(app);
     };
     return {
-        initialize: initialize
+        initialize:initialize
     };
 });
