@@ -5,7 +5,8 @@ define([
     var Cocktail = Backbone.Model.extend({
         urlRoot: "/Cocktail/WsRest",
         defaults: {
-
+            Creator_Id: 1,
+            Picture_url: "http://placehold.it/300x300"
         }
     });
 

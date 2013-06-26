@@ -4,7 +4,7 @@
     right: 0px;
     top: 0;
     bottom: 0px;
-    width: 1200px;
+    width: 1000px;
     margin: auto;
     padding: 10px;
 }
@@ -24,11 +24,27 @@
 
 .panel {
     height: 100%;
+    position: relative;
+}
+
+.panel > div {
+    margin: 10px;
+    background: rgba(256,255,255,0.95);
+    padding: 20px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
+    overflow: auto;
 }
 
 #sub_app_container {
 
 }
+
+
 
 #header {
 
@@ -40,6 +56,10 @@
     left: 0;
     right: 0;
     padding: 20px;
-    background: rgb(255, 174, 89);
+    background: rgb(255, 255, 255);
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
     text-align: center;
+    margin: 10px;
+    margin-bottom: 0px;
 }
+

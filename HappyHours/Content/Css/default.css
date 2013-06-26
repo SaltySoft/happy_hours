@@ -22,7 +22,7 @@
     display: none;
     background-image: url('/Images/icons/information.png');
     background-repeat: no-repeat;
-    background-position: 20px 50%;
+    background-position: center;
     z-index: 3000;
 }
 
