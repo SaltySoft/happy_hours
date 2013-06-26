@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace HappyHours.Controllers
 {
@@ -58,10 +59,12 @@ namespace HappyHours.Controllers
 
         //POST - create
         [AcceptVerbs(HttpVerbs.Post)]
-        public JsonResult WsRest(HhDBO.Cocktail cocktail)
+        public JsonResult WsRest(HhDBO.Cocktail cocktail, HttpPostedFileBase picture)
         {
             //byte[] PostData = HttpContext.Request.BinaryRead(HttpContext.Request.ContentLength);
             //string postParams = Encoding.UTF8.GetString(PostData);
+
+            string picture_path = Server.MapPath("~") + "Images\\Cocktails\\";
 
             if (cocktail != null)
             {
@@ -71,6 +74,14 @@ namespace HappyHours.Controllers
                 }
                 else
                 {
+                    if (picture != null)
+                    {
+                        int passwordLength = 10;
+                        string random = Membership.GeneratePassword(passwordLength,0) + "." + picture.ContentType.Substring(picture.ContentType.IndexOf("/") + 1);
+                        random = "h.png";
+                        picture.SaveAs(picture_path + random);
+                        cocktail.Picture_Url = "/Images/Cocktails/" + random;
+                    }
                     HhDBO.Cocktail result = BusinessManagement.Cocktail.CreateCocktail(cocktail);
                     if (result == null)
                     {
@@ -81,6 +92,8 @@ namespace HappyHours.Controllers
                         cocktail = result;
                     }
                 }
+
+
 
                 return Json(cocktail, JsonRequestBehavior.DenyGet);
             }

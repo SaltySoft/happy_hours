@@ -28,19 +28,17 @@ define([
             var base = this;
             var form = base.$el.find(".form_cocktail");
             form.submit(function () {
-
-                var cocktail = new Cocktail();
-                var array = form.serializeArray();
-                for (var k in array) {
-                    cocktail.set(array[k].name, array[k].value);
-                }
                 base.$el.find(".form_container").hide();
                 base.$el.find(".loader").show();
-                cocktail.save({}, {
-                    success: function () {
-                        base.app.router.navigate("#cocktail/" + cocktail.get("Id"), {trigger: true});
-                        console.log(cocktail);
-                    }
+
+                var iframe = base.$el.find(".form_iframe");
+                console.log("iframe : ", iframe);
+                iframe.load(function () {
+                    console.log("LOADED");
+                    var object = JSON.parse(iframe.contents().find("pre").html());
+                    var cocktail = new Cocktail(object);
+                    console.log(cocktail);
+                    base.app.router.navigate("#cocktail/" + cocktail.get("Id"), { trigger: true })
                 });
             });
         }
