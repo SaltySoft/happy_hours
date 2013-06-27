@@ -46,6 +46,19 @@ namespace HappyHours.DataAccess
             }
         }
 
+        public HhDBO.User GetUserByName(string name)
+        {
+            try
+            {
+                HhDBO.User user = _client.GetUserByName(name);
+                return user;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
         public HhDBO.User CreateUser(HhDBO.User user)
         {
             try

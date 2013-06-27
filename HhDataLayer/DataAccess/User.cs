@@ -84,6 +84,26 @@ namespace HhDataLayer.DataAccess
             }
         }
 
+        public static HhDBO.User GetUserByName(string username)
+        {
+            try
+            {
+                HhDBO.User dboUser = null;
+                using (MyHappyHoursEntities bdd = new MyHappyHoursEntities())
+                {
+                    Mapper.CreateMap<T_User, HhDBO.User>();
+                    T_User user = bdd.T_User.Where(x => x.username == username).FirstOrDefault();
+                    dboUser = Mapper.Map<T_User, HhDBO.User>(user);
+                }
+
+                return dboUser;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
         /// <summary>
         /// permet la création d'un utilisateur
         /// </summary>

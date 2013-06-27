@@ -52,7 +52,8 @@ namespace HappyHours.Controllers
             string[] rolesArray;
             RolePrincipal r = (RolePrincipal)User;
 
-            HhDBO.User user = BusinessManagement.User.GetUser(Int32.Parse(User.Identity.Name)).FirstOrDefault();
+            HhDBO.User user = BusinessManagement.User.GetUserByName(User.Identity.Name);
+            Dictionary<string, object> dico = new Dictionary<string, object>();
             if (user != null)
             {
                 rolesArray = r.GetRoles();
@@ -61,11 +62,15 @@ namespace HappyHours.Controllers
                 {
                     user.Roles.Add(role);
                 }
-                return Json(user, JsonRequestBehavior.AllowGet);
+
+                dico["Id"] = user.Id;
+                dico["Username"] = user.Username;
+                dico["Roles"] = user.Roles;
+                return Json(dico, JsonRequestBehavior.AllowGet);
             }
             else
             {
-                Dictionary<string, string> dico = new Dictionary<string, string>();
+         
                 dico["status"] = "error";
                 dico["reason"] = "disconnected";
                 return Json(dico, JsonRequestBehavior.AllowGet);
@@ -91,6 +96,7 @@ namespace HappyHours.Controllers
 
         public JsonResult Logout()
         {
+            FormsAuthentication.SignOut();
             return Json("success", JsonRequestBehavior.AllowGet);
         }
 

@@ -14,7 +14,10 @@ define([
         init: function (app) {
             var base = this;
             base.app = app;
-
+            if (!base.app.current_user) {
+                base.app.show_message("Vous devez être connecté");
+                base.app.router.navigate("", {trigger: true});
+            }
             base.render();
         },
         render: function () {
@@ -42,6 +45,11 @@ define([
                     base.$el.find(".loader").fadeOut(100);
                     base.$el.find(".form_container").show();
                 });
+            });
+
+            base.app.events.on("user_disconnection", function () {
+                base.app.show_message("Vous devez être connecté pour ajouter un cocktail");
+                base.app.router.navigate("", {trigger: true});
             });
         },
         formSubmission: function (callback) {

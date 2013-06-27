@@ -148,15 +148,16 @@ namespace HappyHours.BusinessManagement
 
         public override bool ValidateUser(string username, string password)
         {
-            if (username == "user" && password == "pass" || username == "admin" && password == "pass")
+            HhDBO.User user = BusinessManagement.User.GetUserByName(username);
+
+            if (user != null)
             {
-                return true;
+                if (user.Password == password)
+                {
+                    return true;
+                }
             }
-            else
-            {
-                return false;
-            }
-           
+            return false;
         }
     }
 }

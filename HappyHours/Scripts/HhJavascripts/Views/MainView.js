@@ -8,8 +8,9 @@
     'Views/CocktailFeatured',
     'Views/CocktailDetails',
     'Views/CocktailCreation',
-    'Views/CocktailSearch'
-], function ($, _, Backbone, MainViewTemplate, SearchPanelView, CocktailListView, CocktailFeaturedView, CocktailDetailsView, CocktailCreationView, CocktailSearchView) {
+    'Views/CocktailSearch',
+    '/Scripts/HhJavascripts/Models/User.js'
+], function ($, _, Backbone, MainViewTemplate, SearchPanelView, CocktailListView, CocktailFeaturedView, CocktailDetailsView, CocktailCreationView, CocktailSearchView, User) {
     var MainView = Backbone.View.extend({
         tagName:"div",
         className:"main_view",
@@ -72,8 +73,14 @@
         },
         render:function () {
             var base = this;
-            var template = _.template(MainViewTemplate, {});
+            var template = _.template(MainViewTemplate, {
+                current_user: base.app.current_user
+            });
+
             base.$el.html(template);
+            if (!base.app.current_user) {
+                base.$el.find(".login_required").hide();
+            }
 
             var searchPanelView = new SearchPanelView();
             base.$el.find("#search_panel").html(searchPanelView.$el);
@@ -89,6 +96,59 @@
                     $(this).removeClass('pure-menu-selected');
                 });
                 elt.closest("li").addClass('pure-menu-selected');
+            });
+
+            if (base.app.current_user) {
+                base.$el.find(".connect").hide();
+                base.$el.find(".disconnect").show();
+                base.$el.find(".disconnect .username").html(base.app.current_user.get("Username"));
+            } else {
+                base.$el.find(".connect").show();
+                base.$el.find(".disconnect").hide();
+            }
+
+            base.$el.delegate(".disconnect_button", "click", function () {
+                $.ajax({
+                    url: "/User/Logout",
+                    success: function (){
+                        base.$el.find(".connect").show();
+                        base.$el.find(".disconnect").hide();
+                        base.$el.find(".login_required").hide();
+                        base.app.events.trigger("user_disconnection");
+                    }
+                });
+            });
+
+            base.$el.delegate(".connect", "submit", function () {
+                var form = $(this);
+                $.ajax({
+                    url: "/User/Login",
+                    method: "post",
+                    data: {
+                        username:form.find("#login_username").val(),
+                        password:form.find("#login_password").val()
+                    },
+                    success: function (data) {
+                        if (data == "success") {
+                            $.ajax({
+                                url: "/User/CurrentUser",
+                                success: function (data, status) {
+                                    if (data.Id) {
+                                        base.app.current_user = new User(data);
+                                        base.app.events.trigger("user_connection");
+                                        base.$el.find(".connect").hide();
+                                        base.$el.find(".disconnect").show();
+                                        base.$el.find(".login_required").show();
+                                        base.$el.find(".disconnect .username").html(base.app.current_user.get("Username"));
+                                    } else {
+                                        base.app.current_user = undefined;
+                                        base.$el.find(".login_required").hide();
+                                    }
+                                }
+                            });
+                        }
+                    }
+                });
             });
         }
     });

@@ -26,6 +26,15 @@ namespace HhBusiness
             return HhDataLayer.DataAccess.User.GetUser(id);
         }
 
+        /// <summary>
+        /// retourne l'utilisateur spécifié par le nom
+        /// </summary>
+        /// <returns>l'utilisateur correspondant au nom</returns>
+        public static HhDBO.User GetUserByName(string name)
+        {
+            return HhDataLayer.DataAccess.User.GetUserByName(name);
+        }
+
          /// <summary>
         /// permet la création d'un utilisateur
         /// </summary>

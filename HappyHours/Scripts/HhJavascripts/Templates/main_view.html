@@ -3,23 +3,29 @@
         <a href="#" ><img id="img_logo" src="/Images/logo-happyhour1.jpg" /></a >
     </div >
     <div class="inner_header_container" >
+
         <div class="connection" >
-            <form action="javascript:void(0);" class="pure-form" >
+            <form action="javascript:void(0);" class="pure-form connect" >
                 <label >Login</label >
                 <input type="text" id="login_username" name="username" class="login_username" placeholder="Username" />
                 <input type="password" id="login_password" name="username" class="login_username"
                        placeholder="Password" />
                 <button type="submit" class="pure-button notice" >Sign in</button >
             </form >
-        </div >
+            <div class="disconnect">
+                Connected as <span class="username"></span>
+                <a href="javascript:void(0);" class="disconnect_button">Disconnect</a>
+            </div>
+        </div>
+
         <div class="clearer" ></div >
         <div class="navigation_menu_container" >
             <div class="pure-menu pure-menu-open pure-menu-horizontal" >
                 <ul >
                     <li ><a href="#cocktails" >Les cocktails</a ></li >
                     <li ><a href="#search_cocktail" >Recherche par ingrédients</a ></li >
-                    <li ><a href="#add_cocktail" >Ajouter une recette</a ></li >
-                    <li ><a href="#" >Favoris</a ></li >
+                    <li class="login_required"><a href="#add_cocktail" >Ajouter une recette</a ></li >
+                    <li class="login_required"><a href="#" >Favoris</a ></li >
                 </ul >
             </div >
         </div >
@@ -32,12 +38,12 @@
     <div id="sub_app_container" class="pure-u-3-4 panel" >
 
     </div >
-    <div id="flash_shower">
-        <div id="flash_message"></div>
-        <div style="clear: both"></div>
-    </div>
-</div >
 
+</div >
+<div id="flash_shower">
+    <div id="flash_message"></div>
+    <div style="clear: both"></div>
+</div>
 <div id="footer" >
     <div class="content-wrapper" >
         <div class="float-left" >
