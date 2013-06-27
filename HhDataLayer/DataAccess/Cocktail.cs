@@ -55,9 +55,9 @@ namespace HhDataLayer.DataAccess
                     }
                     else
                     {
-                        existings = bdd.T_Cocktail.Take(max).ToList();
+                        existings = bdd.T_Cocktail.ToList();
                     }
-                    
+
                     Mapper.CreateMap<T_Ingredient, HhDBO.Ingredient>();
                     foreach (T_Cocktail cocktail in existings)
                     {
@@ -73,7 +73,6 @@ namespace HhDataLayer.DataAccess
                             HhDBO.Ingredient dboIngredient = Mapper.Map<T_Ingredient, HhDBO.Ingredient>(ingredient);
                             dboCocktail.Ingredients.Add(dboIngredient);
                         }
-
 
                         cocktails.Add(dboCocktail);
                     }
@@ -92,49 +91,49 @@ namespace HhDataLayer.DataAccess
         {
             return GetListCocktailEdited(max, true);
         }
-        
-         public static List<HhDBO.Cocktail> GetQuickSearchCocktails(HhDBO.SearchQuery searchQuery)
+
+        public static List<HhDBO.Cocktail> GetQuickSearchCocktails(HhDBO.SearchQuery searchQuery)
+        {
+            try
+            {
+                List<HhDBO.Cocktail> cocktails = new List<HhDBO.Cocktail>();
+
+                using (MyHappyHoursEntities bdd = new MyHappyHoursEntities())
                 {
-                    try
+                    int difficulty = Int32.Parse(searchQuery.Difficulty);
+                    List<T_Cocktail> existings = new List<T_Cocktail>();
+                    if (searchQuery.Quick != "no")
                     {
-                        List<HhDBO.Cocktail> cocktails = new List<HhDBO.Cocktail>();
-        
-                        using (MyHappyHoursEntities bdd = new MyHappyHoursEntities())
-                        {
-                            int difficulty = Int32.Parse(searchQuery.Difficulty);
-                            List<T_Cocktail> existings = new List<T_Cocktail>();
-                            if (searchQuery.Quick != "no")
-                            {
-                                existings = bdd.T_Cocktail.Where(x =>
-                               (x.name.Contains(searchQuery.Cocktail_name))
-                               && (x.difficulty >= (difficulty - 1) || x.difficulty <= (difficulty + 1))
-                               && (x.duration < 2)).ToList();
-                            }
-                            else
-                            {
-                                existings = bdd.T_Cocktail.Where(x =>
-                                (x.name.Contains(searchQuery.Cocktail_name))
-                                && (x.difficulty >= (difficulty - 1) || x.difficulty <= (difficulty + 1))).ToList();
-                            }
-                            //if (searchQuery.Alcohol != "no")
-        
-                            foreach (T_Cocktail cocktail in existings)
-                            {
-                                Mapper.CreateMap<T_Cocktail, HhDBO.Cocktail>();
-        
-                                HhDBO.Cocktail dboCocktail = Mapper.Map<T_Cocktail, HhDBO.Cocktail>(cocktail);
-                                cocktails.Add(dboCocktail);
-                            }
-                        }
-                        Debug.WriteLine("Got list of cocktails");
-                        return cocktails;
+                        existings = bdd.T_Cocktail.Where(x =>
+                       (x.name.Contains(searchQuery.Cocktail_name))
+                       && (x.difficulty >= (difficulty - 1) || x.difficulty <= (difficulty + 1))
+                       && (x.duration < 2)).ToList();
                     }
-                    catch (Exception)
+                    else
                     {
-                        Debug.WriteLine("Problem while getting list of cocktails");
-                        return new List<HhDBO.Cocktail>();
+                        existings = bdd.T_Cocktail.Where(x =>
+                        (x.name.Contains(searchQuery.Cocktail_name))
+                        && (x.difficulty >= (difficulty - 1) || x.difficulty <= (difficulty + 1))).ToList();
+                    }
+                    //if (searchQuery.Alcohol != "no")
+
+                    foreach (T_Cocktail cocktail in existings)
+                    {
+                        Mapper.CreateMap<T_Cocktail, HhDBO.Cocktail>();
+
+                        HhDBO.Cocktail dboCocktail = Mapper.Map<T_Cocktail, HhDBO.Cocktail>(cocktail);
+                        cocktails.Add(dboCocktail);
                     }
                 }
+                Debug.WriteLine("Got list of cocktails");
+                return cocktails;
+            }
+            catch (Exception)
+            {
+                Debug.WriteLine("Problem while getting list of cocktails");
+                return new List<HhDBO.Cocktail>();
+            }
+        }
 
         public static HhDBO.Cocktail GetCocktail(int id)
         {
@@ -170,14 +169,20 @@ namespace HhDataLayer.DataAccess
             {
                 using (MyHappyHoursEntities bdd = new MyHappyHoursEntities())
                 {
-                    T_User creator = bdd.T_User.Where(x => x.id == cocktail.Creator_Id).FirstOrDefault();
-                    Mapper.CreateMap<HhDBO.Cocktail, T_Cocktail>();
-                    T_Cocktail tCocktail = Mapper.Map<HhDBO.Cocktail, T_Cocktail>(cocktail);
-                    tCocktail.T_User = creator;
-                    bdd.T_Cocktail.Add(tCocktail);
-                    bdd.SaveChanges();
-                    cocktail.Id = tCocktail.id;
-                    return cocktail;
+                    List<T_Cocktail> existings = bdd.T_Cocktail.Where(x => x.name == cocktail.Name).ToList();
+                    if (existings.Count < 1)
+                    {
+                        T_User creator = bdd.T_User.Where(x => x.id == cocktail.Creator_Id).FirstOrDefault();
+                        Mapper.CreateMap<HhDBO.Cocktail, T_Cocktail>();
+                        T_Cocktail tCocktail = Mapper.Map<HhDBO.Cocktail, T_Cocktail>(cocktail);
+                        tCocktail.T_User = creator;
+                        bdd.T_Cocktail.Add(tCocktail);
+                        bdd.SaveChanges();
+                        cocktail.Id = tCocktail.id;
+                        return cocktail;
+                    }
+
+                    return null;
                 }
             }
             catch (Exception)

@@ -1,4 +1,4 @@
-﻿// Default code generation is disabled for model 'C:\Users\Antoine\Documents\Visual Studio 2012\Projects\happy_hours\HhDataLayer\DataAccess\HappyHours.edmx'. 
-// To enable default code generation, change the value of the 'Code Generation Strategy' designer
-// property to an alternate value. This property is available in the Properties Window when the model is
-// open in the designer.
+﻿// La génération de code par défaut est désactivée pour le modèle 'C:\Users\lefebv_b\Documents\Visual Studio 2012\Projects\happy_hours\HhDataLayer\DataAccess\HappyHours.edmx'. 
+// Pour l'activer, modifiez la valeur du concepteur 'Stratégie de génération de code'.
+// Cette propriété est disponible dans la fenêtre Propriétés, lorsque le modèle est ouvert
+// dans le concepteur.
