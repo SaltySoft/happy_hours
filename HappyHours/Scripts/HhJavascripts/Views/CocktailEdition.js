@@ -63,7 +63,7 @@ define([
                 connectWith:".ingredients_list",
                 receive:function (event, ui) {
                     base.cocktail.get("Ingredients").remove(base.ingredients_collection.get(ui.item.attr("data-id")));
-                    console.log(base.cocktail.get("Ingredients"));
+                    console.log("base.cocktail.get(Ingredients)", base.cocktail.get("Ingredients"));
                 }
             });
 
@@ -71,7 +71,7 @@ define([
                 connectWith:".ingredients_list",
                 receive:function (event, ui) {
                     base.cocktail.get("Ingredients").add(base.ingredients_collection.get(ui.item.attr("data-id")));
-                    console.log(base.cocktail.get("Ingredients"));
+                    console.log("base.cocktail.get(Ingredients)", base.cocktail.get("Ingredients"));
                 }
             });
         },
@@ -82,9 +82,15 @@ define([
                 var form = $(this);
                 var array = form.serializeArray();
 
+                var ingredients = base.cocktail.get("Ingredients");
+                console.log("ingredients", ingredients);
                 for (var k in array) {
                     base.cocktail.set(array[k].name, array[k].value);
                 }
+                for (var k in ingredients) {
+                    base.cocktail.get("Ingredients").add(ingredients[k]);
+                }
+
                 console.log("about_to_save", base.cocktail);
                 base.cocktail.save({}, {
                     success:function () {

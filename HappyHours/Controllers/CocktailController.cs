@@ -92,18 +92,16 @@ namespace HappyHours.Controllers
 
             if (picture != null)
             {
-                
-
                 string pictureRandomUrl = Path.GetFileNameWithoutExtension(picture.FileName)
                     + DateTime.Now.ToString("yyyyMMddHHmmssfff")
                     + Path.GetExtension(picture.FileName);
 
                 picture.SaveAs(picture_path + pictureRandomUrl);
                 HhDBO.Cocktail cocktail = BusinessManagement.Cocktail.GetCocktail(id);
-                if (System.IO.File.Exists(Server.MapPath("~") + cocktail.Picture_Url.Substring(1).Replace("/", "\\")))
-                {
-                    System.IO.File.Delete(Server.MapPath("~") + cocktail.Picture_Url.Substring(1).Replace("/", "\\"));
-                }
+                //if (System.IO.File.Exists(Server.MapPath("~") + cocktail.Picture_Url.Substring(1).Replace("/", "\\")))
+                //{
+                //    System.IO.File.Delete(Server.MapPath("~") + cocktail.Picture_Url.Substring(1).Replace("/", "\\"));
+                //}
                 cocktail.Picture_Url = "/Images/Cocktails/" + pictureRandomUrl;
 
                 BusinessManagement.Cocktail.UpdateCocktail(cocktail);
