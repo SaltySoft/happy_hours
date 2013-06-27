@@ -30,16 +30,16 @@ define([
         parse: function (response) {
             this.id = response.Id;
 
+            var ingredients = new IngredientsCollection();
             if (response.Ingredients) {
                 var ing_array = response.Ingredients;
-                var ingredients = new IngredientsCollection();
                 for (var k in ing_array)
                 {
                     var obj = ing_array[k];
                     ingredients.add(new Ingredient(obj));
                 }
-                response.Ingredients = ingredients;
             }
+            response.Ingredients = ingredients;
             return response;
         }
     });
