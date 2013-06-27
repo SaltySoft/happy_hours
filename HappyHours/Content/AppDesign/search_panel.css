@@ -28,3 +28,7 @@
 .quick_search_submit_button_container {
     margin-top: 15px;
 }
+
+#search_panel {
+    max-width: 250px;
+}

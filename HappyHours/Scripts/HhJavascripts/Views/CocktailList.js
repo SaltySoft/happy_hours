@@ -23,11 +23,54 @@ define([
             var base = this;
             var template = _.template(CocktailListTemplate, {});
             base.$el.html(template);
-            base.cocktails.fetch({
-                success:function () {
-                    base.updateList();
+
+            if (base.app.quickSearchData !== undefined) {
+                var queryList = new Array();
+
+                base.name = "";
+                base.ingredients = "";
+                base.difficulty = "1";
+                base.duration = "1";
+                base.alcohol = "no";
+
+                for (var k in base.app.quickSearchData) {
+                    if (base.app.quickSearchData[k].name == "name")
+                        base.name = base.app.quickSearchData[k].value;
+                    if (base.app.quickSearchData[k].name == "ingredients")
+                        base.ingredients = base.app.quickSearchData[k].value;
+                    if (base.app.quickSearchData[k].name == "difficulty")
+                        base.difficulty = base.app.quickSearchData[k].value;
+                    if (base.app.quickSearchData[k].name == "duration")
+                        base.duration = base.app.quickSearchData[k].value;
+                    if (base.app.quickSearchData[k].name == "alcohol")
+                        base.alcohol = base.app.quickSearchData[k].value;
                 }
-            });
+
+                var difficulty =
+                    $.ajax({
+                        url:"/Cocktail/GetQuickSearchCocktails",
+                        type:"get",
+                        data:{
+                            name:base.name,
+                            ingredients:base.ingredients,
+                            difficulty:base.difficulty,
+                            duration:base.duration,
+                            alcohol:base.alcohol
+                        },
+                        success:function (data, status) {
+                            console.log("data", data);
+//                        base.cocktails = data;
+//                        base.updateList();
+                        }
+                    });
+            }
+            else {
+                base.cocktails.fetch({
+                    success:function () {
+                        base.updateList();
+                    }
+                });
+            }
         },
         updateList:function () {
             var base = this;
