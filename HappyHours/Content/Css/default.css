@@ -110,3 +110,17 @@ h5 {
 input:focus {
     outline: none;
 }
+
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #e1e1e1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #a8a8a8;
+
+}

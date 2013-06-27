@@ -26,6 +26,11 @@ namespace HhBusiness
             return HhDataLayer.DataAccess.Cocktail.GetListCocktail(max);
         }
 
+        public static List<HhDBO.Cocktail> GetListCocktailEdited(int max, bool edited)
+        {
+            return HhDataLayer.DataAccess.Cocktail.GetListCocktailEdited(max, edited);
+        }
+
         /// <summary>
         /// retourne la liste des cocktails correspondant au filtre.
         /// </summary>

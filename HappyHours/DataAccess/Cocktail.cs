@@ -50,7 +50,7 @@ namespace HappyHours.DataAccess
                 return new List<HhDBO.Cocktail>();
             }
         }
-
+        
         public List<HhDBO.Cocktail> GetQuickSearchCocktails(HhDBO.SearchQuery searchQuery)
         {
             try
@@ -63,7 +63,24 @@ namespace HappyHours.DataAccess
                 return new List<HhDBO.Cocktail>();
             }
         }
-
+        
+        public List<HhDBO.Cocktail> GetListCocktailEdited(int max, bool edited)
+        {
+             try
+             {
+                  List<HhDBO.Cocktail> cocktails = _client.GetListCocktailEdited(max, edited).ToList();
+                  foreach (HhDBO.Cocktail i in cocktails)
+                  {
+                      Debug.WriteLine(i.Name);
+                  }
+                  return cocktails;
+             }
+             catch (Exception)
+             {
+                  return new List<HhDBO.Cocktail>();
+             }
+        }
+                
         public HhDBO.Cocktail GetCocktail(int id)
         {
             try

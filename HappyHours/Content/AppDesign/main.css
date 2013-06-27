@@ -18,7 +18,7 @@
     height: 125px;
 }
 
-.inner_header_container{
+.inner_header_container {
     float: right;
     position: relative;
 }
@@ -61,7 +61,11 @@
 }
 
 #sub_app_container {
+}
 
+#sub_app_container > div {
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 #header {

@@ -16,10 +16,12 @@ define([
             base.app = app;
 
             if (base.app.isNormalInteger(id)) {
-                base.cocktail = new Cocktail({ id:id });
+                base.cocktail = new Cocktail({ id: id, Id: id });
+
                 base.cocktail.fetch({
                     success:function () {
                         base.render();
+
                     }
                 });
             }

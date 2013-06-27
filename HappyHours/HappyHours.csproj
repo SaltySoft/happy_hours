@@ -335,16 +335,16 @@
     <None Include="Service References\ServiceReferenceHappyHours\ServiceClientHappyHours.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\Users.cshtml" />
+    <Content Include="Views\Shared\_LayoutOLD.cshtml" />
+    <Content Include="Views\Home\IndexOLD.cshtml" />
     <None Include="Service References\ServiceReferenceHappyHours\ServiceClientHappyHours1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ServiceReferenceHappyHours\ServiceClientHappyHours2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Views\User\Index.cshtml" />
-    <Content Include="Views\User\Users.cshtml" />
-    <Content Include="Views\Shared\_LayoutOLD.cshtml" />
-    <Content Include="Views\Home\IndexOLD.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

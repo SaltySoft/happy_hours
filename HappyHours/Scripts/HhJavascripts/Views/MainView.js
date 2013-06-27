@@ -11,8 +11,12 @@
     'Views/CocktailSearch',
     '/Scripts/HhJavascripts/Models/User.js',
     'Views/SignUp',
-    'Views/Favorites'
-], function ($, _, Backbone, MainViewTemplate, SearchPanelView, CocktailListView, CocktailFeaturedView, CocktailDetailsView, CocktailCreationView, CocktailSearchView, User, SignUpView, FavoritesView) {
+    'Views/Favorites',
+    'Views/CocktailEdition',
+    'Models/Cocktail'
+], function ($, _, Backbone, MainViewTemplate, SearchPanelView, CocktailListView, CocktailFeaturedView,
+             CocktailDetailsView, CocktailCreationView, CocktailSearchView, User, SignUpView, FavoritesView,
+             CocktailEditionView, Cocktail) {
     var MainView = Backbone.View.extend({
         tagName:"div",
         className:"main_view",
@@ -34,7 +38,8 @@
                     "add_cocktail":"add_cocktail",
                     "search_cocktail":"search_cocktail",
                     "sign_up":"sign_up",
-                    "favorites":"favorites"
+                    "favorites": "favorites",
+                    "cocktail/edit/:id": "edit_cocktail"
                 },
                 featured_cocktail:function () {
                     base.$el.find("#sub_app_container").hide();
@@ -88,31 +93,22 @@
             });
 
             app.router = new AppRouter();
-
-//            $('.quick_search_submit_button_container').click(function () {
-//                route = Backbone.history.fragment;
-//                if ("#" + route == "#cocktails") {
-//                    app.router.navigate();
-//                    app.router.navigate(route, true);
-//                }
-//            });
-
             console.log(base.app.current_user);
         },
-        loginUser:function (username, password) {
+        loginUser: function (username, password) {
             var base = this;
             $.ajax({
-                url:"/User/Login",
-                method:"post",
-                data:{
+                url: "/User/Login",
+                method: "post",
+                data: {
                     username:username,
                     password:password
                 },
-                success:function (data) {
+                success: function (data) {
                     if (data == "success") {
                         $.ajax({
-                            url:"/User/CurrentUser",
-                            success:function (data, status) {
+                            url: "/User/CurrentUser",
+                            success: function (data, status) {
                                 if (data.Id) {
                                     base.app.current_user = new User(data);
                                     base.app.events.trigger("user_connection");
@@ -134,11 +130,11 @@
                 }
             });
         },
-        disconnectUser:function () {
+        disconnectUser: function () {
             var base = this;
             $.ajax({
-                url:"/User/Logout",
-                success:function () {
+                url: "/User/Logout",
+                success: function (){
                     base.$el.find(".connect").show();
                     base.$el.find(".disconnect").hide();
                     base.$el.find(".login_required").hide();
@@ -150,7 +146,7 @@
         render:function () {
             var base = this;
             var template = _.template(MainViewTemplate, {
-                current_user:base.app.current_user
+                current_user: base.app.current_user
             });
 
             base.$el.html(template);
@@ -188,7 +184,7 @@
             }
 
             base.$el.delegate(".disconnect_button", "click", function () {
-                base.disconnectUser();
+               base.disconnectUser();
             });
 
             base.$el.delegate(".connect", "submit", function () {

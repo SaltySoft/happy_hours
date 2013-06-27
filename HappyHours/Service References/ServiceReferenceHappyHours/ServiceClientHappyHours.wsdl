@@ -91,6 +91,12 @@
   <wsdl:message name="IServiceClientHappyHours_GetQuickSearchCocktails_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetQuickSearchCocktailsResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_GetListCocktailEdited_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListCocktailEdited" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_GetListCocktailEdited_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListCocktailEditedResponse" />
+  </wsdl:message>
   <wsdl:message name="IServiceClientHappyHours_GetCocktail_InputMessage">
     <wsdl:part name="parameters" element="tns:GetCocktail" />
   </wsdl:message>
@@ -171,6 +177,10 @@
     <wsdl:operation name="GetQuickSearchCocktails">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceClientHappyHours/GetQuickSearchCocktails" message="tns:IServiceClientHappyHours_GetQuickSearchCocktails_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceClientHappyHours/GetQuickSearchCocktailsResponse" message="tns:IServiceClientHappyHours_GetQuickSearchCocktails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListCocktailEdited">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceClientHappyHours/GetListCocktailEdited" message="tns:IServiceClientHappyHours_GetListCocktailEdited_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceClientHappyHours/GetListCocktailEditedResponse" message="tns:IServiceClientHappyHours_GetListCocktailEdited_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetCocktail">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceClientHappyHours/GetCocktail" message="tns:IServiceClientHappyHours_GetCocktail_InputMessage" />
@@ -310,6 +320,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetQuickSearchCocktails">
       <soap:operation soapAction="http://tempuri.org/IServiceClientHappyHours/GetQuickSearchCocktails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListCocktailEdited">
+      <soap:operation soapAction="http://tempuri.org/IServiceClientHappyHours/GetListCocktailEdited" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

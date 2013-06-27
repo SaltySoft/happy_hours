@@ -99,6 +99,12 @@ namespace HappyHours.ServiceReferenceHappyHours {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/GetQuickSearchCocktails", ReplyAction="http://tempuri.org/IServiceClientHappyHours/GetQuickSearchCocktailsResponse")]
         System.Threading.Tasks.Task<HhDBO.Cocktail[]> GetQuickSearchCocktailsAsync(HhDBO.SearchQuery searchQuery);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/GetListCocktailEdited", ReplyAction="http://tempuri.org/IServiceClientHappyHours/GetListCocktailEditedResponse")]
+        HhDBO.Cocktail[] GetListCocktailEdited(int max, bool edited);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/GetListCocktailEdited", ReplyAction="http://tempuri.org/IServiceClientHappyHours/GetListCocktailEditedResponse")]
+        System.Threading.Tasks.Task<HhDBO.Cocktail[]> GetListCocktailEditedAsync(int max, bool edited);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/GetCocktail", ReplyAction="http://tempuri.org/IServiceClientHappyHours/GetCocktailResponse")]
         HhDBO.Cocktail GetCocktail(int id);
         
@@ -261,6 +267,14 @@ namespace HappyHours.ServiceReferenceHappyHours {
         
         public System.Threading.Tasks.Task<HhDBO.Cocktail[]> GetQuickSearchCocktailsAsync(HhDBO.SearchQuery searchQuery) {
             return base.Channel.GetQuickSearchCocktailsAsync(searchQuery);
+        }
+        
+        public HhDBO.Cocktail[] GetListCocktailEdited(int max, bool edited) {
+            return base.Channel.GetListCocktailEdited(max, edited);
+        }
+        
+        public System.Threading.Tasks.Task<HhDBO.Cocktail[]> GetListCocktailEditedAsync(int max, bool edited) {
+            return base.Channel.GetListCocktailEditedAsync(max, edited);
         }
         
         public HhDBO.Cocktail GetCocktail(int id) {

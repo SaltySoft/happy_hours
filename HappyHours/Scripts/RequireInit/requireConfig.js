@@ -4,7 +4,8 @@
     underscore_string: '/Scripts/javascript/underscore-string',
     backbone: "/Scripts/javascript/backbone-min",
     text: "/Scripts/javascript/text",
-    default: "/Scripts/HhJavascripts/default"
+    default: "/Scripts/HhJavascripts/default",
+    jqueryui : "/Scripts/jquery-ui"
 }
 
 var sb_shims = {
@@ -18,5 +19,9 @@ var sb_shims = {
     'backbone': {
         deps: ['underscore', 'jquery'],
         exports: 'Backbone'
+    },
+    'jqueryui' : {
+        deps : ['jquery'],
+        exports: 'JqueryUI'
     }
 };

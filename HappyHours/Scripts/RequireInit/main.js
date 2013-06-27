@@ -10,6 +10,7 @@ if (typeof app !== 'undefined') {
     apps.push(app);
 }
 
+
 $(document).ready(function () {
     requirejs(apps,
         function ($, _, Backbone, User, Cocktail, Defaults, App) {

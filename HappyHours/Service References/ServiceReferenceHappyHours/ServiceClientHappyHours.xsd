@@ -195,6 +195,21 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetListCocktailEdited">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="max" type="xs:int" />
+        <xs:element minOccurs="0" name="edited" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListCocktailEditedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/HhDBO" minOccurs="0" name="GetListCocktailEditedResult" nillable="true" type="q16:ArrayOfCocktail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetCocktail">
     <xs:complexType>
       <xs:sequence>
@@ -205,21 +220,21 @@
   <xs:element name="GetCocktailResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/HhDBO" minOccurs="0" name="GetCocktailResult" nillable="true" type="q16:Cocktail" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/HhDBO" minOccurs="0" name="GetCocktailResult" nillable="true" type="q17:Cocktail" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="CreateCocktail">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/HhDBO" minOccurs="0" name="cocktail" nillable="true" type="q17:Cocktail" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/HhDBO" minOccurs="0" name="cocktail" nillable="true" type="q18:Cocktail" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="CreateCocktailResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/HhDBO" minOccurs="0" name="CreateCocktailResult" nillable="true" type="q18:Cocktail" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/HhDBO" minOccurs="0" name="CreateCocktailResult" nillable="true" type="q19:Cocktail" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -240,7 +255,7 @@
   <xs:element name="UpdateCocktail">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/HhDBO" minOccurs="0" name="cocktail" nillable="true" type="q19:Cocktail" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/HhDBO" minOccurs="0" name="cocktail" nillable="true" type="q20:Cocktail" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
