@@ -18,6 +18,9 @@ namespace HhWcfService
         List<HhDBO.User> GetUser(int id);
 
         [OperationContract]
+        HhDBO.User GetUserByName(string name);
+
+        [OperationContract]
         HhDBO.User CreateUser(HhDBO.User user);
 
         [OperationContract]

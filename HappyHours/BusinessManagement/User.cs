@@ -19,6 +19,12 @@ namespace HappyHours.BusinessManagement
             return dataAccess.GetUser(id);
         }
 
+        public static HhDBO.User GetUserByName(string name)
+        {
+            DataAccess.User dataAccess = new DataAccess.User();
+            return dataAccess.GetUserByName(name);
+        }
+
         public static HhDBO.User CreateUser(HhDBO.User user)
         {
             DataAccess.User dataAccess = new DataAccess.User();

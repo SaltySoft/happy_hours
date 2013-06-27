@@ -48,14 +48,18 @@ namespace HappyHours.BusinessManagement
         public override string[] GetRolesForUser(string username)
         {
             List<string> roles = new List<string>();
-            if (username == "admin")
+
+            HhDBO.User user = BusinessManagement.User.GetUserByName(username);
+
+            if (user != null)
             {
-                roles.Add("Admin");
-            }
-            if (username == "user")
-            {
+                if (user.Admin == 1)
+                {
+                    roles.Add("Admin");
+                }
                 roles.Add("User");
             }
+
             return roles.ToArray();
         }
 

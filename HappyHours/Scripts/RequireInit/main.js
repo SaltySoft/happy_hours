@@ -4,7 +4,7 @@
     shim:sb_shims
 });
 
-var apps = ["jquery", "underscore", "backbone", "default"];
+var apps = ["jquery", "underscore", "backbone", "/Scripts/HhJavascripts/Models/User.js", "default"];
 
 if (typeof app !== 'undefined') {
     apps.push(app);
@@ -12,12 +12,24 @@ if (typeof app !== 'undefined') {
 
 $(document).ready(function () {
     requirejs(apps,
-        function ($, _, Backbone, Defaults, App) {
+        function ($, _, Backbone, User, Defaults, App) {
 
             var defaults = Defaults;
             defaults.events = $.extend({}, Backbone.Events);
-            if (App) {
-                App.initialize(defaults);
-            }
+            $.ajax({
+                url: "/User/CurrentUser",
+                success: function (data, status) {
+                    if (data.Id) {
+                        console.log(User);
+                        defaults.current_user = new User(data);
+                    } else {
+                        defaults.current_user = undefined;
+                    }
+                    if (App) {
+                        App.initialize(defaults);
+                    }
+                }
+            });
+
         });
 });
