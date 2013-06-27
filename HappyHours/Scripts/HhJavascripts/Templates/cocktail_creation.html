@@ -4,29 +4,29 @@
           class="pure-form pure-form-aligned form_cocktail" enctype="multipart/form-data">
         <div class="pure-control-group">
             <label for="creation_form_name">Nom du cocktail</label>
-            <input type="text" name="name" placeholder="Nom du cocktail" class="form_name" id="creation_form_name"/>
+            <input type="text" name="name" placeholder="Nom du cocktail" class="form_name field_Name field" id="creation_form_name"/>
         </div>
         <div class="pure-control-group">
             <label for="creation_form_difficulty">Difficulté</label>
             <input type="number" min="1" max="5" value="1" id="creation_form_difficulty" name="difficulty"
-                   class="form_difficulty"/> <span class="difficulty_max">/ 5</span>
+                   class="form_difficulty field_Difficulty field"/> <span class="difficulty_max">/ 5</span>
         </div>
         <div class="pure-control-group">
             <label for="creation_form_duration">Temps de préparation</label>
             <input type="number" min="1" max="60" value="1" name="duration" id="creation_form_duration"
-                   placeholder="Temps de préparation" class="form_duration"/> <span class="time_max">minutes</span>
+                   placeholder="Temps de préparation" class="form_duration field_Duration field"/> <span class="time_max">minutes</span>
         </div>
         <div class="pure-control-group">
             <label for="creation_form_description">Description</label>
-            <textarea name="description" id="creation_form_description" class="form_description"></textarea>
+            <textarea name="description" id="creation_form_description" class="form_description field_Description field"></textarea>
         </div>
         <div class="pure-control-group">
             <label for="creation_form_recipe">Recette</label>
-            <textarea name="recipe" id="creation_form_recipe" class="form_recipe"></textarea>
+            <textarea name="recipe" id="creation_form_recipe" class="form_recipe field_Recipe field"></textarea>
         </div>
         <div class="pure-control-group">
             <label for="creation_form_picture">Picture</label>
-            <input type="file" name="picture" id="creation_form_picture"/>
+            <input type="file" name="picture" id="creation_form_picture" class="field_Picture_Url field"/>
         </div>
         <input type="hidden" name="Creator_Id" value="1"/>
 

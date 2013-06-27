@@ -18,6 +18,7 @@ namespace HappyHours.Controllers
             return View();
         }
 
+
         [AcceptVerbs(HttpVerbs.Get)]
         public JsonResult GetRandomCocktail()
         {
@@ -60,6 +61,7 @@ namespace HappyHours.Controllers
 
         //POST - create
         [AcceptVerbs(HttpVerbs.Post)]
+        [Authorize(Roles = "Admin")]
         public JsonResult WsRest(HhDBO.Cocktail cocktail, HttpPostedFileBase picture)
         {
             //byte[] PostData = HttpContext.Request.BinaryRead(HttpContext.Request.ContentLength);
@@ -87,7 +89,11 @@ namespace HappyHours.Controllers
                     HhDBO.Cocktail result = BusinessManagement.Cocktail.CreateCocktail(cocktail);
                     if (result == null)
                     {
-                        return Json("wserror atcreation", JsonRequestBehavior.AllowGet);
+                        Dictionary<string, object> dico = new Dictionary<string, object>();
+                        dico["status"] = "error";
+                        dico["message"] = "invalid_data";
+                        dico["data"] = BusinessManagement.Cocktail.Validate(cocktail);
+                        return Json(dico, JsonRequestBehavior.AllowGet);
                     }
                     else
                     {

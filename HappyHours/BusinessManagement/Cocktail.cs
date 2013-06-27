@@ -42,5 +42,39 @@ namespace HappyHours.BusinessManagement
             DataAccess.Cocktail dataAccess = new DataAccess.Cocktail();
             return dataAccess.DeleteCocktail(id);
         }
+
+        public static List<string> Validate(HhDBO.Cocktail cocktail)
+        {
+            List<string> errors = new List<string>();
+            if (cocktail.Creator_Id == null)
+            {
+                errors.Add("Creator_Id");
+            }
+            if (cocktail.Description == null)
+            {
+                errors.Add("Description");
+            }
+            if (cocktail.Difficulty == null || cocktail.Difficulty <= 0 || cocktail.Difficulty > 5)
+            {
+                errors.Add("Difficulty");
+            }
+            if (cocktail.Duration == null | cocktail.Duration <= 0)
+            {
+                errors.Add("Duration");
+            }
+            if (cocktail.Name == null)
+            {
+                errors.Add("Name");
+            }
+            if (cocktail.Picture_Url == null)
+            {
+                errors.Add("Picture_Url");
+            }
+            if (cocktail.Recipe == null)
+            {
+                errors.Add("Recipe");
+            }
+            return errors;
+        }
     }
 }

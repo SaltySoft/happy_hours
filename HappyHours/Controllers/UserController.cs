@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace HappyHours.Controllers
 {
@@ -32,6 +33,7 @@ namespace HappyHours.Controllers
             if (id.HasValue)
             {
                 //show
+             
                 HhDBO.User user = BusinessManagement.User.GetUser(id.Value).FirstOrDefault();
                 return Json(user, JsonRequestBehavior.AllowGet);
             }
@@ -41,6 +43,55 @@ namespace HappyHours.Controllers
                 List<HhDBO.User> users = BusinessManagement.User.GetListUser(10);
                 return Json(users, JsonRequestBehavior.AllowGet);
             }
+        }
+
+        public JsonResult CurrentUser()
+        {
+
+            
+            string[] rolesArray;
+            RolePrincipal r = (RolePrincipal)User;
+
+            HhDBO.User user = BusinessManagement.User.GetUser(Int32.Parse(User.Identity.Name)).FirstOrDefault();
+            if (user != null)
+            {
+                rolesArray = r.GetRoles();
+                user.Roles = new List<string>();
+                foreach (string role in rolesArray)
+                {
+                    user.Roles.Add(role);
+                }
+                return Json(user, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                Dictionary<string, string> dico = new Dictionary<string, string>();
+                dico["status"] = "error";
+                dico["reason"] = "disconnected";
+                return Json(dico, JsonRequestBehavior.AllowGet);
+            }
+           
+            
+        }
+
+        [AcceptVerbs(HttpVerbs.Post)]
+        public JsonResult Login(string username, string password)
+        {
+            if (Membership.ValidateUser(username, password))
+            {
+                FormsAuthentication.SetAuthCookie(username, false);
+                return Json("success", JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json("failure", JsonRequestBehavior.AllowGet);
+            }
+        }
+
+
+        public JsonResult Logout()
+        {
+            return Json("success", JsonRequestBehavior.AllowGet);
         }
 
         //PUT - update
@@ -108,6 +159,16 @@ namespace HappyHours.Controllers
             }
 
             return Json("wssuccess user deleted.", JsonRequestBehavior.DenyGet);
+        }
+
+
+        public JsonResult Unauthorized()
+        {
+            Dictionary<string, string> dico = new Dictionary<string, string>();
+            dico["status"] = "error";
+            dico["message"] = "unsufficient_rights";
+
+            return Json(dico, JsonRequestBehavior.AllowGet);
         }
     }
 }
