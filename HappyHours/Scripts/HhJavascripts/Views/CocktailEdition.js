@@ -2,8 +2,10 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!Templates/cocktail_edition.html'
-], function ($, _, Backbone, CocktailEditionTemplate) {
+    'text!Templates/cocktail_edition.html',
+    'Collections/Ingredients',
+    'Views/IngredientItem'
+], function ($, _, Backbone, CocktailEditionTemplate, IngredientsCollection, IngredientItemView) {
     var CocktailEditionView = Backbone.View.extend({
         tagName: "div",
         className: "cocktail_edition_view",
@@ -17,6 +19,9 @@ define([
             var base = this;
 
             base.app = app;
+
+            base.ingredients_collection = new IngredientsCollection();
+
             base.cocktail.fetch({
                 success: function () {
                     base.render();
@@ -33,6 +38,19 @@ define([
             });
 
             base.$el.html(template);
+
+            base.ingredients_collection.fetch({
+                success: function () {
+                    var list = base.ingredients_collection.models;
+
+                    for (var k in list) {
+                        var ingredient = list[k];
+                        var ingredient_item = new IngredientItemView(ingredient);
+                        base.$el.find(".all_ingredients").append(ingredient_item.$el);
+                        ingredient_item.init(base.app);
+                    }
+                }
+            });
         },
         registerEvents: function () {
             var base = this;
