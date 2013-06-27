@@ -9,7 +9,10 @@ define([
             Picture_Url: "http://placehold.it/300x300"
         },
         initialize: function (attributes) {
-            this.id = attributes.Id;
+            if (attributes) {
+                this.id = attributes.Id ? attributes.Id : 0;
+            }
+
         },
         parse: function (response) {
             this.id = response.Id;

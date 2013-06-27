@@ -176,6 +176,7 @@ namespace HhDataLayer.DataAccess
         {
             try
             {
+                //Mapper.CreateMap<T_Ingredient, HhDBO.Ingredient>();
                 using (MyHappyHoursEntities bdd = new MyHappyHoursEntities())
                 {
                     T_Cocktail tCocktail = bdd.T_Cocktail.Where(x => x.id == cocktail.Id).FirstOrDefault();
@@ -186,9 +187,54 @@ namespace HhDataLayer.DataAccess
                         tCocktail.description = cocktail.Description;
                         tCocktail.difficulty = cocktail.Difficulty;
                         tCocktail.duration = cocktail.Duration;
-                        tCocktail.picture_url = cocktail.Picture_Url;
+                        if (cocktail.Picture_Url != null)
+                            tCocktail.picture_url = cocktail.Picture_Url;
                         tCocktail.recipe = cocktail.Recipe;
                         tCocktail.T_User = creator;
+
+                        if (cocktail.Ingredients != null)
+                        {
+                            foreach (HhDBO.Ingredient ingredient in cocktail.Ingredients)
+                            {
+                                T_CocktailsIngredients link = new T_CocktailsIngredients();
+                                T_Ingredient tIngredient = bdd.T_Ingredient.Where(x => x.id == ingredient.Id).FirstOrDefault();
+                                
+                                if (tIngredient != null)
+                                {
+                                    
+                                    bool create = true;
+                                    foreach (T_CocktailsIngredients ex_link in tCocktail.T_CocktailsIngredients)
+                                    {
+                                        if (ex_link.T_Ingredient.id == tIngredient.id)
+                                        {
+                                            create = false;
+                                        }   
+                                    }
+
+                                    if (create)
+                                    {
+                                        link.T_Ingredient = tIngredient;
+                                        link.T_Cocktail = tCocktail;
+                                        bdd.T_CocktailsIngredients.Add(link);
+                                    }
+                                }
+                            }
+                        }
+
+                        for (int i = tCocktail.T_CocktailsIngredients.Count - 1; i >= 0; i--)
+                        {
+                            bool remove = true;
+                            foreach (HhDBO.Ingredient c in cocktail.Ingredients)
+                            {
+                                if (c.Id == tCocktail.T_CocktailsIngredients.ElementAt(i).T_Cocktail.id)
+                                    remove = false;
+                            }
+                            if (remove)
+                                bdd.T_CocktailsIngredients.Remove(tCocktail.T_CocktailsIngredients.ElementAt(i));
+                        }
+
+
+
                         bdd.SaveChanges();
                         return true;
                     }
@@ -198,7 +244,7 @@ namespace HhDataLayer.DataAccess
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return false;
             }

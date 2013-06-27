@@ -53,3 +53,7 @@ input:focus {
 .cocktail_creation  .error_submit{
     border: 1px solid #ee5c44 !important;
 }
+
+.cocktail_edition_view iframe {
+    display: none;
+}

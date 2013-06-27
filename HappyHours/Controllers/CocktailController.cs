@@ -51,7 +51,7 @@ namespace HappyHours.Controllers
                 
                 List<HhDBO.Cocktail> cocktails;
                 HhDBO.User current_user = BusinessManagement.User.GetUserByName(User.Identity.Name);
-                if (current_user.Admin == 1)
+                if (current_user != null && current_user.Admin == 1)
                 {
                     cocktails = BusinessManagement.Cocktail.GetListCocktailEdited(10, false);
                 }
@@ -68,6 +68,7 @@ namespace HappyHours.Controllers
         [AcceptVerbs(HttpVerbs.Put)]
         public JsonResult WsRest(int id, HhDBO.Cocktail cocktail)
         {
+
             if (BusinessManagement.Cocktail.UpdateCocktail(cocktail))
             {
                 HhDBO.Cocktail newCocktail = BusinessManagement.Cocktail.GetCocktail(id);
@@ -79,15 +80,42 @@ namespace HappyHours.Controllers
             }
         }
 
+        public JsonResult SendPicture(int id, HttpPostedFileBase picture)
+        {
+            string picture_path = Server.MapPath("~") + "Images\\Cocktails\\";
+
+            if (picture != null)
+            {
+                
+
+                string pictureRandomUrl = Path.GetFileNameWithoutExtension(picture.FileName)
+                    + DateTime.Now.ToString("yyyyMMddHHmmssfff")
+                    + Path.GetExtension(picture.FileName);
+
+                picture.SaveAs(picture_path + pictureRandomUrl);
+                HhDBO.Cocktail cocktail = BusinessManagement.Cocktail.GetCocktail(id);
+                if (System.IO.File.Exists(Server.MapPath("~") + cocktail.Picture_Url.Substring(1).Replace("/", "\\")))
+                {
+                    System.IO.File.Delete(Server.MapPath("~") + cocktail.Picture_Url.Substring(1).Replace("/", "\\"));
+                }
+                cocktail.Picture_Url = "/Images/Cocktails/" + pictureRandomUrl;
+
+                BusinessManagement.Cocktail.UpdateCocktail(cocktail);
+                return Json(cocktail, JsonRequestBehavior.AllowGet);
+            }
+
+            return Json("wserror updating.", JsonRequestBehavior.AllowGet);
+        }
+
         //POST - create
         [AcceptVerbs(HttpVerbs.Post)]
-        [Authorize(Roles = "Admin")]
-        public JsonResult WsRest(HhDBO.Cocktail cocktail, HttpPostedFileBase picture)
+        [Authorize(Roles = "User")]
+        public JsonResult WsRest(HhDBO.Cocktail cocktail)
         {
             //byte[] PostData = HttpContext.Request.BinaryRead(HttpContext.Request.ContentLength);
             //string postParams = Encoding.UTF8.GetString(PostData);
 
-            string picture_path = Server.MapPath("~") + "Images\\Cocktails\\";
+          
 
             if (cocktail != null)
             {
@@ -97,15 +125,15 @@ namespace HappyHours.Controllers
                 }
                 else
                 {
-                    if (picture != null)
-                    {
-                        string pictureRandomUrl = Path.GetFileNameWithoutExtension(picture.FileName) 
-                            + DateTime.Now.ToString("yyyyMMddHHmmssfff")
-                            + Path.GetExtension(picture.FileName);
-
-                        picture.SaveAs(picture_path + pictureRandomUrl);
-                        cocktail.Picture_Url = "/Images/Cocktails/" + pictureRandomUrl;
-                    }
+                    cocktail.Ingredients = new List<HhDBO.Ingredient>();
+                    cocktail.Picture_Url = "";
+                    cocktail.Recipe = "";
+                    cocktail.Edited = 0;
+                    cocktail.Duration = 1;
+                    cocktail.Difficulty = 1;
+                    cocktail.Description = "";
+                    HhDBO.User user = BusinessManagement.User.GetUserByName(User.Identity.Name);
+                    cocktail.Creator_Id = user.Id;
                     HhDBO.Cocktail result = BusinessManagement.Cocktail.CreateCocktail(cocktail);
                     if (result == null)
                     {
