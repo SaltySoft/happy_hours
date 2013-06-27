@@ -1,0 +1,26 @@
+.quick_search_form_container {
+
+}
+
+.quick_search_form {
+
+}
+
+.quick_search_form input[type="text"], .quick_search_form textarea {
+    width: 100%;
+}
+
+.quick_search_label {
+    text-align: left !important;
+    margin-bottom: 0.4em !important;
+    margin-top: 0.6em !important;
+}
+
+.quick_search_select_container {
+    height: 60px;
+    margin-top: 4px;
+}
+
+.label_separator{
+    height: 0.2em;
+}

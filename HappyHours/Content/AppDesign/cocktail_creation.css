@@ -4,7 +4,6 @@
     width: 500px;
 }
 
-
 .form_cocktail input[type="text"], .form_cocktail textarea {
     width: 300px;
     resize: none;
