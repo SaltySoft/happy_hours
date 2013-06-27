@@ -1,7 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Json;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
@@ -12,18 +15,24 @@ namespace HappyHours.Controllers
     {
         //
         // GET: /Cocktail/
-
         public ActionResult Index()
         {
             return View();
         }
-
 
         [AcceptVerbs(HttpVerbs.Get)]
         public JsonResult GetRandomCocktail()
         {
             HhDBO.Cocktail cocktail = BusinessManagement.Cocktail.GetRandomCocktail();
             return Json(cocktail, JsonRequestBehavior.AllowGet);
+        }
+
+        [AcceptVerbs(HttpVerbs.Get)]
+        public JsonResult GetQuickSearchCocktails(string name, string ingredients, string difficulty, string duration, string alcohol)
+        {
+
+            List<HhDBO.Cocktail> cocktails = BusinessManagement.Cocktail.GetListCocktail(10);
+            return Json(cocktails, JsonRequestBehavior.AllowGet);
         }
 
         //GET - show - index

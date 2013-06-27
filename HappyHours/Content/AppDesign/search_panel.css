@@ -21,6 +21,14 @@
     margin-top: 4px;
 }
 
-.label_separator{
+.label_separator {
     height: 0.2em;
+}
+
+.quick_search_submit_button_container {
+    margin-top: 15px;
+}
+
+#search_panel {
+    max-width: 250px;
 }

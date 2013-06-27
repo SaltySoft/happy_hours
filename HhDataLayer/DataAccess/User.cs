@@ -111,7 +111,7 @@ namespace HhDataLayer.DataAccess
 
                 return dboUser;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }

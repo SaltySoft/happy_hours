@@ -24,6 +24,12 @@ define([
         },
         registerEvents: function () {
             var base = this;
+
+            base.$el.delegate(".quick_search_form", "submit", function () {
+                var elt = $(this);
+                base.app.quickSearchData = elt.serializeArray();
+                base.app.router.navigate("#cocktails", {trigger:true});
+            });
         }
     });
 
