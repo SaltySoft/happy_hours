@@ -26,14 +26,16 @@ namespace HhDataLayer.DataAccess
                     foreach (T_User user in existings)
                     {
                         Mapper.CreateMap<T_User, HhDBO.User>();
+                        Mapper.CreateMap<T_Cocktail, HhDBO.Cocktail>();
                         HhDBO.User dboUser = Mapper.Map<T_User, HhDBO.User>(user);
 
-                        //TODO 
-                        //if (!item.T_Favorite.IsLoaded)
-                        //{
-                        //    item.T_Favorite.Load();
-                        //}
-                        //STUFF LIKE THAT
+                        dboUser.Favorites = new List<HhDBO.Cocktail>();
+                        foreach (T_Favorite fav in user.T_Favorite)
+                        {
+                            T_Cocktail cocktail = fav.T_Cocktail;
+                            HhDBO.Cocktail dboCocktail = Mapper.Map<T_Cocktail, HhDBO.Cocktail>(cocktail);
+                            dboUser.Favorites.Add(dboCocktail);
+                        }
 
                         users.Add(dboUser);
                     }
@@ -41,7 +43,7 @@ namespace HhDataLayer.DataAccess
 
                 return users;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return new List<HhDBO.User>();
             }
@@ -59,18 +61,20 @@ namespace HhDataLayer.DataAccess
                 using (MyHappyHoursEntities bdd = new MyHappyHoursEntities())
                 {
                     List<T_User> existings = bdd.T_User.Where(x => x.id == id).ToList();
-
+                    Mapper.CreateMap<T_User, HhDBO.User>();
+                    Mapper.CreateMap<T_Cocktail, HhDBO.Cocktail>();
                     foreach (T_User user in existings)
                     {
-                        Mapper.CreateMap<T_User, HhDBO.User>();
+
                         HhDBO.User dboUser = Mapper.Map<T_User, HhDBO.User>(user);
 
-                        //TODO 
-                        //if (!item.T_Favorite.IsLoaded)
-                        //{
-                        //    item.T_Favorite.Load();
-                        //}
-                        //STUFF LIKE THAT
+                        dboUser.Favorites = new List<HhDBO.Cocktail>();
+                        foreach (T_Favorite fav in user.T_Favorite)
+                        {
+                            T_Cocktail cocktail = fav.T_Cocktail;
+                            HhDBO.Cocktail dboCocktail = Mapper.Map<T_Cocktail, HhDBO.Cocktail>(cocktail);
+                            dboUser.Favorites.Add(dboCocktail);
+                        }
 
                         users.Add(dboUser);
                     }
@@ -94,6 +98,15 @@ namespace HhDataLayer.DataAccess
                     Mapper.CreateMap<T_User, HhDBO.User>();
                     T_User user = bdd.T_User.Where(x => x.username == username).FirstOrDefault();
                     dboUser = Mapper.Map<T_User, HhDBO.User>(user);
+
+                    dboUser.Favorites = new List<HhDBO.Cocktail>();
+                    foreach (T_Favorite fav in user.T_Favorite)
+                    {
+                        T_Cocktail cocktail = fav.T_Cocktail;
+                        HhDBO.Cocktail dboCocktail = Mapper.Map<T_Cocktail, HhDBO.Cocktail>(cocktail);
+                        dboUser.Favorites.Add(dboCocktail);
+                    }
+
                 }
 
                 return dboUser;
@@ -174,12 +187,56 @@ namespace HhDataLayer.DataAccess
                     T_User tUser = bdd.T_User.Where(x => x.id == user.Id).FirstOrDefault();
                     if (tUser != null)
                     {
-                        tUser.username = user.Username;
-                        tUser.email = user.Email;
-                        tUser.admin = user.Admin;
-                        tUser.password = user.Password;
-                        //tUser.T_Favorite
+                        tUser.username = user.Username != null ? user.Username : tUser.username;
+                        tUser.email = user.Email != null ? user.Email : tUser.email;
+                        tUser.admin = user.Admin != null ? user.Admin : tUser.admin;
+                        tUser.password = user.Password != null ? user.Password : tUser.password;
+                        //tUser.T_Favorite 
                         //TODO
+                        List<int> ids = new List<int>();
+
+                        if (user.Favorites == null)
+                            user.Favorites = new List<HhDBO.Cocktail>();
+
+                        foreach (HhDBO.Cocktail cocktail in user.Favorites)
+                        {
+                            T_Favorite favorite = new T_Favorite();
+                            T_Cocktail tcocktail = bdd.T_Cocktail.Where(x => x.id == cocktail.Id).FirstOrDefault();
+                            if (tcocktail != null)
+                            {
+                                bool create = true;
+                                foreach (T_Favorite fav in tUser.T_Favorite)
+                                {
+                                    if (fav.T_Cocktail.id == tcocktail.id)
+                                    {
+                                        create = false;
+                                    }
+                                }
+
+                                if (create)
+                                {
+                                    favorite.T_Cocktail = tcocktail;
+                                    favorite.T_User = tUser;
+                                    bdd.T_Favorite.Add(favorite);
+                                }
+                                ids.Add(tcocktail.id);
+                            }
+                        }
+
+                        List<T_Favorite> remove_list = bdd.T_Favorite.Where(x => !ids.Contains(x.id)).ToList();
+
+                        for (int i = tUser.T_Favorite.Count - 1; i >= 0; i--)
+                        {
+                            bool remove = true;
+                            foreach (HhDBO.Cocktail c in user.Favorites)
+                            {
+                                if (c.Id == tUser.T_Favorite.ElementAt(i).T_Cocktail.id)
+                                    remove = false;
+                            }
+                            if (remove)
+                                bdd.T_Favorite.Remove(tUser.T_Favorite.ElementAt(i));
+                        }
+
 
                         bdd.SaveChanges();
                         return true;
@@ -190,7 +247,7 @@ namespace HhDataLayer.DataAccess
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return false;
             }

@@ -12,6 +12,18 @@
 
 }
 
+.cocktail_item .unfav_button {
+    display: none;
+}
+
+.cocktail_item.faved .unfav_button {
+    display: inline;
+}
+
+.cocktail_item.faved .fav_button {
+    display: none;
+}
+
 .cocktail_item_image {
     float: right;
     width: 150px;

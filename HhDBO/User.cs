@@ -17,6 +17,7 @@ namespace HhDBO
         private string _password;
         private int _admin;
         private List<string> _roles;
+        private List<HhDBO.Cocktail> _favorites;
         #endregion
 
         #region getter / setter
@@ -74,6 +75,13 @@ namespace HhDBO
         {
             get { return _roles; }
             set { _roles = value; }
+        }
+
+        [DataMember]
+        public List<HhDBO.Cocktail> Favorites
+        {
+            get { return _favorites; }
+            set { _favorites = value; }
         }
 
         #endregion

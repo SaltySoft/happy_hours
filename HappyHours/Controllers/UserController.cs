@@ -35,12 +35,17 @@ namespace HappyHours.Controllers
                 //show
              
                 HhDBO.User user = BusinessManagement.User.GetUser(id.Value).FirstOrDefault();
+                user.Password = "";
                 return Json(user, JsonRequestBehavior.AllowGet);
             }
             else
             {
                 //show all
                 List<HhDBO.User> users = BusinessManagement.User.GetListUser(10);
+                foreach (HhDBO.User user in users)
+                {
+                    user.Password = "";
+                }
                 return Json(users, JsonRequestBehavior.AllowGet);
             }
         }
@@ -66,6 +71,7 @@ namespace HappyHours.Controllers
                 dico["Id"] = user.Id;
                 dico["Username"] = user.Username;
                 dico["Roles"] = user.Roles;
+                dico["Favorites"] = user.Favorites;
                 return Json(dico, JsonRequestBehavior.AllowGet);
             }
             else

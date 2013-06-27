@@ -7,6 +7,13 @@ define([
         defaults: {
             Creator_Id: 1,
             Picture_Url: "http://placehold.it/300x300"
+        },
+        initialize: function (attributes) {
+            this.id = attributes.Id;
+        },
+        parse: function (response) {
+            this.id = response.Id;
+            return response;
         }
     });
 

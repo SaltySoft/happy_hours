@@ -79,6 +79,7 @@
             });
 
             app.router = new AppRouter();
+            console.log(base.app.current_user);
         },
         loginUser: function (username, password) {
             var base = this;

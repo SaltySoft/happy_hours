@@ -37,9 +37,33 @@ define([
                 image.css("top", 75  -  image.height() / 2);
             });
 
+            if (base.app.current_user.get("Favorites").get(base.cocktail.get("Id"))) {
+                base.$el.addClass("faved");
+            }
+
         },
         registerEvents: function () {
             var base = this;
+
+            base.$el.delegate(".fav_button", "click", function () {
+                base.app.current_user.get("Favorites").add(base.cocktail);
+                base.$el.addClass("faved");
+                base.app.current_user.save({}, {
+                    success: function () {
+                        base.app.show_message("Le cocktail a été ajouté à vos favoris");
+                    }
+                });
+            });
+
+            base.$el.delegate(".unfav_button", "click", function () {
+                base.app.current_user.get("Favorites").remove(base.cocktail);
+                base.$el.removeClass("faved");
+                base.app.current_user.save({}, {
+                    success: function () {
+                        base.app.show_message("Le cocktail a été retiré de vos favoris");
+                    }
+                });
+            });
         }
     });
 
