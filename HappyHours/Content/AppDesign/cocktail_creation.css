@@ -1,7 +1,7 @@
 .form_cocktail {
     margin: auto;
     margin-top: 50px;
-    width: 500px;
+    width: 664px;
 }
 
 .form_cocktail input[type="text"], .form_cocktail textarea {
@@ -13,7 +13,7 @@
     height: 100px;
 }
 
-.form_cocktail .difficulty_max, .form_cocktail .time_max  {
+.form_cocktail .difficulty_max, .form_cocktail .time_max {
     font-size: 1.1em;
     font-weight: bold;
 }
@@ -39,7 +39,7 @@
     background: white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
 }
 
 input:focus {
@@ -50,10 +50,33 @@ input:focus {
     -webkit-box-shadow: 0px 0px 8px #7bc1f7;
 }
 
-.cocktail_creation  .error_submit{
+.cocktail_creation  .error_submit {
     border: 1px solid #ee5c44 !important;
 }
 
 .cocktail_edition_view iframe {
     display: none;
+}
+
+.cocktail_edition_view .ingredient_item {
+    width: 95px;
+    height: 30px;
+    float: left;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+    line-height: 30px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    background: #dcdcdc;
+}
+
+.cocktail_edition_view .ingredients_list {
+    min-height: 200px;
+    background: #e1e1e1;
+    padding: 15px;
+    margin: 1px;
+}
+
+.cocktail_edition_view .selected_ingredients .ingredient_item {
+    background: white;
 }

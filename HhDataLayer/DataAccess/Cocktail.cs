@@ -226,7 +226,7 @@ namespace HhDataLayer.DataAccess
                             bool remove = true;
                             foreach (HhDBO.Ingredient c in cocktail.Ingredients)
                             {
-                                if (c.Id == tCocktail.T_CocktailsIngredients.ElementAt(i).T_Cocktail.id)
+                                if (c.Id == tCocktail.T_CocktailsIngredients.ElementAt(i).T_Ingredient.id)
                                     remove = false;
                             }
                             if (remove)

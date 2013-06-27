@@ -2,7 +2,8 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!Templates/ingredient_item.html'
+    'text!Templates/ingredient_item.html',
+    'jqueryui'
 ], function ($, _, Backbone, IngredientItemTemplate) {
     var IngredientItemView = Backbone.View.extend({
         tagName: "li",
@@ -12,6 +13,7 @@ define([
 
             base.model = model;
             base.ingredient = model;
+            base.$el.attr("data-id", model.get("Id"));
         },
         init: function (app) {
             var base = this;
@@ -28,8 +30,7 @@ define([
             });
 
             base.$el.html(template);
-
-            base.$el.find(".ingredient_name").draggable();
+            base.$el.disableSelection();
         },
         registerEvents: function () {
             var base = this;

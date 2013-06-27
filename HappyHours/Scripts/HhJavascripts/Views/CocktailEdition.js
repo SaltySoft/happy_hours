@@ -4,7 +4,8 @@ define([
     'backbone',
     'text!Templates/cocktail_edition.html',
     'Collections/Ingredients',
-    'Views/IngredientItem'
+    'Views/IngredientItem',
+    'jqueryui'
 ], function ($, _, Backbone, CocktailEditionTemplate, IngredientsCollection, IngredientItemView) {
     var CocktailEditionView = Backbone.View.extend({
         tagName: "div",
@@ -23,7 +24,7 @@ define([
             base.ingredients_collection = new IngredientsCollection();
 
             base.cocktail.fetch({
-                success: function () {
+                success: function (cocktail) {
                     base.render();
                     base.registerEvents();
                 }
@@ -39,16 +40,43 @@ define([
 
             base.$el.html(template);
 
+            window.current_cocktail = base.cocktail;
+
             base.ingredients_collection.fetch({
                 success: function () {
                     var list = base.ingredients_collection.models;
-
+                    base.$el.find(".all_ingredients").find(".ingredient_item").remove();
                     for (var k in list) {
                         var ingredient = list[k];
-                        var ingredient_item = new IngredientItemView(ingredient);
-                        base.$el.find(".all_ingredients").append(ingredient_item.$el);
+                        console.log(base.cocktail.get("Ingredients"));
+
+                            var ingredient_item = new IngredientItemView(ingredient);
+                        if (!base.cocktail.get("Ingredients").get(ingredient.get("Id"))) {
+                            base.$el.find(".all_ingredients").append(ingredient_item.$el);
+                        } else {
+                            base.$el.find(".selected_ingredients").append(ingredient_item.$el);
+                        }
                         ingredient_item.init(base.app);
+
                     }
+                }
+            });
+
+            console.log(base.cocktail);
+
+            base.$el.find(".all_ingredients").sortable({
+                connectWith: ".ingredients_list",
+                receive: function( event, ui ) {
+                    base.cocktail.get("Ingredients").remove(base.ingredients_collection.get(ui.item.attr("data-id")));
+                    console.log(base.cocktail.get("Ingredients"));
+                }
+            });
+
+            base.$el.find(".selected_ingredients").sortable({
+                connectWith: ".ingredients_list",
+                receive: function( event, ui ) {
+                    base.cocktail.get("Ingredients").add(base.ingredients_collection.get(ui.item.attr("data-id")));
+                    console.log(base.cocktail.get("Ingredients"));
                 }
             });
         },
