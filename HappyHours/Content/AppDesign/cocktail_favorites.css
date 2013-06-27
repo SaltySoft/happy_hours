@@ -1,0 +1,10 @@
+.favorites_view .favorites_view img {
+    max-height: 150px;
+    max-width: 150px;
+}
+.favorites_view .favorites_view {
+    float: left;
+    height: 150px;
+    width: 150px;
+    margin: 5px;
+}

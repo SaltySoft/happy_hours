@@ -10,8 +10,9 @@
     'Views/CocktailCreation',
     'Views/CocktailSearch',
     '/Scripts/HhJavascripts/Models/User.js',
-    'Views/SignUp'
-], function ($, _, Backbone, MainViewTemplate, SearchPanelView, CocktailListView, CocktailFeaturedView, CocktailDetailsView, CocktailCreationView, CocktailSearchView, User, SignUpView) {
+    'Views/SignUp',
+    'Views/Favorites'
+], function ($, _, Backbone, MainViewTemplate, SearchPanelView, CocktailListView, CocktailFeaturedView, CocktailDetailsView, CocktailCreationView, CocktailSearchView, User, SignUpView, FavoritesView) {
     var MainView = Backbone.View.extend({
         tagName:"div",
         className:"main_view",
@@ -32,7 +33,8 @@
                     "cocktail/:id":"show_cocktail",
                     "add_cocktail":"add_cocktail",
                     "search_cocktail":"search_cocktail",
-                    "sign_up":"sign_up"
+                    "sign_up":"sign_up",
+                    "favorites": "favorites"
                 },
                 featured_cocktail:function () {
                     base.$el.find("#sub_app_container").hide();
@@ -67,6 +69,13 @@
                     var show_cocktail_view = new CocktailDetailsView();
                     base.$el.find("#sub_app_container").html(show_cocktail_view.$el);
                     show_cocktail_view.init(base.app, id);
+                    base.$el.find("#sub_app_container").fadeIn(200);
+                },
+                favorites:function () {
+                    base.$el.find("#sub_app_container").hide();
+                    var favorites_view = new FavoritesView();
+                    base.$el.find("#sub_app_container").html(favorites_view.$el);
+                    favorites_view.init(base.app);
                     base.$el.find("#sub_app_container").fadeIn(200);
                 },
                 sign_up:function () {
