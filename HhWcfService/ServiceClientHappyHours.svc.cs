@@ -79,6 +79,11 @@ namespace HhWcfService
             return HhBusiness.Cocktail.GetListCocktail(max);
         }
 
+        public List<HhDBO.Cocktail> GetQuickSearchCocktails(HhDBO.SearchQuery searchQuery)
+        {
+            return HhBusiness.Cocktail.GetQuickSearchCocktails(searchQuery);
+        }
+        
         public HhDBO.Cocktail GetCocktail(int id)
         {
             return HhBusiness.Cocktail.GetCocktail(id);

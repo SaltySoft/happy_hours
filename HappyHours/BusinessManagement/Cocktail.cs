@@ -19,6 +19,12 @@ namespace HappyHours.BusinessManagement
             return dataAccess.GetListCocktail(max);
         }
 
+        public static List<HhDBO.Cocktail> GetQuickSearchCocktails(HhDBO.SearchQuery searchQuery)
+        {
+            DataAccess.Cocktail dataAccess = new DataAccess.Cocktail();
+            return dataAccess.GetQuickSearchCocktails(searchQuery);
+        }
+
         public static HhDBO.Cocktail GetCocktail(int id)
         {
             DataAccess.Cocktail dataAccess = new DataAccess.Cocktail();

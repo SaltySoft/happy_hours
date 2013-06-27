@@ -2,10 +2,11 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    'Models/Cocktail',
     'text!Templates/cocktail_list.html',
     'Collections/Cocktails',
     'Views/CocktailListItem'
-], function ($, _, Backbone, CocktailListTemplate, CocktailsCollection, CocktailListItemView) {
+], function ($, _, Backbone, Cocktail, CocktailListTemplate, CocktailsCollection, CocktailListItemView) {
     var CocktailListView = Backbone.View.extend({
         tagName:"div",
         className:"cocktail_list_view",
@@ -25,44 +26,52 @@ define([
             base.$el.html(template);
 
             if (base.app.quickSearchData !== undefined) {
-                var queryList = new Array();
 
-                base.name = "";
-                base.ingredients = "";
-                base.difficulty = "1";
-                base.duration = "1";
-                base.alcohol = "no";
-
+                base.searchQuery = {
+                    name:"",
+                    ingredients:"",
+                    difficulty:"1",
+                    quick:"no",
+                    alcohol:"no"
+                };
                 for (var k in base.app.quickSearchData) {
                     if (base.app.quickSearchData[k].name == "name")
-                        base.name = base.app.quickSearchData[k].value;
+                        base.searchQuery.name = base.app.quickSearchData[k].value;
                     if (base.app.quickSearchData[k].name == "ingredients")
-                        base.ingredients = base.app.quickSearchData[k].value;
+                        base.searchQuery.ingredients = base.app.quickSearchData[k].value;
                     if (base.app.quickSearchData[k].name == "difficulty")
-                        base.difficulty = base.app.quickSearchData[k].value;
-                    if (base.app.quickSearchData[k].name == "duration")
-                        base.duration = base.app.quickSearchData[k].value;
+                        base.searchQuery.difficulty = base.app.quickSearchData[k].value;
+                    if (base.app.quickSearchData[k].name == "quick")
+                        base.searchQuery.quick = base.app.quickSearchData[k].value;
                     if (base.app.quickSearchData[k].name == "alcohol")
-                        base.alcohol = base.app.quickSearchData[k].value;
+                        base.searchQuery.alcohol = base.app.quickSearchData[k].value;
                 }
 
-                var difficulty =
-                    $.ajax({
-                        url:"/Cocktail/GetQuickSearchCocktails",
-                        type:"get",
-                        data:{
-                            name:base.name,
-                            ingredients:base.ingredients,
-                            difficulty:base.difficulty,
-                            duration:base.duration,
-                            alcohol:base.alcohol
-                        },
-                        success:function (data, status) {
-                            console.log("data", data);
-//                        base.cocktails = data;
-//                        base.updateList();
+                console.log("base.searchQuery", base.searchQuery);
+
+                $.ajax({
+                    url:"/Cocktail/GetQuickSearchCocktails",
+                    type:"get",
+                    data:{
+                        name:base.searchQuery.name,
+                        ingredients:base.searchQuery.ingredients,
+                        difficulty:base.searchQuery.difficulty,
+                        quick:base.searchQuery.quick,
+                        alcohol:base.searchQuery.alcohol
+                    },
+                    success:function (data, status) {
+                        console.log("data", data);
+                        for (var k in data)
+                        {
+                            var cocktail = new Cocktail(data[k]);
+                            base.cocktails.add(cocktail);
                         }
-                    });
+
+                        console.log(" base.cocktails",  base.cocktails);
+                        console.log(" base.cocktails.models",  base.cocktails.models);
+                        base.updateList();
+                    }
+                });
             }
             else {
                 base.cocktails.fetch({

@@ -13,25 +13,16 @@
             <label for="quick_search_form_difficulty" class="quick_search_label">Difficulté</label>
             <div class="label_separator"></div>
             <select name="difficulty" id="quick_search_form_difficulty" class="pure-input-medium">
-                <option>Très simple</option>
-                <option>Simple</option>
-                <option>Moyen</option>
-                <option>Difficile</option>
-                <option>Très difficile</option>
+                <option value="2">Simple</option>
+                <option value="3">Moyen</option>
+                <option value="4">Compliqué</option>
             </select>
         </div>
-        </br>
-        <div class="pure-u-1-3 quick_search_select_container">
-            <label for="quick_search_form_duration" class="quick_search_label">Durée</label>
-            <div class="label_separator"></div>
-            <select name="duration" id="quick_search_form_duration" class="pure-input-medium">
-                <option>Très simple</option>
-                <option>Simple</option>
-                <option>Moyen</option>
-                <option>Difficile</option>
-                <option>Très difficile</option>
-            </select>
-        </div>
+        <label for="quick_search_form_duration" class="pure-checkbox" class="quick_search_label">
+            <input name="quick" id="quick_search_form_duration" type="checkbox" value="">
+            Rapide à faire (moins de 2 minutes!)
+        </label>
+        <div class="label_separator"></div>
         <label for="quick_search_without_alcohol" class="pure-checkbox" class="quick_search_label">
             <input name="alcohol" id="quick_search_without_alcohol" type="checkbox" value="">
             Sans alcool

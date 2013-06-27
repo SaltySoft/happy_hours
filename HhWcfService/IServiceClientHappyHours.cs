@@ -54,6 +54,9 @@ namespace HhWcfService
         List<HhDBO.Cocktail> GetListCocktail(int max);
 
         [OperationContract]
+        List<HhDBO.Cocktail> GetQuickSearchCocktails(HhDBO.SearchQuery searchQuery);
+
+        [OperationContract]
         HhDBO.Cocktail GetCocktail(int id);
 
         [OperationContract]

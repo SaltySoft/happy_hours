@@ -10,25 +10,19 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Admin" type="xs:int" />
       <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Favorites" nillable="true" type="tns:ArrayOfCocktail" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="User" nillable="true" type="tns:User" />
-  <xs:complexType name="ArrayOfIngredient">
+  <xs:complexType name="ArrayOfCocktail">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Ingredient" nillable="true" type="tns:Ingredient" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Cocktail" nillable="true" type="tns:Cocktail" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfIngredient" nillable="true" type="tns:ArrayOfIngredient" />
-  <xs:complexType name="Ingredient">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Ingredient" nillable="true" type="tns:Ingredient" />
+  <xs:element name="ArrayOfCocktail" nillable="true" type="tns:ArrayOfCocktail" />
   <xs:complexType name="Cocktail">
     <xs:sequence>
       <xs:element minOccurs="0" name="Creator_Id" type="xs:int" />
@@ -42,10 +36,27 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Cocktail" nillable="true" type="tns:Cocktail" />
-  <xs:complexType name="ArrayOfCocktail">
+  <xs:complexType name="ArrayOfIngredient">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Cocktail" nillable="true" type="tns:Cocktail" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Ingredient" nillable="true" type="tns:Ingredient" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfCocktail" nillable="true" type="tns:ArrayOfCocktail" />
+  <xs:element name="ArrayOfIngredient" nillable="true" type="tns:ArrayOfIngredient" />
+  <xs:complexType name="Ingredient">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Ingredient" nillable="true" type="tns:Ingredient" />
+  <xs:complexType name="SearchQuery">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Alcohol" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cocktail_name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Difficulty" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ingredients" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Quick" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SearchQuery" nillable="true" type="tns:SearchQuery" />
 </xs:schema>

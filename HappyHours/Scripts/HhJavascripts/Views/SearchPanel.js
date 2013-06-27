@@ -28,6 +28,11 @@ define([
             base.$el.delegate(".quick_search_form", "submit", function () {
                 var elt = $(this);
                 base.app.quickSearchData = elt.serializeArray();
+                route = Backbone.history.fragment;
+                if ("#" + route == "#cocktails") {
+                    base.app.router.navigate();
+//                    app.router.navigate(route, true);
+                }
                 base.app.router.navigate("#cocktails", {trigger:true});
             });
         }

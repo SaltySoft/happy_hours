@@ -28,10 +28,16 @@ namespace HappyHours.Controllers
         }
 
         [AcceptVerbs(HttpVerbs.Get)]
-        public JsonResult GetQuickSearchCocktails(string name, string ingredients, string difficulty, string duration, string alcohol)
+        public JsonResult GetQuickSearchCocktails(string name, string ingredients, string difficulty, string quick, string alcohol)
         {
+            HhDBO.SearchQuery searchQuery = new HhDBO.SearchQuery();
+            searchQuery.Cocktail_name = name;
+            searchQuery.Ingredients = ingredients;
+            searchQuery.Difficulty = difficulty;
+            searchQuery.Quick = quick;
+            searchQuery.Alcohol = alcohol;
 
-            List<HhDBO.Cocktail> cocktails = BusinessManagement.Cocktail.GetListCocktail(10);
+            List<HhDBO.Cocktail> cocktails = BusinessManagement.Cocktail.GetQuickSearchCocktails(searchQuery);
             return Json(cocktails, JsonRequestBehavior.AllowGet);
         }
 

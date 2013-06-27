@@ -51,6 +51,19 @@ namespace HappyHours.DataAccess
             }
         }
 
+        public List<HhDBO.Cocktail> GetQuickSearchCocktails(HhDBO.SearchQuery searchQuery)
+        {
+            try
+            {
+                List<HhDBO.Cocktail> cocktails = _client.GetQuickSearchCocktails(searchQuery).ToList();
+                return cocktails;
+            }
+            catch (Exception)
+            {
+                return new List<HhDBO.Cocktail>();
+            }
+        }
+
         public HhDBO.Cocktail GetCocktail(int id)
         {
             try

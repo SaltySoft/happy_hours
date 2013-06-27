@@ -65,7 +65,6 @@ namespace HhDataLayer.DataAccess
                     Mapper.CreateMap<T_Cocktail, HhDBO.Cocktail>();
                     foreach (T_User user in existings)
                     {
-
                         HhDBO.User dboUser = Mapper.Map<T_User, HhDBO.User>(user);
 
                         dboUser.Favorites = new List<HhDBO.Cocktail>();

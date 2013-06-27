@@ -68,6 +68,49 @@ namespace HhDataLayer.DataAccess
             }
         }
 
+        public static List<HhDBO.Cocktail> GetQuickSearchCocktails(HhDBO.SearchQuery searchQuery)
+        {
+            try
+            {
+                List<HhDBO.Cocktail> cocktails = new List<HhDBO.Cocktail>();
+
+                using (MyHappyHoursEntities bdd = new MyHappyHoursEntities())
+                {
+                    int difficulty = Int32.Parse(searchQuery.Difficulty);
+                    List<T_Cocktail> existings = new List<T_Cocktail>();
+                    if (searchQuery.Quick != "no")
+                    {
+                        existings = bdd.T_Cocktail.Where(x =>
+                       (x.name.Contains(searchQuery.Cocktail_name))
+                       && (x.difficulty >= (difficulty - 1) || x.difficulty <= (difficulty + 1))
+                       && (x.duration < 2)).ToList();
+                    }
+                    else
+                    {
+                        existings = bdd.T_Cocktail.Where(x =>
+                        (x.name.Contains(searchQuery.Cocktail_name))
+                        && (x.difficulty >= (difficulty - 1) || x.difficulty <= (difficulty + 1))).ToList();
+                    }
+                    //if (searchQuery.Alcohol != "no")
+
+                    foreach (T_Cocktail cocktail in existings)
+                    {
+                        Mapper.CreateMap<T_Cocktail, HhDBO.Cocktail>();
+
+                        HhDBO.Cocktail dboCocktail = Mapper.Map<T_Cocktail, HhDBO.Cocktail>(cocktail);
+                        cocktails.Add(dboCocktail);
+                    }
+                }
+                Debug.WriteLine("Got list of cocktails");
+                return cocktails;
+            }
+            catch (Exception)
+            {
+                Debug.WriteLine("Problem while getting list of cocktails");
+                return new List<HhDBO.Cocktail>();
+            }
+        }
+
         public static HhDBO.Cocktail GetCocktail(int id)
         {
             try

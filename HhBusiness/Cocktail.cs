@@ -27,6 +27,15 @@ namespace HhBusiness
         }
 
         /// <summary>
+        /// retourne la liste des cocktails correspondant au filtre.
+        /// </summary>
+        /// <returns>la liste des cocktails correspondant au filtre sinon une liste vide</returns>
+        public static List<HhDBO.Cocktail> GetQuickSearchCocktails(HhDBO.SearchQuery searchQuery)
+        {
+            return HhDataLayer.DataAccess.Cocktail.GetQuickSearchCocktails(searchQuery);
+        }
+        
+        /// <summary>
         /// retourne un cocktail
         /// </summary>
         /// <returns> le cocktail correspondant à l'id</returns>

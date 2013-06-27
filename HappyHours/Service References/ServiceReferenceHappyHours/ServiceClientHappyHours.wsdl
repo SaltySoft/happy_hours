@@ -85,6 +85,12 @@
   <wsdl:message name="IServiceClientHappyHours_GetListCocktail_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetListCocktailResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_GetQuickSearchCocktails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuickSearchCocktails" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_GetQuickSearchCocktails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuickSearchCocktailsResponse" />
+  </wsdl:message>
   <wsdl:message name="IServiceClientHappyHours_GetCocktail_InputMessage">
     <wsdl:part name="parameters" element="tns:GetCocktail" />
   </wsdl:message>
@@ -161,6 +167,10 @@
     <wsdl:operation name="GetListCocktail">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceClientHappyHours/GetListCocktail" message="tns:IServiceClientHappyHours_GetListCocktail_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceClientHappyHours/GetListCocktailResponse" message="tns:IServiceClientHappyHours_GetListCocktail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQuickSearchCocktails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceClientHappyHours/GetQuickSearchCocktails" message="tns:IServiceClientHappyHours_GetQuickSearchCocktails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceClientHappyHours/GetQuickSearchCocktailsResponse" message="tns:IServiceClientHappyHours_GetQuickSearchCocktails_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetCocktail">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceClientHappyHours/GetCocktail" message="tns:IServiceClientHappyHours_GetCocktail_InputMessage" />
@@ -291,6 +301,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetListCocktail">
       <soap:operation soapAction="http://tempuri.org/IServiceClientHappyHours/GetListCocktail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuickSearchCocktails">
+      <soap:operation soapAction="http://tempuri.org/IServiceClientHappyHours/GetQuickSearchCocktails" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
