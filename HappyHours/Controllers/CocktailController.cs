@@ -12,15 +12,20 @@ namespace HappyHours.Controllers
     {
         //
         // GET: /Cocktail/
-
         public ActionResult Index()
         {
             return View();
         }
 
-
         [AcceptVerbs(HttpVerbs.Get)]
         public JsonResult GetRandomCocktail()
+        {
+            HhDBO.Cocktail cocktail = BusinessManagement.Cocktail.GetRandomCocktail();
+            return Json(cocktail, JsonRequestBehavior.AllowGet);
+        }
+
+        [AcceptVerbs(HttpVerbs.Post)]
+        public JsonResult quickSearch()
         {
             HhDBO.Cocktail cocktail = BusinessManagement.Cocktail.GetRandomCocktail();
             return Json(cocktail, JsonRequestBehavior.AllowGet);

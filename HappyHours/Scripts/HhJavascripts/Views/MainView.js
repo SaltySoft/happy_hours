@@ -40,9 +40,9 @@
                 },
                 cocktails:function () {
                     base.$el.find("#sub_app_container").hide();
-                    var cocktail_list = new CocktailListView();
-                    base.$el.find("#sub_app_container").html(cocktail_list.$el);
-                    cocktail_list.init(base.app);
+                    var cocktail_list_view = new CocktailListView();
+                    base.$el.find("#sub_app_container").html(cocktail_list_view.$el);
+                    cocktail_list_view.init(base.app);
                     base.$el.find("#sub_app_container").fadeIn(200);
                 },
                 search_cocktail:function () {

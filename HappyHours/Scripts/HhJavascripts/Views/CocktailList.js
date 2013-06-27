@@ -10,14 +10,12 @@ define([
         tagName:"div",
         className:"cocktail_list_view",
         initialize:function () {
-
         },
         init:function (app) {
             var base = this;
             base.app = app;
-
             base.cocktails = new CocktailsCollection();
-
+            console.log("base.app.quickSearchData", base.app.quickSearchData);
             base.render();
             base.registerEvents();
         },
@@ -30,7 +28,6 @@ define([
                     base.updateList();
                 }
             });
-
         },
         updateList:function () {
             var base = this;
