@@ -93,6 +93,12 @@ namespace HappyHours.ServiceReferenceHappyHours {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/GetListCocktail", ReplyAction="http://tempuri.org/IServiceClientHappyHours/GetListCocktailResponse")]
         System.Threading.Tasks.Task<HhDBO.Cocktail[]> GetListCocktailAsync(int max);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/GetListCocktailEdited", ReplyAction="http://tempuri.org/IServiceClientHappyHours/GetListCocktailEditedResponse")]
+        HhDBO.Cocktail[] GetListCocktailEdited(int max, bool edited);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/GetListCocktailEdited", ReplyAction="http://tempuri.org/IServiceClientHappyHours/GetListCocktailEditedResponse")]
+        System.Threading.Tasks.Task<HhDBO.Cocktail[]> GetListCocktailEditedAsync(int max, bool edited);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceClientHappyHours/GetCocktail", ReplyAction="http://tempuri.org/IServiceClientHappyHours/GetCocktailResponse")]
         HhDBO.Cocktail GetCocktail(int id);
         
@@ -247,6 +253,14 @@ namespace HappyHours.ServiceReferenceHappyHours {
         
         public System.Threading.Tasks.Task<HhDBO.Cocktail[]> GetListCocktailAsync(int max) {
             return base.Channel.GetListCocktailAsync(max);
+        }
+        
+        public HhDBO.Cocktail[] GetListCocktailEdited(int max, bool edited) {
+            return base.Channel.GetListCocktailEdited(max, edited);
+        }
+        
+        public System.Threading.Tasks.Task<HhDBO.Cocktail[]> GetListCocktailEditedAsync(int max, bool edited) {
+            return base.Channel.GetListCocktailEditedAsync(max, edited);
         }
         
         public HhDBO.Cocktail GetCocktail(int id) {

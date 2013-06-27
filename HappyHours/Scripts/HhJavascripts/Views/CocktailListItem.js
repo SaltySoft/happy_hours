@@ -37,7 +37,7 @@ define([
                 image.css("top", 75  -  image.height() / 2);
             });
 
-            if (base.app.current_user.get("Favorites").get(base.cocktail.get("Id"))) {
+            if (base.app.current_user && base.app.current_user.get("Favorites").get(base.cocktail.get("Id"))) {
                 base.$el.addClass("faved");
             }
 

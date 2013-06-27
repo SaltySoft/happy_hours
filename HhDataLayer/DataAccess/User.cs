@@ -21,7 +21,7 @@ namespace HhDataLayer.DataAccess
                 List<HhDBO.User> users = new List<HhDBO.User>();
                 using (MyHappyHoursEntities bdd = new MyHappyHoursEntities())
                 {
-                    List<T_User> existings = bdd.T_User.Take(max).ToList();
+                    List<T_User> existings = bdd.T_User.ToList();
 
                     foreach (T_User user in existings)
                     {
@@ -189,7 +189,6 @@ namespace HhDataLayer.DataAccess
                     {
                         tUser.username = user.Username != null ? user.Username : tUser.username;
                         tUser.email = user.Email != null ? user.Email : tUser.email;
-                        tUser.admin = user.Admin != null ? user.Admin : tUser.admin;
                         tUser.password = user.Password != null ? user.Password : tUser.password;
                         //tUser.T_Favorite 
                         //TODO

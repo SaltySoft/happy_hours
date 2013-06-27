@@ -19,6 +19,12 @@ namespace HappyHours.BusinessManagement
             return dataAccess.GetListCocktail(max);
         }
 
+        public static List<HhDBO.Cocktail> GetListCocktailEdited(int max, bool edited)
+        {
+            DataAccess.Cocktail dataAccess = new DataAccess.Cocktail();
+            return dataAccess.GetListCocktailEdited(max, edited);
+        }
+
         public static HhDBO.Cocktail GetCocktail(int id)
         {
             DataAccess.Cocktail dataAccess = new DataAccess.Cocktail();

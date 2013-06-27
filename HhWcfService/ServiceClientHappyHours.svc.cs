@@ -79,6 +79,11 @@ namespace HhWcfService
             return HhBusiness.Cocktail.GetListCocktail(max);
         }
 
+        public List<HhDBO.Cocktail> GetListCocktailEdited(int max, bool edited)
+        {
+            return HhBusiness.Cocktail.GetListCocktailEdited(max, edited);
+        }
+
         public HhDBO.Cocktail GetCocktail(int id)
         {
             return HhBusiness.Cocktail.GetCocktail(id);

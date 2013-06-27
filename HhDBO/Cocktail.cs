@@ -19,6 +19,8 @@ namespace HhDBO
         private string _description;
         private string _recipe;
         private string _picture_url;
+        private List<Ingredient> _ingredients;
+        private int _edited;
         #endregion
 
         #region getter / setter
@@ -100,6 +102,20 @@ namespace HhDBO
         {
             get { return _duration; }
             set { _duration = value; }
+        }
+
+        [DataMember]
+        public List<Ingredient> Ingredients
+        {
+            get { return _ingredients; }
+            set { _ingredients = value; }
+        }
+
+        [DataMember]
+        public int Edited
+        {
+            get { return _edited; }
+            set { _edited = value; }
         }
 
         #endregion

@@ -54,6 +54,9 @@ namespace HhWcfService
         List<HhDBO.Cocktail> GetListCocktail(int max);
 
         [OperationContract]
+        List<HhDBO.Cocktail> GetListCocktailEdited(int max, bool edited);
+
+        [OperationContract]
         HhDBO.Cocktail GetCocktail(int id);
 
         [OperationContract]

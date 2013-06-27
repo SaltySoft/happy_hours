@@ -40,7 +40,7 @@ namespace HhDataLayer.DataAccess
             }
         }
 
-        public static List<HhDBO.Cocktail> GetListCocktail(int max)
+        public static List<HhDBO.Cocktail> GetListCocktailEdited(int max, bool edited)
         {
             try
             {
@@ -48,13 +48,33 @@ namespace HhDataLayer.DataAccess
 
                 using (MyHappyHoursEntities bdd = new MyHappyHoursEntities())
                 {
-                    List<T_Cocktail> existings = bdd.T_Cocktail.Take(max).ToList();
-
+                    List<T_Cocktail> existings;
+                    if (edited)
+                    {
+                        existings = bdd.T_Cocktail.Where(x => x.edited == 1).ToList();
+                    }
+                    else
+                    {
+                        existings = bdd.T_Cocktail.Take(max).ToList();
+                    }
+                    
+                    Mapper.CreateMap<T_Ingredient, HhDBO.Ingredient>();
                     foreach (T_Cocktail cocktail in existings)
                     {
                         Mapper.CreateMap<T_Cocktail, HhDBO.Cocktail>();
 
                         HhDBO.Cocktail dboCocktail = Mapper.Map<T_Cocktail, HhDBO.Cocktail>(cocktail);
+
+                        dboCocktail.Ingredients = new List<HhDBO.Ingredient>();
+
+                        foreach (T_CocktailsIngredients link in cocktail.T_CocktailsIngredients)
+                        {
+                            T_Ingredient ingredient = link.T_Ingredient;
+                            HhDBO.Ingredient dboIngredient = Mapper.Map<T_Ingredient, HhDBO.Ingredient>(ingredient);
+                            dboCocktail.Ingredients.Add(dboIngredient);
+                        }
+
+
                         cocktails.Add(dboCocktail);
                     }
                 }
@@ -66,6 +86,11 @@ namespace HhDataLayer.DataAccess
                 Debug.WriteLine("Problem while getting list of cocktails");
                 return new List<HhDBO.Cocktail>();
             }
+        }
+
+        public static List<HhDBO.Cocktail> GetListCocktail(int max)
+        {
+            return GetListCocktailEdited(max, true);
         }
 
         public static HhDBO.Cocktail GetCocktail(int id)
@@ -80,7 +105,18 @@ namespace HhDataLayer.DataAccess
                     if (cocktail != null)
                     {
                         Mapper.CreateMap<T_Cocktail, HhDBO.Cocktail>();
+                        Mapper.CreateMap<T_Ingredient, HhDBO.Ingredient>();
                         dboCocktail = Mapper.Map<T_Cocktail, HhDBO.Cocktail>(cocktail);
+
+                        dboCocktail.Ingredients = new List<HhDBO.Ingredient>();
+
+                        foreach (T_CocktailsIngredients link in cocktail.T_CocktailsIngredients)
+                        {
+                            T_Ingredient ingredient = link.T_Ingredient;
+                            HhDBO.Ingredient dboIngredient = Mapper.Map<T_Ingredient, HhDBO.Ingredient>(ingredient);
+                            dboCocktail.Ingredients.Add(dboIngredient);
+                        }
+
                     }
                     else
                     {

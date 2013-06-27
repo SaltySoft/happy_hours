@@ -48,7 +48,18 @@ namespace HappyHours.Controllers
             else
             {
                 //show all
-                List<HhDBO.Cocktail> cocktails = BusinessManagement.Cocktail.GetListCocktail(10);
+                
+                List<HhDBO.Cocktail> cocktails;
+                HhDBO.User current_user = BusinessManagement.User.GetUserByName(User.Identity.Name);
+                if (current_user.Admin == 1)
+                {
+                    cocktails = BusinessManagement.Cocktail.GetListCocktailEdited(10, false);
+                }
+                else
+                {
+                    cocktails = BusinessManagement.Cocktail.GetListCocktail(10);
+                }
+
                 return Json(cocktails, JsonRequestBehavior.AllowGet);
             }
         }

@@ -22,7 +22,7 @@ namespace HhDataLayer.DataAccess
 
                 using(MyHappyHoursEntities bdd = new MyHappyHoursEntities())
                 {
-                    List<T_Ingredient> existings = bdd.T_Ingredient.Take(max).ToList();
+                    List<T_Ingredient> existings = bdd.T_Ingredient.ToList();
 
                     foreach (T_Ingredient ingredient in existings)
                     {
