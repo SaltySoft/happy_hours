@@ -89,6 +89,14 @@
                     base.$el.find("#sub_app_container").html(sign_up_view.$el);
                     sign_up_view.init(base.app, base);
                     base.$el.find("#sub_app_container").fadeIn(200);
+                },
+                edit_cocktail:function (id) {
+                    base.$el.find("#sub_app_container").hide();
+                    var edited_cocktail = new Cocktail({ Id : id});
+                    var cocktail_edition_view = new CocktailEditionView(edited_cocktail);
+                    base.$el.find("#sub_app_container").html(cocktail_edition_view.$el);
+                    cocktail_edition_view.init(base.app, base);
+                    base.$el.find("#sub_app_container").fadeIn(200);
                 }
             });
 
