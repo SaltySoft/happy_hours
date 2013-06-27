@@ -1,8 +1,9 @@
 define([
     'jquery',
     'underscore',
-    'backbone'
-], function ($, _, Backbone) {
+    'backbone',
+    'text!Templates/search_panel.html'
+], function ($, _, Backbone, SearchPanelTemplate) {
     var SearchPanelView = Backbone.View.extend({
         tagName: "div",
         className: "search_panel",
@@ -18,6 +19,8 @@ define([
         },
         render: function () {
             var base = this;
+            var template = _.template(SearchPanelTemplate, {});
+            base.$el.html(template);
         },
         registerEvents: function () {
             var base = this;

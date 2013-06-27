@@ -3,12 +3,13 @@
     'underscore',
     'backbone',
     'text!Templates/main_view.html',
+    'Views/SearchPanel',
     'Views/CocktailList',
     'Views/CocktailFeatured',
     'Views/CocktailDetails',
     'Views/CocktailCreation',
     'Views/CocktailSearch'
-], function ($, _, Backbone, MainViewTemplate, CocktailListView, CocktailFeaturedView, CocktailDetailsView, CocktailCreationView, CocktailSearchView) {
+], function ($, _, Backbone, MainViewTemplate, SearchPanelView, CocktailListView, CocktailFeaturedView, CocktailDetailsView, CocktailCreationView, CocktailSearchView) {
     var MainView = Backbone.View.extend({
         tagName:"div",
         className:"main_view",
@@ -72,8 +73,11 @@
         render:function () {
             var base = this;
             var template = _.template(MainViewTemplate, {});
-
             base.$el.html(template);
+
+            var searchPanelView = new SearchPanelView();
+            base.$el.find("#search_panel").html(searchPanelView.$el);
+            searchPanelView.init(base.app);
         },
         registerEvents:function () {
             var base = this;
