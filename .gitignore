@@ -9,3 +9,4 @@ HhWcfService/Web.config
 .idea
 HappyHours/Images/Cocktails/*
 !HappyHours/Images/Cocktails/empty.txt
+packages
