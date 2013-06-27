@@ -9,8 +9,9 @@
     'Views/CocktailDetails',
     'Views/CocktailCreation',
     'Views/CocktailSearch',
-    '/Scripts/HhJavascripts/Models/User.js'
-], function ($, _, Backbone, MainViewTemplate, SearchPanelView, CocktailListView, CocktailFeaturedView, CocktailDetailsView, CocktailCreationView, CocktailSearchView, User) {
+    '/Scripts/HhJavascripts/Models/User.js',
+    'Views/SignUp'
+], function ($, _, Backbone, MainViewTemplate, SearchPanelView, CocktailListView, CocktailFeaturedView, CocktailDetailsView, CocktailCreationView, CocktailSearchView, User, SignUpView) {
     var MainView = Backbone.View.extend({
         tagName:"div",
         className:"main_view",
@@ -30,7 +31,8 @@
                     "cocktails":"cocktails",
                     "cocktail/:id":"show_cocktail",
                     "add_cocktail":"add_cocktail",
-                    "search_cocktail":"search_cocktail"
+                    "search_cocktail":"search_cocktail",
+                    "sign_up":"sign_up"
                 },
                 featured_cocktail:function () {
                     base.$el.find("#sub_app_container").hide();
@@ -66,10 +68,65 @@
                     base.$el.find("#sub_app_container").html(show_cocktail_view.$el);
                     show_cocktail_view.init(base.app, id);
                     base.$el.find("#sub_app_container").fadeIn(200);
+                },
+                sign_up:function () {
+                    base.$el.find("#sub_app_container").hide();
+                    var sign_up_view = new SignUpView();
+                    base.$el.find("#sub_app_container").html(sign_up_view.$el);
+                    sign_up_view.init(base.app, base);
+                    base.$el.find("#sub_app_container").fadeIn(200);
                 }
             });
 
             app.router = new AppRouter();
+        },
+        loginUser: function (username, password) {
+            var base = this;
+            $.ajax({
+                url: "/User/Login",
+                method: "post",
+                data: {
+                    username:username,
+                    password:password
+                },
+                success: function (data) {
+                    if (data == "success") {
+                        $.ajax({
+                            url: "/User/CurrentUser",
+                            success: function (data, status) {
+                                if (data.Id) {
+                                    base.app.current_user = new User(data);
+                                    base.app.events.trigger("user_connection");
+                                    base.$el.find(".connect").hide();
+                                    base.$el.find(".disconnect").show();
+                                    base.$el.find(".login_required").show();
+                                    base.$el.find(".anonym_required").hide();
+                                    base.$el.find(".disconnect .username").html(base.app.current_user.get("Username"));
+                                } else {
+                                    base.app.current_user = undefined;
+                                    base.$el.find(".login_required").hide();
+
+                                }
+                            }
+                        });
+                    } else {
+                        alert("Nous n'avons pas pu vous identifier. Veuillez vérifier vos nom d'utilisateur et mot de passe.");
+                    }
+                }
+            });
+        },
+        disconnectUser: function () {
+            var base = this;
+            $.ajax({
+                url: "/User/Logout",
+                success: function (){
+                    base.$el.find(".connect").show();
+                    base.$el.find(".disconnect").hide();
+                    base.$el.find(".login_required").hide();
+                    base.$el.find(".anonym_required").show();
+                    base.app.events.trigger("user_disconnection");
+                }
+            });
         },
         render:function () {
             var base = this;
@@ -80,6 +137,10 @@
             base.$el.html(template);
             if (!base.app.current_user) {
                 base.$el.find(".login_required").hide();
+                base.$el.find(".anonym_required").show();
+            } else {
+                base.$el.find(".anonym_required").hide();
+                base.$el.find(".login_required").show();
             }
 
             var searchPanelView = new SearchPanelView();
@@ -108,47 +169,12 @@
             }
 
             base.$el.delegate(".disconnect_button", "click", function () {
-                $.ajax({
-                    url: "/User/Logout",
-                    success: function (){
-                        base.$el.find(".connect").show();
-                        base.$el.find(".disconnect").hide();
-                        base.$el.find(".login_required").hide();
-                        base.app.events.trigger("user_disconnection");
-                    }
-                });
+               base.disconnectUser();
             });
 
             base.$el.delegate(".connect", "submit", function () {
                 var form = $(this);
-                $.ajax({
-                    url: "/User/Login",
-                    method: "post",
-                    data: {
-                        username:form.find("#login_username").val(),
-                        password:form.find("#login_password").val()
-                    },
-                    success: function (data) {
-                        if (data == "success") {
-                            $.ajax({
-                                url: "/User/CurrentUser",
-                                success: function (data, status) {
-                                    if (data.Id) {
-                                        base.app.current_user = new User(data);
-                                        base.app.events.trigger("user_connection");
-                                        base.$el.find(".connect").hide();
-                                        base.$el.find(".disconnect").show();
-                                        base.$el.find(".login_required").show();
-                                        base.$el.find(".disconnect .username").html(base.app.current_user.get("Username"));
-                                    } else {
-                                        base.app.current_user = undefined;
-                                        base.$el.find(".login_required").hide();
-                                    }
-                                }
-                            });
-                        }
-                    }
-                });
+                base.loginUser(form.find("#login_username").val(), form.find("#login_password").val());
             });
         }
     });

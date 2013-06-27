@@ -115,12 +115,20 @@ namespace HhDataLayer.DataAccess
             {
                 using (MyHappyHoursEntities bdd = new MyHappyHoursEntities())
                 {
-                    Mapper.CreateMap<HhDBO.User, T_User>();
-                    T_User tUser = Mapper.Map<HhDBO.User, T_User>(user);
-                    bdd.T_User.Add(tUser);
-                    bdd.SaveChanges();
-                    user.Id = tUser.id;
-                    return user;
+                    List<T_User> existings = bdd.T_User.Where(x => x.username == user.Username).ToList();
+                    if (!existings.Any())
+                    {
+                        Mapper.CreateMap<HhDBO.User, T_User>();
+                        T_User tUser = Mapper.Map<HhDBO.User, T_User>(user);
+                        bdd.T_User.Add(tUser);
+                        bdd.SaveChanges();
+                        user.Id = tUser.id;
+                        return user;
+                    }
+                    else
+                    {
+                        return null;
+                    }
                 }
             }
             catch (Exception)
