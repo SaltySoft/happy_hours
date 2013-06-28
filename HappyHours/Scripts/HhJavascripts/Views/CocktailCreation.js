@@ -66,7 +66,6 @@ define([
                         });
                     },
                     error:function (object, status, data) {
-
                         response = JSON.parse(data.xhr.responseText);
                         if (response.message === "unsufficient_rights") {
                             base.$el.find(".error_message").html("Vous devez vous inscrire ou vous connecter pour ajouter un cocktail");
