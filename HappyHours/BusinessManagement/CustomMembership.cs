@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 using System.Web.Security;
 
@@ -155,11 +156,11 @@ namespace HappyHours.BusinessManagement
 
             byte[] result;
 
-            using (SHA256 shaM = new SHA256Managed())
+            using (MD5 md5 = MD5.Create())
             {
-                result = shaM.ComputeHash(data);
+                result = md5.ComputeHash(Encoding.UTF8.GetBytes(password));
             }
-            password = BusinessManagement.User.GetStringFromBytes(result);
+            password = Convert.ToBase64String(result);
 
             if (user != null)
             {

@@ -147,23 +147,19 @@ namespace HhDataLayer.DataAccess
                     {
                         Mapper.CreateMap<HhDBO.User, T_User>();
                         T_User tUser = Mapper.Map<HhDBO.User, T_User>(user);
-
-                        byte[] data = GetBytesFromString(tUser.password);
-
                         byte[] result;
-
-                        using (SHA256 shaM = new SHA256Managed())
+                        using (MD5 md5 = MD5.Create())
                         {
-                            result = shaM.ComputeHash(data);
+                            result = md5.ComputeHash(Encoding.UTF8.GetBytes(tUser.password));
                         }
-                        tUser.password = GetStringFromBytes(result);
+                        tUser.password = Convert.ToBase64String(result);
 
                         bdd.T_User.Add(tUser);
                         bdd.SaveChanges();
                         user.Id = tUser.id;
                         return user;
                     }
-                    
+
                 }
                 return null;
             }
@@ -200,7 +196,7 @@ namespace HhDataLayer.DataAccess
         /// permet de mettre  à jour l'utilisateur
         /// </summary>
         /// <param name="user">l'utilisateur a mettre a jour</param>
-        /// <returns>true si ca c'est binen passé sinon false</returns>
+        /// <returns>true si ca c'est bien passé sinon false</returns>
         public static bool UpdateUser(HhDBO.User user)
         {
             try

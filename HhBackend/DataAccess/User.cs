@@ -15,13 +15,10 @@ namespace HhBackend.DataAccess
             using (HappyHoursEntities ctx = new HappyHoursEntities())
             {
                 byte[] data = BusinessManagement.User.GetBytesFromString(password);
-
                 byte[] result;
 
-                using (SHA256 shaM = new SHA256Managed())
-                {
-                    result = shaM.ComputeHash(data);
-                }
+                SHA1 sha = new SHA1CryptoServiceProvider();
+                result = sha.ComputeHash(data);
                 password = BusinessManagement.User.GetStringFromBytes(result);
 
                 response = ctx.T_User.Where(x => x.username == username && x.password == password).ToList().Any();
