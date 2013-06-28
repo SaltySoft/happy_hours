@@ -179,7 +179,7 @@ namespace HappyHours.Controllers
             Dictionary<string, string> dico = new Dictionary<string, string>();
             dico["status"] = "error";
             dico["message"] = "unsufficient_rights";
-
+            this.Response.StatusCode = 401;
             return Json(dico, JsonRequestBehavior.AllowGet);
         }
     }
