@@ -191,13 +191,19 @@ namespace HhDataLayer.DataAccess
                         cocktail.Id = tCocktail.id;
                         return cocktail;
                     }
-
-                    return null;
+                    else
+                    {
+                        throw new HhDBO.AlreadyExistingException("already_existing");
+                    }
                 }
+            }
+            catch (HhDBO.AlreadyExistingException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {
-                return null;
+                throw ex;
             }
         }
 

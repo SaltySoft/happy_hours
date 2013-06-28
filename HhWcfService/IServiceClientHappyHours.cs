@@ -53,10 +53,10 @@ namespace HhWcfService
         [OperationContract]
         List<HhDBO.Cocktail> GetListCocktail(int max);
 
- [OperationContract]
+        [OperationContract]
         List<HhDBO.Cocktail> GetQuickSearchCocktails(HhDBO.SearchQuery searchQuery);
 
-  [OperationContract]
+        [OperationContract]
         List<HhDBO.Cocktail> GetListCocktailEdited(int max, bool edited);
 
         [OperationContract]

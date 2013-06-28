@@ -137,13 +137,11 @@ namespace HhDataLayer.DataAccess
                         user.Id = tUser.id;
                         return user;
                     }
-                    else
-                    {
-                        return null;
-                    }
+                    
                 }
+                return null;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return null;
             }

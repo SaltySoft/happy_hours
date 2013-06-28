@@ -138,13 +138,53 @@ namespace HappyHours.Controllers
                     cocktail.Description = "";
                     HhDBO.User user = BusinessManagement.User.GetUserByName(User.Identity.Name);
                     cocktail.Creator_Id = user.Id;
-                    HhDBO.Cocktail result = BusinessManagement.Cocktail.CreateCocktail(cocktail);
+                    HhDBO.Cocktail result = null;
+                    try
+                    {
+                        result = BusinessManagement.Cocktail.CreateCocktail(cocktail);
+                    }
+                    catch (Exception ex)
+                    {
+                        Dictionary<string, object> dico = new Dictionary<string, object>();
+                        dico["status"] = "error";
+                        if (ex.Message == "already_existing")
+                        {
+                            dico["message"] = "already_existing";
+                        }
+                        else
+                        {
+                            if (BusinessManagement.Cocktail.Validate(cocktail).Count > 0)
+                            {
+                                dico["message"] = "missing_information";
+                                dico["data"] = BusinessManagement.Cocktail.Validate(cocktail);
+                            }
+                            else
+                            {
+                                dico["message"] = "unknown_error";
+                            }
+                        }
+                        Response.StatusCode = 422;
+                        return Json(dico, JsonRequestBehavior.AllowGet);
+                    }
+                    
+
                     if (result == null)
                     {
                         Dictionary<string, object> dico = new Dictionary<string, object>();
                         dico["status"] = "error";
-                        dico["message"] = "invalid_data";
-                        dico["data"] = BusinessManagement.Cocktail.Validate(cocktail);
+
+
+                        if (BusinessManagement.Cocktail.Validate(cocktail).Count > 0)
+                        {
+                            dico["message"] = "missing_information";
+                            dico["data"] = BusinessManagement.Cocktail.Validate(cocktail);
+                        }
+                        else
+                        {
+                            dico["message"] = "unknown_error";
+                        }
+                        Response.StatusCode = 422;
+                       
                         return Json(dico, JsonRequestBehavior.AllowGet);
                     }
                     else

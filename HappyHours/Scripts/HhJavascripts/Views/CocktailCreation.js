@@ -65,10 +65,22 @@ define([
                             trigger: true
                         });
                     },
-                    error: function (object) {
-                        if (object.message === "unsufficient_rights") {
-                            alert("Vous devez vous inscrire ou vous connecter pour ajouter un cocktail");
+                    error: function (object,status, data) {
+
+                        response = JSON.parse(data.xhr.responseText);
+                        if (response.message === "unsufficient_rights") {
+                            base.$el.find(".error_message").html("Vous devez vous inscrire ou vous connecter pour ajouter un cocktail");
                         }
+                        if (response.message === "already_existing") {
+                            base.$el.find(".error_message").html("Il existe déjà un cocktail sous ce nom");
+                        }
+                        if (response.message === "missing_information") {
+                            base.$el.find(".error_message").html("Vous devez entrer un nom");
+                        }
+                        if (!response.message || response.message === "unknown_error") {
+                            base.$el.find(".error_message").html("Une erreur inconnue s'est produite");
+                        }
+                        base.$el.find(".form_cocktail").addClass("error");
                     }
                 });
             });

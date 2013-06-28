@@ -41,6 +41,23 @@
     text-align: justify;
 }
 
+.form_cocktail .error_message {
+    display: none;
+    background: #f3a487;
+    color: #980000;
+    font-weight: bold;
+
+    padding: 5px;
+    width: 300px;
+    margin: auto;
+    margin-top: 10px;
+    bprder: 1px #980000 solid;
+}
+
+.form_cocktail.error .error_message {
+    display: block;
+}
+
 .form_cocktail input[type="text"], .form_cocktail textarea {
     width: 300px;
     resize: none;
