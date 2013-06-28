@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -117,6 +118,20 @@ namespace HhDataLayer.DataAccess
             }
         }
 
+        public static byte[] GetBytesFromString(string str)
+        {
+            byte[] bytes = new byte[str.Length * sizeof(char)];
+            System.Buffer.BlockCopy(str.ToCharArray(), 0, bytes, 0, bytes.Length);
+            return bytes;
+        }
+
+        public static string GetStringFromBytes(byte[] bytes)
+        {
+            char[] chars = new char[bytes.Length / sizeof(char)];
+            System.Buffer.BlockCopy(bytes, 0, chars, 0, bytes.Length);
+            return new string(chars);
+        }
+
         /// <summary>
         /// permet la création d'un utilisateur
         /// </summary>
@@ -133,6 +148,17 @@ namespace HhDataLayer.DataAccess
                     {
                         Mapper.CreateMap<HhDBO.User, T_User>();
                         T_User tUser = Mapper.Map<HhDBO.User, T_User>(user);
+
+                        byte[] data = GetBytesFromString(tUser.password);
+
+                        byte[] result;
+
+                        using (SHA256 shaM = new SHA256Managed())
+                        {
+                            result = shaM.ComputeHash(data);
+                        }
+                        tUser.password = GetStringFromBytes(result);
+
                         bdd.T_User.Add(tUser);
                         bdd.SaveChanges();
                         user.Id = tUser.id;

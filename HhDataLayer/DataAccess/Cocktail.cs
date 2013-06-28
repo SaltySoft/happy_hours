@@ -289,17 +289,39 @@ namespace HhDataLayer.DataAccess
                     T_User creator = bdd.T_User.Where(x => x.id == cocktail.Creator_Id).FirstOrDefault();
                     if (tCocktail != null)
                     {
-                        tCocktail.name = cocktail.Name;
-                        tCocktail.description = cocktail.Description;
-                        tCocktail.difficulty = cocktail.Difficulty;
-                        tCocktail.duration = cocktail.Duration;
+                        if (cocktail.Name != null)
+                        {
+                            if (cocktail.Name == "")
+                                throw new HhDBO.Exceptions.InvalidParameterException("name");
+                            tCocktail.name = cocktail.Name;
+                        }
+                        else
+                        {
+                            if (tCocktail.name == "")
+                                throw new HhDBO.Exceptions.InvalidParameterException("name");
+                        }
+                        if (cocktail.Description != null)
+                            tCocktail.description = cocktail.Description;
+                        else
+                            tCocktail.description = "";
+                        
+                        if (tCocktail.difficulty != null)
+                            tCocktail.difficulty = cocktail.Difficulty;
+                        else
+                            tCocktail.difficulty = 1;
+                        if (cocktail.Duration != null)
+                            tCocktail.duration = cocktail.Duration;
+                        else
+                            tCocktail.duration = 1;
+                        tCocktail.edited = 1;
                         if (cocktail.Picture_Url != null)
                             tCocktail.picture_url = cocktail.Picture_Url;
+                        else
+                            tCocktail.picture_url = "";
                         if (cocktail.Recipe != null)
                             tCocktail.recipe = cocktail.Recipe;
-                        if (creator != null)
-                            tCocktail.T_User = creator;
-
+                        else
+                            tCocktail.recipe = "";
 
                         if (cocktail.Ingredients != null)
                         {
@@ -343,9 +365,6 @@ namespace HhDataLayer.DataAccess
                         }
 
                         bdd.SaveChanges();
-
-
-
                         return true;
                     }
                     else

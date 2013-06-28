@@ -1,4 +1,6 @@
-<form action="javascript:void(0);" class="pure-form pure-form-aligned form_cocktail">
+<fieldset>
+    <legend>Informations sur le cocktail</legend>
+<form action="javascript:void(0);" class="pure-form form_cocktail">
     <div class="pure-g">
         <div class="pure-u-1-2">
             <div class="pure-control-group">
@@ -7,7 +9,7 @@
                        id="creation_form_name" value="<%= cocktail.get('Name') %>"/>
             </div>
             <div class="pure-control-group">
-                <label for="creation_form_difficulty">Difficulté</label>
+                <label for="creation_form_difficulty" class="difficulty_label">Difficulté</label>
                 <input type="number" min="1" max="5" id="creation_form_difficulty" name="Difficulty"
                        class="form_difficulty field_Difficulty field" value="<%= cocktail.get('Difficulty')%>"/> <span
                     class="difficulty_max">/ 5</span>
@@ -32,31 +34,41 @@
         <div class="pure-u-1-2">
             <div class="pure-g ingredients">
                 <div class="pure-u-1">
+
+
                     <h3>
                         Ingredients
                     </h3>
                 </div>
                 <div class="pure-u-1-2">
+                    <div class="ingredient_list_title">Disponibles</div>
                     <ul class="all_ingredients ingredients_list">
 
                     </ul>
                 </div>
                 <div class="pure-u-1-2">
+                    <div class="ingredient_list_title">Ce cocktail</div>
                     <ul class="selected_ingredients ingredients_list">
 
                     </ul>
+
                 </div>
+
             </div>
-            <div>
-                <button type="submit" class="pure-button">Enregistrer les informations</button>
-            </div>
+
         </div>
 
     </div>
 
+    <div>
 
+        <div class="clearer "></div>
+        <button class="basic_valid_button pure-button pure-button-primary" type="submit">Enregistrer</button>
+
+        <div class="clearer "></div>
+    </div>
 </form>
-
+</fieldset>
 <fieldset>
     <legend>Ajoutez une image à votre cocktail !</legend>
 

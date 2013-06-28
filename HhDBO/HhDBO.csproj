@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Exceptions\AlreadyExistingException.cs" />
     <Compile Include="Cocktail.cs" />
+    <Compile Include="Exceptions\InvalidParameterException.cs" />
     <Compile Include="Ingredient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchQuery.cs" />

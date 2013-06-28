@@ -42,5 +42,15 @@ namespace HappyHours.BusinessManagement
             DataAccess.User dataAccess = new DataAccess.User();
             return dataAccess.DeleteUser(id);
         }
+
+        public static byte[] GetBytesFromString(string str)
+        {
+            return DataAccess.User.GetBytesFromString(str);
+        }
+
+        public static string GetStringFromBytes(byte[] bytes)
+        {
+            return DataAccess.User.GetStringFromBytes(bytes);
+        }
     }
 }
