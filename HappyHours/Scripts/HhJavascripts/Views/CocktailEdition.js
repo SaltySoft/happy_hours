@@ -97,18 +97,30 @@ define([
 
                 base.cocktail.save({}, {
                     success:function () {
-
+                        base.app.show_message("Le cocktail a bien été enregistré");
+                    },
+                    error: function () {
+                        base.app.show_message("Une erreur s'est produite pendant la création du ccoktail");
                     }
                 });
-
                 return false;
             });
+
+            base.$el.delegate(".choose_image_button", "click", function () {
+                base.$el.find("#creation_form_picture").click();
+            });
+
+            base.$el.delegate("#creation_form_picture", "change", function () {
+                base.$el.find(".form_picture").submit();
+            });
+
+
 
             base.$el.find(".form_iframe").load(function () {
                 base.cocktail.fetch({
                     success:function () {
-                        console.log("FETCHED COCKTAIL AFTER IMAGE", base.cocktail);
-                        base.$el.find(".cocktail_picture").attr("src", base.cocktail.get("Picture_Url"));
+//                        base.$el.find(".cocktail_picture").attr("src", base.cocktail.get("Picture_Url"));
+                        base.app.show_message("L'image du cocktail a bien été mise à jour");
                     }
                 });
             });

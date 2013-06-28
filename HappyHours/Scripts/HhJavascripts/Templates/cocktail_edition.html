@@ -70,29 +70,31 @@
         </div>
     </form>
 </fieldset>
-<fieldset>
+<fieldset class="picture">
     <legend>Ajoutez une image à votre cocktail !</legend>
+    <div class="pure-g">
+        <div class="pure-u-1-2">
+            <div class="cocktail_edition_image huge">
 
-    <form action="/Cocktail/SendPicture/<%= cocktail.get('Id') %>" class="pure-form pure-form-aligned form_picture"
-          target="cocktail_picture_target" method="post" enctype="multipart/form-data">
-        <div class="pure-g">
-            <div class="pure-u-1-2">
-                <div class="cocktail_edition_image">
-
-                </div>
             </div>
-            <div class="pure-u-1-2">
+        </div>
+        <div class="pure-u-1-2">
+            <form action="/Cocktail/SendPicture/<%= cocktail.get('Id') %>"
+                  class="pure-form pure-form-aligned form_picture"
+                  target="cocktail_picture_target" method="post" enctype="multipart/form-data">
+
+
                 <div class="pure-control-group">
-                    <label for="creation_form_picture">Picture</label>
                     <input type="file" name="picture" id="creation_form_picture" class="field_Picture_Url field"/>
                 </div>
-                <div class="pure-controls">
-                    <button type="submit" class="pure-button">Envoyer l'image</button>
-                </div>
-            </div>
 
+
+            </form>
+            <div class="pure-controls">
+                <button class="pure-button choose_image_button">Choisir une image</button>
+            </div>
         </div>
-    </form>
+    </div>
 
     <iframe class="form_iframe" name="cocktail_picture_target">
     </iframe>

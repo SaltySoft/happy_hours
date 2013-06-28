@@ -146,3 +146,10 @@ input:focus {
     text-align: center;
 }
 
+.cocktail_edition_view .field_Picture_Url {
+    display: none;
+}
+
+.cocktail_edition_view .picture .pure-controls {
+    text-align: right;
+}
