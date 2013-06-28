@@ -64,5 +64,15 @@ namespace HhBusiness
         {
             return HhDataLayer.DataAccess.User.UpdateUser(user);
         }
+
+        public static byte[] GetBytesFromString(string str)
+        {
+            return HhDataLayer.DataAccess.User.GetBytesFromString(str);
+        }
+
+        public static string GetStringFromBytes(byte[] bytes)
+        {
+            return HhDataLayer.DataAccess.User.GetStringFromBytes(bytes);
+        }
     }
 }

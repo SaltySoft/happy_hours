@@ -81,5 +81,15 @@ namespace HappyHours.DataAccess
                 return false;
             }
         }
+
+        public static byte[] GetBytesFromString(string str)
+        {
+            return HhBusiness.User.GetBytesFromString(str);
+        }
+
+        public static string GetStringFromBytes(byte[] bytes)
+        {
+            return HhBusiness.User.GetStringFromBytes(bytes);
+        }
     }
 }

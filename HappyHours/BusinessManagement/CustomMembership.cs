@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Web;
 using System.Web.Security;
 
@@ -149,6 +150,16 @@ namespace HappyHours.BusinessManagement
         public override bool ValidateUser(string username, string password)
         {
             HhDBO.User user = BusinessManagement.User.GetUserByName(username);
+
+            byte[] data = BusinessManagement.User.GetBytesFromString(password);
+
+            byte[] result;
+
+            using (SHA256 shaM = new SHA256Managed())
+            {
+                result = shaM.ComputeHash(data);
+            }
+            password = BusinessManagement.User.GetStringFromBytes(result);
 
             if (user != null)
             {

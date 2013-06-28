@@ -31,8 +31,9 @@ define([
         },
         render:function () {
             var base = this;
-            console.log("cocktail", base.cocktail);
             var cocktailDetailsTemplate = _.template(CocktailDetailsTemplate, {
+                cocktail: base.cocktail,
+                user: base.app.current_user,
                 cocktailName:base.cocktail.get("Name"),
                 cocktailDifficulty:base.cocktail.get("Difficulty"),
                 cocktailDuration:base.cocktail.get("Duration"),
