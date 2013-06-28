@@ -13,14 +13,11 @@ define([
             base.model = cocktail;
             base.cocktail = cocktail;
         },
-        init: function (app) {
+        init: function (app, overlay) {
             var base = this;
 
             base.app = app;
-
-            base.render();
-            base.registerEvents();
-            console.log("stuff");
+            base.overlay = overlay;
             if (base.$el.parent().hasClass("big")) {
                 base.$el.addClass("big");
             }
@@ -31,6 +28,11 @@ define([
                 base.$el.addClass("huge");
             }
 
+            base.render();
+            base.registerEvents();
+
+
+
         },
         render: function () {
             var base = this;
@@ -39,6 +41,13 @@ define([
                 cocktail: base.cocktail
             });
             base.$el.html(template);
+            if (base.overlay) {
+                var div = $(document.createElement("div"));
+                div.addClass("picture_overlay");
+                base.$el.append(div);
+                div.html(base.cocktail.get("Name"));
+                div.width(base.$el.width() - 2);
+            }
         },
         readjust: function () {
             var base = this;

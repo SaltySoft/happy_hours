@@ -2,9 +2,13 @@
     max-height: 150px;
     max-width: 150px;
 }
-.favorites_view .favorites_view {
+.favorites_view .favorites_view_item {
     float: left;
     height: 150px;
     width: 150px;
     margin: 5px;
+    cursor: pointer;
+}
+.favorites_view .unfav_button {
+    width: 102px;
 }

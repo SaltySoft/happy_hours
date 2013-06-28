@@ -127,6 +127,19 @@ Cocktail image
     position: absolute;
 }
 
+.cocktail_image .picture_overlay {
+    position: absolute;
+    bottom: 0;
+    height: 20px;
+    line-height: 20px;
+    color: black;
+    background: white;
+    text-align: center;
+    font-weight: bold;
+    border: 1px gray solid;
+
+}
+
 input[type="text"] {
     padding: .5em .6em;
     display: inline-block;
