@@ -88,12 +88,14 @@ define([
 
             $("#cocktails_button").click(function () {
                 var elt = $(this);
-                base.app.quickSearchData = undefined;
-                route = Backbone.history.fragment;
-                if ("#" + route == "#cocktails") {
-                    base.app.router.navigate();
+                if (base.app.quickSearchData !== undefined) {
+                    base.app.quickSearchData = undefined;
+                    route = Backbone.history.fragment;
+                    if ("#" + route == "#cocktails") {
+                        base.app.router.navigate();
+                    }
+                    base.app.router.navigate("#cocktails", {trigger:true});
                 }
-                base.app.router.navigate("#cocktails", {trigger:true});
             });
         }
     });
