@@ -125,19 +125,37 @@ namespace HhDataLayer.DataAccess
                         }
                     }
 
-                    if (searchQuery.Quick != "no")
+                    if (difficulty > 0 && difficulty <= 5)
                     {
-                        existings = bdd.T_Cocktail.Where(x =>
-                       (x.name.Contains(searchQuery.Cocktail_name))
-                       && (x.difficulty >= (difficulty - 1) || x.difficulty <= (difficulty + 1))
-                       && (x.duration < 2)).ToList();
+                        if (searchQuery.Quick != "no")
+                        {
+                            existings = bdd.T_Cocktail.Where(x =>
+                           (x.name.Contains(searchQuery.Cocktail_name))
+                           && (x.difficulty >= (difficulty - 1) && x.difficulty <= (difficulty + 1))
+                           && (x.duration < 2)).ToList();
+                        }
+                        else
+                        {
+                            existings = bdd.T_Cocktail.Where(x =>
+                            (x.name.Contains(searchQuery.Cocktail_name))
+                            && (x.difficulty >= (difficulty - 1) && x.difficulty <= (difficulty + 1))).ToList();
+                        }
                     }
                     else
                     {
-                        existings = bdd.T_Cocktail.Where(x =>
-                        (x.name.Contains(searchQuery.Cocktail_name))
-                        && (x.difficulty >= (difficulty - 1) || x.difficulty <= (difficulty + 1))).ToList();
+                        if (searchQuery.Quick != "no")
+                        {
+                            existings = bdd.T_Cocktail.Where(x =>
+                           (x.name.Contains(searchQuery.Cocktail_name))
+                           && (x.duration < 2)).ToList();
+                        }
+                        else
+                        {
+                            existings = bdd.T_Cocktail.Where(x =>
+                            (x.name.Contains(searchQuery.Cocktail_name))).ToList();
+                        }
                     }
+
 
                     List<T_Cocktail> tCocktails = new List<T_Cocktail>();
                     if (ingredients.Any())
