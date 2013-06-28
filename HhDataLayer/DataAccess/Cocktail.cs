@@ -109,7 +109,8 @@ namespace HhDataLayer.DataAccess
                             List<string> tmpstrs2 = str.Split(';').ToList();
                             foreach (string tmpstr2 in tmpstrs2)
                             {
-                                ingredients_str.Add(tmpstr2);
+                                if (tmpstr2 != "")
+                                    ingredients_str.Add(tmpstr2);
                             }
                         }
                     }
@@ -134,8 +135,12 @@ namespace HhDataLayer.DataAccess
                                         where cocktail.name.Contains(searchQuery.Cocktail_name)
                                         && (cocktail.difficulty >= (difficulty - 1) || cocktail.difficulty <= (difficulty + 1))
                                         && cocktail.duration < 2
-                                        select cocktail;
-                            existings = query.ToList();
+                                        select new
+                                        {
+                                            cocktail.id,
+                                            cocktail.name
+                                        };
+                            var lol = query;
                         }
                         else
                         {
@@ -144,8 +149,12 @@ namespace HhDataLayer.DataAccess
                                         join ingredient in ingredients on cockIng.id equals ingredient.id
                                         where cocktail.name.Contains(searchQuery.Cocktail_name)
                                         && (cocktail.difficulty >= (difficulty - 1) || cocktail.difficulty <= (difficulty + 1))
-                                        select cocktail;
-                            existings = query.ToList();
+                                        select new
+                                        {
+                                            cocktail.id,
+                                            cocktail.name
+                                        };
+                            var lol = query;
                         }
                     }
                     else
