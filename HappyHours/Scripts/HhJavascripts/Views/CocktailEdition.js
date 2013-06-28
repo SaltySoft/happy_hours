@@ -19,7 +19,7 @@ define([
             base.app = app;
 
             base.ingredients_collection = new IngredientsCollection();
-            base.cocktail = new Cocktail({ Id : id, id : id});
+            base.cocktail = new Cocktail({ Id : id});
             base.cocktail.fetch({
                 success:function () {
                     base.render();
@@ -83,12 +83,11 @@ define([
                 console.log("array", array);
                 var ingredients = base.cocktail.get("Ingredients");
                 var cocktailIngredients = new IngredientsCollection(ingredients.models);
-                console.log("cocktailIngredients", cocktailIngredients);
-                console.log("ingredients LOL", ingredients);
+
+                for (var k in array) {
+                    base.cocktail.set(array[k].name, array[k].value);
+                }
                 console.log("about_to_save2", base.cocktail);
-//                for (var k in array) {
-//                    base.cocktail.set(array[k].name, array[k].value);
-//                }
 //                for (var k in ingredients) {
 //                    base.cocktail.get("Ingredients").add(ingredients[k]);
 //                }
@@ -97,10 +96,6 @@ define([
                 base.cocktail.save({}, {
                     success:function () {
                         console.log("Saved cocktail : ", base.cocktail);
-                        base.cocktail.fetch({
-                            success:function () {
-                            }
-                        });
                     }
                 });
 
