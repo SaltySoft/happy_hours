@@ -26,9 +26,6 @@ define([
             var template = _.template(CocktailListItemTemplate, {
                 cocktail: base.cocktail
             });
-
-
-
             base.$el.html(template);
 
             var image = base.$el.find(".cocktail_item_image_img");
@@ -40,7 +37,6 @@ define([
             if (base.app.current_user && base.app.current_user.get("Favorites").get(base.cocktail.get("Id"))) {
                 base.$el.addClass("faved");
             }
-
         },
         registerEvents: function () {
             var base = this;

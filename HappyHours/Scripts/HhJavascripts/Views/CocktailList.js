@@ -16,7 +16,6 @@ define([
             var base = this;
             base.app = app;
             base.cocktails = new CocktailsCollection();
-            console.log("base.app.quickSearchData", base.app.quickSearchData);
             base.render();
             base.registerEvents();
         },
@@ -26,7 +25,6 @@ define([
             base.$el.html(template);
 
             if (base.app.quickSearchData !== undefined) {
-
                 base.searchQuery = {
                     name:"",
                     ingredients:"",
@@ -47,8 +45,6 @@ define([
                         base.searchQuery.alcohol = base.app.quickSearchData[k].value;
                 }
 
-                console.log("base.searchQuery", base.searchQuery);
-
                 $.ajax({
                     url:"/Cocktail/GetQuickSearchCocktails",
                     type:"get",
@@ -60,15 +56,11 @@ define([
                         alcohol:base.searchQuery.alcohol
                     },
                     success:function (data, status) {
-                        console.log("data", data);
-                        for (var k in data)
-                        {
+                        for (var k in data) {
                             var cocktail = new Cocktail(data[k]);
                             base.cocktails.add(cocktail);
                         }
 
-                        console.log(" base.cocktails",  base.cocktails);
-                        console.log(" base.cocktails.models",  base.cocktails.models);
                         base.updateList();
                     }
                 });
@@ -93,6 +85,16 @@ define([
         },
         registerEvents:function () {
             var base = this;
+
+            $("#cocktails_button").click(function () {
+                var elt = $(this);
+                base.app.quickSearchData = undefined;
+                route = Backbone.history.fragment;
+                if ("#" + route == "#cocktails") {
+                    base.app.router.navigate();
+                }
+                base.app.router.navigate("#cocktails", {trigger:true});
+            });
         }
     });
 

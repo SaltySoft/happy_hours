@@ -139,20 +139,32 @@ namespace HhDataLayer.DataAccess
                         && (x.difficulty >= (difficulty - 1) || x.difficulty <= (difficulty + 1))).ToList();
                     }
 
-                    if (ingredients.Count > 0)
+                    List<T_Cocktail> tCocktails = new List<T_Cocktail>();
+                    if (ingredients.Any())
                     {
-                        if (searchQuery.Quick != "no")
+                        foreach (T_Cocktail cocktail in existings)
                         {
-                            
+                            List<T_CocktailsIngredients> joinFromCocktails = cocktail.T_CocktailsIngredients.ToList();
+
+                            foreach (T_Ingredient ingredient in ingredients)
+                            {
+                                List<T_CocktailsIngredients> joinFromIngredients = ingredient.T_CocktailsIngredients.ToList();
+                                List<T_CocktailsIngredients> both = joinFromCocktails.Intersect(joinFromIngredients).ToList();
+
+                                if (both.Any())
+                                {
+                                    tCocktails.Add(cocktail);
+                                }
+                            }
                         }
                     }
                     else
                     {
-                        
+                        tCocktails = existings;
                     }
                     //if (searchQuery.Alcohol != "no")
 
-                    foreach (T_Cocktail cocktail in existings)
+                    foreach (T_Cocktail cocktail in tCocktails)
                     {
                         Mapper.CreateMap<T_Cocktail, HhDBO.Cocktail>();
 
@@ -160,12 +172,12 @@ namespace HhDataLayer.DataAccess
                         cocktails.Add(dboCocktail);
                     }
                 }
-                Debug.WriteLine("Got list of cocktails");
+                Debug.WriteLine("Got GetQuickSearchCocktails cocktails list");
                 return cocktails;
             }
             catch (Exception)
             {
-                Debug.WriteLine("Problem while getting list of cocktails");
+                Debug.WriteLine("Problem while getting GetQuickSearchCocktails cocktails list");
                 return new List<HhDBO.Cocktail>();
             }
         }
@@ -281,7 +293,7 @@ namespace HhDataLayer.DataAccess
                             tCocktail.description = cocktail.Description;
                         else
                             tCocktail.description = "";
-                        
+
                         if (tCocktail.difficulty != null)
                             tCocktail.difficulty = cocktail.Difficulty;
                         else
