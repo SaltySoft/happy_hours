@@ -97,7 +97,6 @@ namespace HhDataLayer.DataAccess
             try
             {
                 List<HhDBO.Cocktail> cocktails = new List<HhDBO.Cocktail>();
-
                 using (MyHappyHoursEntities bdd = new MyHappyHoursEntities())
                 {
                     List<string> ingredients_str = new List<string>();
@@ -125,53 +124,31 @@ namespace HhDataLayer.DataAccess
                             ingredients.AddRange(bdd.T_Ingredient.Where(x => (x.name.Contains(ingredient_str))).ToList());
                         }
                     }
+
+                    if (searchQuery.Quick != "no")
+                    {
+                        existings = bdd.T_Cocktail.Where(x =>
+                       (x.name.Contains(searchQuery.Cocktail_name))
+                       && (x.difficulty >= (difficulty - 1) || x.difficulty <= (difficulty + 1))
+                       && (x.duration < 2)).ToList();
+                    }
+                    else
+                    {
+                        existings = bdd.T_Cocktail.Where(x =>
+                        (x.name.Contains(searchQuery.Cocktail_name))
+                        && (x.difficulty >= (difficulty - 1) || x.difficulty <= (difficulty + 1))).ToList();
+                    }
+
                     if (ingredients.Count > 0)
                     {
                         if (searchQuery.Quick != "no")
                         {
-                            var query = from cocktail in bdd.T_Cocktail
-                                        join cockIng in bdd.T_CocktailsIngredients on cocktail.id equals cockIng.cocktail_id
-                                        join ingredient in ingredients on cockIng.id equals ingredient.id
-                                        where cocktail.name.Contains(searchQuery.Cocktail_name)
-                                        && (cocktail.difficulty >= (difficulty - 1) || cocktail.difficulty <= (difficulty + 1))
-                                        && cocktail.duration < 2
-                                        select new
-                                        {
-                                            cocktail.id,
-                                            cocktail.name
-                                        };
-                            var lol = query;
-                        }
-                        else
-                        {
-                            var query = from cocktail in bdd.T_Cocktail
-                                        join cockIng in bdd.T_CocktailsIngredients on cocktail.id equals cockIng.cocktail_id
-                                        join ingredient in ingredients on cockIng.id equals ingredient.id
-                                        where cocktail.name.Contains(searchQuery.Cocktail_name)
-                                        && (cocktail.difficulty >= (difficulty - 1) || cocktail.difficulty <= (difficulty + 1))
-                                        select new
-                                        {
-                                            cocktail.id,
-                                            cocktail.name
-                                        };
-                            var lol = query;
+                            
                         }
                     }
                     else
                     {
-                        if (searchQuery.Quick != "no")
-                        {
-                            existings = bdd.T_Cocktail.Where(x =>
-                           (x.name.Contains(searchQuery.Cocktail_name))
-                           && (x.difficulty >= (difficulty - 1) || x.difficulty <= (difficulty + 1))
-                           && (x.duration < 2)).ToList();
-                        }
-                        else
-                        {
-                            existings = bdd.T_Cocktail.Where(x =>
-                            (x.name.Contains(searchQuery.Cocktail_name))
-                            && (x.difficulty >= (difficulty - 1) || x.difficulty <= (difficulty + 1))).ToList();
-                        }
+                        
                     }
                     //if (searchQuery.Alcohol != "no")
 
