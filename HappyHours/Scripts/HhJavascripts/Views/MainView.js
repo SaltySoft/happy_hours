@@ -172,13 +172,13 @@
         registerEvents:function () {
             var base = this;
 
-            base.$el.delegate(".navigation-menu-container a", "click", function () {
+            base.$el.delegate(".navigation_menu_container a", "click", function () {
                 var elt = $(this);
-                var list_items = base.$el.find(".navigation-menu-container li");
-                list_items.each(function () {
-                    $(this).removeClass('pure-menu-selected');
-                });
-                elt.closest("li").addClass('pure-menu-selected');
+                base.$el.find(".navigation_menu_container a").removeClass("pure-button");
+                base.$el.find(".navigation_menu_container a").removeClass("pure-button-active");
+
+                elt.addClass('pure-button');
+                elt.addClass('pure-button-active');
             });
 
             if (base.app.current_user) {
