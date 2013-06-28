@@ -167,8 +167,6 @@ input[type="text"] {
 }
 
 .ingredient_item {
-    width: 95px;
-    height: 30px;
     margin: auto;
     margin-bottom: 5px;
     text-align: center;
@@ -180,7 +178,10 @@ input[type="text"] {
 }
 
 .ingredient_item.inline {
+    width: 95px;
+    height: 30px;
     float:left;
     margin: 5px;
     background: white;
+    cursor: default;
 }
