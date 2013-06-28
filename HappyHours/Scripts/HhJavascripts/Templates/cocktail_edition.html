@@ -63,18 +63,21 @@
     <form action="/Cocktail/SendPicture/<%= cocktail.get('Id') %>" class="pure-form pure-form-aligned form_picture"
           target="cocktail_picture_target" method="post" enctype="multipart/form-data">
         <div class="pure-g">
-            <div class="pure-control-group">
+            <div class="pure-u-1-2">
                 <div class="cocktail_edition_image">
 
                 </div>
-                <label for="creation_form_picture">Picture</label>
-                <input type="file" name="picture" id="creation_form_picture" class="field_Picture_Url field"/>
             </div>
-            <input type="hidden" name="Creator_Id" value="1"/>
+            <div class="pure-u-1-2">
+                <div class="pure-control-group">
+                    <label for="creation_form_picture">Picture</label>
+                    <input type="file" name="picture" id="creation_form_picture" class="field_Picture_Url field"/>
+                </div>
+                <div class="pure-controls">
+                    <button type="submit" class="pure-button">Envoyer l'image</button>
+                </div>
+            </div>
 
-            <div class="pure-controls">
-                <button type="submit" class="pure-button">Envoyer l'image</button>
-            </div>
         </div>
     </form>
 

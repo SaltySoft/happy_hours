@@ -1,6 +1,44 @@
 .form_cocktail {
     margin: auto;
-    width: 664px;
+}
+
+.cocktail_creation {
+    position: relative;
+}
+
+.cocktail_creation .form_container {
+    position: relative;
+    height: 250px;
+    width: 400px;
+    margin: auto;
+    background: rgba(240, 211, 0, 0.16);
+    margin-top: 50px;
+    border-radius: 3px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+
+.cocktail_creation .form_inputs input[type="text"] {
+    margin-top: 40px;
+}
+
+.cocktail_creation .form_inputs {
+    padding: 50px;
+    text-align: center;
+}
+
+.cocktail_creation .pure-controls {
+    text-align: right;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+
+.cocktail_creation .information {
+    float: right;
+    width: 350px;
+    padding: 10px;
+    color: #a8a8a8;
+    text-align: justify;
 }
 
 .form_cocktail input[type="text"], .form_cocktail textarea {

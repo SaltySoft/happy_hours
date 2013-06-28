@@ -1,9 +1,20 @@
-<h1>Proposer un cocktail</h1>
+<div class="information">
+    Ici, vous pouvez enrichir l'application en ajoutant des cocktails. Indiquez son nom,
+    et cliquez sur continuer pour le décrire.
+</div>
+<h1>Ajouter un cocktail</h1>
+
+<div class="clearer"></div>
 <div class="form_container">
-    <form action="javascript:void(0);" target="cocktail_creation_target" class="pure-form pure-form-aligned form_cocktail">
-        <div class="pure-control-group">
-            <label for="creation_form_name">Nom du cocktail</label>
-            <input type="text" name="name" placeholder="Nom du cocktail" class="form_name field_Name field" id="creation_form_name"/>
+    <form action="javascript:void(0);" target="cocktail_creation_target" class=" form_cocktail">
+        <div class="form_inputs">
+            <div>
+                <label for="creation_form_name">Nom du cocktail</label>
+            </div>
+            <div>
+                <input type="text" name="name" placeholder="Entrez le nom de votre cocktail" class="form_name field_Name field"
+                       id="creation_form_name"/>
+            </div>
         </div>
         <div class="pure-controls">
             <button type="submit" class="pure-button">Continuer la création</button>

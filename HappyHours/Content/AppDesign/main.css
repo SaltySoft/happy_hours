@@ -105,3 +105,21 @@ Cocktail image
 .cocktail_image .cocktail_img {
     position: absolute;
 }
+
+input[type="text"] {
+    padding: .5em .6em;
+    display: inline-block;
+    border: 1px solid #ccc;
+    font-size: .8em;
+    box-shadow: inset 0 1px 3px #ddd;
+    border-radius: 4px;
+    -webkit-transition: .3s linear border;
+    -moz-transition: .3s linear border;
+    -ms-transition: .3s linear border;
+    -o-transition: .3s linear border;
+    transition: .3s linear border;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
