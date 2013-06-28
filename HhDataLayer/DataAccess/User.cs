@@ -145,23 +145,19 @@ namespace HhDataLayer.DataAccess
                     List<T_User> existings = bdd.T_User.Where(x => x.username == user.Username).ToList();
                     if (!existings.Any())
                     {
-                        Mapper.CreateMap<HhDBO.User, T_User>();
-                        T_User tUser = Mapper.Map<HhDBO.User, T_User>(user);
-
-                        byte[] data = GetBytesFromString(tUser.password);
-
-                        byte[] result;
-
-                        using (SHA256 shaM = new SHA256Managed())
-                        {
-                            result = shaM.ComputeHash(data);
-                        }
-                        tUser.password = GetStringFromBytes(result);
-
-                        bdd.T_User.Add(tUser);
-                        bdd.SaveChanges();
-                        user.Id = tUser.id;
-                        return user;
+                            Mapper.CreateMap<HhDBO.User, T_User>();
+                                               T_User tUser = Mapper.Map<HhDBO.User, T_User>(user);
+                                               byte[] result;
+                                               using (MD5 md5 = MD5.Create())
+                                               {
+                                                   result = md5.ComputeHash(Encoding.UTF8.GetBytes(tUser.password));
+                                               }
+                                               tUser.password = Convert.ToBase64String(result);
+                       
+                                               bdd.T_User.Add(tUser);
+                                               bdd.SaveChanges();
+                                               user.Id = tUser.id;
+                                               return user;
                     }
                     else
                     {
