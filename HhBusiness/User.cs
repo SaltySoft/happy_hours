@@ -74,5 +74,27 @@ namespace HhBusiness
         {
             return HhDataLayer.DataAccess.User.GetStringFromBytes(bytes);
         }
+
+        public static List<string> Validate(HhDBO.User user)
+        {
+            List<string> errors = new List<string>();
+            if (user.Username == null || user.Username == "")
+            {
+                errors.Add("Username");
+            }
+            if (user.Email == null || user.Email == "")
+            {
+                errors.Add("Email");
+            }
+            if (user.Password == null || user.Password == "")
+            {
+                errors.Add("Password");
+            }
+            if (user.Admin == null || user.Admin < 0 || user.Admin > 1)
+            {
+                errors.Add("Admin");
+            }
+            return errors;
+        }
     }
 }

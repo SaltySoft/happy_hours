@@ -163,7 +163,10 @@ namespace HhDataLayer.DataAccess
                         user.Id = tUser.id;
                         return user;
                     }
-                    
+                    else
+                    {
+                        throw new HhDBO.Exceptions.AlreadyExistingException("already_existing");
+                    }
                 }
                 return null;
             }

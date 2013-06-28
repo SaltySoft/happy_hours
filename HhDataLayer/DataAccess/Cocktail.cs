@@ -245,7 +245,7 @@ namespace HhDataLayer.DataAccess
                 using (MyHappyHoursEntities bdd = new MyHappyHoursEntities())
                 {
                     List<T_Cocktail> existings = bdd.T_Cocktail.Where(x => x.name == cocktail.Name).ToList();
-                    if (existings.Count < 1)
+                    if (!existings.Any())
                     {
                         T_User creator = bdd.T_User.Where(x => x.id == cocktail.Creator_Id).FirstOrDefault();
                         Mapper.CreateMap<HhDBO.Cocktail, T_Cocktail>();

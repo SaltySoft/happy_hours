@@ -82,6 +82,11 @@ namespace HappyHours.DataAccess
             }
         }
 
+        public List<string> Validate(HhDBO.User user)
+        {
+            return HhBusiness.User.Validate(user);
+        }
+
         public static byte[] GetBytesFromString(string str)
         {
             return HhBusiness.User.GetBytesFromString(str);

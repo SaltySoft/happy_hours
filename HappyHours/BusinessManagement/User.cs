@@ -43,6 +43,12 @@ namespace HappyHours.BusinessManagement
             return dataAccess.DeleteUser(id);
         }
 
+        public static List<string> Validate(HhDBO.User user)
+        {
+            DataAccess.User dataAccess = new DataAccess.User();
+            return dataAccess.Validate(user);
+        }
+
         public static byte[] GetBytesFromString(string str)
         {
             return DataAccess.User.GetBytesFromString(str);
