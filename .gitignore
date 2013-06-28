@@ -7,6 +7,7 @@ obj
 HappyHours/Web.config
 HhDataLayer/App.config
 HhWcfService/Web.config
+HhBackend/Web.config
 .idea
 HappyHours/Images/Cocktails/*
 !HappyHours/Images/Cocktails/empty.txt
