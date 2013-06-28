@@ -54,11 +54,16 @@ define([
             var img = base.$el.find(".cocktail_img");
             var width = img.width();
             var height  = img.height();
-            if (width < height) {
+            if (width <= height) {
+                img.css("height", "auto");
                 img.css("width", base.$el.width());
                 img.css("top", -img.height() / 2 + base.$el.height() / 2);
+                img.css("left",0);
+
             } else {
+                img.css("width", "auto");
                 img.css("height", base.$el.height());
+                img.css("top", 0);
                 img.css("left", -img.width() / 2 + base.$el.width() / 2);
             }
         },

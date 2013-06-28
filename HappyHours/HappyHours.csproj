@@ -265,9 +265,7 @@
     <Content Include="Scripts\HhJavascripts\app.js" />
     <Content Include="Scripts\HhJavascripts\default.js" />
     <Content Include="Scripts\HhJavascripts\launcher.js" />
-    <Content Include="Scripts\HhJavascripts\Templates\today_cocktail.html" />
     <Content Include="Scripts\HhJavascripts\Views\MainView.js" />
-    <Content Include="Scripts\HhJavascripts\Views\TodayCocktail.js" />
     <Content Include="Scripts\RequireInit\main.js" />
     <Content Include="Scripts\RequireInit\requireConfig.js" />
     <Content Include="Scripts\javascript\jquery.js" />
@@ -353,6 +351,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Scripts\HhJavascripts\Collections\" />
     <Folder Include="Scripts\HhJavascripts\Models\" />
+    <Folder Include="Scripts\HhJavascripts\Templates\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
