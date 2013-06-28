@@ -6,8 +6,9 @@ define([
     'text!Templates/cocktail_edition.html',
     'Collections/Ingredients',
     'Views/IngredientItem',
+    'Views/CocktailImage',
     'jqueryui'
-], function ($, _, Backbone, Cocktail, CocktailEditionTemplate, IngredientsCollection, IngredientItemView) {
+], function ($, _, Backbone, Cocktail, CocktailEditionTemplate, IngredientsCollection, IngredientItemView, CocktailImageView) {
     var CocktailEditionView = Backbone.View.extend({
         tagName:"div",
         className:"cocktail_edition_view",
@@ -20,8 +21,10 @@ define([
 
             base.ingredients_collection = new IngredientsCollection();
             base.cocktail = new Cocktail({ Id : id});
+
             base.cocktail.fetch({
                 success:function () {
+                    base.cocktail_image = new CocktailImageView(base.cocktail);
                     base.render();
                     base.registerEvents();
                 }
@@ -35,6 +38,9 @@ define([
 
             base.$el.html(template);
             window.current_cocktail = base.cocktail;
+
+            base.$el.find(".cocktail_edition_image").html(base.cocktail_image.$el);
+            base.cocktail_image.init(base.app);
 
             base.ingredients_collection.fetch({
                 success:function () {
@@ -79,23 +85,13 @@ define([
                 var form = $(this);
                 var array = form.serializeArray();
 
-                console.log("about_to_save1", base.cocktail);
-                console.log("array", array);
-                var ingredients = base.cocktail.get("Ingredients");
-                var cocktailIngredients = new IngredientsCollection(ingredients.models);
-
                 for (var k in array) {
                     base.cocktail.set(array[k].name, array[k].value);
                 }
-                console.log("about_to_save2", base.cocktail);
-//                for (var k in ingredients) {
-//                    base.cocktail.get("Ingredients").add(ingredients[k]);
-//                }
-
 
                 base.cocktail.save({}, {
                     success:function () {
-                        console.log("Saved cocktail : ", base.cocktail);
+
                     }
                 });
 
@@ -105,6 +101,7 @@ define([
             base.$el.find(".form_iframe").load(function () {
                 base.cocktail.fetch({
                     success:function () {
+                        console.log("FETCHED COCKTAIL AFTER IMAGE", base.cocktail);
                         base.$el.find(".cocktail_picture").attr("src", base.cocktail.get("Picture_Url"));
                     }
                 });

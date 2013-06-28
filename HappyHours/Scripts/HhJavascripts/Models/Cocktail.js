@@ -24,9 +24,10 @@ define([
                     ingredients.add(new Ingredient(obj));
                 }
                 attributes.Ingredients = ingredients;
+                this.attributes = attributes;
             }
 
-            this.attributes = attributes;
+
         },
         parse: function (response) {
             console.log("Cocktail response1", response)

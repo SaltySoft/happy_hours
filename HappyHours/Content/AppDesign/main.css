@@ -85,3 +85,23 @@
     margin-bottom: 0px;
 }
 
+fieldset {
+    border: 1px #cacaca solid;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+/*
+Cocktail image
+*/
+
+.cocktail_image {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    position: relative;
+}
+
+.cocktail_image .cocktail_img {
+    position: absolute;
+}
