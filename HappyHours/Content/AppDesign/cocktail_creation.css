@@ -124,17 +124,7 @@ input:focus {
     margin-right: 86px;
 }
 
-.cocktail_edition_view .ingredient_item {
-    width: 95px;
-    height: 30px;
-    margin: auto;
-    margin-bottom: 5px;
-    text-align: center;
-    line-height: 30px;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
-    background: #dcdcdc;
-    cursor: pointer;
-}
+
 
 .cocktail_edition_view .ingredients_list {
     background: rgba(240, 211, 0, 0.16);
@@ -155,3 +145,4 @@ input:focus {
 .cocktail_edition_view .ingredient_list_title {
     text-align: center;
 }
+

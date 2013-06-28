@@ -21,6 +21,16 @@ define([
             base.render();
             base.registerEvents();
             console.log("stuff");
+            if (base.$el.parent().hasClass("big")) {
+                base.$el.addClass("big");
+            }
+            if (base.$el.parent().hasClass("small")) {
+                base.$el.addClass("big");
+            }
+            if (base.$el.parent().hasClass("huge")) {
+                base.$el.addClass("huge");
+            }
+
         },
         render: function () {
             var base = this;
