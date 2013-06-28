@@ -1,24 +1,58 @@
-<div class="cocktail_img_container" >
-    <img class="cocktail_img" src="<%= cocktailPictureUrl %>" alt="Cocktail picture" />
-</div >
-<div class="cocktail_infos" >
-    <div class="cocktail_name"> <%= cocktailName %></div >
-    <% if (user && user.get("Id") == cocktail.get("Creator_Id")) { %>
-        <a href="#cocktail/edit/<%= cocktail.get('Id') %>">Edit</a>
-    <% } %>
-    <div >
-        <span class="section_title" > Difficulté :</span > <%= cocktailDifficulty %>
-    </div >
-    <div >
-        <span class="section_title" > Temps de préparation :</span > <%= cocktailDuration %>
-    </div >
-    <div >
-        <div class="section_title" > Ingrédients :</div >
-    </div >
-    <div >
-        <div class="section_title" > Recette :</div > <%= cocktailRecipe %>
-    </div >
-    <div >
-        <div class="section_title" > Description :</div > <%= cocktailDescription %>
-    </div >
-</div >
+<% if (user && user.get("Id") == cocktail.get("Creator_Id")) { %>
+<a href="#cocktail/edit/<%= cocktail.get('Id') %>" class="action_button pure-button">Edit</a>
+<% } %>
+<div class="cocktail_name"> <%= cocktailName %></div>
+<div class="clearer"></div>
+<div class="pure-g">
+    <div class="pure-u-2-5">
+        <div class="cocktail_img_container big">
+        </div>
+        <div class="cocktail_infos">
+            <div>
+                <span class="section_title"> Difficulté :</span>
+
+
+                <%= cocktailDifficulty %>
+
+            </div>
+            <div>
+
+                <span class="section_title"> Temps de préparation :</span> <%= cocktailDuration %>
+            </div>
+        </div>
+    </div>
+    <div class="pure-u-3-5">
+
+
+        <div>
+
+            <div class="justified_text description">
+                <div class="section_title"> Description :</div>
+                <%= cocktailDescription %>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div>
+    <div class="ingredients">
+        <div class="section_title"> Ingrédients nécessaires :</div>
+        <ul class="ingredients_list ">
+            <% for (var k in ingredients) { %>
+            <li class="cocktail_ingredient ingredient_item inline">
+                <%= ingredients[k].get("Name") %>
+            </li>
+            <% } %>
+
+        </ul>
+        <div class="clearer"></div>
+    </div>
+    <div>
+
+        <div class="justified_text recipe">
+            <div class="section_title"> Comment le préparer :</div>
+            <%= cocktailRecipe %>
+        </div>
+    </div>
+
+</div>

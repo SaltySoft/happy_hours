@@ -102,6 +102,27 @@ Cocktail image
     position: relative;
 }
 
+.cocktail_image.small {
+    width: 75px;
+    height: 75px;
+    overflow: hidden;
+    position: relative;
+}
+
+.cocktail_image.big {
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+}
+
+.cocktail_image.huge {
+    width: 350px;
+    height: 350px;
+    overflow: hidden;
+    position: relative;
+}
+
 .cocktail_image .cocktail_img {
     position: absolute;
 }
@@ -122,4 +143,31 @@ input[type="text"] {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
+}
+
+#sub_app_container .action_button {
+    float: right;
+}
+
+.justified_text {
+    text-align: justify;
+}
+
+.ingredient_item {
+    width: 95px;
+    height: 30px;
+    margin: auto;
+    margin-bottom: 5px;
+    text-align: center;
+    line-height: 30px;
+    border: 1px rgb(199, 4, 4) solid;
+    background: #dcdcdc;
+    cursor: pointer;
+
+}
+
+.ingredient_item.inline {
+    float:left;
+    margin: 5px;
+    background: white;
 }

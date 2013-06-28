@@ -278,17 +278,17 @@ namespace HhDataLayer.DataAccess
                     T_User creator = bdd.T_User.Where(x => x.id == cocktail.Creator_Id).FirstOrDefault();
                     if (tCocktail != null)
                     {
-                        if (cocktail.Name != null)
-                        {
-                            if (cocktail.Name == "")
-                                throw new HhDBO.Exceptions.InvalidParameterException("name");
-                            tCocktail.name = cocktail.Name;
-                        }
-                        else
-                        {
-                            if (tCocktail.name == "")
-                                throw new HhDBO.Exceptions.InvalidParameterException("name");
-                        }
+                        //if (cocktail.Name != null)
+                        //{
+                        //    if (cocktail.Name == "")
+                        //        throw new HhDBO.Exceptions.InvalidParameterException("name");
+                        //    tCocktail.name = cocktail.Name;
+                        //}
+                        //else
+                        //{
+                        //    if (tCocktail.name == "")
+                        //        throw new HhDBO.Exceptions.InvalidParameterException("name");
+                        //}
                         if (cocktail.Description != null)
                             tCocktail.description = cocktail.Description;
                         else
