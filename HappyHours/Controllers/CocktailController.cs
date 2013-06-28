@@ -72,6 +72,7 @@ namespace HappyHours.Controllers
 
         //PUT - update
         [AcceptVerbs(HttpVerbs.Put)]
+        [Authorize(Roles = "User")]
         public JsonResult WsRest(int id, HhDBO.Cocktail cocktail)
         {
             try
@@ -96,6 +97,7 @@ namespace HappyHours.Controllers
             }
         }
 
+             [Authorize(Roles = "User")]
         public JsonResult SendPicture(int id, HttpPostedFileBase picture)
         {
             string picture_path = Server.MapPath("~") + "Images\\Cocktails\\";
@@ -214,6 +216,7 @@ namespace HappyHours.Controllers
 
         //Delete - remove
         [AcceptVerbs(HttpVerbs.Delete)]
+        [Authorize(Roles = "User")]
         public JsonResult WsRest(int id)
         {
             //do remove

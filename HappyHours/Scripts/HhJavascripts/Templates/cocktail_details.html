@@ -3,7 +3,9 @@
 </div >
 <div class="cocktail_infos" >
     <div class="cocktail_name"> <%= cocktailName %></div >
-
+    <% if (user && user.get("Id") == cocktail.get("Creator_Id")) { %>
+        <a href="#cocktail/edit/<%= cocktail.get('Id') %>">Edit</a>
+    <% } %>
     <div >
         <span class="section_title" > Difficulté :</span > <%= cocktailDifficulty %>
     </div >
