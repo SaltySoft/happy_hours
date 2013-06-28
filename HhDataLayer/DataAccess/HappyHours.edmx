@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="HappyHoursModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="HappyHoursModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="HappyHoursModelStoreContainer">
           <EntitySet Name="T_Cocktail" EntityType="HappyHoursModel.Store.T_Cocktail" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="T_CocktailsIngredients" EntityType="HappyHoursModel.Store.T_CocktailsIngredients" store:Type="Tables" Schema="dbo" />
@@ -68,6 +68,7 @@
           </Key>
           <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="alcool" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="T_User">
           <Key>
@@ -214,6 +215,7 @@
           <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="T_CocktailsIngredients" Relationship="HappyHoursModel.FK_T_CocktailsIngredients_T_Ingredient" FromRole="T_Ingredient" ToRole="T_CocktailsIngredients" />
+          <Property Type="Int32" Name="alcool" Nullable="false" />
         </EntityType>
         <EntityType Name="T_User">
           <Key>
@@ -329,6 +331,7 @@
           <EntitySetMapping Name="T_Ingredient">
             <EntityTypeMapping TypeName="HappyHoursModel.T_Ingredient">
               <MappingFragment StoreEntitySet="T_Ingredient">
+                <ScalarProperty Name="alcool" ColumnName="alcool" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
