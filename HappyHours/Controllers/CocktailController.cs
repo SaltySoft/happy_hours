@@ -74,7 +74,6 @@ namespace HappyHours.Controllers
         [AcceptVerbs(HttpVerbs.Put)]
         public JsonResult WsRest(int id, HhDBO.Cocktail cocktail)
         {
-
             if (BusinessManagement.Cocktail.UpdateCocktail(cocktail))
             {
                 HhDBO.Cocktail newCocktail = BusinessManagement.Cocktail.GetCocktail(id);
@@ -118,8 +117,6 @@ namespace HappyHours.Controllers
         {
             //byte[] PostData = HttpContext.Request.BinaryRead(HttpContext.Request.ContentLength);
             //string postParams = Encoding.UTF8.GetString(PostData);
-
-
 
             if (cocktail != null)
             {

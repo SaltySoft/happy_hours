@@ -28,6 +28,7 @@ namespace HhDBO
             get { return _cocktail_name; }
             set { _cocktail_name = value; }
         }
+
         /// <summary>
         /// Ingredients
         /// </summary>
