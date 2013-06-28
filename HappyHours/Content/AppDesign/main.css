@@ -170,18 +170,16 @@ input[type="text"] {
     margin: auto;
     margin-bottom: 5px;
     text-align: center;
-    line-height: 30px;
     border: 1px rgb(199, 4, 4) solid;
     background: #dcdcdc;
     cursor: pointer;
-
+    padding: 5px;
 }
 
 .ingredient_item.inline {
-    width: 95px;
-    height: 30px;
-    float:left;
+    float: left;
     margin: 5px;
     background: white;
     cursor: default;
+    padding: 5px;
 }

@@ -133,6 +133,9 @@ input:focus {
     overflow-y: auto;
     height: 305px;
 }
+.cocktail_edition_view .all_ingredients {
+    height: 278px;
+}
 
 .cocktail_edition_view .selected_ingredients .ingredient_item {
     background: white;
@@ -152,4 +155,16 @@ input:focus {
 
 .cocktail_edition_view .picture .pure-controls {
     text-align: right;
+}
+
+.ingredient_filter {
+    width: 151px;
+    outline: none;
+    padding: 2px;
+}
+.ingredient_filter:focus {
+    width: 151px;
+    outline: none;
+    box-shadow: none;
+    padding: 3px;
 }
