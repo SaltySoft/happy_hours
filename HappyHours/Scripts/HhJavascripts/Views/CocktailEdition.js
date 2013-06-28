@@ -2,29 +2,26 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    'Models/Cocktail',
     'text!Templates/cocktail_edition.html',
     'Collections/Ingredients',
     'Views/IngredientItem',
     'jqueryui'
-], function ($, _, Backbone, CocktailEditionTemplate, IngredientsCollection, IngredientItemView) {
+], function ($, _, Backbone, Cocktail, CocktailEditionTemplate, IngredientsCollection, IngredientItemView) {
     var CocktailEditionView = Backbone.View.extend({
         tagName:"div",
         className:"cocktail_edition_view",
-        initialize:function (model) {
+        initialize:function () {
             var base = this;
-
-            base.model = model;
-            base.cocktail = model;
         },
-        init:function (app) {
+        init:function (app, id) {
             var base = this;
-
             base.app = app;
 
             base.ingredients_collection = new IngredientsCollection();
-
+            base.cocktail = new Cocktail({ Id : id, id : id});
             base.cocktail.fetch({
-                success:function (cocktail) {
+                success:function () {
                     base.render();
                     base.registerEvents();
                 }
@@ -82,16 +79,21 @@ define([
                 var form = $(this);
                 var array = form.serializeArray();
 
+                console.log("about_to_save1", base.cocktail);
+                console.log("array", array);
                 var ingredients = base.cocktail.get("Ingredients");
-                console.log("ingredients", ingredients);
-                for (var k in array) {
-                    base.cocktail.set(array[k].name, array[k].value);
-                }
-                for (var k in ingredients) {
-                    base.cocktail.get("Ingredients").add(ingredients[k]);
-                }
+                var cocktailIngredients = new IngredientsCollection(ingredients.models);
+                console.log("cocktailIngredients", cocktailIngredients);
+                console.log("ingredients LOL", ingredients);
+                console.log("about_to_save2", base.cocktail);
+//                for (var k in array) {
+//                    base.cocktail.set(array[k].name, array[k].value);
+//                }
+//                for (var k in ingredients) {
+//                    base.cocktail.get("Ingredients").add(ingredients[k]);
+//                }
 
-                console.log("about_to_save", base.cocktail);
+
                 base.cocktail.save({}, {
                     success:function () {
                         console.log("Saved cocktail : ", base.cocktail);

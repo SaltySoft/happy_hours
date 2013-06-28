@@ -14,6 +14,7 @@ define([
             if (attributes) {
                 this.id = attributes.Id ? attributes.Id : 0;
             }
+
             if (attributes && attributes.Ingredients) {
                 var ing_array = attributes.Ingredients;
                 var ingredients = new IngredientsCollection();
@@ -28,6 +29,7 @@ define([
             this.attributes = attributes;
         },
         parse: function (response) {
+            console.log("Cocktail response1", response)
             this.id = response.Id;
 
             var ingredients = new IngredientsCollection();
@@ -40,6 +42,7 @@ define([
                 }
             }
             response.Ingredients = ingredients;
+            console.log("Cocktail response2", response)
             return response;
         }
     });

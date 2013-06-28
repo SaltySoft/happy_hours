@@ -11,10 +11,10 @@ define([
             if (attributes) {
                 this.id = attributes.Id ? attributes.Id : 0;
             }
-
         },
         parse: function (response) {
             this.id = response.Id;
+            console.log("Ingredient response", response);
             return response;
         }
     });

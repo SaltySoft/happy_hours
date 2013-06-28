@@ -54,7 +54,7 @@ namespace HappyHours.Controllers
             else
             {
                 //show all
-                
+
                 List<HhDBO.Cocktail> cocktails;
                 HhDBO.User current_user = BusinessManagement.User.GetUserByName(User.Identity.Name);
                 if (current_user != null && current_user.Admin == 1)
@@ -119,7 +119,7 @@ namespace HappyHours.Controllers
             //byte[] PostData = HttpContext.Request.BinaryRead(HttpContext.Request.ContentLength);
             //string postParams = Encoding.UTF8.GetString(PostData);
 
-          
+
 
             if (cocktail != null)
             {

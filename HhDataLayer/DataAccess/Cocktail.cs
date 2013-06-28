@@ -148,6 +148,16 @@ namespace HhDataLayer.DataAccess
                     {
                         Mapper.CreateMap<T_Cocktail, HhDBO.Cocktail>();
                         dboCocktail = Mapper.Map<T_Cocktail, HhDBO.Cocktail>(cocktail);
+                        Mapper.CreateMap<T_Cocktail, HhDBO.Cocktail>();
+
+                        dboCocktail.Ingredients = new List<HhDBO.Ingredient>();
+
+                        foreach (T_CocktailsIngredients link in cocktail.T_CocktailsIngredients)
+                        {
+                            T_Ingredient ingredient = link.T_Ingredient;
+                            HhDBO.Ingredient dboIngredient = Mapper.Map<T_Ingredient, HhDBO.Ingredient>(ingredient);
+                            dboCocktail.Ingredients.Add(dboIngredient);
+                        }
                     }
                     else
                     {
