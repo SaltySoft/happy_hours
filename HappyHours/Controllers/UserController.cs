@@ -132,7 +132,38 @@ namespace HappyHours.Controllers
                 }
                 else
                 {
-                    HhDBO.User result = BusinessManagement.User.CreateUser(user);
+                    HhDBO.User result = null;
+                    try
+                    {
+                        result = BusinessManagement.User.CreateUser(user);
+                    }
+                    catch (HhDBO.Exceptions.AlreadyExistingException)
+                    {
+                        Dictionary<string, object> dico = new Dictionary<string, object>();
+                        dico["status"] = "error";
+                        dico["message"] = "already_existing";
+                        Response.StatusCode = 422;
+
+                        return Json(dico, JsonRequestBehavior.AllowGet);
+                    }
+                    catch (Exception)
+                    {
+                        Dictionary<string, object> dico = new Dictionary<string, object>();
+                        dico["status"] = "error";
+
+                        if (BusinessManagement.User.Validate(user).Count > 0)
+                        {
+                            dico["message"] = "missing_information";
+                            dico["data"] = BusinessManagement.User.Validate(user);
+                        }
+                        else
+                        {
+                            dico["message"] = "unknown_error";
+                        }
+                        Response.StatusCode = 422;
+                        return Json(dico, JsonRequestBehavior.AllowGet);
+                    }
+
                     if (result == null)
                     {
                         return Json("wserror atcreation", JsonRequestBehavior.AllowGet);
@@ -168,7 +199,6 @@ namespace HappyHours.Controllers
 
             return Json("wssuccess user deleted.", JsonRequestBehavior.DenyGet);
         }
-
 
         public JsonResult Unauthorized()
         {

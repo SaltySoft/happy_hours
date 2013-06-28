@@ -40,28 +40,30 @@ namespace HappyHours.DataAccess
 
             HhDBO.Cocktail cocktail = HhBusiness.Cocktail.GetCocktail(id);
             return cocktail;
-
         }
 
         public HhDBO.Cocktail CreateCocktail(HhDBO.Cocktail cocktail)
         {
 
             return HhBusiness.Cocktail.CreateCocktail(cocktail);
-
         }
 
         public bool UpdateIngrediend(HhDBO.Cocktail cocktail)
         {
 
             return HhBusiness.Cocktail.UpdateCocktail(cocktail);
-
         }
 
         public bool DeleteCocktail(int id)
         {
 
             return HhBusiness.Cocktail.DeleteCocktail(id);
-
         }
+
+        public List<string> Validate(HhDBO.Cocktail cocktail)
+        {
+            return HhBusiness.Cocktail.Validate(cocktail);
+        }
+
     }
 }

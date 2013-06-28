@@ -6,27 +6,27 @@ define([
     'Models/Cocktail'
 ], function ($, _, Backbone, CocktailCreationTemplate, Cocktail) {
     var CocktailCreationView = Backbone.View.extend({
-        tagName: "div",
-        className: "cocktail_creation",
-        initialize: function () {
+        tagName:"div",
+        className:"cocktail_creation",
+        initialize:function () {
             var base = this;
         },
-        init: function (app) {
+        init:function (app) {
             var base = this;
             base.app = app;
             if (!base.app.current_user) {
                 base.app.show_message("Vous devez être connecté");
-                base.app.router.navigate("", {trigger: true});
+                base.app.router.navigate("", {trigger:true});
             }
             base.render();
         },
-        render: function () {
+        render:function () {
             var base = this;
             var template = _.template(CocktailCreationTemplate, {});
             base.$el.html(template);
             base.registerEvents();
         },
-        registerEvents: function () {
+        registerEvents:function () {
             var base = this;
             $(document).ready(function () {
                 base.$el.find("#creation_form_name").focus();
@@ -49,10 +49,10 @@ define([
 
             base.app.events.on("user_disconnection", function () {
                 base.app.show_message("Vous devez être connecté pour ajouter un cocktail");
-                base.app.router.navigate("", {trigger: true});
+                base.app.router.navigate("", {trigger:true});
             });
         },
-        formSubmission: function (callback) {
+        formSubmission:function (callback) {
             var base = this;
 
             base.$el.delegate(".form_cocktail", "submit", function () {
@@ -60,12 +60,12 @@ define([
                 console.log(cocktail);
                 cocktail.set("Name", base.$el.find(".field_Name").val());
                 cocktail.save({}, {
-                    success: function () {
+                    success:function () {
                         base.app.router.navigate("#cocktail/edit/" + cocktail.get("Id"), {
-                            trigger: true
+                            trigger:true
                         });
                     },
-                    error: function (object,status, data) {
+                    error:function (object, status, data) {
 
                         response = JSON.parse(data.xhr.responseText);
                         if (response.message === "unsufficient_rights") {
