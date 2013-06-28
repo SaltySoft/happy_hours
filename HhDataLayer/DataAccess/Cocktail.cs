@@ -100,20 +100,69 @@ namespace HhDataLayer.DataAccess
 
                 using (MyHappyHoursEntities bdd = new MyHappyHoursEntities())
                 {
+                    List<string> ingredients_str = new List<string>();
+                    foreach (string str in searchQuery.Ingredients.Split(' ').ToList())
+                    {
+                        List<string> tmpstrs1 = str.Split(',').ToList();
+                        foreach (string tmpstr1 in tmpstrs1)
+                        {
+                            List<string> tmpstrs2 = str.Split(';').ToList();
+                            foreach (string tmpstr2 in tmpstrs2)
+                            {
+                                ingredients_str.Add(tmpstr2);
+                            }
+                        }
+                    }
+
                     int difficulty = Int32.Parse(searchQuery.Difficulty);
                     List<T_Cocktail> existings = new List<T_Cocktail>();
-                    if (searchQuery.Quick != "no")
+                    List<T_Ingredient> ingredients = new List<T_Ingredient>();
+                    if (ingredients_str.Count > 0)
                     {
-                        existings = bdd.T_Cocktail.Where(x =>
-                       (x.name.Contains(searchQuery.Cocktail_name))
-                       && (x.difficulty >= (difficulty - 1) || x.difficulty <= (difficulty + 1))
-                       && (x.duration < 2)).ToList();
+                        foreach (string ingredient_str in ingredients_str)
+                        {
+                            ingredients.AddRange(bdd.T_Ingredient.Where(x => (x.name.Contains(ingredient_str))).ToList());
+                        }
+                    }
+                    if (ingredients.Count > 0)
+                    {
+                        if (searchQuery.Quick != "no")
+                        {
+                            var query = from cocktail in bdd.T_Cocktail
+                                        join cockIng in bdd.T_CocktailsIngredients on cocktail.id equals cockIng.cocktail_id
+                                        join ingredient in ingredients on cockIng.id equals ingredient.id
+                                        where cocktail.name.Contains(searchQuery.Cocktail_name)
+                                        && (cocktail.difficulty >= (difficulty - 1) || cocktail.difficulty <= (difficulty + 1))
+                                        && cocktail.duration < 2
+                                        select cocktail;
+                            existings = query.ToList();
+                        }
+                        else
+                        {
+                            var query = from cocktail in bdd.T_Cocktail
+                                        join cockIng in bdd.T_CocktailsIngredients on cocktail.id equals cockIng.cocktail_id
+                                        join ingredient in ingredients on cockIng.id equals ingredient.id
+                                        where cocktail.name.Contains(searchQuery.Cocktail_name)
+                                        && (cocktail.difficulty >= (difficulty - 1) || cocktail.difficulty <= (difficulty + 1))
+                                        select cocktail;
+                            existings = query.ToList();
+                        }
                     }
                     else
                     {
-                        existings = bdd.T_Cocktail.Where(x =>
-                        (x.name.Contains(searchQuery.Cocktail_name))
-                        && (x.difficulty >= (difficulty - 1) || x.difficulty <= (difficulty + 1))).ToList();
+                        if (searchQuery.Quick != "no")
+                        {
+                            existings = bdd.T_Cocktail.Where(x =>
+                           (x.name.Contains(searchQuery.Cocktail_name))
+                           && (x.difficulty >= (difficulty - 1) || x.difficulty <= (difficulty + 1))
+                           && (x.duration < 2)).ToList();
+                        }
+                        else
+                        {
+                            existings = bdd.T_Cocktail.Where(x =>
+                            (x.name.Contains(searchQuery.Cocktail_name))
+                            && (x.difficulty >= (difficulty - 1) || x.difficulty <= (difficulty + 1))).ToList();
+                        }
                     }
                     //if (searchQuery.Alcohol != "no")
 
