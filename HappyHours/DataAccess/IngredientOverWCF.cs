@@ -6,14 +6,26 @@ using System.Web;
 
 namespace HappyHours.DataAccess
 {
-    public class Ingredient
+    public class IngredientOverWCF
     {
+        private ServiceReferenceHappyHours.ServiceClientHappyHoursClient _client;
+
+        public ServiceReferenceHappyHours.ServiceClientHappyHoursClient Client
+        {
+            get { return _client; }
+            set { _client = value; }
+        }
+
+        public IngredientOverWCF()
+        {
+            _client = new ServiceReferenceHappyHours.ServiceClientHappyHoursClient();
+        }
 
         public List<HhDBO.Ingredient> GetListIngredient(int max)
         {
             try
             {
-                List<HhDBO.Ingredient> ingredients =  HhBusiness.Ingredient.GetListIngredient(max).ToList();
+                List<HhDBO.Ingredient> ingredients = _client.GetListIngredient(max).ToList();
                 foreach (HhDBO.Ingredient i in ingredients)
                 {
                     Debug.WriteLine(i.Name);
@@ -30,7 +42,7 @@ namespace HappyHours.DataAccess
         {
             try
             {
-                HhDBO.Ingredient ingredient = HhBusiness.Ingredient.GetIngredient(id);
+                HhDBO.Ingredient ingredient = _client.GetIngredient(id);
                 return ingredient;
             }
             catch (Exception)
@@ -43,7 +55,7 @@ namespace HappyHours.DataAccess
         {
             try
             {
-                return HhBusiness.Ingredient.CreateIngredient(ingredient);
+                return _client.CreateIngredient(ingredient);
             }
             catch (Exception)
             {
@@ -55,7 +67,7 @@ namespace HappyHours.DataAccess
         {
             try
             {
-                return HhBusiness.Ingredient.UpdateIngredient(ingredient);
+                return _client.UpdateIngredient(ingredient);
             }
             catch (Exception)
             {
@@ -67,7 +79,7 @@ namespace HappyHours.DataAccess
         {
             try
             {
-                return HhBusiness.Ingredient.DeleteIngredient(id);
+                return _client.DeleteIngredient(id);
             }
             catch (Exception)
             {

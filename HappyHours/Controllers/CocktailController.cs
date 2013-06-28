@@ -74,14 +74,25 @@ namespace HappyHours.Controllers
         [AcceptVerbs(HttpVerbs.Put)]
         public JsonResult WsRest(int id, HhDBO.Cocktail cocktail)
         {
-            if (BusinessManagement.Cocktail.UpdateCocktail(cocktail))
+            try
             {
-                HhDBO.Cocktail newCocktail = BusinessManagement.Cocktail.GetCocktail(id);
-                return Json(newCocktail, JsonRequestBehavior.AllowGet);
+                if (BusinessManagement.Cocktail.UpdateCocktail(cocktail))
+                {
+                    HhDBO.Cocktail newCocktail = BusinessManagement.Cocktail.GetCocktail(id);
+                    return Json(newCocktail, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    return Json("wserror updating.", JsonRequestBehavior.AllowGet);
+                }
             }
-            else
+            catch (Exception)
             {
-                return Json("wserror updating.", JsonRequestBehavior.AllowGet);
+                Dictionary<string, object> dico = new Dictionary<string, object>();
+                dico["status"] = "error";
+                dico["message"] = "unknown_error";
+                Response.StatusCode = 422;
+                return Json(dico, JsonRequestBehavior.AllowGet);
             }
         }
 
@@ -140,30 +151,33 @@ namespace HappyHours.Controllers
                     {
                         result = BusinessManagement.Cocktail.CreateCocktail(cocktail);
                     }
-                    catch (Exception ex)
+                    catch (HhDBO.Exceptions.AlreadyExistingException)
                     {
                         Dictionary<string, object> dico = new Dictionary<string, object>();
                         dico["status"] = "error";
-                        if (ex.Message == "already_existing")
+                        dico["message"] = "already_existing";
+                        Response.StatusCode = 422;
+
+                        return Json(dico, JsonRequestBehavior.AllowGet);
+                    }
+                    catch (Exception)
+                    {
+                        Dictionary<string, object> dico = new Dictionary<string, object>();
+                        dico["status"] = "error";
+
+                        if (BusinessManagement.Cocktail.Validate(cocktail).Count > 0)
                         {
-                            dico["message"] = "already_existing";
+                            dico["message"] = "missing_information";
+                            dico["data"] = BusinessManagement.Cocktail.Validate(cocktail);
                         }
                         else
                         {
-                            if (BusinessManagement.Cocktail.Validate(cocktail).Count > 0)
-                            {
-                                dico["message"] = "missing_information";
-                                dico["data"] = BusinessManagement.Cocktail.Validate(cocktail);
-                            }
-                            else
-                            {
-                                dico["message"] = "unknown_error";
-                            }
+                            dico["message"] = "unknown_error";
                         }
                         Response.StatusCode = 422;
                         return Json(dico, JsonRequestBehavior.AllowGet);
                     }
-                    
+
 
                     if (result == null)
                     {
@@ -181,7 +195,7 @@ namespace HappyHours.Controllers
                             dico["message"] = "unknown_error";
                         }
                         Response.StatusCode = 422;
-                       
+
                         return Json(dico, JsonRequestBehavior.AllowGet);
                     }
                     else

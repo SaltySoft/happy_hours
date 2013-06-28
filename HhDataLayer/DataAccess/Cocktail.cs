@@ -34,7 +34,7 @@ namespace HhDataLayer.DataAccess
 
                 return dboCocktail;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return null;
             }
@@ -80,7 +80,7 @@ namespace HhDataLayer.DataAccess
                 Debug.WriteLine("Got list of cocktails");
                 return cocktails;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 Debug.WriteLine("Problem while getting list of cocktails");
                 return new List<HhDBO.Cocktail>();
@@ -251,13 +251,9 @@ namespace HhDataLayer.DataAccess
                     }
                     else
                     {
-                        throw new HhDBO.AlreadyExistingException("already_existing");
+                        throw new HhDBO.Exceptions.AlreadyExistingException("already_existing");
                     }
                 }
-            }
-            catch (HhDBO.AlreadyExistingException ex)
-            {
-                throw ex;
             }
             catch (Exception ex)
             {
@@ -297,9 +293,12 @@ namespace HhDataLayer.DataAccess
                         tCocktail.description = cocktail.Description;
                         tCocktail.difficulty = cocktail.Difficulty;
                         tCocktail.duration = cocktail.Duration;
-                        tCocktail.picture_url = cocktail.Picture_Url;
-                        tCocktail.recipe = cocktail.Recipe;
-                        tCocktail.T_User = creator;
+                        if (cocktail.Picture_Url != null)
+                            tCocktail.picture_url = cocktail.Picture_Url;
+                        if (cocktail.Recipe != null)
+                            tCocktail.recipe = cocktail.Recipe;
+                        if (creator != null)
+                            tCocktail.T_User = creator;
 
 
                         if (cocktail.Ingredients != null)
@@ -355,9 +354,9 @@ namespace HhDataLayer.DataAccess
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return false;
+                throw ex;
             }
         }
     }

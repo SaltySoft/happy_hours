@@ -5,13 +5,26 @@ using System.Web;
 
 namespace HappyHours.DataAccess
 {
-    public class User
+    public class UserOverWCF
     {
+        private ServiceReferenceHappyHours.ServiceClientHappyHoursClient _client;
+
+        public ServiceReferenceHappyHours.ServiceClientHappyHoursClient Client
+        {
+            get { return _client; }
+            set { _client = value; }
+        }
+
+        public UserOverWCF()
+        {
+            _client = new ServiceReferenceHappyHours.ServiceClientHappyHoursClient();
+        }
+
         public List<HhDBO.User> GetListUser(int max)
         {
             try
             {
-                List<HhDBO.User> users = HhBusiness.User.GetListUser(max).ToList();
+                List<HhDBO.User> users = _client.GetListUser(max).ToList();
                 return users;
             }
             catch (Exception)
@@ -24,7 +37,7 @@ namespace HappyHours.DataAccess
         {
             try
             {
-                List<HhDBO.User> users = HhBusiness.User.GetUser(id).ToList();
+                List<HhDBO.User> users = _client.GetUser(id).ToList();
                 return users;
             }
             catch (Exception)
@@ -37,7 +50,7 @@ namespace HappyHours.DataAccess
         {
             try
             {
-                HhDBO.User user = HhBusiness.User.GetUserByName(name);
+                HhDBO.User user = _client.GetUserByName(name);
                 return user;
             }
             catch (Exception)
@@ -50,7 +63,7 @@ namespace HappyHours.DataAccess
         {
             try
             {
-                return HhBusiness.User.CreateUser(user);
+                return _client.CreateUser(user);
             }
             catch (Exception)
             {
@@ -62,7 +75,7 @@ namespace HappyHours.DataAccess
         {
             try
             {
-                return HhBusiness.User.UpdateUser(user);
+                return _client.UpdateUser(user);
             }
             catch (Exception)
             {
@@ -74,7 +87,7 @@ namespace HappyHours.DataAccess
         {
             try
             {
-                return HhBusiness.User.DeleteUser(id);
+                return _client.DeleteUser(id);
             }
             catch (Exception)
             {

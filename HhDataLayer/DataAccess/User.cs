@@ -95,6 +95,7 @@ namespace HhDataLayer.DataAccess
                 using (MyHappyHoursEntities bdd = new MyHappyHoursEntities())
                 {
                     Mapper.CreateMap<T_User, HhDBO.User>();
+                    Mapper.CreateMap<T_Cocktail, HhDBO.Cocktail>();
                     T_User user = bdd.T_User.Where(x => x.username == username).FirstOrDefault();
                     dboUser = Mapper.Map<T_User, HhDBO.User>(user);
 
@@ -110,7 +111,7 @@ namespace HhDataLayer.DataAccess
 
                 return dboUser;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return null;
             }
