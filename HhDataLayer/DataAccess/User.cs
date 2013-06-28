@@ -106,7 +106,6 @@ namespace HhDataLayer.DataAccess
                         HhDBO.Cocktail dboCocktail = Mapper.Map<T_Cocktail, HhDBO.Cocktail>(cocktail);
                         dboUser.Favorites.Add(dboCocktail);
                     }
-
                 }
 
                 return dboUser;

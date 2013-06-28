@@ -52,8 +52,6 @@ namespace HappyHours.Controllers
 
         public JsonResult CurrentUser()
         {
-
-            
             string[] rolesArray;
             RolePrincipal r = (RolePrincipal)User;
 
@@ -81,8 +79,6 @@ namespace HappyHours.Controllers
                 dico["reason"] = "disconnected";
                 return Json(dico, JsonRequestBehavior.AllowGet);
             }
-           
-            
         }
 
         [AcceptVerbs(HttpVerbs.Post)]

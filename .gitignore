@@ -4,6 +4,7 @@ obj
 **.suo
 *.mdf
 *.ldf
+HappyHours/Web.config
 HhDataLayer/App.config
 HhWcfService/Web.config
 .idea
