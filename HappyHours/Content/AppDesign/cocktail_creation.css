@@ -168,3 +168,7 @@ input:focus {
     box-shadow: none;
     padding: 3px;
 }
+
+.cocktail_edition_view .deletion {
+    text-align: center;
+}

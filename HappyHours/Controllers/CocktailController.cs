@@ -49,7 +49,19 @@ namespace HappyHours.Controllers
             {
                 //show
                 HhDBO.Cocktail cocktail = BusinessManagement.Cocktail.GetCocktail(id.Value);
-                return Json(cocktail, JsonRequestBehavior.AllowGet);
+
+                if (cocktail == null)
+                {
+                    Dictionary<string, object> dico = new Dictionary<string, object>();
+                    dico["status"] = "error";
+                    dico["message"] = "not found";
+                    Response.StatusCode = 404;
+                    return Json(dico, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    return Json(cocktail, JsonRequestBehavior.AllowGet);
+                }
             }
             else
             {
