@@ -20,7 +20,7 @@ define([
                 }
                 attributes.Favorites = favorites;
             }
-            console.log("PARSED", attributes);
+//            console.log("PARSED", attributes);
             this.attributes = attributes;
         },
         parse: function (response) {
@@ -32,7 +32,7 @@ define([
                 favorites.add(new Cocktail(obj));
             }
             response.Favorites = favorites;
-            console.log("PARSED", response);
+//            console.log("PARSED", response);
             return response;
         }
     });
