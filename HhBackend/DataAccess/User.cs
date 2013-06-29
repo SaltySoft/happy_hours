@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 
 namespace HhBackend.DataAccess
@@ -17,10 +18,11 @@ namespace HhBackend.DataAccess
                 byte[] data = BusinessManagement.User.GetBytesFromString(password);
                 byte[] result;
 
-                SHA1 sha = new SHA1CryptoServiceProvider();
-                result = sha.ComputeHash(data);
-                password = BusinessManagement.User.GetStringFromBytes(result);
-
+                using (MD5 md5 = MD5.Create())
+                {
+                    result = md5.ComputeHash(Encoding.UTF8.GetBytes(password));
+                }
+                password = Convert.ToBase64String(result);
                 response = ctx.T_User.Where(x => x.username == username && x.password == password).ToList().Any();
             }
             return response;
