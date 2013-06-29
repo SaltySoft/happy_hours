@@ -51,3 +51,18 @@
     width: 20px;
     position: relative;
 }
+
+.cocktail_list .cocktail_item_name {
+    color: #b80000;
+    text-decoration: none;
+}
+
+.cocktail_list a {
+    color: #b80000;
+    text-decoration: none;
+}
+
+.cocktail_list .cocktail_item_description {
+    width: 492px;
+    text-align: justify;
+}

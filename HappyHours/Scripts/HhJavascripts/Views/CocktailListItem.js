@@ -3,8 +3,9 @@ define([
     'underscore',
     'backbone',
     'text!Templates/cocktail_list_item.html',
-    'Views/CocktailImage'
-], function ($, _, Backbone, CocktailListItemTemplate, CocktailImageView) {
+    'Views/CocktailImage',
+    'underscore_string'
+], function ($, _, Backbone, CocktailListItemTemplate, CocktailImageView, _s) {
     var CocktailListItemView = Backbone.View.extend({
         tagName: "li",
         className: "cocktail_item",
@@ -25,7 +26,8 @@ define([
             var base = this;
 
             var template = _.template(CocktailListItemTemplate, {
-                cocktail: base.cocktail
+                cocktail: base.cocktail,
+                _s: _s
             });
             base.$el.html(template);
 
