@@ -41,16 +41,13 @@ define([
                     type:"post",
                     data:form.serialize(),
                     success:function (data) {
-                        console.log("SUCCESS CREATE USER");
-                        console.log("data", data);
-                        console.log(base.$el.find("#form_username").val(), base.$el.find("#form_password").val());
+//                        console.log(base.$el.find("#form_username").val(), base.$el.find("#form_password").val());
                         base.mainview.loginUser(base.$el.find("#form_username").val(), base.$el.find("#form_password").val());
                     },
                     error:function (object, status, data) {
                         base.resetErrorMsgs();
                         response = JSON.parse(object.responseText);
                         if (response.message == "missing_information") {
-                            console.log("response.data.indexOf(Username)", response.data.indexOf("Username"));
                             if (response.data.indexOf("Username") !== -1) {
                                 base.$el.find("#error_username").html("Vous devez entrer un nom d'utilisateur.");
                             }

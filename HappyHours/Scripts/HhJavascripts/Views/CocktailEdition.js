@@ -54,7 +54,6 @@ define([
                     base.$el.find(".all_ingredients").find(".ingredient_item").remove();
                     for (var k in list) {
                         var ingredient = list[k];
-                        console.log(base.cocktail.get("Ingredients"));
 
                         var ingredient_item = new IngredientItemView(ingredient);
                         if (base.cocktail.get("Ingredients") !== undefined && base.cocktail.get("Ingredients") != null && base.cocktail.get("Ingredients").get(ingredient.get("Id"))) {
@@ -67,12 +66,11 @@ define([
                 }
             });
 
-            console.log(base.cocktail);
             base.$el.find(".all_ingredients").sortable({
                 connectWith: ".ingredients_list",
                 receive: function (event, ui) {
                     base.cocktail.get("Ingredients").remove(base.ingredients_collection.get(ui.item.attr("data-id")));
-                    console.log("base.cocktail.get(Ingredients)", base.cocktail.get("Ingredients"));
+//                    console.log("base.cocktail.get(Ingredients)", base.cocktail.get("Ingredients"));
                 }
             });
 
@@ -80,7 +78,7 @@ define([
                 connectWith: ".ingredients_list",
                 receive: function (event, ui) {
                     base.cocktail.get("Ingredients").add(base.ingredients_collection.get(ui.item.attr("data-id")));
-                    console.log("base.cocktail.get(Ingredients)", base.cocktail.get("Ingredients"));
+//                    console.log("base.cocktail.get(Ingredients)", base.cocktail.get("Ingredients"));
                 }
             });
         },
@@ -128,7 +126,7 @@ define([
                 var search_term = $(this).val();
                 base.$el.find(".all_ingredients li").each(function () {
                     var elt = $(this);
-                    console.log(elt.find(".ingredient_name").html());
+//                    console.log(elt.find(".ingredient_name").html());
                     if (elt.find(".ingredient_name").html().toLowerCase().indexOf(search_term.toLowerCase()) === 0 || search_term === "") {
                         elt.show();
                     } else {

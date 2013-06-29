@@ -57,7 +57,6 @@ define([
 
             base.$el.delegate(".form_cocktail", "submit", function () {
                 var cocktail = new Cocktail();
-                console.log(cocktail);
                 cocktail.set("Name", base.$el.find(".field_Name").val());
                 cocktail.save({}, {
                     success:function () {

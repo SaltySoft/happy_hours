@@ -14,7 +14,7 @@ define([
         },
         parse: function (response) {
             this.id = response.Id;
-            console.log("Ingredient response", response);
+//            console.log("Ingredient response", response);
             return response;
         }
     });
