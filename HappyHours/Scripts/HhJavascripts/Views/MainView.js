@@ -36,7 +36,6 @@
                     "cocktails":"cocktails",
                     "cocktail/:id":"show_cocktail",
                     "add_cocktail":"add_cocktail",
-                    "search_cocktail":"search_cocktail",
                     "sign_up":"sign_up",
                     "favorites": "favorites",
                     "cocktail/edit/:id": "edit_cocktail"
@@ -53,13 +52,6 @@
                     var cocktail_list_view = new CocktailListView();
                     base.$el.find("#sub_app_container").html(cocktail_list_view.$el);
                     cocktail_list_view.init(base.app);
-                    base.$el.find("#sub_app_container").fadeIn(200);
-                },
-                search_cocktail:function () {
-                    base.$el.find("#sub_app_container").hide();
-                    var cocktail_search_view = new CocktailSearchView();
-                    base.$el.find("#sub_app_container").html(cocktail_search_view.$el);
-                    cocktail_search_view.init(base.app);
                     base.$el.find("#sub_app_container").fadeIn(200);
                 },
                 add_cocktail:function () {

@@ -161,6 +161,7 @@ namespace HhDataLayer.DataAccess
                     {
                         foreach (T_Cocktail cocktail in existings)
                         {
+                            Boolean containAllIngredients = true;
                             List<T_CocktailsIngredients> joinFromCocktails = cocktail.T_CocktailsIngredients.ToList();
 
                             foreach (T_Ingredient ingredient in ingredients)
@@ -168,10 +169,15 @@ namespace HhDataLayer.DataAccess
                                 List<T_CocktailsIngredients> joinFromIngredients = ingredient.T_CocktailsIngredients.ToList();
                                 List<T_CocktailsIngredients> both = joinFromCocktails.Intersect(joinFromIngredients).ToList();
 
-                                if (both.Any())
+                                if (!both.Any())
                                 {
-                                    tCocktails.Add(cocktail);
+                                    containAllIngredients = false;
                                 }
+                            }
+
+                            if (containAllIngredients)
+                            {
+                                tCocktails.Add(cocktail);
                             }
                         }
                     }
