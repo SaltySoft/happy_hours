@@ -109,7 +109,7 @@ namespace HhDataLayer.DataAccess
                         foreach (string tmpstr2 in tmpstrs2)
                         {
                             if (tmpstr2 != "")
-                                ingredients_str.Add(tmpstr2);
+                                ingredients_str.Add(tmpstr2.Trim());
                         }
                     }
                     //}
