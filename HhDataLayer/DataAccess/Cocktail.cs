@@ -100,24 +100,24 @@ namespace HhDataLayer.DataAccess
                 using (MyHappyHoursEntities bdd = new MyHappyHoursEntities())
                 {
                     List<string> ingredients_str = new List<string>();
-                    foreach (string str in searchQuery.Ingredients.Split(' ').ToList())
+                    //foreach (string str in searchQuery.Ingredients.Split(' ').ToList())
+                    //{
+                    List<string> tmpstrs1 = searchQuery.Ingredients.Split(',').ToList();
+                    foreach (string tmpstr1 in tmpstrs1)
                     {
-                        List<string> tmpstrs1 = str.Split(',').ToList();
-                        foreach (string tmpstr1 in tmpstrs1)
+                        List<string> tmpstrs2 = tmpstr1.Split(';').ToList();
+                        foreach (string tmpstr2 in tmpstrs2)
                         {
-                            List<string> tmpstrs2 = str.Split(';').ToList();
-                            foreach (string tmpstr2 in tmpstrs2)
-                            {
-                                if (tmpstr2 != "")
-                                    ingredients_str.Add(tmpstr2);
-                            }
+                            if (tmpstr2 != "")
+                                ingredients_str.Add(tmpstr2);
                         }
                     }
+                    //}
 
                     int difficulty = Int32.Parse(searchQuery.Difficulty);
                     List<T_Cocktail> existings = new List<T_Cocktail>();
                     List<T_Ingredient> ingredients = new List<T_Ingredient>();
-                    if (ingredients_str.Count > 0)
+                    if (ingredients_str.Any())
                     {
                         foreach (string ingredient_str in ingredients_str)
                         {
@@ -157,27 +157,30 @@ namespace HhDataLayer.DataAccess
                     }
 
                     List<T_Cocktail> tCocktails = new List<T_Cocktail>();
-                    if (ingredients.Any())
+                    if (ingredients_str.Any())
                     {
-                        foreach (T_Cocktail cocktail in existings)
+                        if (ingredients.Any())
                         {
-                            Boolean containAllIngredients = true;
-                            List<T_CocktailsIngredients> joinFromCocktails = cocktail.T_CocktailsIngredients.ToList();
-
-                            foreach (T_Ingredient ingredient in ingredients)
+                            foreach (T_Cocktail cocktail in existings)
                             {
-                                List<T_CocktailsIngredients> joinFromIngredients = ingredient.T_CocktailsIngredients.ToList();
-                                List<T_CocktailsIngredients> both = joinFromCocktails.Intersect(joinFromIngredients).ToList();
+                                Boolean containAllIngredients = true;
+                                List<T_CocktailsIngredients> joinFromCocktails = cocktail.T_CocktailsIngredients.ToList();
 
-                                if (!both.Any())
+                                foreach (T_Ingredient ingredient in ingredients)
                                 {
-                                    containAllIngredients = false;
-                                }
-                            }
+                                    List<T_CocktailsIngredients> joinFromIngredients = ingredient.T_CocktailsIngredients.ToList();
+                                    List<T_CocktailsIngredients> both = joinFromCocktails.Intersect(joinFromIngredients).ToList();
 
-                            if (containAllIngredients)
-                            {
-                                tCocktails.Add(cocktail);
+                                    if (!both.Any())
+                                    {
+                                        containAllIngredients = false;
+                                    }
+                                }
+
+                                if (containAllIngredients)
+                                {
+                                    tCocktails.Add(cocktail);
+                                }
                             }
                         }
                     }
