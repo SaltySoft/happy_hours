@@ -29,21 +29,26 @@
     padding: 10px;
     background: rgba(240, 211, 0, 0.16);
     width: 230px;
+    border-radius: 12px;
+    margin-top: 4px;
 }
 
 .cocktail_details .description {
     background: rgba(173, 255, 0, 0.31);
     padding: 10px;
+    border-radius: 12px;
 }
 
 .cocktail_details .ingredients {
     background: rgba(240, 211, 0, 0.16);
     padding: 10px;
     margin-top: 5px;
+    border-radius: 12px;
 }
 
 .cocktail_details .recipe {
     background: rgba(173, 255, 0, 0.31);
     padding: 10px;
     margin-top: 5px;
+    border-radius: 12px;
 }

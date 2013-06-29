@@ -37,8 +37,12 @@
     font-size: 15px;
 }
 
-.search_info {
+.search_panel .search_info {
     width: 14px;
     height: 14px;
     margin-left: 2px;
+}
+
+#quick_search_form_duration {
+    margin-bottom: 4px;
 }
