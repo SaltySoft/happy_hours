@@ -68,6 +68,7 @@
           </Key>
           <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="alcool" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="T_User">
           <Key>
@@ -214,6 +215,7 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="alcool" Type="Int32" Nullable="false" />
           <NavigationProperty Name="T_CocktailsIngredients" Relationship="HappyHoursModel.FK_T_CocktailsIngredients_T_Ingredient" FromRole="T_Ingredient" ToRole="T_CocktailsIngredients" />
         </EntityType>
         <EntityType Name="T_User">
@@ -332,6 +334,7 @@
               <MappingFragment StoreEntitySet="T_Ingredient">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="alcool" ColumnName="alcool" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
