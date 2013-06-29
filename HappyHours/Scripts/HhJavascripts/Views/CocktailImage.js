@@ -32,7 +32,6 @@ define([
             base.registerEvents();
 
 
-
         },
         render: function () {
             var base = this;
@@ -41,6 +40,13 @@ define([
                 cocktail: base.cocktail
             });
             base.$el.html(template);
+            base.$el.find(".cocktail_img").error(function () {
+                if ($(this).attr("src") != "/Images/no_picture.png") {
+                    $(this).attr("src", "/Images/no_picture.png");
+                    base.readjust();
+                }
+
+            });
             if (base.overlay) {
                 var div = $(document.createElement("div"));
                 div.addClass("picture_overlay");
@@ -53,12 +59,12 @@ define([
             var base = this;
             var img = base.$el.find(".cocktail_img");
             var width = img.width();
-            var height  = img.height();
+            var height = img.height();
             if (width <= height) {
                 img.css("height", "auto");
                 img.css("width", base.$el.width());
                 img.css("top", -img.height() / 2 + base.$el.height() / 2);
-                img.css("left",0);
+                img.css("left", 0);
 
             } else {
                 img.css("width", "auto");
@@ -71,13 +77,15 @@ define([
             var base = this;
 
             base.cocktail.on("change", function () {
-                base.$el.find(".cocktail_img").attr("src", base.cocktail.get("Picture_Url"));
+                base.$el.find(".cocktail_img").attr("src", base.cocktail.get("Picture_Url") != "" ? base.cocktail.get("Picture_Url") : "/Images/no_picture.png");
                 base.readjust();
             });
 
             base.$el.find(".cocktail_img").load(function () {
                 base.readjust();
             });
+
+
             base.readjust();
         }
     });
