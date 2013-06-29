@@ -60,7 +60,6 @@ define([
                             var cocktail = new Cocktail(data[k]);
                             base.cocktails.add(cocktail);
                         }
-
                         base.updateList();
                     }
                 });
@@ -81,6 +80,11 @@ define([
                 var cocktail_item_view = new CocktailListItemView(cocktail);
                 dom_list.append(cocktail_item_view.$el);
                 cocktail_item_view.init(base.app);
+            }
+
+            if (base.cocktails.length == 0)
+            {
+                dom_list.append("Aucun cocktail n'a été trouvé!");
             }
         },
         registerEvents:function () {
