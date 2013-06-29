@@ -32,3 +32,13 @@
 #search_panel {
     max-width: 250px;
 }
+
+.search_panel .quick_search_submit_button_container button {
+    font-size: 15px;
+}
+
+.search_info {
+    width: 14px;
+    height: 14px;
+    margin-left: 2px;
+}
