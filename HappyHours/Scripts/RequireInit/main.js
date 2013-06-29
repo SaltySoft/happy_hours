@@ -9,7 +9,12 @@ var apps = ["jquery", "underscore", "backbone", "/Scripts/HhJavascripts/Models/U
 if (typeof app !== 'undefined') {
     apps.push(app);
 }
-
+if (typeof String.prototype.startsWith != 'function') {
+    // see below for better implementation!
+    String.prototype.startsWith = function (str){
+        return this.indexOf(str) == 0;
+    };
+}
 
 $(document).ready(function () {
     requirejs(apps,

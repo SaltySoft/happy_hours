@@ -22,7 +22,7 @@ define([
                 base.$el.addClass("big");
             }
             if (base.$el.parent().hasClass("small")) {
-                base.$el.addClass("big");
+                base.$el.addClass("small");
             }
             if (base.$el.parent().hasClass("huge")) {
                 base.$el.addClass("huge");
