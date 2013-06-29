@@ -34,7 +34,7 @@ define([
             image_view.init(base.app);
 
             if (base.app.current_user && base.app.current_user.get("Favorites").get(base.cocktail.get("Id"))) {
-                base.$el.addClass("faved");
+                base.$el.find(".favoriting").addClass("faved");
             }
         },
         registerEvents: function () {
@@ -42,7 +42,7 @@ define([
 
             base.$el.delegate(".fav_button", "click", function () {
                 base.app.current_user.get("Favorites").add(base.cocktail);
-                base.$el.addClass("faved");
+                base.$el.find(".favoriting").addClass("faved");
                 base.app.current_user.save({}, {
                     success: function () {
                         base.app.show_message("Le cocktail a été ajouté à vos favoris");
@@ -52,7 +52,7 @@ define([
 
             base.$el.delegate(".unfav_button", "click", function () {
                 base.app.current_user.get("Favorites").remove(base.cocktail);
-                base.$el.removeClass("faved");
+                base.$el.find(".favoriting").removeClass("faved");
                 base.app.current_user.save({}, {
                     success: function () {
                         base.app.show_message("Le cocktail a été retiré de vos favoris");

@@ -17,7 +17,7 @@ define([
             base.app = app;
 
             if (base.app.isNormalInteger(id)) {
-                base.cocktail = new Cocktail({ id: id, Id: id });
+                base.cocktail = new Cocktail({ Id: id });
 
                 base.cocktail.fetch({
                     success:function () {
@@ -53,6 +53,26 @@ define([
         },
         registerEvents:function () {
             var base = this;
+
+            base.$el.delegate(".fav_button", "click", function () {
+                base.app.current_user.get("Favorites").add(base.cocktail);
+                base.$el.find(".favoriting").addClass("faved");
+                base.app.current_user.save({}, {
+                    success: function () {
+                        base.app.show_message("Le cocktail a été ajouté à vos favoris");
+                    }
+                });
+            });
+
+            base.$el.delegate(".unfav_button", "click", function () {
+                base.app.current_user.get("Favorites").remove(base.cocktail);
+                base.$el.find(".favoriting").removeClass("faved");
+                base.app.current_user.save({}, {
+                    success: function () {
+                        base.app.show_message("Le cocktail a été retiré de vos favoris");
+                    }
+                });
+            });
         }
     });
 

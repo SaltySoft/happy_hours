@@ -1,9 +1,12 @@
 <div class="cocktail_item_image">
 </div>
 <h3>
-    <a href="#cocktail/<%= cocktail.get("Id") %>"><span class="cocktail_item_name"><%= cocktail.get("Name") %></span></a>
-    <a href="javascript:void(0);" class="fav_button">Fav</a>
-    <a href="javascript:void(0);" class="unfav_button">Unfav</a>
+    <a href="#cocktail/<%= cocktail.get('Id') %>"><span
+        class="cocktail_item_name"><%= cocktail.get("Name") %></span></a>
+    <span class="favoriting">
+        <a href="javascript:void(0);" class="fav_button"></a>
+        <a href="javascript:void(0);" class="unfav_button"></a>
+    </span>
 </h3>
 
 <div class="cocktail_item_description">

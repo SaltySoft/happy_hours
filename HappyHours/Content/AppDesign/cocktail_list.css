@@ -12,15 +12,15 @@
 
 }
 
-.cocktail_item .unfav_button {
+.favoriting .unfav_button {
     display: none;
 }
 
-.cocktail_item.faved .unfav_button {
-    display: inline;
+.favoriting.faved .unfav_button {
+    display: inline-block;
 }
 
-.cocktail_item.faved .fav_button {
+.favoriting.faved .fav_button {
     display: none;
 }
 
@@ -34,4 +34,20 @@
 
 .cocktail_item_image img {
     position: absolute;
+}
+
+
+.favoriting .fav_button {
+    background: url(/Images/star_sprite.png) no-repeat 0px -20px;
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    position: relative;
+}
+
+.favoriting .unfav_button {
+    background: url(/Images/star_sprite.png) no-repeat;
+    height: 20px;
+    width: 20px;
+    position: relative;
 }
