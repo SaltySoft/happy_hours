@@ -2,35 +2,38 @@
     <form action="javascript:void(0);" method="POST"
           class="pure-form pure-form-aligned quick_search_form" enctype="multipart/form-data" >
         <div class="pure-control-group" >
-            <label for="quick_search_form_name" class="quick_search_label">Nom du cocktail</label >
+            <label for="quick_search_form_name" class="quick_search_label" >Nom du cocktail</label >
             <input type="text" name="name" placeholder="Recherche par nom" id="quick_search_form_name" />
         </div >
         <div class="pure-control-group" >
-            <label for="quick_search_form_ingredient" class="quick_search_label">Ingrédient(s)</label >
-            <input type="text" name="ingredients" placeholder="Recherche par ingrédient(s)" id="quick_search_form_ingredient" />
+            <label for="quick_search_form_ingredient" class="quick_search_label" >Ingrédient(s)</label >
+            <input type="text" name="ingredients" placeholder="Recherche par ingrédient(s)"
+                   id="quick_search_form_ingredient" />
         </div >
-        <div class="pure-u-1-3 quick_search_select_container">
-            <label for="quick_search_form_difficulty" class="quick_search_label">Difficulté</label>
-            <div class="label_separator"></div>
-            <select name="difficulty" id="quick_search_form_difficulty" class="pure-input-medium">
-                <option value="0">Quelconque</option>
-                <option value="2">Simple</option>
-                <option value="3">Moyen</option>
-                <option value="4">Compliqué</option>
-            </select>
-        </div>
-        <label for="quick_search_form_duration" class="pure-checkbox" class="quick_search_label">
-            <input name="quick" id="quick_search_form_duration" type="checkbox" value="">
-            Rapide à faire (moins de 2 minutes!)
-        </label>
-        <div class="label_separator"></div>
-        <label for="quick_search_without_alcohol" class="pure-checkbox" class="quick_search_label">
-            <input name="alcohol" id="quick_search_without_alcohol" type="checkbox" value="">
-            Sans alcool
-        </label>
+        <div class="pure-u-1-3 quick_search_select_container" >
+            <label for="quick_search_form_difficulty" class="quick_search_label" >Difficulté</label >
 
-        <div class="quick_search_submit_button_container">
-            <button type="submit" class="pure-button">Trouver</button>
-        </div>
+            <div class="label_separator" ></div >
+            <select name="difficulty" id="quick_search_form_difficulty" class="pure-input-medium" >
+                <option value="0" >Quelconque</option >
+                <option value="2" >Simple</option >
+                <option value="3" >Moyen</option >
+                <option value="4" >Compliqué</option >
+            </select >
+        </div >
+        <label for="quick_search_form_duration" class="pure-checkbox" class="quick_search_label" >
+            <input name="quick" id="quick_search_form_duration" type="checkbox" value="" >
+            Rapide à faire (moins de 2 minutes!)
+        </label >
+
+        <div class="label_separator" ></div >
+        <label for="quick_search_without_alcohol" class="pure-checkbox" class="quick_search_label" >
+            <input name="alcohol" id="quick_search_without_alcohol" type="checkbox" value="" >
+            Sans alcool
+        </label >
+
+        <div class="quick_search_submit_button_container" >
+            <button type="submit" class="pure-button" >Trouver</button >
+        </div >
     </form >
 </div >

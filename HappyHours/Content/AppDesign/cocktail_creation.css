@@ -51,7 +51,7 @@
     width: 300px;
     margin: auto;
     margin-top: 10px;
-    bprder: 1px #980000 solid;
+    border: 1px #980000 solid;
 }
 
 .form_cocktail.error .error_message {
