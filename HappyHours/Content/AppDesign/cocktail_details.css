@@ -12,7 +12,8 @@
 
 .section_title {
     font-size: 1.1em;
-    margin: 8px 2px 2px 0px;
+    /*margin: 8px 2px 2px 0px;*/
+    margin: 2px 2px 5px 0px;
 }
 
 .cocktail_details .cocktail_img_container {
@@ -30,10 +31,6 @@
     width: 230px;
 }
 
-.section_title {
-    font-size: 1.1em;
-    margin: 8px 2px 2px 0px;
-}
 .cocktail_details .description {
     background: rgba(173, 255, 0, 0.31);
     padding: 10px;
