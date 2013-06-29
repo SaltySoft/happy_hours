@@ -14,6 +14,7 @@ define([
         },
         init:function (app, id) {
             var base = this;
+            base.cocktailId = id;
             base.app = app;
 
             if (base.app.isNormalInteger(id)) {
@@ -22,7 +23,6 @@ define([
                 base.cocktail.fetch({
                     success:function () {
                         base.render();
-
                     }
                 });
             }
@@ -50,6 +50,12 @@ define([
             var image_view = new CocktailImageView(base.cocktail);
             img_container.html(image_view.$el);
             image_view.init(base.app);
+
+            var fav_cocktail = base.app.current_user.get("Favorites").get(base.cocktailId);
+            if (fav_cocktail !== undefined && fav_cocktail != null)
+            {
+                base.$el.find(".favoriting").addClass("faved");
+            }
         },
         registerEvents:function () {
             var base = this;
