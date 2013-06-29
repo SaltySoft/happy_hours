@@ -183,3 +183,7 @@ input[type="text"] {
     cursor: default;
     padding: 5px;
 }
+
+.disconnect_button{
+    margin-left: 5px;
+}
