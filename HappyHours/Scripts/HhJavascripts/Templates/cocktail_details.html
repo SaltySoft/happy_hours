@@ -3,10 +3,12 @@
 <% } %>
 <div class="cocktail_name">
     <%= cocktailName %>
+    <% if (user) { %>
 <span class="favoriting">
     <a href="javascript:void(0);" class="fav_button"></a>
     <a href="javascript:void(0);" class="unfav_button"></a>
 </span>
+    <% } %>
 </div>
 
 <div class="clearer"></div>

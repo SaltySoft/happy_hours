@@ -15,6 +15,13 @@ define([
             var base = this;
             base.app = app;
 
+            if (!base.app.current_user) {
+                base.app.show_message("Vous devez être connecté pour voir vos favoris.");
+                base.app.router.navigate("#", {
+                    trigger: true
+                });
+            }
+
             base.render();
             base.registerEvents();
         },

@@ -27,6 +27,7 @@
             base.app = app;
             base.render();
             base.registerEvents();
+            base.current_view = undefined;
 
             var AppRouter = Backbone.Router.extend({
                 routes:{
@@ -44,6 +45,7 @@
                     base.$el.find("#sub_app_container").html(cocktail_featured_view.$el);
                     cocktail_featured_view.init(base.app);
                     base.$el.find("#sub_app_container").fadeIn(200);
+                    base.current_view = cocktail_featured_view;
                 },
                 cocktails:function () {
                     base.$el.find("#sub_app_container").hide();
@@ -51,6 +53,7 @@
                     base.$el.find("#sub_app_container").html(cocktail_list_view.$el);
                     cocktail_list_view.init(base.app);
                     base.$el.find("#sub_app_container").fadeIn(200);
+                    base.current_view = cocktail_list_view;
                 },
                 add_cocktail:function () {
                     base.$el.find("#sub_app_container").hide();
@@ -58,13 +61,16 @@
                     base.$el.find("#sub_app_container").html(add_cocktail_view.$el);
                     add_cocktail_view.init(base.app);
                     base.$el.find("#sub_app_container").fadeIn(200);
+                    base.current_view = add_cocktail_view;
                 },
                 show_cocktail:function (id) {
                     base.$el.find("#sub_app_container").hide();
-                    var show_cocktail_view = new CocktailDetailsView();
+                    var cocktail = new Cocktail({Id: id});
+                    var show_cocktail_view = new CocktailDetailsView(cocktail);
                     base.$el.find("#sub_app_container").html(show_cocktail_view.$el);
-                    show_cocktail_view.init(base.app, id);
+                    show_cocktail_view.init(base.app);
                     base.$el.find("#sub_app_container").fadeIn(200);
+                    base.current_view = show_cocktail_view;
                 },
                 favorites:function () {
                     base.$el.find("#sub_app_container").hide();
@@ -72,6 +78,7 @@
                     base.$el.find("#sub_app_container").html(favorites_view.$el);
                     favorites_view.init(base.app);
                     base.$el.find("#sub_app_container").fadeIn(200);
+                    base.current_view = favorites_view;
                 },
                 sign_up:function () {
                     base.$el.find("#sub_app_container").hide();
@@ -79,6 +86,7 @@
                     base.$el.find("#sub_app_container").html(sign_up_view.$el);
                     sign_up_view.init(base.app, base);
                     base.$el.find("#sub_app_container").fadeIn(200);
+                    base.current_view = sign_up_view;
                 },
                 edit_cocktail:function (id) {
                     base.$el.find("#sub_app_container").hide();
@@ -86,6 +94,7 @@
                     base.$el.find("#sub_app_container").html(cocktail_edition_view.$el);
                     cocktail_edition_view.init(base.app, id);
                     base.$el.find("#sub_app_container").fadeIn(200);
+                    base.current_view = cocktail_edition_view;
                 }
             });
 
@@ -114,6 +123,9 @@
                                     base.$el.find(".login_required").show();
                                     base.$el.find(".anonym_required").hide();
                                     base.$el.find(".disconnect .username").html(base.app.current_user.get("Username"));
+                                    if (base.current_view) {
+                                        base.current_view.init(base.app);
+                                    }
                                 } else {
                                     base.app.current_user = undefined;
                                     base.$el.find(".login_required").hide();
@@ -138,6 +150,9 @@
                     base.$el.find(".anonym_required").show();
                     base.app.events.trigger("user_disconnection");
                     base.app.current_user = undefined;
+                    if (base.current_view) {
+                        base.current_view.init(base.app);
+                    }
                 }
             });
         },
