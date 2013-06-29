@@ -10,6 +10,6 @@
 </h3>
 
 <div class="cocktail_item_description">
-    <%= cocktail.get("Description") %>
+    <%=  _s.truncate(cocktail.get("Description"), 490, "...")  %>
 </div>
 <div class="clearer"></div>
