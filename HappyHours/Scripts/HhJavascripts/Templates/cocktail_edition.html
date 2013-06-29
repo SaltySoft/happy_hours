@@ -1,94 +1,98 @@
-<a href="#cocktail/<%= cocktail.get('Id') %>" class="action_button pure-button" >Page du cocktail</a >
-<h2 ><%= cocktail.get("Name") %></h2 >
-<div class="clearer" ></div >
-<fieldset >
-    <legend >Informations sur le cocktail</legend >
-    <form action="javascript:void(0);" class="pure-form form_cocktail" >
-        <div class="pure-g" >
-            <div class="pure-u-1-2" >
+<a href="#cocktail/<%= cocktail.get('Id') %>" class="action_button pure-button">Page du cocktail</a>
+<h2><%= cocktail.get("Name") %></h2>
+<div class="clearer"></div>
+<fieldset>
+    <legend>Informations sur le cocktail</legend>
+    <form action="javascript:void(0);" class="pure-form form_cocktail">
+        <div class="pure-g">
+            <div class="pure-u-1-2">
 
-                <div class="pure-control-group" >
-                    <label for="creation_form_difficulty" class="difficulty_label" >Difficulté</label >
+                <div class="pure-control-group">
+                    <label for="creation_form_difficulty" class="difficulty_label">Difficulté</label>
                     <input type="number" min="1" max="5" id="creation_form_difficulty" name="Difficulty"
                            class="form_difficulty field_Difficulty field"
-                           value="<%= cocktail.get('Difficulty')%>" /> <span
-                        class="difficulty_max" >/ 5</span >
-                </div >
-                <div class="pure-control-group" >
-                    <label for="creation_form_duration" >Temps de préparation</label >
+                           value="<%= cocktail.get('Difficulty')%>"/> <span
+                        class="difficulty_max">/ 5</span>
+                </div>
+                <div class="pure-control-group">
+                    <label for="creation_form_duration">Temps de préparation</label>
                     <input type="number" min="1" max="60" name="Duration" id="creation_form_duration"
                            placeholder="Temps de préparation" value="<%= cocktail.get('Duration')%>" class="form_duration
-        field_Duration field" /> <span class="time_max" >minutes</span >
-                </div >
-                <div class="pure-control-group" >
-                    <label for="creation_form_description" >Description</label >
+        field_Duration field"/> <span class="time_max">minutes</span>
+                </div>
+                <div class="pure-control-group">
+                    <label for="creation_form_description">Description</label>
                     <textarea name="Description" id="creation_form_description"
-                              class="form_description field_Description field" ><%=
-                                                                                cocktail.get('Description')%></textarea >
-                </div >
-                <div class="pure-control-group" >
-                    <label for="creation_form_recipe" >Recette</label >
-                    <textarea name="Recipe" id="creation_form_recipe" class="form_recipe field_Recipe field" ><%=
-                                                                                                              cocktail.get('Recipe')%></textarea >
-                </div >
-            </div >
-            <div class="pure-u-1-2" >
-                <div class="pure-g ingredients" >
-                    <div class="pure-u-1" >
+                              class="form_description field_Description field"><%=
+                        cocktail.get('Description')%></textarea>
+                </div>
+                <div class="pure-control-group">
+                    <label for="creation_form_recipe">Recette</label>
+                    <textarea name="Recipe" id="creation_form_recipe" class="form_recipe field_Recipe field"><%=
+                        cocktail.get('Recipe')%></textarea>
+                </div>
+            </div>
+            <div class="pure-u-1-2">
+                <div class="pure-g ingredients">
+                    <div class="pure-u-1">
 
-                        <h3 >
+                        <h3>
                             Ingredients
-                        </h3 >
-                    </div >
-                    <div class="pure-u-1-2" >
-                        <div class="ingredient_list_title" >Disponibles</div >
-                        <input class="ingredient_filter" placeholder="Filtre..." />
-                        <ul class="all_ingredients ingredients_list" >
+                        </h3>
+                    </div>
+                    <div class="pure-u-1-2">
+                        <div class="ingredient_list_title">Disponibles</div>
+                        <input class="ingredient_filter" placeholder="Filtre..."/>
+                        <ul class="all_ingredients ingredients_list">
 
-                        </ul >
-                    </div >
-                    <div class="pure-u-1-2" >
-                        <div class="ingredient_list_title" >Ce cocktail</div >
-                        <ul class="selected_ingredients ingredients_list" >
+                        </ul>
+                    </div>
+                    <div class="pure-u-1-2">
+                        <div class="ingredient_list_title">Ce cocktail</div>
+                        <ul class="selected_ingredients ingredients_list">
 
-                        </ul >
-                    </div >
-                </div >
-            </div >
-        </div >
-        <div >
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
 
-            <div class="clearer " ></div >
-            <button class="basic_valid_button pure-button pure-button-primary" type="submit" >Enregistrer</button >
+            <div class="clearer "></div>
+            <button class="basic_valid_button pure-button pure-button-primary" type="submit">Enregistrer</button>
 
-            <div class="clearer " ></div >
-        </div >
-    </form >
-</fieldset >
-<fieldset class="picture" >
-    <legend >Ajoutez une image à votre cocktail !</legend >
-    <div class="pure-g" >
-        <div class="pure-u-1-2" >
-            <div class="cocktail_edition_image huge" >
+            <div class="clearer "></div>
+        </div>
+    </form>
+</fieldset>
+<fieldset class="picture">
+    <legend>Ajoutez une image à votre cocktail !</legend>
+    <div class="pure-g">
+        <div class="pure-u-1-2">
+            <div class="cocktail_edition_image huge">
 
-            </div >
-        </div >
-        <div class="pure-u-1-2" >
+            </div>
+        </div>
+        <div class="pure-u-1-2">
             <form action="/Cocktail/SendPicture/<%= cocktail.get('Id') %>"
                   class="pure-form pure-form-aligned form_picture"
-                  target="cocktail_picture_target" method="post" enctype="multipart/form-data" >
-                <div class="pure-control-group" >
-                    <input type="file" name="picture" id="creation_form_picture" class="field_Picture_Url field" />
-                </div >
+                  target="cocktail_picture_target" method="post" enctype="multipart/form-data">
+                <div class="pure-control-group">
+                    <input type="file" name="picture" id="creation_form_picture" class="field_Picture_Url field"/>
+                </div>
 
-            </form >
-            <div class="pure-controls" >
-                <button class="pure-button choose_image_button" >Choisir une image</button >
-            </div >
-        </div >
-    </div >
+            </form>
+            <div class="pure-controls">
+                <button class="pure-button choose_image_button">Choisir une image</button>
+            </div>
+        </div>
+    </div>
 
-    <iframe class="form_iframe" name="cocktail_picture_target" >
-    </iframe >
+    <iframe class="form_iframe" name="cocktail_picture_target">
+    </iframe>
 
-</fieldset >
+</fieldset>
+<fieldset class="deletion">
+    <legend>Suppression du cocktail</legend>
+    <button class="pure-button pure-button-error deletion_button">Supprimer le cocktail</button>
+</fieldset>

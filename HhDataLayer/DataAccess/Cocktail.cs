@@ -315,12 +315,34 @@ namespace HhDataLayer.DataAccess
                 using (MyHappyHoursEntities bdd = new MyHappyHoursEntities())
                 {
                     T_Cocktail tCocktail = bdd.T_Cocktail.Where(x => x.id == id).FirstOrDefault();
+                    List<T_CocktailsIngredients> link_ingr_rem = new List<T_CocktailsIngredients>();
+                    foreach (T_CocktailsIngredients link_ingredient in tCocktail.T_CocktailsIngredients)
+                    {
+                        link_ingr_rem.Add(link_ingredient);
+
+                    }
+
+                    for (int i = link_ingr_rem.Count - 1; i >= 0; i--)
+                    {
+                        bdd.T_CocktailsIngredients.Remove(link_ingr_rem.ElementAt(i));
+                    }
+                    List<T_Favorite> fav_rem = new List<T_Favorite>();
+                    foreach (T_Favorite fav in tCocktail.T_Favorite)
+                    {
+                        fav_rem.Add(fav);
+                    }
+
+                    for (int i = fav_rem.Count - 1; i >= 0; i--)
+                    {
+                        bdd.T_Favorite.Remove(fav_rem.ElementAt(i));
+                    }
+
                     bdd.T_Cocktail.Remove(tCocktail);
                     bdd.SaveChanges();
                     return true;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return false;
             }

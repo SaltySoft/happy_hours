@@ -25,6 +25,13 @@ define([
 
             base.cocktail.fetch({
                 success: function () {
+                    if (!base.cocktail.get("Creator_Id")) {
+                        base.app.show_message("Ce cocktail est introuvable");
+                        base.app.router.navigate("#cocktails", {
+                            trigger: true
+                        });
+                    }
+
                     base.cocktail_image = new CocktailImageView(base.cocktail);
                     if ((!base.app.current_user || base.app.current_user.get("Id") != base.cocktail.get("Creator_Id")) && !(base.app.current_user && base.app.current_user.hasRole("Admin"))) {
                         base.app.show_message("Vous n'avez pas les droits pour accéder à cette page");
@@ -33,6 +40,14 @@ define([
 
                     base.render();
                     base.registerEvents();
+                },
+                error: function (obj, status) {
+                    if (status.status == 404) {
+                        base.app.show_message("Ce cocktail est introuvable");
+                        base.app.router.navigate("#cocktails", {
+                            trigger: true
+                        });
+                    }
                 }
             });
         },
@@ -133,6 +148,21 @@ define([
                         elt.hide();
                     }
                 });
+            });
+
+            base.$el.delegate(".deletion_button", "click", function () {
+                if (confirm("Êtes vous certain de vouloir supprimer ce cocktail ? Cette action est irréversible."))
+                    base.cocktail.destroy({
+                        success: function () {
+                            base.app.show_message("Le cocktail a bien été supprimé");
+                            base.app.router.navigate("#cocktails",{
+                                trigger: true
+                            });
+                        },
+                        error: function () {
+                            base.app.show_message("Une erreur s'est produite lors de la suppression");
+                        }
+                    });
             });
         }
     });
