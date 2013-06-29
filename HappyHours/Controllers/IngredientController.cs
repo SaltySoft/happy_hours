@@ -36,6 +36,7 @@ namespace HappyHours.Controllers
 
         //PUT - update
         [AcceptVerbs(HttpVerbs.Put)]
+        [Authorize(Roles = "Admin")]
         public JsonResult WsRest(int id, HhDBO.Ingredient ingredient)
         {
             if (BusinessManagement.Ingredient.UpdateIngredient(ingredient))
@@ -51,6 +52,7 @@ namespace HappyHours.Controllers
 
         //POST - create
         [AcceptVerbs(HttpVerbs.Post)]
+        [Authorize(Roles = "Admin")]
         public JsonResult WsRest(HhDBO.Ingredient ingredient)
         {
             //byte[] PostData = HttpContext.Request.BinaryRead(HttpContext.Request.ContentLength);
@@ -85,6 +87,7 @@ namespace HappyHours.Controllers
 
         //Delete - remove
         [AcceptVerbs(HttpVerbs.Delete)]
+        [Authorize(Roles = "Admin")]
         public JsonResult WsRest(int id)
         {
             //do remove

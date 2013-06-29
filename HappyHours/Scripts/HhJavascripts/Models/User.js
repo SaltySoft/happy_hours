@@ -34,6 +34,16 @@ define([
             response.Favorites = favorites;
 //            console.log("PARSED", response);
             return response;
+        },
+        hasRole: function (role) {
+            var base = this;
+            var roles = base.get("Roles");
+            for (var k in roles) {
+                if (role === roles[k] ) {
+                    return true;
+                }
+            }
+            return false;
         }
     });
 

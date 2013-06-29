@@ -26,7 +26,7 @@ define([
             base.cocktail.fetch({
                 success: function () {
                     base.cocktail_image = new CocktailImageView(base.cocktail);
-                    if ((!base.app.current_user || base.app.current_user.get("Id") != base.cocktail.get("Creator_Id"))) {
+                    if ((!base.app.current_user || base.app.current_user.get("Id") != base.cocktail.get("Creator_Id")) && !(base.app.current_user && base.app.current_user.hasRole("Admin"))) {
                         base.app.show_message("Vous n'avez pas les droits pour accéder à cette page");
                         base.app.router.navigate("#cocktail/" + base.cocktail.get("Id"), {trigger: true});
                     }

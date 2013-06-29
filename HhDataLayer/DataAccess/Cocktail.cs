@@ -34,7 +34,7 @@ namespace HhDataLayer.DataAccess
 
                 return dboCocktail;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
@@ -80,7 +80,7 @@ namespace HhDataLayer.DataAccess
                 Debug.WriteLine("Got list of cocktails");
                 return cocktails;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Debug.WriteLine("Problem while getting list of cocktails");
                 return new List<HhDBO.Cocktail>();
@@ -352,14 +352,8 @@ namespace HhDataLayer.DataAccess
                         else
                             tCocktail.description = "";
 
-                        if (tCocktail.difficulty != null)
-                            tCocktail.difficulty = cocktail.Difficulty;
-                        else
-                            tCocktail.difficulty = 1;
-                        if (cocktail.Duration != null)
-                            tCocktail.duration = cocktail.Duration;
-                        else
-                            tCocktail.duration = 1;
+                        tCocktail.difficulty = cocktail.Difficulty;
+                        tCocktail.duration = cocktail.Duration;
                         tCocktail.edited = 1;
                         if (cocktail.Picture_Url != null)
                             tCocktail.picture_url = cocktail.Picture_Url;

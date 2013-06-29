@@ -1,4 +1,4 @@
-<% if (user && user.get("Id") == cocktail.get("Creator_Id")) { %>
+<% if (user && (user && user.get("Id") == cocktail.get("Creator_Id") || user.hasRole("Admin"))) { %>
 <a href="#cocktail/edit/<%= cocktail.get('Id') %>" class="action_button pure-button">Edit</a>
 <% } %>
 <div class="cocktail_name">
@@ -17,10 +17,10 @@
         <div class="cocktail_infos">
             <div>
                 <span class="section_title"> Difficulté :</span>
-                <%= cocktailDifficulty %>
+                <%= cocktailDifficulty %> / 5
             </div>
             <div>
-                <span class="section_title"> Temps de préparation :</span> <%= cocktailDuration %>
+                <span class="section_title"> Temps de préparation :</span> <%= cocktailDuration %> min
             </div>
         </div>
     </div>
