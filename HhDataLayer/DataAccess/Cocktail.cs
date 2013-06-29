@@ -146,8 +146,8 @@ namespace HhDataLayer.DataAccess
                         if (searchQuery.Quick != "no")
                         {
                             existings = bdd.T_Cocktail.Where(x =>
-                           (x.name.Contains(searchQuery.Cocktail_name))
-                           && (x.duration < 2)).ToList();
+                              (x.name.Contains(searchQuery.Cocktail_name))
+                                && (x.duration < 2)).ToList();
                         }
                         else
                         {
@@ -155,7 +155,6 @@ namespace HhDataLayer.DataAccess
                             (x.name.Contains(searchQuery.Cocktail_name))).ToList();
                         }
                     }
-
 
                     List<T_Cocktail> tCocktails = new List<T_Cocktail>();
                     if (ingredients.Any())
@@ -180,9 +179,41 @@ namespace HhDataLayer.DataAccess
                     {
                         tCocktails = existings;
                     }
-                    //if (searchQuery.Alcohol != "no")
 
-                    foreach (T_Cocktail cocktail in tCocktails)
+                    List<T_Cocktail> realTCocktails = new List<T_Cocktail>();
+                    if (searchQuery.Alcohol != "no")
+                    {
+                        foreach (T_Cocktail tc in tCocktails)
+                        {
+                            Boolean without_alcohol = true;
+                            List<T_CocktailsIngredients> joinFromCocktails = tc.T_CocktailsIngredients.ToList();
+
+                            List<T_Ingredient> cockIng = new List<T_Ingredient>();
+                            foreach (T_CocktailsIngredients tci in joinFromCocktails)
+                            {
+                                cockIng.AddRange(bdd.T_Ingredient.Where(x => x.id == tci.ingredient_id).ToList());
+                            }
+
+                            foreach (T_Ingredient ingredient in cockIng)
+                            {
+                                if (ingredient.alcool != 0)
+                                {
+                                    without_alcohol = false;
+                                    break;
+                                }
+                            }
+                            if (without_alcohol)
+                            {
+                                realTCocktails.Add(tc);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        realTCocktails = tCocktails;
+                    }
+
+                    foreach (T_Cocktail cocktail in realTCocktails)
                     {
                         Mapper.CreateMap<T_Cocktail, HhDBO.Cocktail>();
 
