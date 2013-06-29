@@ -13,18 +13,6 @@ namespace HappyHours
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            //routes.MapRoute(
-            //    name: "Users",
-            //    url: "users/{id}",
-            //    defaults: new { controller = "User", action = "WsRest", id = UrlParameter.Optional }
-            //);
-
-            // routes.MapRoute(
-            //    name: "Users",
-            //    url: "users/{action}/{id}",
-            //    defaults: new { controller = "User", action = "Index", id = UrlParameter.Optional }
-            //);
-
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
