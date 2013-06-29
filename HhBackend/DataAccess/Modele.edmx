@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="HappyHoursModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="HappyHoursModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="HappyHoursModelStoreContainer">
           <EntitySet Name="T_Cocktail" EntityType="HappyHoursModel.Store.T_Cocktail" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="T_CocktailsIngredients" EntityType="HappyHoursModel.Store.T_CocktailsIngredients" store:Type="Tables" Schema="dbo" />
@@ -140,7 +140,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HappyHoursModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -216,7 +217,6 @@
           <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="alcool" Type="Int32" Nullable="false" />
           <NavigationProperty Name="T_CocktailsIngredients" Relationship="HappyHoursModel.FK_T_CocktailsIngredients_T_Ingredient" FromRole="T_Ingredient" ToRole="T_CocktailsIngredients" />
-          <Property Type="Int32" Name="alcool" Nullable="false" />
         </EntityType>
         <EntityType Name="T_User">
           <Key>
@@ -332,7 +332,6 @@
           <EntitySetMapping Name="T_Ingredient">
             <EntityTypeMapping TypeName="HappyHoursModel.T_Ingredient">
               <MappingFragment StoreEntitySet="T_Ingredient">
-                <ScalarProperty Name="alcool" ColumnName="alcool" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="alcool" ColumnName="alcool" />
