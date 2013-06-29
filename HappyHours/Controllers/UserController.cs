@@ -104,6 +104,7 @@ namespace HappyHours.Controllers
 
         //PUT - update
         [AcceptVerbs(HttpVerbs.Put)]
+        [Authorize(Roles = "Admin")]
         public JsonResult WsRest(int id, HhDBO.User user)
         {
             if (BusinessManagement.User.UpdateUser(user))
@@ -198,6 +199,7 @@ namespace HappyHours.Controllers
 
         //Delete - remove
         [AcceptVerbs(HttpVerbs.Delete)]
+        [Authorize(Roles = "Admin")]
         public JsonResult WsRest(int id)
         {
             //do remove

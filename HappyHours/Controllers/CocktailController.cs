@@ -75,16 +75,30 @@ namespace HappyHours.Controllers
         [Authorize(Roles = "User")]
         public JsonResult WsRest(int id, HhDBO.Cocktail cocktail)
         {
+
             try
             {
-                if (BusinessManagement.Cocktail.UpdateCocktail(cocktail))
+                HhDBO.User user = BusinessManagement.User.GetUserByName(User.Identity.Name);
+                HhDBO.Cocktail existing_cocktail = BusinessManagement.Cocktail.GetCocktail(cocktail.Id);
+                if (existing_cocktail != null && existing_cocktail.Creator_Id == user.Id || user.Admin == 1)
                 {
-                    HhDBO.Cocktail newCocktail = BusinessManagement.Cocktail.GetCocktail(id);
-                    return Json(newCocktail, JsonRequestBehavior.AllowGet);
+                    if (BusinessManagement.Cocktail.UpdateCocktail(cocktail))
+                    {
+                        HhDBO.Cocktail newCocktail = BusinessManagement.Cocktail.GetCocktail(id);
+                        return Json(newCocktail, JsonRequestBehavior.AllowGet);
+                    }
+                    else
+                    {
+                        return Json("wserror updating.", JsonRequestBehavior.AllowGet);
+                    }
                 }
                 else
                 {
-                    return Json("wserror updating.", JsonRequestBehavior.AllowGet);
+                    Dictionary<string, string> dico = new Dictionary<string, string>();
+                    dico["status"] = "error";
+                    dico["message"] = "unsufficient_rights";
+                    this.Response.StatusCode = 401;
+                    return Json(dico, JsonRequestBehavior.AllowGet);
                 }
             }
             catch (Exception)
@@ -97,28 +111,41 @@ namespace HappyHours.Controllers
             }
         }
 
-             [Authorize(Roles = "User")]
+        [Authorize(Roles = "User")]
         public JsonResult SendPicture(int id, HttpPostedFileBase picture)
         {
-            string picture_path = Server.MapPath("~") + "Images\\Cocktails\\";
+            HhDBO.User user = BusinessManagement.User.GetUserByName(User.Identity.Name);
+                HhDBO.Cocktail existing_cocktail = BusinessManagement.Cocktail.GetCocktail(id);
+                if (existing_cocktail != null && existing_cocktail.Creator_Id == user.Id || user.Admin == 1)
+                {
+                    string picture_path = Server.MapPath("~") + "Images\\Cocktails\\";
 
-            if (picture != null)
-            {
-                string pictureRandomUrl = Path.GetFileNameWithoutExtension(picture.FileName)
-                    + DateTime.Now.ToString("yyyyMMddHHmmssfff")
-                    + Path.GetExtension(picture.FileName);
+                    if (picture != null)
+                    {
+                        string pictureRandomUrl = Path.GetFileNameWithoutExtension(picture.FileName)
+                            + DateTime.Now.ToString("yyyyMMddHHmmssfff")
+                            + Path.GetExtension(picture.FileName);
 
-                picture.SaveAs(picture_path + pictureRandomUrl);
-                HhDBO.Cocktail cocktail = BusinessManagement.Cocktail.GetCocktail(id);
-                //if (System.IO.File.Exists(Server.MapPath("~") + cocktail.Picture_Url.Substring(1).Replace("/", "\\")))
-                //{
-                //    System.IO.File.Delete(Server.MapPath("~") + cocktail.Picture_Url.Substring(1).Replace("/", "\\"));
-                //}
-                cocktail.Picture_Url = "/Images/Cocktails/" + pictureRandomUrl;
+                        picture.SaveAs(picture_path + pictureRandomUrl);
+                        HhDBO.Cocktail cocktail = BusinessManagement.Cocktail.GetCocktail(id);
+                        //if (System.IO.File.Exists(Server.MapPath("~") + cocktail.Picture_Url.Substring(1).Replace("/", "\\")))
+                        //{
+                        //    System.IO.File.Delete(Server.MapPath("~") + cocktail.Picture_Url.Substring(1).Replace("/", "\\"));
+                        //}
+                        cocktail.Picture_Url = "/Images/Cocktails/" + pictureRandomUrl;
 
-                BusinessManagement.Cocktail.UpdateCocktail(cocktail);
-                return Json(cocktail, JsonRequestBehavior.AllowGet);
-            }
+                        BusinessManagement.Cocktail.UpdateCocktail(cocktail);
+                        return Json(cocktail, JsonRequestBehavior.AllowGet);
+                    }
+                    else
+                    {
+                        Dictionary<string, string> dico = new Dictionary<string, string>();
+                        dico["status"] = "error";
+                        dico["message"] = "unsufficient_rights";
+                        this.Response.StatusCode = 401;
+                        return Json(dico, JsonRequestBehavior.AllowGet);
+                    }
+                }
 
             return Json("wserror updating.", JsonRequestBehavior.AllowGet);
         }
