@@ -44,7 +44,7 @@ namespace HhDataLayer.DataAccess
 
                 return users;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<HhDBO.User>();
             }
@@ -111,7 +111,7 @@ namespace HhDataLayer.DataAccess
 
                 return dboUser;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
@@ -267,7 +267,7 @@ namespace HhDataLayer.DataAccess
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }

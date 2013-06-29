@@ -28,7 +28,7 @@ namespace HappyHours.DataAccess
                 HhDBO.Cocktail cocktail = _client.GetRandomCocktail();
                 return cocktail;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }

@@ -82,19 +82,15 @@ namespace HhBusiness
         public static List<string> Validate(HhDBO.Cocktail cocktail)
         {
             List<string> errors = new List<string>();
-            if (cocktail.Creator_Id == null)
-            {
-                errors.Add("Creator_Id");
-            }
             if (cocktail.Description == null)
             {
                 errors.Add("Description");
             }
-            if (cocktail.Difficulty == null || cocktail.Difficulty <= 0 || cocktail.Difficulty > 5)
+            if ( cocktail.Difficulty <= 0 || cocktail.Difficulty > 5)
             {
                 errors.Add("Difficulty");
             }
-            if (cocktail.Duration == null | cocktail.Duration <= 0)
+            if (cocktail.Duration <= 0)
             {
                 errors.Add("Duration");
             }

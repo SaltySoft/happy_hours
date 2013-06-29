@@ -90,7 +90,7 @@ namespace HhBusiness
             {
                 errors.Add("Password");
             }
-            if (user.Admin == null || user.Admin < 0 || user.Admin > 1)
+            if (user.Admin < 0 || user.Admin > 1)
             {
                 errors.Add("Admin");
             }
