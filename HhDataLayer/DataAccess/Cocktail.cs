@@ -163,7 +163,7 @@ namespace HhDataLayer.DataAccess
                         {
                             foreach (T_Cocktail cocktail in existings)
                             {
-                                Boolean containAllIngredients = true;
+                                int ingredientsCounter = 0;
                                 List<T_CocktailsIngredients> joinFromCocktails = cocktail.T_CocktailsIngredients.ToList();
 
                                 foreach (T_Ingredient ingredient in ingredients)
@@ -171,15 +171,24 @@ namespace HhDataLayer.DataAccess
                                     List<T_CocktailsIngredients> joinFromIngredients = ingredient.T_CocktailsIngredients.ToList();
                                     List<T_CocktailsIngredients> both = joinFromCocktails.Intersect(joinFromIngredients).ToList();
 
-                                    if (!both.Any())
+                                    if (both.Any())
                                     {
-                                        containAllIngredients = false;
+                                        ingredientsCounter++;
                                     }
                                 }
 
-                                if (containAllIngredients)
+                                if (ingredientsCounter > 0)
                                 {
-                                    tCocktails.Add(cocktail);
+                                    if (ingredientsCounter >= tCocktails.Count)
+                                    {
+                                        tCocktails.Add(cocktail);
+                                    }
+                                    else
+                                    {
+                                        List<T_Cocktail> unique_tmp = new List<T_Cocktail>();
+                                        unique_tmp.Add(cocktail);
+                                        tCocktails.InsertRange(ingredientsCounter, unique_tmp);
+                                    }
                                 }
                             }
                         }
