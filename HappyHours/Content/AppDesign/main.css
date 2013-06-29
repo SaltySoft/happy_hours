@@ -170,8 +170,8 @@ input[type="text"] {
     margin: auto;
     margin-bottom: 5px;
     text-align: center;
-    border: 1px rgb(199, 4, 4) solid;
-    background: #dcdcdc;
+    border: 1px rgb(228, 228, 228) solid;
+    background: #FFFFFF;
     cursor: pointer;
     padding: 5px;
 }
