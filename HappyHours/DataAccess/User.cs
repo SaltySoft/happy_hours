@@ -9,77 +9,35 @@ namespace HappyHours.DataAccess
     {
         public List<HhDBO.User> GetListUser(int max)
         {
-            try
-            {
-                List<HhDBO.User> users = HhBusiness.User.GetListUser(max).ToList();
-                return users;
-            }
-            catch (Exception)
-            {
-                return new List<HhDBO.User>();
-            }
+            List<HhDBO.User> users = HhBusiness.User.GetListUser(max).ToList();
+            return users;
         }
 
         public List<HhDBO.User> GetUser(int id)
         {
-            try
-            {
-                List<HhDBO.User> users = HhBusiness.User.GetUser(id).ToList();
-                return users;
-            }
-            catch (Exception)
-            {
-                return new List<HhDBO.User>();
-            }
+            List<HhDBO.User> users = HhBusiness.User.GetUser(id).ToList();
+            return users;
         }
 
         public HhDBO.User GetUserByName(string name)
         {
-            try
-            {
-                HhDBO.User user = HhBusiness.User.GetUserByName(name);
-                return user;
-            }
-            catch (Exception)
-            {
-                return null;
-            }
+            HhDBO.User user = HhBusiness.User.GetUserByName(name);
+            return user;
         }
 
         public HhDBO.User CreateUser(HhDBO.User user)
         {
-            try
-            {
-                return HhBusiness.User.CreateUser(user);
-            }
-            catch (Exception)
-            {
-                return null;
-            }
+            return HhBusiness.User.CreateUser(user);
         }
 
         public bool UpdateUser(HhDBO.User user)
         {
-            try
-            {
-                return HhBusiness.User.UpdateUser(user);
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+            return HhBusiness.User.UpdateUser(user);
         }
 
         public bool DeleteUser(int id)
         {
-            try
-            {
-                return HhBusiness.User.DeleteUser(id);
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+            return HhBusiness.User.DeleteUser(id);
         }
 
         public List<string> Validate(HhDBO.User user)

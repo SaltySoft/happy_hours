@@ -1,0 +1,25 @@
+.user_creation_form .pure-controls .error_message {
+    margin-left: 0px;
+}
+
+.user_creation_form .error_message {
+    display: none;
+    color: #980000;
+    font-weight: bold;
+    padding-top: 4px;
+    margin: auto;
+    margin-left: 165px;
+    font-size: 13px;
+}
+
+.user_creation_form.error .error_message {
+    display: block;
+}
+
+.pure-form-aligned .pure-control-group {
+    height: 55px;
+}
+
+.user_creation_form input {
+    width: 33%;
+}

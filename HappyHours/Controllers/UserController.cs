@@ -166,7 +166,21 @@ namespace HappyHours.Controllers
 
                     if (result == null)
                     {
-                        return Json("wserror atcreation", JsonRequestBehavior.AllowGet);
+                        Dictionary<string, object> dico = new Dictionary<string, object>();
+                        dico["status"] = "error";
+
+                        if (BusinessManagement.User.Validate(user).Count > 0)
+                        {
+                            dico["message"] = "missing_information";
+                            dico["data"] = BusinessManagement.User.Validate(user);
+                        }
+                        else
+                        {
+                            dico["message"] = "unknown_error";
+                        }
+                        Response.StatusCode = 422;
+
+                        return Json(dico, JsonRequestBehavior.AllowGet);
                     }
                     else
                     {
