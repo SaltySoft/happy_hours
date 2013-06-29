@@ -3,8 +3,9 @@ define([
     'underscore',
     'backbone',
     'Models/Cocktail',
-    'text!Templates/cocktail_featured.html'
-], function ($, _, Backbone, Cocktail, CocktailFeaturedTemplate) {
+    'text!Templates/cocktail_featured.html',
+    'Views/CocktailImage'
+], function ($, _, Backbone, Cocktail, CocktailFeaturedTemplate, CocktailImageView) {
     var CocktailFeatured = Backbone.View.extend({
         tagName:"div",
         className:"cocktail_featured",
@@ -26,6 +27,10 @@ define([
                 cocktailFeaturedPictureUrl:base.cocktailFeatured.get("Picture_Url")
             });
             base.$el.html(cocktailFeaturedTemplate);
+
+            var image_view = new CocktailImageView(base.cocktailFeatured);
+            base.$el.find(".featured_cocktail_img_container").html(image_view.$el);
+            image_view.init(base.app);
             base.initializeEvents();
         },
         GetRandomCocktail:function (callback) {
