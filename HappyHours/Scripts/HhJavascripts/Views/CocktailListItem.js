@@ -27,7 +27,8 @@ define([
 
             var template = _.template(CocktailListItemTemplate, {
                 cocktail: base.cocktail,
-                _s: _s
+                _s: _s,
+                user: base.app.current_user
             });
             base.$el.html(template);
 
