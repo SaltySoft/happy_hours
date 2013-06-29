@@ -21,6 +21,7 @@ namespace HhDataLayer.DataAccess
     
         public int id { get; set; }
         public string name { get; set; }
+        public int alcool { get; set; }
     
         public virtual ICollection<T_CocktailsIngredients> T_CocktailsIngredients { get; set; }
     }
