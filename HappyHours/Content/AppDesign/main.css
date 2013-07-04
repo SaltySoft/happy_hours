@@ -37,7 +37,7 @@
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 88px;
+    bottom: 30px;
     top: 130px;
     padding: 10px;
 }
@@ -74,7 +74,7 @@
 
 #footer {
     position: absolute;
-    bottom: 0px;
+    bottom: 2px;
     left: 0;
     right: 0;
     /*padding: 20px;*/

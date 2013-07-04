@@ -72,7 +72,6 @@ define([
 
             base.app.events.on("user_connection", function () {
                 base.app.show_message("Bienvenue, " + base.app.current_user.get("Username"));
-                base.app.router.navigate("", {trigger:true});
             });
         }
     });
