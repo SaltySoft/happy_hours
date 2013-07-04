@@ -1,0 +1,174 @@
+.form_cocktail {
+    margin: auto;
+}
+
+.cocktail_creation {
+    position: relative;
+}
+
+.cocktail_creation .form_container {
+    position: relative;
+    height: 250px;
+    width: 400px;
+    margin: auto;
+    background: rgba(240, 211, 0, 0.16);
+    margin-top: 50px;
+    border-radius: 3px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+
+.cocktail_creation .form_inputs input[type="text"] {
+    margin-top: 40px;
+}
+
+.cocktail_creation .form_inputs {
+    padding: 50px;
+    text-align: center;
+}
+
+.cocktail_creation .pure-controls {
+    text-align: right;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+
+.cocktail_creation .information {
+    float: right;
+    width: 350px;
+    padding: 10px;
+    color: #a8a8a8;
+    text-align: justify;
+}
+
+.form_cocktail .error_message {
+    display: none;
+    background: #f3a487;
+    color: #980000;
+    font-weight: bold;
+
+    padding: 5px;
+    width: 300px;
+    margin: auto;
+    margin-top: 10px;
+    border: 1px #980000 solid;
+}
+
+.form_cocktail.error .error_message {
+    display: block;
+}
+
+.form_cocktail input[type="text"], .form_cocktail textarea {
+    width: 300px;
+    resize: none;
+}
+
+.form_cocktail textarea {
+    height: 100px;
+}
+
+.form_cocktail .difficulty_max, .form_cocktail .time_max {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.cocktail_creation .form_iframe {
+    display: none;
+}
+
+.loader {
+    position: absolute;
+    top: 150px;
+    left: 0px;
+    right: 0px;
+    text-align: center;
+    /*color: white;*/
+    font-weight: bold;
+    display: none;
+}
+
+.loader div {
+    margin: auto;
+    width: 198px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+
+input:focus {
+    outline: none;
+    border: 1px solid #7bc1f7;
+    box-shadow: 0px 0px 8px #7bc1f7;
+    -moz-box-shadow: 0px 0px 8px #7bc1f7;
+    -webkit-box-shadow: 0px 0px 8px #7bc1f7;
+}
+
+.cocktail_creation  .error_submit {
+    border: 1px solid #ee5c44 !important;
+}
+
+.cocktail_edition_view iframe {
+    display: none;
+}
+
+.cocktail_edition_view  .pure-control-group {
+    margin-bottom: 10px;
+    clear: both;
+}
+.cocktail_edition_view  .pure-control-group input[type="number"] {
+    width: 50px;
+}
+
+.cocktail_edition_view  .pure-control-group .difficulty_label {
+    margin-right: 86px;
+}
+
+
+
+.cocktail_edition_view .ingredients_list {
+    background: rgba(240, 211, 0, 0.16);
+    padding: 15px;
+    margin: 1px;
+    overflow-y: auto;
+    height: 305px;
+}
+.cocktail_edition_view .all_ingredients {
+    height: 278px;
+}
+
+.cocktail_edition_view .selected_ingredients .ingredient_item {
+    background: white;
+}
+
+.cocktail_edition_view .basic_valid_button {
+   float: right;
+}
+
+.cocktail_edition_view .ingredient_list_title {
+    text-align: center;
+}
+
+.cocktail_edition_view .field_Picture_Url {
+    display: none;
+}
+
+.cocktail_edition_view .picture .pure-controls {
+    text-align: right;
+}
+
+.ingredient_filter {
+    width: 151px;
+    outline: none;
+    padding: 2px;
+}
+.ingredient_filter:focus {
+    width: 151px;
+    outline: none;
+    box-shadow: none;
+    padding: 3px;
+}
+
+.cocktail_edition_view .deletion {
+    text-align: center;
+}

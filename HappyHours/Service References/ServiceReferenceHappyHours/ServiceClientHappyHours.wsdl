@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServiceClientHappyHours" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:5056/ServiceClientHappyHours.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:5056/ServiceClientHappyHours.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:5056/ServiceClientHappyHours.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HhDBO" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServiceClientHappyHours_GetListUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListUser" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_GetListUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_GetUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUser" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_GetUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_GetUserByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByName" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_GetUserByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_CreateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUser" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_CreateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_DeleteUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUser" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_DeleteUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_UpdateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUser" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_UpdateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_GetListIngredient_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListIngredient" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_GetListIngredient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListIngredientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_GetIngredient_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIngredient" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_GetIngredient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIngredientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_CreateIngredient_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateIngredient" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_CreateIngredient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateIngredientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_DeleteIngredient_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteIngredient" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_DeleteIngredient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteIngredientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_UpdateIngredient_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateIngredient" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_UpdateIngredient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateIngredientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_GetRandomCocktail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRandomCocktail" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_GetRandomCocktail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRandomCocktailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_GetListCocktail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListCocktail" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_GetListCocktail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListCocktailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_GetQuickSearchCocktails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuickSearchCocktails" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_GetQuickSearchCocktails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuickSearchCocktailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_GetListCocktailEdited_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListCocktailEdited" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_GetListCocktailEdited_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListCocktailEditedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_GetCocktail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCocktail" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_GetCocktail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCocktailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_CreateCocktail_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCocktail" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_CreateCocktail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCocktailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_DeleteCocktail_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCocktail" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_DeleteCocktail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCocktailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_UpdateCocktail_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCocktail" />
+  </wsdl:message>
+  <wsdl:message name="IServiceClientHappyHours_UpdateCocktail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCocktailResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServiceClientHappyHours">
+    <wsdl:operation name="GetListUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceClientHappyHours/GetListUser" message="tns:IServiceClientHappyHours_GetListUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceClientHappyHours/GetListUserResponse" message="tns:IServiceClientHappyHours_GetListUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceClientHappyHours/GetUser" message="tns:IServiceClientHappyHours_GetUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceClientHappyHours/GetUserResponse" message="tns:IServiceClientHappyHours_GetUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceClientHappyHours/GetUserByName" message="tns:IServiceClientHappyHours_GetUserByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceClientHappyHours/GetUserByNameResponse" message="tns:IServiceClientHappyHours_GetUserByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceClientHappyHours/CreateUser" message="tns:IServiceClientHappyHours_CreateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceClientHappyHours/CreateUserResponse" message="tns:IServiceClientHappyHours_CreateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceClientHappyHours/DeleteUser" message="tns:IServiceClientHappyHours_DeleteUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceClientHappyHours/DeleteUserResponse" message="tns:IServiceClientHappyHours_DeleteUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceClientHappyHours/UpdateUser" message="tns:IServiceClientHappyHours_UpdateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceClientHappyHours/UpdateUserResponse" message="tns:IServiceClientHappyHours_UpdateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListIngredient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceClientHappyHours/GetListIngredient" message="tns:IServiceClientHappyHours_GetListIngredient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceClientHappyHours/GetListIngredientResponse" message="tns:IServiceClientHappyHours_GetListIngredient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIngredient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceClientHappyHours/GetIngredient" message="tns:IServiceClientHappyHours_GetIngredient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceClientHappyHours/GetIngredientResponse" message="tns:IServiceClientHappyHours_GetIngredient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateIngredient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceClientHappyHours/CreateIngredient" message="tns:IServiceClientHappyHours_CreateIngredient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceClientHappyHours/CreateIngredientResponse" message="tns:IServiceClientHappyHours_CreateIngredient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteIngredient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceClientHappyHours/DeleteIngredient" message="tns:IServiceClientHappyHours_DeleteIngredient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceClientHappyHours/DeleteIngredientResponse" message="tns:IServiceClientHappyHours_DeleteIngredient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateIngredient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceClientHappyHours/UpdateIngredient" message="tns:IServiceClientHappyHours_UpdateIngredient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceClientHappyHours/UpdateIngredientResponse" message="tns:IServiceClientHappyHours_UpdateIngredient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRandomCocktail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceClientHappyHours/GetRandomCocktail" message="tns:IServiceClientHappyHours_GetRandomCocktail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceClientHappyHours/GetRandomCocktailResponse" message="tns:IServiceClientHappyHours_GetRandomCocktail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListCocktail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceClientHappyHours/GetListCocktail" message="tns:IServiceClientHappyHours_GetListCocktail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceClientHappyHours/GetListCocktailResponse" message="tns:IServiceClientHappyHours_GetListCocktail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQuickSearchCocktails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceClientHappyHours/GetQuickSearchCocktails" message="tns:IServiceClientHappyHours_GetQuickSearchCocktails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceClientHappyHours/GetQuickSearchCocktailsResponse" message="tns:IServiceClientHappyHours_GetQuickSearchCocktails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListCocktailEdited">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceClientHappyHours/GetListCocktailEdited" message="tns:IServiceClientHappyHours_GetListCocktailEdited_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceClientHappyHours/GetListCocktailEditedResponse" message="tns:IServiceClientHappyHours_GetListCocktailEdited_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCocktail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceClientHappyHours/GetCocktail" message="tns:IServiceClientHappyHours_GetCocktail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceClientHappyHours/GetCocktailResponse" message="tns:IServiceClientHappyHours_GetCocktail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateCocktail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceClientHappyHours/CreateCocktail" message="tns:IServiceClientHappyHours_CreateCocktail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceClientHappyHours/CreateCocktailResponse" message="tns:IServiceClientHappyHours_CreateCocktail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCocktail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceClientHappyHours/DeleteCocktail" message="tns:IServiceClientHappyHours_DeleteCocktail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceClientHappyHours/DeleteCocktailResponse" message="tns:IServiceClientHappyHours_DeleteCocktail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCocktail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceClientHappyHours/UpdateCocktail" message="tns:IServiceClientHappyHours_UpdateCocktail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceClientHappyHours/UpdateCocktailResponse" message="tns:IServiceClientHappyHours_UpdateCocktail_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServiceClientHappyHours" type="tns:IServiceClientHappyHours">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetListUser">
+      <soap:operation soapAction="http://tempuri.org/IServiceClientHappyHours/GetListUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap:operation soapAction="http://tempuri.org/IServiceClientHappyHours/GetUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByName">
+      <soap:operation soapAction="http://tempuri.org/IServiceClientHappyHours/GetUserByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateUser">
+      <soap:operation soapAction="http://tempuri.org/IServiceClientHappyHours/CreateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <soap:operation soapAction="http://tempuri.org/IServiceClientHappyHours/DeleteUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <soap:operation soapAction="http://tempuri.org/IServiceClientHappyHours/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListIngredient">
+      <soap:operation soapAction="http://tempuri.org/IServiceClientHappyHours/GetListIngredient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIngredient">
+      <soap:operation soapAction="http://tempuri.org/IServiceClientHappyHours/GetIngredient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateIngredient">
+      <soap:operation soapAction="http://tempuri.org/IServiceClientHappyHours/CreateIngredient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteIngredient">
+      <soap:operation soapAction="http://tempuri.org/IServiceClientHappyHours/DeleteIngredient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateIngredient">
+      <soap:operation soapAction="http://tempuri.org/IServiceClientHappyHours/UpdateIngredient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRandomCocktail">
+      <soap:operation soapAction="http://tempuri.org/IServiceClientHappyHours/GetRandomCocktail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListCocktail">
+      <soap:operation soapAction="http://tempuri.org/IServiceClientHappyHours/GetListCocktail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuickSearchCocktails">
+      <soap:operation soapAction="http://tempuri.org/IServiceClientHappyHours/GetQuickSearchCocktails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListCocktailEdited">
+      <soap:operation soapAction="http://tempuri.org/IServiceClientHappyHours/GetListCocktailEdited" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCocktail">
+      <soap:operation soapAction="http://tempuri.org/IServiceClientHappyHours/GetCocktail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCocktail">
+      <soap:operation soapAction="http://tempuri.org/IServiceClientHappyHours/CreateCocktail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCocktail">
+      <soap:operation soapAction="http://tempuri.org/IServiceClientHappyHours/DeleteCocktail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCocktail">
+      <soap:operation soapAction="http://tempuri.org/IServiceClientHappyHours/UpdateCocktail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceClientHappyHours">
+    <wsdl:port name="BasicHttpBinding_IServiceClientHappyHours" binding="tns:BasicHttpBinding_IServiceClientHappyHours">
+      <soap:address location="http://localhost:5056/ServiceClientHappyHours.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

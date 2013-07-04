@@ -1,0 +1,374 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HappyHoursModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="HappyHoursModelStoreContainer">
+          <EntitySet Name="T_Cocktail" EntityType="HappyHoursModel.Store.T_Cocktail" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="T_CocktailsIngredients" EntityType="HappyHoursModel.Store.T_CocktailsIngredients" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="T_Favorite" EntityType="HappyHoursModel.Store.T_Favorite" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="T_Ingredient" EntityType="HappyHoursModel.Store.T_Ingredient" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="T_User" EntityType="HappyHoursModel.Store.T_User" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_T_Cocktail_T_User" Association="HappyHoursModel.Store.FK_T_Cocktail_T_User">
+            <End Role="T_User" EntitySet="T_User" />
+            <End Role="T_Cocktail" EntitySet="T_Cocktail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_CocktailsIngredients_T_Cocktail" Association="HappyHoursModel.Store.FK_T_CocktailsIngredients_T_Cocktail">
+            <End Role="T_Cocktail" EntitySet="T_Cocktail" />
+            <End Role="T_CocktailsIngredients" EntitySet="T_CocktailsIngredients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_CocktailsIngredients_T_Ingredient" Association="HappyHoursModel.Store.FK_T_CocktailsIngredients_T_Ingredient">
+            <End Role="T_Ingredient" EntitySet="T_Ingredient" />
+            <End Role="T_CocktailsIngredients" EntitySet="T_CocktailsIngredients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Favorite_T_Cocktail" Association="HappyHoursModel.Store.FK_T_Favorite_T_Cocktail">
+            <End Role="T_Cocktail" EntitySet="T_Cocktail" />
+            <End Role="T_Favorite" EntitySet="T_Favorite" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Favorite_T_User" Association="HappyHoursModel.Store.FK_T_Favorite_T_User">
+            <End Role="T_User" EntitySet="T_User" />
+            <End Role="T_Favorite" EntitySet="T_Favorite" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="T_Cocktail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="difficulty" Type="int" Nullable="false" />
+          <Property Name="duration" Type="int" Nullable="false" />
+          <Property Name="creator_id" Type="int" Nullable="false" />
+          <Property Name="description" Type="nvarchar" Nullable="false" MaxLength="1000" />
+          <Property Name="recipe" Type="nvarchar" Nullable="false" MaxLength="800" />
+          <Property Name="picture_url" Type="nvarchar" Nullable="false" MaxLength="400" />
+          <Property Name="edited" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_CocktailsIngredients">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="cocktail_id" Type="int" Nullable="false" />
+          <Property Name="ingredient_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Favorite">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="cocktail_id" Type="int" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Ingredient">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="alcool" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="admin" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_T_Cocktail_T_User">
+          <End Role="T_User" Type="HappyHoursModel.Store.T_User" Multiplicity="1" />
+          <End Role="T_Cocktail" Type="HappyHoursModel.Store.T_Cocktail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="T_Cocktail">
+              <PropertyRef Name="creator_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_CocktailsIngredients_T_Cocktail">
+          <End Role="T_Cocktail" Type="HappyHoursModel.Store.T_Cocktail" Multiplicity="1" />
+          <End Role="T_CocktailsIngredients" Type="HappyHoursModel.Store.T_CocktailsIngredients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Cocktail">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="T_CocktailsIngredients">
+              <PropertyRef Name="cocktail_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_CocktailsIngredients_T_Ingredient">
+          <End Role="T_Ingredient" Type="HappyHoursModel.Store.T_Ingredient" Multiplicity="1" />
+          <End Role="T_CocktailsIngredients" Type="HappyHoursModel.Store.T_CocktailsIngredients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Ingredient">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="T_CocktailsIngredients">
+              <PropertyRef Name="ingredient_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Favorite_T_Cocktail">
+          <End Role="T_Cocktail" Type="HappyHoursModel.Store.T_Cocktail" Multiplicity="1" />
+          <End Role="T_Favorite" Type="HappyHoursModel.Store.T_Favorite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Cocktail">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="T_Favorite">
+              <PropertyRef Name="cocktail_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Favorite_T_User">
+          <End Role="T_User" Type="HappyHoursModel.Store.T_User" Multiplicity="1" />
+          <End Role="T_Favorite" Type="HappyHoursModel.Store.T_Favorite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="T_Favorite">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HappyHoursModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="HappyHoursEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="T_Cocktail" EntityType="HappyHoursModel.T_Cocktail" />
+          <EntitySet Name="T_CocktailsIngredients" EntityType="HappyHoursModel.T_CocktailsIngredients" />
+          <EntitySet Name="T_Favorite" EntityType="HappyHoursModel.T_Favorite" />
+          <EntitySet Name="T_Ingredient" EntityType="HappyHoursModel.T_Ingredient" />
+          <EntitySet Name="T_User" EntityType="HappyHoursModel.T_User" />
+          <AssociationSet Name="FK_T_Cocktail_T_User" Association="HappyHoursModel.FK_T_Cocktail_T_User">
+            <End Role="T_User" EntitySet="T_User" />
+            <End Role="T_Cocktail" EntitySet="T_Cocktail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_CocktailsIngredients_T_Cocktail" Association="HappyHoursModel.FK_T_CocktailsIngredients_T_Cocktail">
+            <End Role="T_Cocktail" EntitySet="T_Cocktail" />
+            <End Role="T_CocktailsIngredients" EntitySet="T_CocktailsIngredients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Favorite_T_Cocktail" Association="HappyHoursModel.FK_T_Favorite_T_Cocktail">
+            <End Role="T_Cocktail" EntitySet="T_Cocktail" />
+            <End Role="T_Favorite" EntitySet="T_Favorite" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_CocktailsIngredients_T_Ingredient" Association="HappyHoursModel.FK_T_CocktailsIngredients_T_Ingredient">
+            <End Role="T_Ingredient" EntitySet="T_Ingredient" />
+            <End Role="T_CocktailsIngredients" EntitySet="T_CocktailsIngredients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Favorite_T_User" Association="HappyHoursModel.FK_T_Favorite_T_User">
+            <End Role="T_User" EntitySet="T_User" />
+            <End Role="T_Favorite" EntitySet="T_Favorite" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="T_Cocktail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="difficulty" Type="Int32" Nullable="false" />
+          <Property Name="duration" Type="Int32" Nullable="false" />
+          <Property Name="creator_id" Type="Int32" Nullable="false" />
+          <Property Name="description" Type="String" Nullable="false" MaxLength="1000" Unicode="true" FixedLength="false" />
+          <Property Name="recipe" Type="String" Nullable="false" MaxLength="800" Unicode="true" FixedLength="false" />
+          <Property Name="picture_url" Type="String" Nullable="false" MaxLength="400" Unicode="true" FixedLength="false" />
+          <Property Name="edited" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="T_User" Relationship="HappyHoursModel.FK_T_Cocktail_T_User" FromRole="T_Cocktail" ToRole="T_User" />
+          <NavigationProperty Name="T_CocktailsIngredients" Relationship="HappyHoursModel.FK_T_CocktailsIngredients_T_Cocktail" FromRole="T_Cocktail" ToRole="T_CocktailsIngredients" />
+          <NavigationProperty Name="T_Favorite" Relationship="HappyHoursModel.FK_T_Favorite_T_Cocktail" FromRole="T_Cocktail" ToRole="T_Favorite" />
+        </EntityType>
+        <EntityType Name="T_CocktailsIngredients">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="cocktail_id" Type="Int32" Nullable="false" />
+          <Property Name="ingredient_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="T_Cocktail" Relationship="HappyHoursModel.FK_T_CocktailsIngredients_T_Cocktail" FromRole="T_CocktailsIngredients" ToRole="T_Cocktail" />
+          <NavigationProperty Name="T_Ingredient" Relationship="HappyHoursModel.FK_T_CocktailsIngredients_T_Ingredient" FromRole="T_CocktailsIngredients" ToRole="T_Ingredient" />
+        </EntityType>
+        <EntityType Name="T_Favorite">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="cocktail_id" Type="Int32" Nullable="false" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="T_Cocktail" Relationship="HappyHoursModel.FK_T_Favorite_T_Cocktail" FromRole="T_Favorite" ToRole="T_Cocktail" />
+          <NavigationProperty Name="T_User" Relationship="HappyHoursModel.FK_T_Favorite_T_User" FromRole="T_Favorite" ToRole="T_User" />
+        </EntityType>
+        <EntityType Name="T_Ingredient">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="alcool" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="T_CocktailsIngredients" Relationship="HappyHoursModel.FK_T_CocktailsIngredients_T_Ingredient" FromRole="T_Ingredient" ToRole="T_CocktailsIngredients" />
+        </EntityType>
+        <EntityType Name="T_User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="admin" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="T_Cocktail" Relationship="HappyHoursModel.FK_T_Cocktail_T_User" FromRole="T_User" ToRole="T_Cocktail" />
+          <NavigationProperty Name="T_Favorite" Relationship="HappyHoursModel.FK_T_Favorite_T_User" FromRole="T_User" ToRole="T_Favorite" />
+        </EntityType>
+        <Association Name="FK_T_Cocktail_T_User">
+          <End Role="T_User" Type="HappyHoursModel.T_User" Multiplicity="1" />
+          <End Role="T_Cocktail" Type="HappyHoursModel.T_Cocktail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="T_Cocktail">
+              <PropertyRef Name="creator_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_CocktailsIngredients_T_Cocktail">
+          <End Role="T_Cocktail" Type="HappyHoursModel.T_Cocktail" Multiplicity="1" />
+          <End Role="T_CocktailsIngredients" Type="HappyHoursModel.T_CocktailsIngredients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Cocktail">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="T_CocktailsIngredients">
+              <PropertyRef Name="cocktail_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Favorite_T_Cocktail">
+          <End Role="T_Cocktail" Type="HappyHoursModel.T_Cocktail" Multiplicity="1" />
+          <End Role="T_Favorite" Type="HappyHoursModel.T_Favorite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Cocktail">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="T_Favorite">
+              <PropertyRef Name="cocktail_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_CocktailsIngredients_T_Ingredient">
+          <End Role="T_Ingredient" Type="HappyHoursModel.T_Ingredient" Multiplicity="1" />
+          <End Role="T_CocktailsIngredients" Type="HappyHoursModel.T_CocktailsIngredients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Ingredient">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="T_CocktailsIngredients">
+              <PropertyRef Name="ingredient_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Favorite_T_User">
+          <End Role="T_User" Type="HappyHoursModel.T_User" Multiplicity="1" />
+          <End Role="T_Favorite" Type="HappyHoursModel.T_Favorite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="T_Favorite">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HappyHoursModelStoreContainer" CdmEntityContainer="HappyHoursEntities">
+          <EntitySetMapping Name="T_Cocktail">
+            <EntityTypeMapping TypeName="HappyHoursModel.T_Cocktail">
+              <MappingFragment StoreEntitySet="T_Cocktail">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="difficulty" ColumnName="difficulty" />
+                <ScalarProperty Name="duration" ColumnName="duration" />
+                <ScalarProperty Name="creator_id" ColumnName="creator_id" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="recipe" ColumnName="recipe" />
+                <ScalarProperty Name="picture_url" ColumnName="picture_url" />
+                <ScalarProperty Name="edited" ColumnName="edited" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_CocktailsIngredients">
+            <EntityTypeMapping TypeName="HappyHoursModel.T_CocktailsIngredients">
+              <MappingFragment StoreEntitySet="T_CocktailsIngredients">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="cocktail_id" ColumnName="cocktail_id" />
+                <ScalarProperty Name="ingredient_id" ColumnName="ingredient_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Favorite">
+            <EntityTypeMapping TypeName="HappyHoursModel.T_Favorite">
+              <MappingFragment StoreEntitySet="T_Favorite">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="cocktail_id" ColumnName="cocktail_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Ingredient">
+            <EntityTypeMapping TypeName="HappyHoursModel.T_Ingredient">
+              <MappingFragment StoreEntitySet="T_Ingredient">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="alcool" ColumnName="alcool" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_User">
+            <EntityTypeMapping TypeName="HappyHoursModel.T_User">
+              <MappingFragment StoreEntitySet="T_User">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="admin" ColumnName="admin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

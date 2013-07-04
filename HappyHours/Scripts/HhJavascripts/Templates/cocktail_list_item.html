@@ -1,0 +1,17 @@
+<div class="cocktail_item_image">
+</div>
+<h3>
+    <a href="#cocktail/<%= cocktail.get('Id') %>"><span
+        class="cocktail_item_name"><%= cocktail.get("Name") %></span></a>
+    <% if (user) { %>
+    <span class="favoriting">
+        <a href="javascript:void(0);" class="fav_button"></a>
+        <a href="javascript:void(0);" class="unfav_button"></a>
+    </span>
+    <% } %>
+</h3>
+
+<div class="cocktail_item_description">
+    <%=  _s.truncate(cocktail.get("Description"), 490, "...")  %>
+</div>
+<div class="clearer"></div>

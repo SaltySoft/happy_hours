@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+
+  <appSettings>
+    <add key="aspnet:UseTaskFriendlySynchronizationContext" value="true" />
+  </appSettings>
+
+  <connectionStrings>
+    <!--lefebv_b-->
+    <!--<add name="MyHappyHoursEntities" connectionString="metadata=res://*/DataAccess.HappyHours.csdl|res://*/DataAccess.HappyHours.ssdl|res://*/DataAccess.HappyHours.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=LEFEBV_B-PC\SQLEXPRESS;initial catalog=HappyHours;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" providerName="System.Data.EntityClient" />-->
+    <!--jackso_a-->
+    <add name="MyHappyHoursEntities" connectionString="metadata=res://*/DataAccess.HappyHours.csdl|res://*/DataAccess.HappyHours.ssdl|res://*/DataAccess.HappyHours.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=MSI-MSI\MTI;initial catalog=HappyHours;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" providerName="System.Data.EntityClient" />
+  </connectionStrings>
+
+  <system.web>
+    <compilation debug="true" targetFramework="4.5" />
+    <httpRuntime targetFramework="4.5"/>
+  </system.web>
+
+  <system.serviceModel>
+
+    <bindings />
+
+    <client />
+
+    <behaviors>
+      <serviceBehaviors>
+        <behavior>
+          <!-- Pour éviter la divulgation d'informations de métadonnées, définissez les valeurs ci-dessous sur false avant le déploiement -->
+          <serviceMetadata httpGetEnabled="true" httpsGetEnabled="true"/>
+          <!-- Pour recevoir les détails de l'exception dans les erreurs à des fins de débogage, définissez la valeur ci-dessous sur true. Pour éviter la divulgation d'informations d'exception, définissez-la sur false avant le déploiement -->
+          <serviceDebug includeExceptionDetailInFaults="true"/>
+        </behavior>
+      </serviceBehaviors>
+    </behaviors>
+
+    <protocolMapping>
+      <add binding="basicHttpsBinding" scheme="https" />
+    </protocolMapping>
+
+    <serviceHostingEnvironment aspNetCompatibilityEnabled="true" multipleSiteBindingsEnabled="true" />
+  </system.serviceModel>
+
+  <system.webServer>
+    <modules runAllManagedModulesForAllRequests="true"/>
+    <!--
+        Pour parcourir le répertoire racine de l'application Web lors du débogage, définissez la valeur ci-dessous sur true.
+        Définissez-la sur false avant le déploiement pour ne pas divulguer d'informations du dossier de l'application Web.
+      -->
+    <directoryBrowse enabled="true"/>
+  </system.webServer>
+
+</configuration>

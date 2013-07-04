@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9181825E-D42E-42E2-84E9-0FF87466E3F6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HhDataLayer</RootNamespace>
+    <AssemblyName>HhDataLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.2.2.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataAccess\Cocktail.cs" />
+    <Compile Include="DataAccess\HappyHours.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HappyHours.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\HappyHours.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HappyHours.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\HappyHours.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HappyHours.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\Ingredient.cs" />
+    <Compile Include="DataAccess\T_Cocktail.cs">
+      <DependentUpon>HappyHours.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\T_CocktailsIngredients.cs">
+      <DependentUpon>HappyHours.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\T_Favorite.cs">
+      <DependentUpon>HappyHours.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\T_Ingredient.cs">
+      <DependentUpon>HappyHours.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\T_User.cs">
+      <DependentUpon>HappyHours.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\User.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="DataAccess\HappyHours.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>HappyHours.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="App.Config_" />
+    <None Include="DataAccess\HappyHours.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HappyHours.edmx</DependentUpon>
+      <LastGenOutput>HappyHours.Context.cs</LastGenOutput>
+    </None>
+    <None Include="DataAccess\HappyHours.edmx.diagram">
+      <DependentUpon>HappyHours.edmx</DependentUpon>
+    </None>
+    <None Include="DataAccess\HappyHours.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HappyHours.edmx</DependentUpon>
+      <LastGenOutput>HappyHours.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HhDBO\HhDBO.csproj">
+      <Project>{58d4de5f-af28-43f2-bbd3-61f97d6ae312}</Project>
+      <Name>HhDBO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

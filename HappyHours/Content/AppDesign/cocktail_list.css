@@ -1,0 +1,68 @@
+.cocktail_list {
+    margin:auto;
+}
+
+.cocktail_item {
+    clear: both;
+
+    margin-top: 20px;
+    background: white;
+    padding: 10px;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
+
+}
+
+.favoriting .unfav_button {
+    display: none;
+}
+
+.favoriting.faved .unfav_button {
+    display: inline-block;
+}
+
+.favoriting.faved .fav_button {
+    display: none;
+}
+
+.cocktail_item_image {
+    float: right;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    position: relative;
+}
+
+.cocktail_item_image img {
+    position: absolute;
+}
+
+
+.favoriting .fav_button {
+    background: url(/Images/star_sprite.png) no-repeat 0px -20px;
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    position: relative;
+}
+
+.favoriting .unfav_button {
+    background: url(/Images/star_sprite.png) no-repeat;
+    height: 20px;
+    width: 20px;
+    position: relative;
+}
+
+.cocktail_list .cocktail_item_name {
+    color: #b80000;
+    text-decoration: none;
+}
+
+.cocktail_list a {
+    color: #b80000;
+    text-decoration: none;
+}
+
+.cocktail_list .cocktail_item_description {
+    width: 492px;
+    text-align: justify;
+}

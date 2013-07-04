@@ -1,0 +1,126 @@
+﻿body {
+    background-image: url("/Images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: -25px;
+    font-family: Arial;
+}
+
+/* **************** usefull class begin **************** */
+.clearer {
+    clear: both;
+}
+
+#flash_shower {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 300px;
+    background-color: rgba(230, 230, 230, 0.8);
+    padding: 20px;
+    padding-left: 50px;
+    display: none;
+    z-index: 3000;
+}
+
+/*#loader {*/
+    /*position: fixed;*/
+    /*top: 50px;*/
+    /*z-index: 1000;*/
+    /*display: none;*/
+    /*text-align: center;*/
+    /*line-height: 100px;*/
+    /*width: 200px;*/
+    /*height: 100px;*/
+    /*top: 50%;*/
+    /*left: 50%;*/
+    /*margin-top: -100px;*/
+    /*margin-left: -50px;*/
+    /*background-color: rgba(255, 255, 255, 0.8);*/
+/*}*/
+
+
+
+/* **************** usefull class end **************** */
+/* **************** HEADER SECTION begin **************** */
+/*#header {*/
+    /*height: 150px;*/
+/*}*/
+
+/*.logo-container {*/
+    /*float: left;*/
+    /*margin: 10px;*/
+/*}*/
+
+/*#img-logo {*/
+    /*width: 400px;*/
+    /*height: 125px;*/
+/*}*/
+
+/*.header-buttons-container {*/
+    /*margin: 5px;*/
+/*}*/
+
+/*.login-menu-container {*/
+    /*float: right;*/
+    /*margin: 20px 20px 0px 20px;*/
+/*}*/
+
+/*.navigation-menu-container {*/
+    /*float: right;*/
+    /*margin: 30px 50px 0px 50px;*/
+/*}*/
+
+/* **************** HEADER SECTION end **************** */
+/* **************** BODY SECTION begin **************** */
+/*#body {*/
+    /*width: 1200px;*/
+    /*margin: auto;*/
+    /*padding: 10px;*/
+/*}*/
+
+/* **************** BODY SECTION end **************** */
+/* **************** TODAY COCKTAIL SECTION begin **************** */
+/*.featured_cocktail_img_container {*/
+
+/*}*/
+
+/* **************** TODAY COCKTAIL SECTION end **************** */
+
+h1 {
+    font-size: 1.5em;
+}
+
+h2 {
+    font-size: 1.4em;
+}
+
+h3 {
+    font-size: 1.3em;
+}
+
+h4 {
+    font-size: 1.2em;
+}
+
+h5 {
+    font-size: 1.1em;
+}
+
+input:focus {
+    outline: none;
+}
+
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #e1e1e1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #a8a8a8;
+
+}

@@ -1,0 +1,48 @@
+.quick_search_form_container {
+
+}
+
+.quick_search_form {
+
+}
+
+.quick_search_form input[type="text"], .quick_search_form textarea {
+    width: 100%;
+}
+
+.quick_search_label {
+    text-align: left !important;
+    margin-bottom: 0.4em !important;
+    margin-top: 0.6em !important;
+}
+
+.quick_search_select_container {
+    height: 60px;
+    margin-top: 4px;
+}
+
+.label_separator {
+    height: 0.2em;
+}
+
+.quick_search_submit_button_container {
+    margin-top: 15px;
+}
+
+#search_panel {
+    max-width: 250px;
+}
+
+.search_panel .quick_search_submit_button_container button {
+    font-size: 15px;
+}
+
+.search_panel .search_info {
+    width: 14px;
+    height: 14px;
+    margin-left: 2px;
+}
+
+#quick_search_form_duration {
+    margin-bottom: 4px;
+}
