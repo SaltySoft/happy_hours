@@ -256,11 +256,11 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Images\Cocktails\empty.txt" />
     <Content Include="Properties\DataSources\HhDataLayer.DBO.User.datasource" />
     <Content Include="Properties\DataSources\HhDBO.User.datasource" />
     <Content Include="Properties\DataSources\HhDBO.Ingredient.datasource" />
     <Content Include="Properties\DataSources\HhDBO.Cocktail.datasource" />
+    <None Include="Properties\PublishProfiles\lefebv_b.pubxml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\HhJavascripts\app.js" />
     <Content Include="Scripts\HhJavascripts\default.js" />
@@ -271,7 +271,6 @@
     <Content Include="Scripts\javascript\jquery.js" />
     <Content Include="Scripts\javascript\text.js" />
     <Content Include="Scripts\javascript\underscore-string.js" />
-    <Content Include="Scripts\HhJavascripts\GenreTest.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -337,9 +336,6 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="Views\User\Index.cshtml" />
-    <Content Include="Views\User\Users.cshtml" />
-    <Content Include="Views\Shared\_LayoutOLD.cshtml" />
-    <Content Include="Views\Home\IndexOLD.cshtml" />
     <None Include="Service References\ServiceReferenceHappyHours\ServiceClientHappyHours1.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -349,6 +345,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\Cocktails\" />
     <Folder Include="Scripts\HhJavascripts\Collections\" />
     <Folder Include="Scripts\HhJavascripts\Models\" />
     <Folder Include="Scripts\HhJavascripts\Templates\" />
